@@ -58,11 +58,6 @@
     <None Remove="РегістриІнформації\КурсиВалют\**" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AccountingSoftware">
-      <HintPath>..\..\..\..\VSNet6\AccountingSoftware\AccountingSoftware\bin\Release\net6.0\AccountingSoftware.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="DirectoryAnyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +209,11 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="6.0.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AccountingSoftware">
+      <HintPath>..\..\AccountingSoftware\AccountingSoftware\bin\Debug\net6.0\AccountingSoftware.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup />
   <PropertyGroup />
