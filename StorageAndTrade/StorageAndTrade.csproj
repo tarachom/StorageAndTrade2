@@ -1,0 +1,220 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>
+    </DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E28F80857561F5DC46069239076F04554EA3E90D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>StorageAndTrade_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\form.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Trash\**" />
+    <Compile Remove="РегістриІнформації\КурсиВалют\**" />
+    <EmbeddedResource Remove="Trash\**" />
+    <EmbeddedResource Remove="РегістриІнформації\КурсиВалют\**" />
+    <None Remove="Trash\**" />
+    <None Remove="РегістриІнформації\КурсиВалют\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AccountingSoftware">
+      <HintPath>..\..\..\..\VSNet6\AccountingSoftware\AccountingSoftware\bin\Release\net6.0\AccountingSoftware.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DirectoryAnyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NumericControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВнутрішнєСпоживанняТоварів\Form_ВнутрішнєСпоживанняТоварів_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ПсуванняТоварів\Form_ПсуванняТоварів_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\РахунокФактура\Form_РахунокФактура_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВведенняЗалишків\Form_ВведенняЗалишків_ТабличнаЧастина_БанківськіРахунки.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВведенняЗалишків\Form_ВведенняЗалишків_ТабличнаЧастина_РозрахункиЗКонтрагентами.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВведенняЗалишків\Form_ВведенняЗалишків_ТабличнаЧастина_Каси.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВведенняЗалишків\Form_ВведенняЗалишків_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\АктВиконанихРобіт\Form_АктВиконанихРобіт_ТабличнаЧастина_Послуги.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Контрагенти\Form_Контрагенти_ТабличнаЧастина_Контакти.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Організації\Form_Організація_ТабличнаЧастина_Контакти.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Склади\Form_Склади_ТабличнаЧастина_Контакти.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ВстановленняЦінНоменклатури\Form_ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ПереміщенняТоварів\Form_ПереміщенняТоварів_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DocumentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DirectoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Контрагенти\Form_Контрагенти_Папки_Дерево.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Номенклатура\Form_Номенклатура_Папки_Дерево.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Склади\Form_Склади_Папки_Дерево.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ПоверненняТоварівВідКлієнта\Form_ПоверненняТоварівВідКлієнта_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ПоверненняТоварівПостачальнику\Form_ПоверненняТоварівПостачальнику_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ПоступленняТоварівТаПослуг\Form_ПоступленняТоварівТаПослуг_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ЗамовленняПостачальнику\Form_ЗамовленняПостачальнику_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\РеалізаціяТоварівТаПослуг\Form_РеалізаціяТоварівТаПослуг_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Документи\ЗамовленняКлієнта\Form_ЗамовленняКлієнта_ТабличнаЧастина_Товари.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\form.ico" />
+    <Content Include="Шаблони\ВільніЗалишки_Залишки.xslt" />
+    <Content Include="Шаблони\ВільніЗалишки_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\ЗамовленняПостачальникам_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\ЗамовленняПостачальникам_Залишки.xslt" />
+    <Content Include="Шаблони\РеалізаціяТоварівТаПослуг_ДрукНакладна.xslt" />
+    <Content Include="Шаблони\ПартіїТоварів_ЗалишкиПоНоменклатурі.xslt" />
+    <Content Include="Шаблони\РозрахункиЗКонтрагентами_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗКлієнтами_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗКонтрагентами_ЗалишкиТаОбороти.xslt" />
+    <Content Include="Шаблони\РозрахункиЗКонтрагентами_Залишки.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗПостачальниками_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗКлієнтами_Залишки.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗКлієнтами_ЗалишкиТаОбороти.xslt" />
+    <Content Include="Шаблони\ЗамовленняКлієнта_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\ПартіїТоварів_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\ТовариНаСкладах_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РухКоштів_Документи.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РухКоштів_ЗалишкиТаОбороти.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РухКоштів_Залишки.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РозрахункиЗПостачальниками_ЗалишкиТаОбороти.xslt" />
+    <Content Include="Шаблони\ПартіїТоварів_Залишки.xslt" />
+    <Content Include="Шаблони\ТовариНаСкладах_ЗалишкиПоНоменклатурі.xslt" />
+    <Content Include="Шаблони\ТовариНаСкладах_ЗалишкиТаОбороти.xslt" />
+    <Content Include="Шаблони\ТовариНаСкладах_Залишки.xslt" />
+    <Content Include="Шаблони\РозрахункиЗПостачальниками_Залишки.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Шаблони\РухДокументівПоРегістрах.xslt" />
+    <Content Include="Шаблони\ЗамовленняКлієнта_Залишки.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="6.0.6" />
+  </ItemGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+</Project>
