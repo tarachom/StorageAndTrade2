@@ -53,9 +53,11 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(385, 500);
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonClose.Location = new System.Drawing.Point(449, 577);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(164, 27);
+            this.buttonClose.Size = new System.Drawing.Size(191, 31);
             this.buttonClose.TabIndex = 16;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -63,9 +65,11 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 500);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.Location = new System.Drawing.Point(14, 577);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(164, 27);
+            this.buttonSave.Size = new System.Drawing.Size(191, 31);
             this.buttonSave.TabIndex = 15;
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -73,145 +77,165 @@ namespace StorageAndTrade
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(82, 12);
+            this.textBoxName.Location = new System.Drawing.Point(96, 14);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(467, 20);
+            this.textBoxName.Size = new System.Drawing.Size(544, 23);
             this.textBoxName.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 15);
+            this.label2.Location = new System.Drawing.Point(14, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 19;
             this.label2.Text = "Назва:";
             // 
             // textBox_Код
             // 
-            this.textBox_Код.Location = new System.Drawing.Point(597, 12);
+            this.textBox_Код.Location = new System.Drawing.Point(696, 14);
+            this.textBox_Код.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Код.Name = "textBox_Код";
-            this.textBox_Код.Size = new System.Drawing.Size(130, 20);
+            this.textBox_Код.Size = new System.Drawing.Size(151, 23);
             this.textBox_Код.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(562, 15);
+            this.label1.Location = new System.Drawing.Point(656, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(30, 15);
             this.label1.TabIndex = 21;
             this.label1.Text = "Код:";
             // 
             // textBox_ПовнаНазва
             // 
-            this.textBox_ПовнаНазва.Location = new System.Drawing.Point(82, 38);
+            this.textBox_ПовнаНазва.Location = new System.Drawing.Point(96, 44);
+            this.textBox_ПовнаНазва.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_ПовнаНазва.Name = "textBox_ПовнаНазва";
-            this.textBox_ПовнаНазва.Size = new System.Drawing.Size(645, 20);
+            this.textBox_ПовнаНазва.Size = new System.Drawing.Size(752, 23);
             this.textBox_ПовнаНазва.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 41);
+            this.label3.Location = new System.Drawing.Point(14, 47);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 23;
             this.label3.Text = "Повна:";
             // 
             // textBox_НазваСкорочена
             // 
-            this.textBox_НазваСкорочена.Location = new System.Drawing.Point(82, 64);
+            this.textBox_НазваСкорочена.Location = new System.Drawing.Point(96, 74);
+            this.textBox_НазваСкорочена.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_НазваСкорочена.Name = "textBox_НазваСкорочена";
-            this.textBox_НазваСкорочена.Size = new System.Drawing.Size(645, 20);
+            this.textBox_НазваСкорочена.Size = new System.Drawing.Size(752, 23);
             this.textBox_НазваСкорочена.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 67);
+            this.label4.Location = new System.Drawing.Point(14, 77);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(71, 15);
             this.label4.TabIndex = 25;
             this.label4.Text = "Скорочена:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 97);
+            this.label5.Location = new System.Drawing.Point(14, 112);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 27;
             this.label5.Text = "Дата реєстрації:";
             // 
             // dateTimePicker_ДатаРеєстрації
             // 
-            this.dateTimePicker_ДатаРеєстрації.Location = new System.Drawing.Point(117, 93);
+            this.dateTimePicker_ДатаРеєстрації.Location = new System.Drawing.Point(136, 107);
+            this.dateTimePicker_ДатаРеєстрації.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker_ДатаРеєстрації.Name = "dateTimePicker_ДатаРеєстрації";
-            this.dateTimePicker_ДатаРеєстрації.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePicker_ДатаРеєстрації.Size = new System.Drawing.Size(153, 23);
             this.dateTimePicker_ДатаРеєстрації.TabIndex = 28;
             // 
             // textBox_КраїнаРеєстрації
             // 
-            this.textBox_КраїнаРеєстрації.Location = new System.Drawing.Point(117, 119);
+            this.textBox_КраїнаРеєстрації.Location = new System.Drawing.Point(136, 137);
+            this.textBox_КраїнаРеєстрації.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_КраїнаРеєстрації.Name = "textBox_КраїнаРеєстрації";
-            this.textBox_КраїнаРеєстрації.Size = new System.Drawing.Size(234, 20);
+            this.textBox_КраїнаРеєстрації.Size = new System.Drawing.Size(272, 23);
             this.textBox_КраїнаРеєстрації.TabIndex = 30;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 122);
+            this.label6.Location = new System.Drawing.Point(14, 141);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 13);
+            this.label6.Size = new System.Drawing.Size(105, 15);
             this.label6.TabIndex = 29;
             this.label6.Text = "Країна реєстрації:";
             // 
             // textBox_СвідоцтвоСеріяНомер
             // 
-            this.textBox_СвідоцтвоСеріяНомер.Location = new System.Drawing.Point(117, 145);
+            this.textBox_СвідоцтвоСеріяНомер.Location = new System.Drawing.Point(136, 167);
+            this.textBox_СвідоцтвоСеріяНомер.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_СвідоцтвоСеріяНомер.Name = "textBox_СвідоцтвоСеріяНомер";
-            this.textBox_СвідоцтвоСеріяНомер.Size = new System.Drawing.Size(234, 20);
+            this.textBox_СвідоцтвоСеріяНомер.Size = new System.Drawing.Size(272, 23);
             this.textBox_СвідоцтвоСеріяНомер.TabIndex = 32;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 148);
+            this.label7.Location = new System.Drawing.Point(14, 171);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 31;
             this.label7.Text = "Свідоцтво:";
             // 
             // textBox_СвідоцтвоДатаВидачі
             // 
-            this.textBox_СвідоцтвоДатаВидачі.Location = new System.Drawing.Point(117, 171);
+            this.textBox_СвідоцтвоДатаВидачі.Location = new System.Drawing.Point(136, 197);
+            this.textBox_СвідоцтвоДатаВидачі.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_СвідоцтвоДатаВидачі.Name = "textBox_СвідоцтвоДатаВидачі";
-            this.textBox_СвідоцтвоДатаВидачі.Size = new System.Drawing.Size(234, 20);
+            this.textBox_СвідоцтвоДатаВидачі.Size = new System.Drawing.Size(272, 23);
             this.textBox_СвідоцтвоДатаВидачі.TabIndex = 34;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 174);
+            this.label8.Location = new System.Drawing.Point(14, 201);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.Size = new System.Drawing.Size(73, 15);
             this.label8.TabIndex = 33;
             this.label8.Text = "Дата видачі:";
             // 
             // Організація_ТабличнаЧастина_Контакти
             // 
-            this.Організація_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(15, 210);
+            this.Організація_ТабличнаЧастина_Контакти.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Організація_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(18, 242);
+            this.Організація_ТабличнаЧастина_Контакти.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Організація_ТабличнаЧастина_Контакти.Name = "Організація_ТабличнаЧастина_Контакти";
-            this.Організація_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(900, 275);
+            this.Організація_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(830, 317);
             this.Організація_ТабличнаЧастина_Контакти.TabIndex = 35;
             this.Організація_ТабличнаЧастина_Контакти.ДовідникОбєкт = null;
             // 
             // Form_ОрганізаціїЕлемент
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 539);
+            this.ClientSize = new System.Drawing.Size(857, 622);
             this.Controls.Add(this.Організація_ТабличнаЧастина_Контакти);
             this.Controls.Add(this.textBox_СвідоцтвоДатаВидачі);
             this.Controls.Add(this.label8);
@@ -232,6 +256,7 @@ namespace StorageAndTrade
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ОрганізаціїЕлемент";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Організації";

@@ -294,7 +294,7 @@ namespace StorageAndTrade
 						itemConfigurationParam.DataBasePort,
 						itemConfigurationParam.DataBaseBaseName, out exception);
 
-				if (exception != null)
+				if (!flagOpen)
 				{
 					MessageBox.Show(exception.Message);
 					return;
@@ -308,7 +308,7 @@ namespace StorageAndTrade
 						itemConfigurationParam.DataBasePort,
 						itemConfigurationParam.DataBaseBaseName, out exception);
 
-				if (exception != null)
+				if (!flagOpenBackgroundTask)
 				{
 					MessageBox.Show(exception.Message);
 					return;
@@ -322,7 +322,7 @@ namespace StorageAndTrade
 						itemConfigurationParam.DataBasePort,
 						itemConfigurationParam.DataBaseBaseName, out exception);
 
-				if (exception != null)
+				if (!flagOpenParalelWork)
 				{
 					MessageBox.Show(exception.Message);
 					return;

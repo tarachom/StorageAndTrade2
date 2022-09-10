@@ -90,9 +90,11 @@ namespace StorageAndTrade
             this.groupBox1.Controls.Add(this.directoryControl_Склад);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.directoryControl_Організація);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(14, 14);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 359);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(495, 414);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Значення за замовчуванням";
@@ -100,9 +102,10 @@ namespace StorageAndTrade
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(75, 323);
+            this.label10.Location = new System.Drawing.Point(88, 373);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.Size = new System.Drawing.Size(57, 15);
             this.label10.TabIndex = 93;
             this.label10.Text = "Вид ціни:";
             // 
@@ -113,19 +116,21 @@ namespace StorageAndTrade
             this.directoryControl_ВидЦіни.BeforeFindFunc = null;
             this.directoryControl_ВидЦіни.Bind = null;
             this.directoryControl_ВидЦіни.DirectoryPointerItem = null;
-            this.directoryControl_ВидЦіни.Location = new System.Drawing.Point(131, 316);
+            this.directoryControl_ВидЦіни.Location = new System.Drawing.Point(153, 365);
+            this.directoryControl_ВидЦіни.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_ВидЦіни.Name = "directoryControl_ВидЦіни";
             this.directoryControl_ВидЦіни.QueryFind = null;
             this.directoryControl_ВидЦіни.SelectForm = null;
-            this.directoryControl_ВидЦіни.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_ВидЦіни.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_ВидЦіни.TabIndex = 92;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 290);
+            this.label9.Location = new System.Drawing.Point(13, 335);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 13);
+            this.label9.Size = new System.Drawing.Size(125, 15);
             this.label9.TabIndex = 91;
             this.label9.Text = "Банківський рахунок:";
             // 
@@ -136,19 +141,21 @@ namespace StorageAndTrade
             this.directoryControl_БанківськийРахунок.BeforeFindFunc = null;
             this.directoryControl_БанківськийРахунок.Bind = null;
             this.directoryControl_БанківськийРахунок.DirectoryPointerItem = null;
-            this.directoryControl_БанківськийРахунок.Location = new System.Drawing.Point(131, 283);
+            this.directoryControl_БанківськийРахунок.Location = new System.Drawing.Point(153, 327);
+            this.directoryControl_БанківськийРахунок.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_БанківськийРахунок.Name = "directoryControl_БанківськийРахунок";
             this.directoryControl_БанківськийРахунок.QueryFind = null;
             this.directoryControl_БанківськийРахунок.SelectForm = null;
-            this.directoryControl_БанківськийРахунок.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_БанківськийРахунок.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_БанківськийРахунок.TabIndex = 90;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(69, 257);
+            this.label8.Location = new System.Drawing.Point(80, 297);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.Size = new System.Drawing.Size(63, 15);
             this.label8.TabIndex = 89;
             this.label8.Text = "Підрозділ:";
             // 
@@ -159,19 +166,21 @@ namespace StorageAndTrade
             this.directoryControl_Підрозділ.BeforeFindFunc = null;
             this.directoryControl_Підрозділ.Bind = null;
             this.directoryControl_Підрозділ.DirectoryPointerItem = null;
-            this.directoryControl_Підрозділ.Location = new System.Drawing.Point(131, 250);
+            this.directoryControl_Підрозділ.Location = new System.Drawing.Point(153, 288);
+            this.directoryControl_Підрозділ.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Підрозділ.Name = "directoryControl_Підрозділ";
             this.directoryControl_Підрозділ.QueryFind = null;
             this.directoryControl_Підрозділ.SelectForm = null;
-            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Підрозділ.TabIndex = 88;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 224);
+            this.label7.Location = new System.Drawing.Point(20, 258);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 13);
+            this.label7.Size = new System.Drawing.Size(119, 15);
             this.label7.TabIndex = 87;
             this.label7.Text = "Одиниця пакування:";
             // 
@@ -182,19 +191,21 @@ namespace StorageAndTrade
             this.directoryControl_ОдиницяПакування.BeforeFindFunc = null;
             this.directoryControl_ОдиницяПакування.Bind = null;
             this.directoryControl_ОдиницяПакування.DirectoryPointerItem = null;
-            this.directoryControl_ОдиницяПакування.Location = new System.Drawing.Point(131, 217);
+            this.directoryControl_ОдиницяПакування.Location = new System.Drawing.Point(153, 250);
+            this.directoryControl_ОдиницяПакування.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_ОдиницяПакування.Name = "directoryControl_ОдиницяПакування";
             this.directoryControl_ОдиницяПакування.QueryFind = null;
             this.directoryControl_ОдиницяПакування.SelectForm = null;
-            this.directoryControl_ОдиницяПакування.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_ОдиницяПакування.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_ОдиницяПакування.TabIndex = 86;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(92, 191);
+            this.label6.Location = new System.Drawing.Point(107, 220);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 85;
             this.label6.Text = "Каса:";
             // 
@@ -205,19 +216,21 @@ namespace StorageAndTrade
             this.directoryControl_Каса.BeforeFindFunc = null;
             this.directoryControl_Каса.Bind = null;
             this.directoryControl_Каса.DirectoryPointerItem = null;
-            this.directoryControl_Каса.Location = new System.Drawing.Point(131, 184);
+            this.directoryControl_Каса.Location = new System.Drawing.Point(153, 212);
+            this.directoryControl_Каса.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Каса.Name = "directoryControl_Каса";
             this.directoryControl_Каса.QueryFind = null;
             this.directoryControl_Каса.SelectForm = null;
-            this.directoryControl_Каса.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Каса.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Каса.TabIndex = 84;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(68, 158);
+            this.label5.Location = new System.Drawing.Point(79, 182);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(64, 15);
             this.label5.TabIndex = 83;
             this.label5.Text = "Покупець:";
             // 
@@ -228,19 +241,21 @@ namespace StorageAndTrade
             this.directoryControl_Покупець.BeforeFindFunc = null;
             this.directoryControl_Покупець.Bind = null;
             this.directoryControl_Покупець.DirectoryPointerItem = null;
-            this.directoryControl_Покупець.Location = new System.Drawing.Point(131, 151);
+            this.directoryControl_Покупець.Location = new System.Drawing.Point(153, 174);
+            this.directoryControl_Покупець.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Покупець.Name = "directoryControl_Покупець";
             this.directoryControl_Покупець.QueryFind = null;
             this.directoryControl_Покупець.SelectForm = null;
-            this.directoryControl_Покупець.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Покупець.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Покупець.TabIndex = 82;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 125);
+            this.label3.Location = new System.Drawing.Point(52, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.Size = new System.Drawing.Size(89, 15);
             this.label3.TabIndex = 81;
             this.label3.Text = "Постачальник:";
             // 
@@ -251,19 +266,21 @@ namespace StorageAndTrade
             this.directoryControl_Постачальник.BeforeFindFunc = null;
             this.directoryControl_Постачальник.Bind = null;
             this.directoryControl_Постачальник.DirectoryPointerItem = null;
-            this.directoryControl_Постачальник.Location = new System.Drawing.Point(131, 118);
+            this.directoryControl_Постачальник.Location = new System.Drawing.Point(153, 136);
+            this.directoryControl_Постачальник.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Постачальник.Name = "directoryControl_Постачальник";
             this.directoryControl_Постачальник.QueryFind = null;
             this.directoryControl_Постачальник.SelectForm = null;
-            this.directoryControl_Постачальник.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Постачальник.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Постачальник.TabIndex = 80;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 92);
+            this.label2.Location = new System.Drawing.Point(92, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 79;
             this.label2.Text = "Валюта:";
             // 
@@ -274,19 +291,21 @@ namespace StorageAndTrade
             this.directoryControl_Валюта.BeforeFindFunc = null;
             this.directoryControl_Валюта.Bind = null;
             this.directoryControl_Валюта.DirectoryPointerItem = null;
-            this.directoryControl_Валюта.Location = new System.Drawing.Point(131, 85);
+            this.directoryControl_Валюта.Location = new System.Drawing.Point(153, 98);
+            this.directoryControl_Валюта.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Валюта.Name = "directoryControl_Валюта";
             this.directoryControl_Валюта.QueryFind = null;
             this.directoryControl_Валюта.SelectForm = null;
-            this.directoryControl_Валюта.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Валюта.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Валюта.TabIndex = 78;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 59);
+            this.label1.Location = new System.Drawing.Point(100, 68);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 77;
             this.label1.Text = "Склад:";
             // 
@@ -297,19 +316,21 @@ namespace StorageAndTrade
             this.directoryControl_Склад.BeforeFindFunc = null;
             this.directoryControl_Склад.Bind = null;
             this.directoryControl_Склад.DirectoryPointerItem = null;
-            this.directoryControl_Склад.Location = new System.Drawing.Point(131, 52);
+            this.directoryControl_Склад.Location = new System.Drawing.Point(153, 60);
+            this.directoryControl_Склад.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Склад.Name = "directoryControl_Склад";
             this.directoryControl_Склад.QueryFind = null;
             this.directoryControl_Склад.SelectForm = null;
-            this.directoryControl_Склад.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Склад.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Склад.TabIndex = 76;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 26);
+            this.label4.Location = new System.Drawing.Point(68, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(74, 15);
             this.label4.TabIndex = 75;
             this.label4.Text = "Організація:";
             // 
@@ -320,19 +341,21 @@ namespace StorageAndTrade
             this.directoryControl_Організація.BeforeFindFunc = null;
             this.directoryControl_Організація.Bind = null;
             this.directoryControl_Організація.DirectoryPointerItem = null;
-            this.directoryControl_Організація.Location = new System.Drawing.Point(131, 19);
+            this.directoryControl_Організація.Location = new System.Drawing.Point(153, 22);
+            this.directoryControl_Організація.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
             this.directoryControl_Організація.SelectForm = null;
-            this.directoryControl_Організація.Size = new System.Drawing.Size(277, 27);
+            this.directoryControl_Організація.Size = new System.Drawing.Size(323, 31);
             this.directoryControl_Організація.TabIndex = 74;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 26);
+            this.label11.Location = new System.Drawing.Point(18, 30);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.Size = new System.Drawing.Size(75, 15);
             this.label11.TabIndex = 94;
             this.label11.Text = "Тип періоду:";
             // 
@@ -340,9 +363,10 @@ namespace StorageAndTrade
             // 
             this.comboBox_ТипПеріодуДляЖурналівДокументів.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ТипПеріодуДляЖурналівДокументів.FormattingEnabled = true;
-            this.comboBox_ТипПеріодуДляЖурналівДокументів.Location = new System.Drawing.Point(90, 23);
+            this.comboBox_ТипПеріодуДляЖурналівДокументів.Location = new System.Drawing.Point(105, 27);
+            this.comboBox_ТипПеріодуДляЖурналівДокументів.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox_ТипПеріодуДляЖурналівДокументів.Name = "comboBox_ТипПеріодуДляЖурналівДокументів";
-            this.comboBox_ТипПеріодуДляЖурналівДокументів.Size = new System.Drawing.Size(242, 21);
+            this.comboBox_ТипПеріодуДляЖурналівДокументів.Size = new System.Drawing.Size(282, 23);
             this.comboBox_ТипПеріодуДляЖурналівДокументів.TabIndex = 3;
             // 
             // panel1
@@ -354,17 +378,20 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(807, 384);
+            this.panel1.Size = new System.Drawing.Size(941, 462);
             this.panel1.TabIndex = 1;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.comboBox_МетодиСписанняПартій);
-            this.groupBox3.Location = new System.Drawing.Point(442, 104);
+            this.groupBox3.Location = new System.Drawing.Point(516, 120);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(350, 95);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox3.Size = new System.Drawing.Size(408, 110);
             this.groupBox3.TabIndex = 96;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Партії товарів";
@@ -372,9 +399,10 @@ namespace StorageAndTrade
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 26);
+            this.label12.Location = new System.Drawing.Point(7, 30);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 13);
+            this.label12.Size = new System.Drawing.Size(145, 15);
             this.label12.TabIndex = 96;
             this.label12.Text = "Методи списання партій:";
             // 
@@ -382,18 +410,21 @@ namespace StorageAndTrade
             // 
             this.comboBox_МетодиСписанняПартій.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_МетодиСписанняПартій.FormattingEnabled = true;
-            this.comboBox_МетодиСписанняПартій.Location = new System.Drawing.Point(9, 42);
+            this.comboBox_МетодиСписанняПартій.Location = new System.Drawing.Point(10, 48);
+            this.comboBox_МетодиСписанняПартій.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox_МетодиСписанняПартій.Name = "comboBox_МетодиСписанняПартій";
-            this.comboBox_МетодиСписанняПартій.Size = new System.Drawing.Size(323, 21);
+            this.comboBox_МетодиСписанняПартій.Size = new System.Drawing.Size(376, 23);
             this.comboBox_МетодиСписанняПартій.TabIndex = 95;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.comboBox_ТипПеріодуДляЖурналівДокументів);
-            this.groupBox2.Location = new System.Drawing.Point(442, 12);
+            this.groupBox2.Location = new System.Drawing.Point(516, 14);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 79);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(408, 91);
             this.groupBox2.TabIndex = 95;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Журнали документів";
@@ -405,16 +436,18 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.buttonSaveAndClose);
             this.panel2.Controls.Add(this.buttonClose);
             this.panel2.Controls.Add(this.buttonSave);
-            this.panel2.Location = new System.Drawing.Point(0, 387);
+            this.panel2.Location = new System.Drawing.Point(0, 466);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(807, 34);
+            this.panel2.Size = new System.Drawing.Size(941, 39);
             this.panel2.TabIndex = 2;
             // 
             // buttonSaveAndClose
             // 
-            this.buttonSaveAndClose.Location = new System.Drawing.Point(3, 3);
+            this.buttonSaveAndClose.Location = new System.Drawing.Point(4, 3);
+            this.buttonSaveAndClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSaveAndClose.Name = "buttonSaveAndClose";
-            this.buttonSaveAndClose.Size = new System.Drawing.Size(135, 29);
+            this.buttonSaveAndClose.Size = new System.Drawing.Size(158, 33);
             this.buttonSaveAndClose.TabIndex = 2;
             this.buttonSaveAndClose.Text = "Записати та закрити";
             this.buttonSaveAndClose.UseVisualStyleBackColor = true;
@@ -422,9 +455,10 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(350, 3);
+            this.buttonClose.Location = new System.Drawing.Point(408, 3);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(70, 29);
+            this.buttonClose.Size = new System.Drawing.Size(82, 33);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -432,9 +466,10 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(272, 3);
+            this.buttonSave.Location = new System.Drawing.Point(317, 3);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(72, 29);
+            this.buttonSave.Size = new System.Drawing.Size(84, 33);
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Записати";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -442,13 +477,14 @@ namespace StorageAndTrade
             // 
             // FormConstants
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(809, 424);
+            this.ClientSize = new System.Drawing.Size(944, 508);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormConstants";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Константи";

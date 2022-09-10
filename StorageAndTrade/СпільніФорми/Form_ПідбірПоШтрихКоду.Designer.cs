@@ -48,16 +48,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.textBox_ШтрихКод);
-            this.panel3.Location = new System.Drawing.Point(5, 3);
+            this.panel3.Location = new System.Drawing.Point(6, 3);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(969, 34);
+            this.panel3.Size = new System.Drawing.Size(906, 39);
             this.panel3.TabIndex = 50;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 6);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 1;
@@ -65,10 +67,11 @@
             // 
             // textBox_ШтрихКод
             // 
-            this.textBox_ШтрихКод.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_ШтрихКод.Location = new System.Drawing.Point(109, 3);
+            this.textBox_ШтрихКод.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_ШтрихКод.Location = new System.Drawing.Point(127, 3);
+            this.textBox_ШтрихКод.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_ШтрихКод.Name = "textBox_ШтрихКод";
-            this.textBox_ШтрихКод.Size = new System.Drawing.Size(563, 26);
+            this.textBox_ШтрихКод.Size = new System.Drawing.Size(656, 26);
             this.textBox_ШтрихКод.TabIndex = 0;
             this.textBox_ШтрихКод.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_ШтрихКод_KeyDown);
             // 
@@ -78,9 +81,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dataGridViewRecords);
-            this.panel1.Location = new System.Drawing.Point(5, 43);
+            this.panel1.Location = new System.Drawing.Point(6, 50);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 267);
+            this.panel1.Size = new System.Drawing.Size(906, 308);
             this.panel1.TabIndex = 51;
             // 
             // dataGridViewRecords
@@ -92,10 +96,11 @@
             this.dataGridViewRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRecords.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRecords.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(969, 267);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(906, 308);
             this.dataGridViewRecords.TabIndex = 1;
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewRecords_KeyDown);
@@ -106,16 +111,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.buttonSave);
             this.panel2.Controls.Add(this.buttonClose);
-            this.panel2.Location = new System.Drawing.Point(5, 316);
+            this.panel2.Location = new System.Drawing.Point(6, 365);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(969, 34);
+            this.panel2.Size = new System.Drawing.Size(906, 39);
             this.panel2.TabIndex = 52;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(3, 3);
+            this.buttonSave.Location = new System.Drawing.Point(4, 3);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(209, 27);
+            this.buttonSave.Size = new System.Drawing.Size(244, 31);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Зберегти і перенести в документ";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -123,9 +130,10 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(365, 3);
+            this.buttonClose.Location = new System.Drawing.Point(426, 3);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(164, 27);
+            this.buttonClose.Size = new System.Drawing.Size(191, 31);
             this.buttonClose.TabIndex = 20;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -133,15 +141,16 @@
             // 
             // Form_ПідбірПоШтрихКоду
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 354);
+            this.ClientSize = new System.Drawing.Size(917, 408);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ПідбірПоШтрихКоду";
-            this.Padding = new System.Windows.Forms.Padding(3);
+            this.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Підбір по штрих-кодах";
             this.Load += new System.EventHandler(this.Form_ПідбірПоШтрихКоду_Load);

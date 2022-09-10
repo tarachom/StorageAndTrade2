@@ -40,8 +40,9 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.Склади_Папки_Дерево);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 738);
+            this.panel2.Size = new System.Drawing.Size(446, 621);
             this.panel2.TabIndex = 2;
             // 
             // Склади_Папки_Дерево
@@ -50,18 +51,20 @@ namespace StorageAndTrade
             this.Склади_Папки_Дерево.CallBack_DoubleClick = null;
             this.Склади_Папки_Дерево.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Склади_Папки_Дерево.Location = new System.Drawing.Point(0, 0);
+            this.Склади_Папки_Дерево.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Склади_Папки_Дерево.Name = "Склади_Папки_Дерево";
-            this.Склади_Папки_Дерево.Size = new System.Drawing.Size(555, 738);
+            this.Склади_Папки_Дерево.Size = new System.Drawing.Size(446, 621);
             this.Склади_Папки_Дерево.TabIndex = 3;
             this.Склади_Папки_Дерево.UidOpenFolder = null;
             // 
             // Form_СкладиПапкиВибір
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 738);
+            this.ClientSize = new System.Drawing.Size(446, 621);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_СкладиПапкиВибір";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склади Папки";

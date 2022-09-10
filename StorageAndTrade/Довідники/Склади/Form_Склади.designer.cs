@@ -56,8 +56,9 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1047, 29);
+            this.panel1.Size = new System.Drawing.Size(823, 33);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
@@ -70,7 +71,7 @@ namespace StorageAndTrade
             this.toolStripButtonDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1047, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(823, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -123,15 +124,17 @@ namespace StorageAndTrade
             // 
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 29);
+            this.panel2.Location = new System.Drawing.Point(0, 33);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1047, 624);
+            this.panel2.Size = new System.Drawing.Size(823, 585);
             this.panel2.TabIndex = 2;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -141,8 +144,9 @@ namespace StorageAndTrade
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Склади_Папки_Дерево);
-            this.splitContainer1.Size = new System.Drawing.Size(1047, 624);
-            this.splitContainer1.SplitterDistance = 703;
+            this.splitContainer1.Size = new System.Drawing.Size(823, 585);
+            this.splitContainer1.SplitterDistance = 552;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
             // 
             // dataGridViewRecords
@@ -154,10 +158,11 @@ namespace StorageAndTrade
             this.dataGridViewRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRecords.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRecords.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(703, 624);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(552, 585);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
@@ -168,19 +173,21 @@ namespace StorageAndTrade
             this.Склади_Папки_Дерево.CallBack_DoubleClick = null;
             this.Склади_Папки_Дерево.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Склади_Папки_Дерево.Location = new System.Drawing.Point(0, 0);
+            this.Склади_Папки_Дерево.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Склади_Папки_Дерево.Name = "Склади_Папки_Дерево";
-            this.Склади_Папки_Дерево.Size = new System.Drawing.Size(340, 624);
+            this.Склади_Папки_Дерево.Size = new System.Drawing.Size(266, 585);
             this.Склади_Папки_Дерево.TabIndex = 0;
             this.Склади_Папки_Дерево.UidOpenFolder = null;
             // 
             // Form_Склади
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 653);
+            this.ClientSize = new System.Drawing.Size(823, 618);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_Склади";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склади";

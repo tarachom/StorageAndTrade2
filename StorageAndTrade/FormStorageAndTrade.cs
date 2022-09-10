@@ -27,8 +27,10 @@ namespace StorageAndTrade
         public FormStorageAndTrade()
         {
             InitializeComponent();
-            
+
         }
+
+        public bool CloseThreadBackgroundTask { get; set; }
 
         public ConfigurationParam OpenConfigurationParam { get; set; }
 
@@ -81,9 +83,7 @@ namespace StorageAndTrade
 
         private void FormStorageAndTrade_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ThreadBackgroundTask != null)
-                ThreadBackgroundTask.Abort();
-
+            CloseThreadBackgroundTask = true;
             Application.Exit();
         }
 
@@ -93,16 +93,15 @@ namespace StorageAndTrade
         {
             while (true)
             {
-                if (Константи.Системні.ВвімкнутиФоновіЗадачі_Const == false)
+                if (CloseThreadBackgroundTask)
+                    break;
+
+                if (Константи.Системні.ВвімкнутиФоновіЗадачі_Const == true)
                 {
-                    Thread.Sleep(5000);
-                    continue;
+                    CalculationBalances.ОбчисленняВіртуальнихЗалишківПоДнях();
+                    CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
                 }
 
-                //Console.WriteLine("Обчислення");
-
-                CalculationBalances.ОбчисленняВіртуальнихЗалишківПоДнях();
-                CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
                 Thread.Sleep(5000);
             }
         }

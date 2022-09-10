@@ -42,9 +42,10 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(385, 84);
+            this.buttonClose.Location = new System.Drawing.Point(449, 97);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(164, 27);
+            this.buttonClose.Size = new System.Drawing.Size(191, 31);
             this.buttonClose.TabIndex = 16;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(88, 84);
+            this.buttonSave.Location = new System.Drawing.Point(103, 97);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(164, 27);
+            this.buttonSave.Size = new System.Drawing.Size(191, 31);
             this.buttonSave.TabIndex = 15;
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -62,59 +64,70 @@ namespace StorageAndTrade
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(88, 12);
+            this.textBoxName.Location = new System.Drawing.Point(103, 14);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(461, 20);
+            this.textBoxName.Size = new System.Drawing.Size(537, 23);
             this.textBoxName.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 15);
+            this.label2.Location = new System.Drawing.Point(21, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 19;
             this.label2.Text = "Назва:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 45);
+            this.label9.Location = new System.Drawing.Point(21, 52);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.Size = new System.Drawing.Size(44, 15);
             this.label9.TabIndex = 52;
             this.label9.Text = "Родич:";
             // 
             // directoryControl_НоменклатураПапка
             // 
+            this.directoryControl_НоменклатураПапка.AfterSelectFunc = null;
+            this.directoryControl_НоменклатураПапка.BeforeClickOpenFunc = null;
+            this.directoryControl_НоменклатураПапка.BeforeFindFunc = null;
+            this.directoryControl_НоменклатураПапка.Bind = null;
             this.directoryControl_НоменклатураПапка.DirectoryPointerItem = null;
-            this.directoryControl_НоменклатураПапка.Location = new System.Drawing.Point(88, 38);
+            this.directoryControl_НоменклатураПапка.Location = new System.Drawing.Point(103, 44);
+            this.directoryControl_НоменклатураПапка.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_НоменклатураПапка.Name = "directoryControl_НоменклатураПапка";
+            this.directoryControl_НоменклатураПапка.QueryFind = null;
             this.directoryControl_НоменклатураПапка.SelectForm = null;
-            this.directoryControl_НоменклатураПапка.Size = new System.Drawing.Size(461, 27);
+            this.directoryControl_НоменклатураПапка.Size = new System.Drawing.Size(538, 31);
             this.directoryControl_НоменклатураПапка.TabIndex = 51;
             // 
             // textBox_Код
             // 
-            this.textBox_Код.Location = new System.Drawing.Point(594, 12);
+            this.textBox_Код.Location = new System.Drawing.Point(693, 14);
+            this.textBox_Код.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Код.Name = "textBox_Код";
-            this.textBox_Код.Size = new System.Drawing.Size(123, 20);
+            this.textBox_Код.Size = new System.Drawing.Size(143, 23);
             this.textBox_Код.TabIndex = 54;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(559, 15);
+            this.label1.Location = new System.Drawing.Point(652, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(30, 15);
             this.label1.TabIndex = 53;
             this.label1.Text = "Код:";
             // 
             // Form_НоменклатураПапкиЕлемент
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 130);
+            this.ClientSize = new System.Drawing.Size(853, 150);
             this.Controls.Add(this.textBox_Код);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
@@ -124,6 +137,7 @@ namespace StorageAndTrade
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_НоменклатураПапкиЕлемент";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Номенклатура Папка";

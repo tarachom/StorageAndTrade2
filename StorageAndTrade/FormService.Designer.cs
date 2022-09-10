@@ -32,19 +32,20 @@ namespace StorageAndTrade
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormService));
             this.buttonSpendAll = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_CalculationBalancesAll = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
-            this.button_CalculationBalancesAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSpendAll
             // 
-            this.buttonSpendAll.Location = new System.Drawing.Point(3, 3);
+            this.buttonSpendAll.Location = new System.Drawing.Point(4, 3);
+            this.buttonSpendAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSpendAll.Name = "buttonSpendAll";
-            this.buttonSpendAll.Size = new System.Drawing.Size(186, 27);
+            this.buttonSpendAll.Size = new System.Drawing.Size(217, 31);
             this.buttonSpendAll.TabIndex = 0;
             this.buttonSpendAll.Text = "Перепровести всі документи";
             this.buttonSpendAll.UseVisualStyleBackColor = true;
@@ -58,16 +59,29 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonSpendAll);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 33);
+            this.panel1.Size = new System.Drawing.Size(867, 38);
             this.panel1.TabIndex = 1;
+            // 
+            // button_CalculationBalancesAll
+            // 
+            this.button_CalculationBalancesAll.Location = new System.Drawing.Point(227, 3);
+            this.button_CalculationBalancesAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_CalculationBalancesAll.Name = "button_CalculationBalancesAll";
+            this.button_CalculationBalancesAll.Size = new System.Drawing.Size(217, 31);
+            this.button_CalculationBalancesAll.TabIndex = 2;
+            this.button_CalculationBalancesAll.Text = "Перерахувати залишки";
+            this.button_CalculationBalancesAll.UseVisualStyleBackColor = true;
+            this.button_CalculationBalancesAll.Click += new System.EventHandler(this.button_CalculationBalancesAll_Click);
             // 
             // buttonCancel
             // 
             this.buttonCancel.Enabled = false;
-            this.buttonCancel.Location = new System.Drawing.Point(405, 3);
+            this.buttonCancel.Location = new System.Drawing.Point(472, 3);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(97, 27);
+            this.buttonCancel.Size = new System.Drawing.Size(113, 31);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Зупинити";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -79,41 +93,34 @@ namespace StorageAndTrade
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.richTextBoxInfo);
-            this.panel2.Location = new System.Drawing.Point(3, 36);
+            this.panel2.Location = new System.Drawing.Point(4, 42);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(928, 477);
+            this.panel2.Size = new System.Drawing.Size(864, 492);
             this.panel2.TabIndex = 1;
             // 
             // richTextBoxInfo
             // 
             this.richTextBoxInfo.BackColor = System.Drawing.SystemColors.Info;
             this.richTextBoxInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richTextBoxInfo.Location = new System.Drawing.Point(0, 0);
+            this.richTextBoxInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.richTextBoxInfo.Name = "richTextBoxInfo";
             this.richTextBoxInfo.ReadOnly = true;
-            this.richTextBoxInfo.Size = new System.Drawing.Size(928, 477);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(864, 492);
             this.richTextBoxInfo.TabIndex = 1;
             this.richTextBoxInfo.Text = "";
             // 
-            // button_CalculationBalancesAll
-            // 
-            this.button_CalculationBalancesAll.Location = new System.Drawing.Point(195, 3);
-            this.button_CalculationBalancesAll.Name = "button_CalculationBalancesAll";
-            this.button_CalculationBalancesAll.Size = new System.Drawing.Size(186, 27);
-            this.button_CalculationBalancesAll.TabIndex = 2;
-            this.button_CalculationBalancesAll.Text = "Перерахувати залишки";
-            this.button_CalculationBalancesAll.UseVisualStyleBackColor = true;
-            this.button_CalculationBalancesAll.Click += new System.EventHandler(this.button_CalculationBalancesAll_Click);
-            // 
             // FormService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 517);
+            this.ClientSize = new System.Drawing.Size(871, 539);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormService";
             this.Text = "Сервіс";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormService_FormClosing);

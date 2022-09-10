@@ -40,8 +40,9 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.Контрагенти_Папки_Дерево);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 738);
+            this.panel2.Size = new System.Drawing.Size(402, 584);
             this.panel2.TabIndex = 2;
             // 
             // Контрагенти_Папки_Дерево
@@ -50,18 +51,20 @@ namespace StorageAndTrade
             this.Контрагенти_Папки_Дерево.CallBack_DoubleClick = null;
             this.Контрагенти_Папки_Дерево.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Контрагенти_Папки_Дерево.Location = new System.Drawing.Point(0, 0);
+            this.Контрагенти_Папки_Дерево.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Контрагенти_Папки_Дерево.Name = "Контрагенти_Папки_Дерево";
-            this.Контрагенти_Папки_Дерево.Size = new System.Drawing.Size(555, 738);
+            this.Контрагенти_Папки_Дерево.Size = new System.Drawing.Size(402, 584);
             this.Контрагенти_Папки_Дерево.TabIndex = 0;
             this.Контрагенти_Папки_Дерево.UidOpenFolder = null;
             // 
             // Form_КонтрагентиПапкиВибір
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 738);
+            this.ClientSize = new System.Drawing.Size(402, 584);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_КонтрагентиПапкиВибір";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Контрагенти Папки";

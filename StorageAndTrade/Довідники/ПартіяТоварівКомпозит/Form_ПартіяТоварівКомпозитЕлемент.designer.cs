@@ -43,9 +43,10 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(201, 152);
+            this.buttonClose.Location = new System.Drawing.Point(234, 175);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(164, 27);
+            this.buttonClose.Size = new System.Drawing.Size(191, 31);
             this.buttonClose.TabIndex = 16;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -53,77 +54,85 @@ namespace StorageAndTrade
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(201, 12);
+            this.textBoxName.Location = new System.Drawing.Point(234, 14);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(444, 20);
+            this.textBoxName.Size = new System.Drawing.Size(434, 23);
             this.textBoxName.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 15);
+            this.label2.Location = new System.Drawing.Point(14, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 19;
             this.label2.Text = "Назва:";
             // 
             // dateTimePicker_Дата
             // 
-            this.dateTimePicker_Дата.Location = new System.Drawing.Point(201, 41);
+            this.dateTimePicker_Дата.Location = new System.Drawing.Point(234, 47);
+            this.dateTimePicker_Дата.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker_Дата.Name = "dateTimePicker_Дата";
-            this.dateTimePicker_Дата.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Дата.Size = new System.Drawing.Size(233, 23);
             this.dateTimePicker_Дата.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 47);
+            this.label1.Location = new System.Drawing.Point(14, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(35, 15);
             this.label1.TabIndex = 22;
             this.label1.Text = "Дата:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 74);
+            this.label6.Location = new System.Drawing.Point(14, 85);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 13);
+            this.label6.Size = new System.Drawing.Size(181, 15);
             this.label6.TabIndex = 66;
             this.label6.Text = "Документ поступлення товарів:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 107);
+            this.label3.Location = new System.Drawing.Point(14, 123);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 13);
+            this.label3.Size = new System.Drawing.Size(171, 15);
             this.label3.TabIndex = 68;
             this.label3.Text = "Документ введення залишків:";
             // 
             // documentControl_ВведенняЗалишків
             // 
             this.documentControl_ВведенняЗалишків.DocumentPointerItem = null;
-            this.documentControl_ВведенняЗалишків.Location = new System.Drawing.Point(201, 101);
+            this.documentControl_ВведенняЗалишків.Location = new System.Drawing.Point(234, 117);
+            this.documentControl_ВведенняЗалишків.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.documentControl_ВведенняЗалишків.Name = "documentControl_ВведенняЗалишків";
             this.documentControl_ВведенняЗалишків.SelectForm = null;
-            this.documentControl_ВведенняЗалишків.Size = new System.Drawing.Size(444, 27);
+            this.documentControl_ВведенняЗалишків.Size = new System.Drawing.Size(434, 31);
             this.documentControl_ВведенняЗалишків.TabIndex = 69;
             // 
             // documentControl_ПоступленняТоварів
             // 
             this.documentControl_ПоступленняТоварів.DocumentPointerItem = null;
-            this.documentControl_ПоступленняТоварів.Location = new System.Drawing.Point(201, 68);
+            this.documentControl_ПоступленняТоварів.Location = new System.Drawing.Point(234, 78);
+            this.documentControl_ПоступленняТоварів.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.documentControl_ПоступленняТоварів.Name = "documentControl_ПоступленняТоварів";
             this.documentControl_ПоступленняТоварів.SelectForm = null;
-            this.documentControl_ПоступленняТоварів.Size = new System.Drawing.Size(444, 27);
+            this.documentControl_ПоступленняТоварів.Size = new System.Drawing.Size(434, 31);
             this.documentControl_ПоступленняТоварів.TabIndex = 67;
             // 
             // Form_ПартіяТоварівКомпозитЕлемент
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 193);
+            this.ClientSize = new System.Drawing.Size(690, 223);
             this.Controls.Add(this.documentControl_ВведенняЗалишків);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.documentControl_ПоступленняТоварів);
@@ -134,6 +143,7 @@ namespace StorageAndTrade
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonClose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ПартіяТоварівКомпозитЕлемент";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Партія товарів композит";

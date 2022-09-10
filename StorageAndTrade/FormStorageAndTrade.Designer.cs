@@ -135,7 +135,8 @@ namespace StorageAndTrade
             this.проПрограмуToolStripMenuItem});
             this.menuStrip_ГоловнеМеню.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_ГоловнеМеню.Name = "menuStrip_ГоловнеМеню";
-            this.menuStrip_ГоловнеМеню.Size = new System.Drawing.Size(993, 24);
+            this.menuStrip_ГоловнеМеню.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip_ГоловнеМеню.Size = new System.Drawing.Size(1123, 24);
             this.menuStrip_ГоловнеМеню.TabIndex = 0;
             this.menuStrip_ГоловнеМеню.Text = "menuStrip1";
             // 
@@ -650,14 +651,14 @@ namespace StorageAndTrade
             // 
             this.константиToolStripMenuItem.Image = global::StorageAndTrade.Properties.Resources.doc_text_image;
             this.константиToolStripMenuItem.Name = "константиToolStripMenuItem";
-            this.константиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.константиToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.константиToolStripMenuItem.Text = "Константи";
             this.константиToolStripMenuItem.Click += new System.EventHandler(this.константиToolStripMenuItem_Click);
             // 
             // сервіснаОбробкаToolStripMenuItem
             // 
             this.сервіснаОбробкаToolStripMenuItem.Name = "сервіснаОбробкаToolStripMenuItem";
-            this.сервіснаОбробкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сервіснаОбробкаToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.сервіснаОбробкаToolStripMenuItem.Text = "Сервісна обробка";
             this.сервіснаОбробкаToolStripMenuItem.Click += new System.EventHandler(this.сервіснаОбробкаToolStripMenuItem_Click);
             // 
@@ -671,9 +672,9 @@ namespace StorageAndTrade
             // toolStrip_ВідкритіФорми
             // 
             this.toolStrip_ВідкритіФорми.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip_ВідкритіФорми.Location = new System.Drawing.Point(0, 671);
+            this.toolStrip_ВідкритіФорми.Location = new System.Drawing.Point(0, 626);
             this.toolStrip_ВідкритіФорми.Name = "toolStrip_ВідкритіФорми";
-            this.toolStrip_ВідкритіФорми.Size = new System.Drawing.Size(993, 25);
+            this.toolStrip_ВідкритіФорми.Size = new System.Drawing.Size(1123, 25);
             this.toolStrip_ВідкритіФорми.TabIndex = 6;
             this.toolStrip_ВідкритіФорми.Text = "toolStrip1";
             // 
@@ -689,7 +690,7 @@ namespace StorageAndTrade
             this.toolStripButton_ПакуванняОдиниціВиміру});
             this.toolStrip_Довідники.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_Довідники.Name = "toolStrip_Довідники";
-            this.toolStrip_Довідники.Size = new System.Drawing.Size(993, 25);
+            this.toolStrip_Довідники.Size = new System.Drawing.Size(1123, 25);
             this.toolStrip_Довідники.TabIndex = 8;
             this.toolStrip_Довідники.Text = "toolStrip2";
             // 
@@ -776,7 +777,7 @@ namespace StorageAndTrade
             this.toolStripButton_ВстановленняЦінНоменклатури});
             this.toolStrip_Документи.Location = new System.Drawing.Point(0, 49);
             this.toolStrip_Документи.Name = "toolStrip_Документи";
-            this.toolStrip_Документи.Size = new System.Drawing.Size(993, 25);
+            this.toolStrip_Документи.Size = new System.Drawing.Size(1123, 25);
             this.toolStrip_Документи.TabIndex = 9;
             this.toolStrip_Документи.Text = "toolStrip1";
             // 
@@ -897,11 +898,11 @@ namespace StorageAndTrade
             // 
             // FormStorageAndTrade
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(993, 696);
+            this.ClientSize = new System.Drawing.Size(1123, 651);
             this.Controls.Add(this.toolStrip_Документи);
             this.Controls.Add(this.toolStrip_Довідники);
             this.Controls.Add(this.toolStrip_ВідкритіФорми);
@@ -909,6 +910,7 @@ namespace StorageAndTrade
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip_ГоловнеМеню;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormStorageAndTrade";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Зберігання та Торгівля";

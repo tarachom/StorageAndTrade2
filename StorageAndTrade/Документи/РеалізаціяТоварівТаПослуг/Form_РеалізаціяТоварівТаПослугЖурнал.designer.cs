@@ -42,10 +42,10 @@ namespace StorageAndTrade
             this.toolStripButtonSpend = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton_ВвестиНаОснові = new System.Windows.Forms.ToolStripDropDownButton();
             this.прихіднийКасовийОрдерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.сomboBox_ТипПеріоду = new System.Windows.Forms.ToolStripComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,8 +57,9 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1084, 29);
+            this.panel1.Size = new System.Drawing.Size(988, 33);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
@@ -77,7 +78,7 @@ namespace StorageAndTrade
             this.сomboBox_ТипПеріоду});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1084, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(988, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -167,17 +168,30 @@ namespace StorageAndTrade
             // 
             this.прихіднийКасовийОрдерToolStripMenuItem.Image = global::StorageAndTrade.Properties.Resources.add_document;
             this.прихіднийКасовийОрдерToolStripMenuItem.Name = "прихіднийКасовийОрдерToolStripMenuItem";
-            this.прихіднийКасовийОрдерToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.прихіднийКасовийОрдерToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.прихіднийКасовийОрдерToolStripMenuItem.Text = "Прихідний касовий ордер";
             this.прихіднийКасовийОрдерToolStripMenuItem.Click += new System.EventHandler(this.прихіднийКасовийОрдерToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // сomboBox_ТипПеріоду
+            // 
+            this.сomboBox_ТипПеріоду.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.сomboBox_ТипПеріоду.Name = "сomboBox_ТипПеріоду";
+            this.сomboBox_ТипПеріоду.Size = new System.Drawing.Size(140, 25);
+            this.сomboBox_ТипПеріоду.SelectedIndexChanged += new System.EventHandler(this.сomboBox_ТипПеріоду_SelectedIndexChanged);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridViewRecords);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 29);
+            this.panel2.Location = new System.Drawing.Point(0, 33);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1084, 632);
+            this.panel2.Size = new System.Drawing.Size(988, 338);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewRecords
@@ -189,34 +203,24 @@ namespace StorageAndTrade
             this.dataGridViewRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRecords.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRecords.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(1084, 632);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(988, 338);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // сomboBox_ТипПеріоду
-            // 
-            this.сomboBox_ТипПеріоду.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.сomboBox_ТипПеріоду.Name = "сomboBox_ТипПеріоду";
-            this.сomboBox_ТипПеріоду.Size = new System.Drawing.Size(121, 25);
-            this.сomboBox_ТипПеріоду.SelectedIndexChanged += new System.EventHandler(this.сomboBox_ТипПеріоду_SelectedIndexChanged);
-            // 
             // Form_РеалізаціяТоварівТаПослугЖурнал
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.ClientSize = new System.Drawing.Size(988, 371);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_РеалізаціяТоварівТаПослугЖурнал";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Реалізація товарів та послуг - Журнал";

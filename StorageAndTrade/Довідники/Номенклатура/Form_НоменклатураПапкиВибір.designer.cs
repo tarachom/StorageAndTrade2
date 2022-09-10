@@ -40,8 +40,9 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.Номенклатура_Папки_Дерево);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 738);
+            this.panel2.Size = new System.Drawing.Size(451, 597);
             this.panel2.TabIndex = 2;
             // 
             // Номенклатура_Папки_Дерево
@@ -50,18 +51,20 @@ namespace StorageAndTrade
             this.Номенклатура_Папки_Дерево.CallBack_DoubleClick = null;
             this.Номенклатура_Папки_Дерево.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Номенклатура_Папки_Дерево.Location = new System.Drawing.Point(0, 0);
+            this.Номенклатура_Папки_Дерево.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Номенклатура_Папки_Дерево.Name = "Номенклатура_Папки_Дерево";
-            this.Номенклатура_Папки_Дерево.Size = new System.Drawing.Size(555, 738);
+            this.Номенклатура_Папки_Дерево.Size = new System.Drawing.Size(451, 597);
             this.Номенклатура_Папки_Дерево.TabIndex = 3;
             this.Номенклатура_Папки_Дерево.UidOpenFolder = null;
             // 
             // Form_НоменклатураПапкиВибір
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 738);
+            this.ClientSize = new System.Drawing.Size(451, 597);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_НоменклатураПапкиВибір";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Номенклатура Папки";
