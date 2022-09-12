@@ -36,17 +36,17 @@
 						<xsl:for-each select="Документи/row">
 							<tr>
 								<td>
-									<a id="{uid}" name="Документ.{doctype}" href="/">
+									<a id="{uid}" name="Документ.{doctype}" href="?id={uid}&amp;name=Документ.{doctype}">
 										<xsl:value-of select="docname"/>
 									</a>
 								</td>
 								<td>
-									<a id="{Контрагент}" name="Довідник.Контрагенти" href="/">
+									<a id="{Контрагент}" name="Довідник.Контрагенти" href="?id={Контрагент}&amp;name=Довідник.Контрагенти">
 										<xsl:value-of select="Контрагент_Назва"/>
 									</a>
 								</td>
 								<td>
-									<a id="{Валюта}" name="Довідник.Валюти" href="/">
+									<a id="{Валюта}" name="Довідник.Валюти" href="?id={Валюта}&amp;name=Довідник.Валюти">
 										<xsl:value-of select="Валюта_Назва"/>
 									</a>
 								</td>

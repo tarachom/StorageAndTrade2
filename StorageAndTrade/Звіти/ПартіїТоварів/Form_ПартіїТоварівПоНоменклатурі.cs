@@ -61,7 +61,7 @@ namespace StorageAndTrade
             directoryControl_Серія.Init(new Form_СеріїНоменклатури(), new СеріїНоменклатури_Pointer(), ПошуковіЗапити.СеріїНоменклатури);
             directoryControl_Склад.Init(new Form_Склади(), new Склади_Pointer(), ПошуковіЗапити.Склади);
 
-            //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
+            WindowsWebBrowser.Navigating += WebBrowserReport.WindowsWebBrowser_Navigating;
         }
 
         WebBrowser WindowsWebBrowser { get; set; }

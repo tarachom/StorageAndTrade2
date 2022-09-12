@@ -58,6 +58,9 @@
     <None Remove="РегістриІнформації\КурсиВалют\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Configurator\Confa.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="DirectoryAnyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

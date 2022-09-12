@@ -34,7 +34,9 @@ using StorageAndTrade_1_0.Константи;
 using StorageAndTrade_1_0.Довідники;
 using StorageAndTrade_1_0.Документи;
 using StorageAndTrade_1_0.РегістриНакопичення;
-
+using System.Diagnostics;
+using System.Web;
+using System.Collections.Specialized;
 
 namespace StorageAndTrade
 {
@@ -70,7 +72,7 @@ namespace StorageAndTrade
 
             dateTimeStart.Value = DateTime.Parse($"01.{DateTime.Now.Month}.{DateTime.Now.Year}");
 
-            //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
+            WindowsWebBrowser.Navigating += WebBrowserReport.WindowsWebBrowser_Navigating;
         }
 
         private void buttonOstatok_Click(object sender, EventArgs e)

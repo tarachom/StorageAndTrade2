@@ -40,7 +40,7 @@ namespace StorageAndTrade
         private void Form_Report_Load(object sender, EventArgs e)
         {
             WindowsWebBrowser.Navigate(HtmlDocumentPath);
-            //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
+            WindowsWebBrowser.Navigating += WebBrowserReport.WindowsWebBrowser_Navigating;
         }
     }
 }

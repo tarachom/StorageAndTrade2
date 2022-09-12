@@ -69,7 +69,7 @@ namespace StorageAndTrade
 
             dateTimeStart.Value = DateTime.Parse($"01.{DateTime.Now.Month}.{DateTime.Now.Year}");
 
-            //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
+            WindowsWebBrowser.Navigating += WebBrowserReport.WindowsWebBrowser_Navigating;
         }
 
         private void buttonOstatok_Click(object sender, EventArgs e)
