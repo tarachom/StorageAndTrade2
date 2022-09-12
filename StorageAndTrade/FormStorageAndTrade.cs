@@ -504,8 +504,7 @@ namespace StorageAndTrade
             foreach (Form form in ChildFormList)
             {
                 ToolStripButton toolStripButton =
-                    new ToolStripButton(form.Text, Properties.Resources.doc_text_image, ToolStripButton_Click, counter.ToString())
-                    { ImageAlign = ContentAlignment.MiddleLeft };
+                    new ToolStripButton(form.Text, Properties.Resources.doc_text_image, ToolStripButton_Click, counter.ToString());
 
                 toolStrip_ВідкритіФорми.Items.Add(toolStripButton);
 

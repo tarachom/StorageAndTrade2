@@ -36,10 +36,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_AddAny = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).BeginInit();
             this.panel2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -48,17 +52,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.textBox_ШтрихКод);
-            this.panel3.Location = new System.Drawing.Point(6, 3);
+            this.panel3.Location = new System.Drawing.Point(3, 31);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(906, 39);
+            this.panel3.Size = new System.Drawing.Size(908, 39);
             this.panel3.TabIndex = 50;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
@@ -67,11 +71,13 @@
             // 
             // textBox_ШтрихКод
             // 
+            this.textBox_ШтрихКод.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_ШтрихКод.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_ШтрихКод.Location = new System.Drawing.Point(127, 3);
+            this.textBox_ШтрихКод.Location = new System.Drawing.Point(113, 6);
             this.textBox_ШтрихКод.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_ШтрихКод.Name = "textBox_ШтрихКод";
-            this.textBox_ШтрихКод.Size = new System.Drawing.Size(656, 26);
+            this.textBox_ШтрихКод.Size = new System.Drawing.Size(785, 26);
             this.textBox_ШтрихКод.TabIndex = 0;
             this.textBox_ШтрихКод.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_ШтрихКод_KeyDown);
             // 
@@ -81,10 +87,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dataGridViewRecords);
-            this.panel1.Location = new System.Drawing.Point(6, 50);
+            this.panel1.Location = new System.Drawing.Point(6, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(906, 308);
+            this.panel1.Size = new System.Drawing.Size(908, 282);
             this.panel1.TabIndex = 51;
             // 
             // dataGridViewRecords
@@ -100,7 +106,7 @@
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(906, 308);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(908, 282);
             this.dataGridViewRecords.TabIndex = 1;
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewRecords_KeyDown);
@@ -114,7 +120,7 @@
             this.panel2.Location = new System.Drawing.Point(6, 365);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(906, 39);
+            this.panel2.Size = new System.Drawing.Size(908, 39);
             this.panel2.TabIndex = 52;
             // 
             // buttonSave
@@ -139,11 +145,41 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_AddAny,
+            this.toolStripButtonDelete});
+            this.toolStrip1.Location = new System.Drawing.Point(4, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(911, 25);
+            this.toolStrip1.TabIndex = 53;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton_AddAny
+            // 
+            this.toolStripButton_AddAny.Image = global::StorageAndTrade.Properties.Resources.add_document;
+            this.toolStripButton_AddAny.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_AddAny.Name = "toolStripButton_AddAny";
+            this.toolStripButton_AddAny.Size = new System.Drawing.Size(115, 22);
+            this.toolStripButton_AddAny.Text = "Додати декілька";
+            this.toolStripButton_AddAny.Click += new System.EventHandler(this.toolStripButton_AddAny_Click);
+            // 
+            // toolStripButtonDelete
+            // 
+            this.toolStripButtonDelete.Image = global::StorageAndTrade.Properties.Resources.page_white_delete;
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonDelete.Text = "Видалити";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
+            // 
             // Form_ПідбірПоШтрихКоду
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 408);
+            this.ClientSize = new System.Drawing.Size(919, 408);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -159,7 +195,10 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,5 +212,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
+        private System.Windows.Forms.ToolStripButton toolStripButton_AddAny;
     }
 }

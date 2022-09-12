@@ -44,15 +44,13 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            //geckoWebBrowser = GeckoWebBrowser.AddGeckoWebBrowserControl(this, new Point(2, 210));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 250));
         }
 
-        //Gecko.GeckoWebBrowser geckoWebBrowser { get; set; }
+        WebBrowser WindowsWebBrowser { get; set; }
 
         private void Form_ВільніЗалишки_Звіт_Load(object sender, EventArgs e)
         {
-            //geckoWebBrowser.Reload();
-
             directoryControl_НоменклатураПапка.Init(new Form_НоменклатураПапкиВибір(), new Номенклатура_Папки_Pointer(), ПошуковіЗапити.Номенклатура_Папки);
             directoryControl_Номенклатура.Init(new Form_Номенклатура(), new Номенклатура_Pointer(), ПошуковіЗапити.Номенклатура);
             directoryControl_ХарактеристикаНоменклатури.Init(new Form_ХарактеристикиНоменклатури(), new ХарактеристикиНоменклатури_Pointer(), ПошуковіЗапити.ХарактеристикаНоменклатуриЗВідбором());
@@ -236,7 +234,8 @@ ORDER BY Номенклатура_Назва
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ВільніЗалишки_Залишки.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -451,7 +450,7 @@ ORDER BY period ASC
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ВільніЗалишки_Документи.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
     }
 }

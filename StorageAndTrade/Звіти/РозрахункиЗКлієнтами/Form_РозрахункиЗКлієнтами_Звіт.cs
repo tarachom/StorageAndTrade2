@@ -43,15 +43,13 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-           // geckoWebBrowser = GeckoWebBrowser.AddGeckoWebBrowserControl(this, new Point(2, 185));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 220));
         }
 
-        //Gecko.GeckoWebBrowser geckoWebBrowser { get; set; }
+        WebBrowser WindowsWebBrowser { get; set; }
 
         private void Form_РозрахункиЗКлієнтами_Звіт_Load(object sender, EventArgs e)
         {
-            //geckoWebBrowser.Reload();
-
             directoryControl_КонтрагентиПапка.Init(new Form_КонтрагентиПапкиВибір(), new Контрагенти_Папки_Pointer(), ПошуковіЗапити.Контрагенти_Папки);
             directoryControl_Контрагенти.Init(new Form_Контрагенти(), new Контрагенти_Pointer(), ПошуковіЗапити.Контрагенти);
             directoryControl_Валюти.Init(new Form_Валюти(), new Валюти_Pointer(), ПошуковіЗапити.Валюти);
@@ -163,7 +161,7 @@ ORDER BY Контрагент_Назва
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\РозрахункиЗКлієнтами_Залишки.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void button_Documents_Click(object sender, EventArgs e)
@@ -314,7 +312,7 @@ ORDER BY period ASC
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\РозрахункиЗКлієнтами_Документи.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         void ЗалишкиТаОбороти(XmlDocument xmlDoc)
@@ -551,7 +549,7 @@ ORDER BY Контрагент_Назва, Валюта_Назва
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\РозрахункиЗКлієнтами_ЗалишкиТаОбороти.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

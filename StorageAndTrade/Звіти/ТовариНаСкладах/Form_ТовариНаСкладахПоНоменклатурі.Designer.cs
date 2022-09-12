@@ -44,6 +44,7 @@ namespace StorageAndTrade
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.directoryControl_Склади = new StorageAndTrade.DirectoryControl();
             this.directoryControl_СкладиПапки = new StorageAndTrade.DirectoryControl();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +81,7 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(979, 156);
+            this.buttonClose.Location = new System.Drawing.Point(978, 192);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(105, 31);
@@ -91,7 +92,7 @@ namespace StorageAndTrade
             // 
             // buttonOstatok
             // 
-            this.buttonOstatok.Location = new System.Drawing.Point(14, 156);
+            this.buttonOstatok.Location = new System.Drawing.Point(13, 192);
             this.buttonOstatok.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOstatok.Name = "buttonOstatok";
             this.buttonOstatok.Size = new System.Drawing.Size(105, 31);
@@ -108,7 +109,7 @@ namespace StorageAndTrade
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.directoryControl_ХарактеристикаНоменклатури);
-            this.groupBox1.Location = new System.Drawing.Point(14, 8);
+            this.groupBox1.Location = new System.Drawing.Point(13, 44);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -188,7 +189,7 @@ namespace StorageAndTrade
             this.groupBox2.Controls.Add(this.directoryControl_СкладиПапки);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(600, 8);
+            this.groupBox2.Location = new System.Drawing.Point(599, 44);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -227,11 +228,23 @@ namespace StorageAndTrade
             this.directoryControl_СкладиПапки.Size = new System.Drawing.Size(385, 31);
             this.directoryControl_СкладиПапки.TabIndex = 59;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(13, 9);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(250, 25);
+            this.label8.TabIndex = 88;
+            this.label8.Text = "Залишки номенклатури";
+            // 
             // Form_ТовариНаСкладахПоНоменклатурі
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 548);
+            this.ClientSize = new System.Drawing.Size(1098, 481);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonOstatok);
@@ -239,6 +252,7 @@ namespace StorageAndTrade
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ТовариНаСкладахПоНоменклатурі";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Залишки номенклатури";
             this.Load += new System.EventHandler(this.Form_ТовариНаСкладахПоНоменклатурі_Load);
             this.groupBox1.ResumeLayout(false);
@@ -246,6 +260,7 @@ namespace StorageAndTrade
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,5 +279,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label7;
         private DirectoryControl directoryControl_Номенклатура;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -43,15 +43,13 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            //geckoWebBrowser = GeckoWebBrowser.AddGeckoWebBrowserControl(this, new Point(2, 220));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 260));
         }
 
-        //Gecko.GeckoWebBrowser geckoWebBrowser { get; set; }
+        WebBrowser WindowsWebBrowser { get; set; }
 
         private void Form_ЗамовленняКлієнтів_Звіт_Load(object sender, EventArgs e)
         {
-            //geckoWebBrowser.Reload();
-
             directoryControl_НоменклатураПапка.Init(new Form_НоменклатураПапкиВибір(), new Номенклатура_Папки_Pointer(), ПошуковіЗапити.Номенклатура_Папки);
             directoryControl_Номенклатура.Init(new Form_Номенклатура(), new Номенклатура_Pointer(), ПошуковіЗапити.Номенклатура);
             directoryControl_ХарактеристикаНоменклатури.Init(new Form_ХарактеристикиНоменклатури(), new ХарактеристикиНоменклатури_Pointer(), ПошуковіЗапити.ХарактеристикаНоменклатуриЗВідбором());
@@ -235,7 +233,7 @@ ORDER BY Номенклатура_Назва
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ТовариНаСкладах_Залишки.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         void ЗалишкиТаОбороти(XmlDocument xmlDoc)
@@ -543,7 +541,7 @@ ORDER BY Номенклатура_Назва, ХарактеристикаНом
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ТовариНаСкладах_ЗалишкиТаОбороти.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void button_Documents_Click(object sender, EventArgs e)
@@ -753,7 +751,7 @@ ORDER BY period ASC
             ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ТовариНаСкладах_Документи.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -762,156 +760,3 @@ ORDER BY period ASC
         }
     }
 }
-
-
-//private void buttonCreate_Click(object sender, EventArgs e)
-//{
-//    bool isExistParent = false;
-
-//    string query = $@"
-//SELECT 
-//    Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.Номенклатура} AS Номенклатура, 
-//    Довідник_Номенклатура.{Номенклатура_Const.Назва} AS Номенклатура_Назва, 
-//    Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ХарактеристикаНоменклатури} AS ХарактеристикаНоменклатури,
-//    Довідник_ХарактеристикиНоменклатури.{ХарактеристикиНоменклатури_Const.Назва} AS ХарактеристикаНоменклатури_Назва,
-//    Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.Склад} AS Склад,
-//    Довідник_Склади.{Склади_Const.Назва} AS Склад_Назва, 
-
-//    SUM(CASE WHEN Рег_ТовариНаСкладах.income = true THEN 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ВНаявності} ELSE 
-//       -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ВНаявності} END) AS ВНаявності,
-
-//    SUM(CASE WHEN Рег_ТовариНаСкладах.income = true THEN 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} ELSE 
-//        -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} END) AS Сума
-//FROM 
-//    {ТовариНаСкладах_Const.TABLE} AS Рег_ТовариНаСкладах
-
-//    LEFT JOIN {Номенклатура_Const.TABLE} AS Довідник_Номенклатура ON Довідник_Номенклатура.uid = 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.Номенклатура}
-
-//    LEFT JOIN {ХарактеристикиНоменклатури_Const.TABLE} AS Довідник_ХарактеристикиНоменклатури ON Довідник_ХарактеристикиНоменклатури.uid = 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ХарактеристикаНоменклатури}
-
-//    LEFT JOIN {Склади_Const.TABLE} AS Довідник_Склади ON Довідник_Склади.uid = 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.Склад}
-//";
-//    #region WHERE
-
-//    //Відбір по всіх вкладених папках вибраної папки Номенклатури
-//    if (!directoryControl_НоменклатураПапка.DirectoryPointerItem.IsEmpty())
-//    {
-//        query += isExistParent ? "AND" : "WHERE";
-//        isExistParent = true;
-
-//        query += $@"
-//Довідник_Номенклатура.{Номенклатура_Const.Папка} IN 
-//    (
-//        WITH RECURSIVE r AS 
-//        (
-//            SELECT uid
-//            FROM {Номенклатура_Папки_Const.TABLE}
-//            WHERE {Номенклатура_Папки_Const.TABLE}.uid = '{directoryControl_НоменклатураПапка.DirectoryPointerItem.UnigueID}' 
-
-//            UNION ALL
-
-//            SELECT {Номенклатура_Папки_Const.TABLE}.uid
-//            FROM {Номенклатура_Папки_Const.TABLE}
-//                JOIN r ON {Номенклатура_Папки_Const.TABLE}.{Номенклатура_Папки_Const.Родич} = r.uid
-//        ) SELECT uid FROM r
-//    )
-//";
-//    }
-
-//    //Відбір по вибраному елементу Номенклатура
-//    if (!directoryControl_Номенклатура.DirectoryPointerItem.IsEmpty())
-//    {
-//        query += isExistParent ? "AND" : "WHERE";
-//        isExistParent = true;
-
-//        query += $@"
-//Довідник_Номенклатура.uid = '{directoryControl_Номенклатура.DirectoryPointerItem.UnigueID}'
-//";
-//    }
-
-//    //Відбір по вибраному елементу Характеристики Номенклатури
-//    if (!directoryControl_ХарактеристикаНоменклатури.DirectoryPointerItem.IsEmpty())
-//    {
-//        query += isExistParent ? "AND" : "WHERE";
-//        isExistParent = true;
-
-//        query += $@"
-//Довідник_ХарактеристикиНоменклатури.uid = '{directoryControl_ХарактеристикаНоменклатури.DirectoryPointerItem.UnigueID}'
-//";
-//    }
-
-//    //Відбір по всіх вкладених папках вибраної папки Склади
-//    if (!directoryControl_СкладиПапки.DirectoryPointerItem.IsEmpty())
-//    {
-//        query += isExistParent ? "AND" : "WHERE";
-//        isExistParent = true;
-
-//        query += $@"
-//Довідник_Склади.{Склади_Const.Папка} IN 
-//    (
-//        WITH RECURSIVE r AS 
-//        (
-//            SELECT uid
-//            FROM {Склади_Папки_Const.TABLE}
-//            WHERE {Склади_Папки_Const.TABLE}.uid = '{directoryControl_СкладиПапки.DirectoryPointerItem.UnigueID}' 
-
-//            UNION ALL
-
-//            SELECT {Склади_Папки_Const.TABLE}.uid
-//            FROM {Склади_Папки_Const.TABLE}
-//                JOIN r ON {Склади_Папки_Const.TABLE}.{Склади_Папки_Const.Родич} = r.uid
-//        ) SELECT uid FROM r
-//    )
-//";
-//    }
-
-//    //Відбір по вибраному елементу Склади
-//    if (!directoryControl_Склади.DirectoryPointerItem.IsEmpty())
-//    {
-//        query += isExistParent ? "AND" : "WHERE";
-//        isExistParent = true;
-
-//        query += $@"
-//Довідник_Склади.uid = '{directoryControl_Склади.DirectoryPointerItem.UnigueID}'
-//";
-//    }
-
-//    #endregion
-
-//    query += $@"
-//GROUP BY Номенклатура, Номенклатура_Назва, 
-//         ХарактеристикаНоменклатури, ХарактеристикаНоменклатури_Назва,
-//         Склад, Склад_Назва
-
-//HAVING
-//     SUM(CASE WHEN Рег_ТовариНаСкладах.income = true THEN 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ВНаявності} ELSE 
-//       -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ВНаявності} END) != 0
-//OR
-//    SUM(CASE WHEN Рег_ТовариНаСкладах.income = true THEN 
-//        Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} ELSE 
-//        -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} END) != 0   
-
-//ORDER BY Номенклатура_Назва
-//";
-
-//    //Console.WriteLine(query);
-
-//    XmlDocument xmlDoc = ФункціїДляЗвітів.CreateXmlDocument();
-
-//    Dictionary<string, object> paramQuery = new Dictionary<string, object>();
-
-//    string[] columnsName;
-//    List<object[]> listRow;
-
-//    Config.Kernel.DataBase.SelectRequest(query, paramQuery, out columnsName, out listRow);
-
-//    Функції.DataToXML(xmlDoc, "ТовариНаСкладах", columnsName, listRow);
-
-//    Функції.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ТовариНаСкладах.xslt", true, "Товари на складах");
-//}

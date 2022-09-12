@@ -43,7 +43,7 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            //geckoWebBrowser = GeckoWebBrowser.AddGeckoWebBrowserControl(this, new Point(2, 170));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 245));
 
             directoryControl_Організація.Init(new Form_Організації(), new Організації_Pointer(), ПошуковіЗапити.Організації);
             directoryControl_Номенклатура.Init(new Form_Номенклатура(), new Номенклатура_Pointer(), ПошуковіЗапити.Номенклатура);
@@ -64,11 +64,11 @@ namespace StorageAndTrade
             //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
         }
 
-        //Gecko.GeckoWebBrowser geckoWebBrowser { get; set; }
+        WebBrowser WindowsWebBrowser { get; set; }
 
         private void Form_ПартіїТоварівПоНоменклатурі_Load(object sender, EventArgs e)
         {
-            //geckoWebBrowser.Reload();
+
         }
 
         public Номенклатура_Pointer Номенклатура 
@@ -225,7 +225,7 @@ ORDER BY Організація_Назва, ПартіяТоварівКомпо
                 ФункціїДляЗвітів.XmlDocumentSaveAndTransform(xmlDoc, @"Шаблони\ПартіїТоварів_Залишки.xslt", false);
 
             string pathToHtmlFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Report.html");
-            //geckoWebBrowser.Navigate(pathToHtmlFile);
+            WindowsWebBrowser.Navigate(pathToHtmlFile);
         }
 
         private void buttonOstatok_Click(object sender, EventArgs e)

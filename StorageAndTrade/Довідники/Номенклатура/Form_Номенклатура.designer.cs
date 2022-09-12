@@ -200,15 +200,18 @@ namespace StorageAndTrade
             // 
             this.dataGridViewRecords.AllowUserToAddRows = false;
             this.dataGridViewRecords.AllowUserToDeleteRows = false;
-            this.dataGridViewRecords.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewRecords.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewRecords.GridColor = System.Drawing.Color.LightGray;
             this.dataGridViewRecords.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewRecords.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
+            this.dataGridViewRecords.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
+            this.dataGridViewRecords.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dataGridViewRecords.Size = new System.Drawing.Size(622, 593);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);

@@ -311,9 +311,10 @@ namespace StorageAndTrade.СпільніФорми
 
         #endregion
 
-        private void ДодатиШтрихКод()
+        private void ДодатиШтрихКод(string Штрихкод)
         {
-            string Штрихкод = textBox_ШтрихКод.Text.Trim();
+            if (String.IsNullOrEmpty(Штрихкод))
+                return;
 
             foreach (Записи запис in RecordsBindingList)
             {
@@ -375,11 +376,24 @@ LIMIT 1
             RecordsBindingList.Add(записНовий);
         }
 
+        private void ДодатиДекількаШтрихКодів(string ШтрихКодиТекст)
+        {
+            ШтрихКодиТекст = ШтрихКодиТекст.Trim();
+
+            if (String.IsNullOrEmpty(ШтрихКодиТекст))
+                return;
+
+            string[] ШтрихКоди = ШтрихКодиТекст.Split(new String[] { "\n" }, StringSplitOptions.None);
+
+            foreach (string Штрихкод in ШтрихКоди)
+                ДодатиШтрихКод(Штрихкод.Trim());
+        }
+
         private void textBox_ШтрихКод_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ДодатиШтрихКод();
+                ДодатиШтрихКод(textBox_ШтрихКод.Text.Trim());
 
                 textBox_ШтрихКод.Text = "";
             }
@@ -460,6 +474,38 @@ LIMIT 1
         {
 
         }
+
+        #region Меню
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewRecords.SelectedCells.Count > 0 &&
+                MessageBox.Show("Видалити записи?", "Повідомлення", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                List<int> deleteRowIndex = new List<int>();
+
+                for (int i = 0; i < dataGridViewRecords.SelectedCells.Count; i++)
+                    if (!deleteRowIndex.Contains(dataGridViewRecords.SelectedCells[i].RowIndex) &&
+                        !dataGridViewRecords.Rows[dataGridViewRecords.SelectedCells[i].RowIndex].IsNewRow)
+                        deleteRowIndex.Add(dataGridViewRecords.SelectedCells[i].RowIndex);
+
+                deleteRowIndex.Sort();
+
+                foreach (int rowIndex in deleteRowIndex.Reverse<int>())
+                    RecordsBindingList.RemoveAt(rowIndex);
+            }
+        }
+
+        private void toolStripButton_AddAny_Click(object sender, EventArgs e)
+        {
+            Form_InputTextBox form_InputTextBox = new Form_InputTextBox();
+            DialogResult dialogResult = form_InputTextBox.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+                ДодатиДекількаШтрихКодів(form_InputTextBox.InputText);
+        }
+
+        #endregion
     }
 
     /// <summary>

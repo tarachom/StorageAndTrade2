@@ -26,12 +26,27 @@ limitations under the License.
 
 */
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace StorageAndTrade
 {
+    class WebBrowserReport
+    {
+        public static WebBrowser AddWebBrowserControl(Form form, Point webBrowserPoint)
+        {
+            WebBrowser webBrowser = new WebBrowser();
+            form.Controls.Add(webBrowser);
+
+            webBrowser.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left) | AnchorStyles.Right)));
+            webBrowser.Location = webBrowserPoint;
+            webBrowser.Name = "WindowsWebBrowser";
+            webBrowser.Size = new Size(form.Width - webBrowserPoint.X - 18, form.Height - webBrowserPoint.Y - 40);
+
+            return webBrowser;
+        }
+    }
+
     //class GeckoWebBrowser
     //{
     //    public static Gecko.GeckoWebBrowser AddGeckoWebBrowserControl(Form form, Point geckoWebBrowserPoint)

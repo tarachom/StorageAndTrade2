@@ -234,7 +234,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 663);
+            this.ClientSize = new System.Drawing.Size(1071, 487);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonOstatokAndOborot);
             this.Controls.Add(this.button_Documents);

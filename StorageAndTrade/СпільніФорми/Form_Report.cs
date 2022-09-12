@@ -30,16 +30,16 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            //geckoWebBrowser = GeckoWebBrowser.AddGeckoWebBrowserControl(this, new System.Drawing.Point(2, 2));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new System.Drawing.Point(2, 2));
         }
 
-        //Gecko.GeckoWebBrowser geckoWebBrowser { get; set; }
+        WebBrowser WindowsWebBrowser { get; set; }
 
         public string HtmlDocumentPath { get; set; }
 
         private void Form_Report_Load(object sender, EventArgs e)
         {
-            //geckoWebBrowser.Navigate(HtmlDocumentPath);
+            WindowsWebBrowser.Navigate(HtmlDocumentPath);
             //geckoWebBrowser.DomClick += GeckoWebBrowser.DomClick;
         }
     }

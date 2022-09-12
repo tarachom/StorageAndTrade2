@@ -317,7 +317,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 695);
+            this.ClientSize = new System.Drawing.Size(1116, 494);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonDocuments);
             this.Controls.Add(this.groupBox2);
