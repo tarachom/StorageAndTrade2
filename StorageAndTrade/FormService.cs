@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (C) 2019-2020 TARAKHOMYN YURIY IVANOVYCH
+Copyright (C) 2019-2022 TARAKHOMYN YURIY IVANOVYCH
 All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -109,31 +109,43 @@ namespace StorageAndTrade
 
 			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
 
-			buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
-			buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
-			button_CalculationBalancesAll.Invoke(new Action(() => button_CalculationBalancesAll.Enabled = true));
+			if (!this.Disposing)
+			{
+				buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
+				buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
+				button_CalculationBalancesAll.Invoke(new Action(() => button_CalculationBalancesAll.Enabled = true));
+			}
 		}
 
 		void CalculationBalancesAll_Func()
         {
-			ApendLine("\nПерерахунок залишків");
-
-			ApendLine("\nОбчислення залишків з групуванням по днях");
-			foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
+			if (!CancelThread)
 			{
-				ApendLine(" --> регістер: " + registerAccumulation);
-				CalculationBalances.ОбчисленняВіртуальнихЗалишківПоВсіхДнях(registerAccumulation);
+                ApendLine("\nПерерахунок залишків");
+
+                ApendLine("\nОбчислення залишків з групуванням по днях");
+				foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
+				{
+					ApendLine(" --> регістер: " + registerAccumulation);
+					CalculationBalances.ОбчисленняВіртуальнихЗалишківПоВсіхДнях(registerAccumulation);
+				}
 			}
 
-			ApendLine("\nОбновлення актуальності:");
-			foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
+			if (!CancelThread)
 			{
-				ApendLine(" --> регістер: " + registerAccumulation);
-				CalculationBalances.СкинутиЗначенняАктуальностіВіртуальнихЗалишківПоВсіхМісяцях(registerAccumulation);
+				ApendLine("\nОбновлення актуальності:");
+				foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
+				{
+					ApendLine(" --> регістер: " + registerAccumulation);
+					CalculationBalances.СкинутиЗначенняАктуальностіВіртуальнихЗалишківПоВсіхМісяцях(registerAccumulation);
+				}
 			}
 
-			ApendLine("\nОбчислення залишків з групуванням по місяцях");
-			CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
+			if (!CancelThread)
+			{
+				ApendLine("\nОбчислення залишків з групуванням по місяцях");
+				CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
+			}
 
 			ApendLine("\nГотово!");
 		}
@@ -184,9 +196,12 @@ namespace StorageAndTrade
 
 			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
 
-			buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
-			buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
-			button_CalculationBalancesAll.Invoke(new Action(() => button_CalculationBalancesAll.Enabled = true));
+			if (!this.Disposing)
+			{
+				buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
+				buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
+				button_CalculationBalancesAll.Invoke(new Action(() => button_CalculationBalancesAll.Enabled = true));
+			}
 		}
 
         private void button1_Click(object sender, EventArgs e)
@@ -233,257 +248,12 @@ namespace StorageAndTrade
 
 		private void FormService_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (thread == null || thread.ThreadState == ThreadState.Stopped)
-				return;
-
-			buttonCancel_Click(this, new EventArgs());
-
-			Thread.Sleep(3000);
-
-			thread.Abort();
+            CancelThread = true;
 		}
 
-        
-    }
+		private void button_TestTask_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
-
-//private void CalculateBalance_ЗамовленняКлієнтів()
-//{
-//	const string registr_name = "ЗамовленняКлієнтів";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_ЗамовленняКлієнтів.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null;// CalculateBalancesInRegister_ЗамовленняКлієнтів.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_ЗамовленняКлієнтів.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void CalculateBalance_ТовариНаСкладах()
-//{
-//	const string registr_name = "ТовариНаСкладах";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_ТовариНаСкладах.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null;// CalculateBalancesInRegister_ТовариНаСкладах.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_ТовариНаСкладах.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void CalculateBalance_РозрахункиЗКлієнтами()
-//{
-//	const string registr_name = "РозрахункиЗКлієнтами";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_РозрахункиЗКлієнтами.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null;// CalculateBalancesInRegister_РозрахункиЗКлієнтами.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_РозрахункиЗКлієнтами.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void CalculateBalance_РозрахункиЗПостачальниками()
-//{
-//	const string registr_name = "РозрахункиЗПостачальниками";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_РозрахункиЗПостачальниками.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null; // CalculateBalancesInRegister_РозрахункиЗПостачальниками.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_РозрахункиЗПостачальниками.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void CalculateBalance_ЗамовленняПостачальникам()
-//{
-//	const string registr_name = "ЗамовленняПостачальникам";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_ЗамовленняПостачальникам.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null; // CalculateBalancesInRegister_ЗамовленняПостачальникам.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_ЗамовленняПостачальникам.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void CalculateBalance_ВільніЗалишки()
-//{
-//	const string registr_name = "ВільніЗалишки";
-
-//	ApendLine($"[ {registr_name} ] ", "");
-//	ApendLine("", " -> очистка ");
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		//CalculateBalancesInRegister_ВільніЗалишки.ВидалитиЗалишки();
-//	}
-
-//	List<DateTime> ListMonth;
-
-//	lock (lockobject)
-//	{
-//		if (cancel) thread.Abort();
-//		ListMonth = null; // CalculateBalancesInRegister_ВільніЗалишки.ОтриматиСписокМісяців();
-//	}
-
-//	if (ListMonth.Count > 0)
-//	{
-//		ApendLine("", " -> розрахунок ");
-
-//		foreach (DateTime listMonthItem in ListMonth)
-//		{
-//			ApendLine("", " --> " + listMonthItem.ToString("dd.MM.yyyy"));
-
-//			lock (lockobject)
-//			{
-//				if (cancel) thread.Abort();
-//				//CalculateBalancesInRegister_ВільніЗалишки.ОбчислитиЗалишкиЗаМісяць(listMonthItem);
-//			}
-//		}
-//	}
-//}
-
-//private void StartThreadCalculateBalance()
-//      {
-//	CalculateBalance_ЗамовленняКлієнтів();
-//	CalculateBalance_ТовариНаСкладах();
-//	CalculateBalance_РозрахункиЗКлієнтами();
-//	CalculateBalance_РозрахункиЗПостачальниками();
-//	CalculateBalance_ЗамовленняПостачальникам();
-//	CalculateBalance_ВільніЗалишки();
-
-//	buttonCalculate.Invoke(new Action(() => buttonCalculate.Enabled = true));
-//	buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
-//}

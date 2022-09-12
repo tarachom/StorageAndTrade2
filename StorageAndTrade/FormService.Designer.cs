@@ -36,6 +36,7 @@ namespace StorageAndTrade
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
+            this.button_TestTask = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,7 @@ namespace StorageAndTrade
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button_TestTask);
             this.panel1.Controls.Add(this.button_CalculationBalancesAll);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonSpendAll);
@@ -112,6 +114,18 @@ namespace StorageAndTrade
             this.richTextBoxInfo.TabIndex = 1;
             this.richTextBoxInfo.Text = "";
             // 
+            // button_TestTask
+            // 
+            this.button_TestTask.Enabled = false;
+            this.button_TestTask.Location = new System.Drawing.Point(670, 3);
+            this.button_TestTask.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_TestTask.Name = "button_TestTask";
+            this.button_TestTask.Size = new System.Drawing.Size(113, 31);
+            this.button_TestTask.TabIndex = 3;
+            this.button_TestTask.Text = "Task";
+            this.button_TestTask.UseVisualStyleBackColor = true;
+            this.button_TestTask.Click += new System.EventHandler(this.button_TestTask_Click);
+            // 
             // FormService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -139,5 +153,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.RichTextBox richTextBoxInfo;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button button_CalculationBalancesAll;
+        private System.Windows.Forms.Button button_TestTask;
     }
 }
