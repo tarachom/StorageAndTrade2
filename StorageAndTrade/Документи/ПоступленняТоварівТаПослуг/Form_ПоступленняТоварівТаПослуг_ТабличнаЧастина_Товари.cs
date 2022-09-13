@@ -700,5 +700,48 @@ namespace StorageAndTrade
         }
 
         #endregion
+
+        #region СерійніНомери
+
+		private void РозбитиРядокНаСерійніНомери(Записи запис, string СерійніНомериТекст)
+		{
+            СерійніНомериТекст = СерійніНомериТекст.Trim();
+
+            if (String.IsNullOrEmpty(СерійніНомериТекст))
+                return;
+
+            string[] СерійніНомери = СерійніНомериТекст.Split(new String[] { "\n" }, StringSplitOptions.None);
+
+            foreach (string СерійнийНомер in СерійніНомери)
+			{
+				Записи НовийЗапис = Записи.Clone(запис);
+
+				НовийЗапис.Серія = ФункціїДляДовідників.ОтриматиВказівникНаСеріюНоменклатури(СерійнийНомер);
+				НовийЗапис.Кількість = 1;
+				НовийЗапис.Сума = НовийЗапис.Ціна;
+
+				Записи.ПісляЗміни_Серія(НовийЗапис);
+
+                RecordsBindingList.Add(НовийЗапис);
+            }
+        }
+
+        private void toolStripButtonРозбитиРядокНаСерійніНомери_Click(object sender, EventArgs e)
+		{
+			if (dataGridViewRecords.SelectedCells.Count > 0)
+			{
+				int rowIndex = dataGridViewRecords.SelectedCells[0].RowIndex;
+                Записи запис = RecordsBindingList[rowIndex];
+
+                Form_InputTextBox form_InputTextBox = new Form_InputTextBox();
+                DialogResult dialogResult = form_InputTextBox.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                    РозбитиРядокНаСерійніНомери(запис, form_InputTextBox.InputText);
+
+            }                
+        }
+
+        #endregion
     }
 }

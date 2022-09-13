@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 08.09.2022 15:22:55
+ * Дата конфігурації: 13.09.2022 14:46:11
  *
  */
 
@@ -7949,16 +7949,18 @@ namespace StorageAndTrade_1_0.Довідники
         
         public const string Номер = "col_a3";
         public const string Коментар = "col_a1";
+        public const string ДатаСтворення = "col_a2";
     }
 	
     
     public class СеріїНоменклатури_Objest : DirectoryObject
     {
         public СеріїНоменклатури_Objest() : base(Config.Kernel, "tab_b02",
-             new string[] { "col_a3", "col_a1" }) 
+             new string[] { "col_a3", "col_a1", "col_a2" }) 
         {
             Номер = "";
             Коментар = "";
+            ДатаСтворення = DateTime.MinValue;
             
         }
         
@@ -7968,6 +7970,7 @@ namespace StorageAndTrade_1_0.Довідники
             {
                 Номер = base.FieldValue["col_a3"].ToString();
                 Коментар = base.FieldValue["col_a1"].ToString();
+                ДатаСтворення = (base.FieldValue["col_a2"] != DBNull.Value) ? DateTime.Parse(base.FieldValue["col_a2"].ToString()) : DateTime.MinValue;
                 
                 BaseClear();
                 return true;
@@ -7981,6 +7984,7 @@ namespace StorageAndTrade_1_0.Довідники
 		    СеріїНоменклатури_Triggers.BeforeRecording(this);
 			base.FieldValue["col_a3"] = Номер;
             base.FieldValue["col_a1"] = Коментар;
+            base.FieldValue["col_a2"] = ДатаСтворення;
             
             BaseSave();
 			СеріїНоменклатури_Triggers.AfterRecording(this);
@@ -7992,6 +7996,7 @@ namespace StorageAndTrade_1_0.Довідники
 			copy.New();
             copy.Номер = Номер;
 			copy.Коментар = Коментар;
+			copy.ДатаСтворення = ДатаСтворення;
 			
 			return copy;
         }
@@ -8010,6 +8015,7 @@ namespace StorageAndTrade_1_0.Довідники
         
         public string Номер { get; set; }
         public string Коментар { get; set; }
+        public DateTime ДатаСтворення { get; set; }
         
     }
     

@@ -22,8 +22,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using AccountingSoftware;
 using Конфа = StorageAndTrade_1_0;
@@ -116,30 +114,5 @@ namespace StorageAndTrade
 				MessageBox.Show("Помилка! " + (exception != null ? exception.Message : ""));
 			}
 		}
-
-		//private void buttonTryConnect_Click(object sender, EventArgs e)
-		//{
-		//	UpdateItemConfigurationParam();
-
-		//	Конфа.Config.Kernel = new Kernel();
-
-		//	Exception exception = null;
-
-		//	bool flag = Конфа.Config.Kernel.TryConnectToServer(
-  //              ItemConfigurationParam.DataBaseServer,
-  //              ItemConfigurationParam.DataBaseLogin,
-  //              ItemConfigurationParam.DataBasePassword,
-  //              ItemConfigurationParam.DataBasePort,
-		//		ItemConfigurationParam.DataBaseBaseName, out exception);
-
-		//	if (flag)
-  //          {
-		//		MessageBox.Show("ОК. Є підключення!");
-		//	}
-  //          else
-  //          {
-		//		MessageBox.Show("Помилка! " + (exception != null ? exception.Message : ""));
-		//	}
-  //      }
 	}
 }

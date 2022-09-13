@@ -21,7 +21,6 @@ limitations under the License.
 using System;
 using System.Windows.Forms;
 
-
 namespace StorageAndTrade
 {
     public partial class Form_Report : Form

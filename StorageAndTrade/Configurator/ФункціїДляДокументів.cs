@@ -41,6 +41,7 @@ using Конфа = StorageAndTrade_1_0;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using StorageAndTrade_1_0.Довідники;
 
 namespace StorageAndTrade
 {
@@ -242,6 +243,5 @@ namespace StorageAndTrade
             else
                 return null;
         }
-
     }
 }

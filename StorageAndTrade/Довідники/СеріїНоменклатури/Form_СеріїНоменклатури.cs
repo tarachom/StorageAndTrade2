@@ -78,7 +78,8 @@ namespace StorageAndTrade
 
 			Довідники.СеріїНоменклатури_Select серіїНоменклатури_Select = new Довідники.СеріїНоменклатури_Select();
 			серіїНоменклатури_Select.QuerySelect.Field.Add(Довідники.СеріїНоменклатури_Const.Номер);
-			серіїНоменклатури_Select.QuerySelect.Field.Add(Довідники.СеріїНоменклатури_Const.Коментар);
+            серіїНоменклатури_Select.QuerySelect.Field.Add(Довідники.СеріїНоменклатури_Const.ДатаСтворення);
+            серіїНоменклатури_Select.QuerySelect.Field.Add(Довідники.СеріїНоменклатури_Const.Коментар);
 
 			//ORDER
 			серіїНоменклатури_Select.QuerySelect.Order.Add(Довідники.СеріїНоменклатури_Const.Номер, SelectOrder.ASC);
@@ -93,7 +94,8 @@ namespace StorageAndTrade
 					ID = cur.UnigueID.ToString(),
 					Номер = cur.Fields[Довідники.СеріїНоменклатури_Const.Номер].ToString(),
 					Коментар = cur.Fields[Довідники.СеріїНоменклатури_Const.Коментар].ToString(),
-				});
+					ДатаСтворення = cur.Fields[Довідники.СеріїНоменклатури_Const.ДатаСтворення].ToString()
+                });
 			}
 
 			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
@@ -112,7 +114,8 @@ namespace StorageAndTrade
 			public string ID { get; set; }
 			public string Номер { get; set; }
 			public string Коментар { get; set; }
-		}
+            public string ДатаСтворення { get; set; }
+        }
 
         private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
