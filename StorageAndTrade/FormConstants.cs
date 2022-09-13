@@ -62,7 +62,7 @@ namespace StorageAndTrade
 
 
             //
-            //
+            // Ініціалізація
             //
 
             directoryControl_Організація.Init(new Form_Організації(), new Довідники.Організації_Pointer());
@@ -77,7 +77,7 @@ namespace StorageAndTrade
             directoryControl_ВидЦіни.Init(new Form_ВидиЦін(), new Довідники.ВидиЦін_Pointer());
 
             //
-            //
+            // Значення
             //
 
             directoryControl_Організація.DirectoryPointerItem = Константи.ЗначенняЗаЗамовчуванням.ОсновнаОрганізація_Const;
@@ -91,8 +91,14 @@ namespace StorageAndTrade
             directoryControl_БанківськийРахунок.DirectoryPointerItem = Константи.ЗначенняЗаЗамовчуванням.ОсновнийБанківськийРахунок_Const;
             directoryControl_ВидЦіни.DirectoryPointerItem = Константи.ЗначенняЗаЗамовчуванням.ОсновнийВидЦіни_Const;
 
+            //Журнали
             ComboBoxNameValue<Перелічення.ТипПеріодуДляЖурналівДокументів>.SelectItem(comboBox_ТипПеріодуДляЖурналівДокументів, Константи.ЖурналиДокументів.ОсновнийТипПеріоду_Const);
+
+            //Паритії
             ComboBoxNameValue<Перелічення.МетодиСписанняПартій>.SelectItem(comboBox_МетодиСписанняПартій, Константи.ПартіїТоварів.МетодСписанняПартій_Const);
+
+            //Фонові задачі
+            EnableBackgroundTask.Checked = Константи.Системні.ВвімкнутиФоновіЗадачі_Const;
         }
 
         void Save()
@@ -113,6 +119,8 @@ namespace StorageAndTrade
 
             if (comboBox_МетодиСписанняПартій.SelectedIndex >= 0)
                 Константи.ПартіїТоварів.МетодСписанняПартій_Const = ((NameValue<Перелічення.МетодиСписанняПартій>)comboBox_МетодиСписанняПартій.SelectedItem).Value;
+
+            Константи.Системні.ВвімкнутиФоновіЗадачі_Const = EnableBackgroundTask.Checked;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

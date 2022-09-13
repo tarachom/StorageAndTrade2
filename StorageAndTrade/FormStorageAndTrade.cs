@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Threading;
-using System.IO;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
-using Довідники = StorageAndTrade_1_0.Довідники;
-using Документи = StorageAndTrade_1_0.Документи;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
-using РегістриНакопичення = StorageAndTrade_1_0.РегістриНакопичення;
 using StorageAndTrade.Service;
+using System.Diagnostics;
 
 namespace StorageAndTrade
 {
@@ -27,82 +17,88 @@ namespace StorageAndTrade
         public FormStorageAndTrade()
         {
             InitializeComponent();
-
         }
 
-        public bool CloseThreadBackgroundTask { get; set; }
+        #region Поля
 
+        /// <summary>
+        /// Параметри відкритої конфігурації
+        /// </summary>
         public ConfigurationParam OpenConfigurationParam { get; set; }
 
+        /// <summary>
+        /// Потік для фонового обчислення
+        /// </summary>
         private Thread ThreadBackgroundTask { get; set; }
+
+        /// <summary>
+        /// Токен для завершення роботи потоку фонового обчислення
+        /// </summary>
+        CancellationTokenSource CancellationTokenBackgroundTask { get; set; }
+
+        #endregion
+
+        #region FORM
 
         private void FormStorageAndTrade_Load(object sender, EventArgs e)
         {
             this.MdiChildActivate += FormStorageAndTrade_MdiChildActivate;
 
-            //
-            // Робочий стіл
-            //
+            StartBackgroundTask();
+        }
 
-            //FormDesktop formDesktop = new FormDesktop();
-            //formDesktop.MdiParent = this;
-            //formDesktop.ControlBox = false;
-            //formDesktop.Show();
+        private void FormStorageAndTrade_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CancellationTokenBackgroundTask.Cancel();
+            ThreadBackgroundTask.Join();
 
-            //FormStorageAndTrade_Resize(this, new EventArgs());
+            Application.Exit();
+        }
 
-            //
-            // Обробка фонових задач розрахунку віртуальних залишків
-            //
+        #endregion
 
-            Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
+        #region BackgroundTask
 
-            CalculationBalances.ПідключитиДодаток_UUID_OSSP();
+        //
+        // Обробка фонових задач розрахунку віртуальних залишків
+        //
+
+        /// <summary>
+        /// Запуск на виконання фонових задач
+        /// </summary>
+        private void StartBackgroundTask()
+        {
+            CancellationTokenBackgroundTask = new CancellationTokenSource();
 
             ThreadBackgroundTask = new Thread(new ThreadStart(CalculationVirtualBalances));
             ThreadBackgroundTask.Start();
         }
 
-        private void FormStorageAndTrade_Resize(object sender, EventArgs e)
+        /// <summary>
+        /// Функція для окремого потоку фонових задач
+        /// </summary>
+        private void CalculationVirtualBalances()
         {
-            Form FormDesktop = Application.OpenForms["FormDesktop"];
+            int counter = 0;
 
-            if (FormDesktop != null)
+            CalculationBalances.ПідключитиДодаток_UUID_OSSP();
+
+            while (!CancellationTokenBackgroundTask.IsCancellationRequested)
             {
-                //FormDesktop.Top = 0;
-                //FormDesktop.Left = 0;
-                //FormDesktop.Width = this.Width-20;
-                //FormDesktop.Height = this.Height-142;
-
-                //FormDesktop.Top = 500;
-                //FormDesktop.Left = 0;
-                //FormDesktop.Width = this.Width - 20;
-                //FormDesktop.Height = this.Height - 142 - 550;
-            }
-        }
-
-        private void FormStorageAndTrade_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            CloseThreadBackgroundTask = true;
-            Application.Exit();
-        }
-
-        #region BackgroundTask
-
-        void CalculationVirtualBalances()
-        {
-            while (true)
-            {
-                if (CloseThreadBackgroundTask)
-                    break;
-
-                if (Константи.Системні.ВвімкнутиФоновіЗадачі_Const == true)
+                if (counter > 5)
                 {
-                    CalculationBalances.ОбчисленняВіртуальнихЗалишківПоДнях();
-                    CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
-                }
+                    if (Константи.Системні.ВвімкнутиФоновіЗадачі_Const == true)
+                    {
+                        CalculationBalances.ОбчисленняВіртуальнихЗалишківПоДнях();
+                        CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
+                    }
 
-                Thread.Sleep(5000);
+                    counter = 0;
+                }
+                
+                counter++;
+
+                Thread.Sleep(1000);
             }
         }
 

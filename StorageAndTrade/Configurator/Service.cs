@@ -70,6 +70,18 @@ namespace StorageAndTrade.Service
             обчисленняВіртуальнихЗалишків_TablePart.Save(false);
         }
 
+        /// <summary>
+        /// Видалити всі задачі
+        /// </summary>
+        public static void ClearAllTask()
+        {
+            //Очистка
+            string queryClear = $@"
+DELETE FROM {Системні.ФоновіЗадачі_ОбчисленняВіртуальнихЗалишків_TablePart.TABLE}
+";
+            Config.KernelBackgroundTask.DataBase.ExecuteSQL(queryClear);
+        }
+
         public static void ПідключитиДодаток_UUID_OSSP()
         {
             string query = "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"";
@@ -527,6 +539,10 @@ DELETE FROM {tableMonth};
         /// </summary>
         public static void ОбчисленняВіртуальнихЗалишківПоДнях()
         {
+            //
+            //Вибірка задач для обчислення
+            //
+
             string querySelectTask = $@"
 SELECT
     Задачі.uid,

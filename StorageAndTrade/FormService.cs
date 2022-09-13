@@ -49,23 +49,26 @@ namespace StorageAndTrade
 			InitializeComponent();
 		}
 
-		private object lockobject = new object();
-		private bool CancelThread = false;
-		private Thread thread;
+        CancellationTokenSource CancellationTokenThread { get; set; }
+        private Thread thread;
 
-		private void ApendLine(string head)
+		private void FormService_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (CancellationTokenThread != null)
+				CancellationTokenThread.Cancel();
+		}
+
+        private void ApendLine(string head)
 		{
 			if (richTextBoxInfo.InvokeRequired)
 			{
-				try
-				{
+				if (!this.Disposing && this.IsHandleCreated)
 					richTextBoxInfo.Invoke(new Action<string>(ApendLine), head);
-				}
-				catch { }
 			}
 			else
 			{
-				richTextBoxInfo.AppendText("\n" + head);
+                if (!this.Disposing && this.IsHandleCreated)
+                    richTextBoxInfo.AppendText("\n" + head);
 			}
 		}
 
@@ -74,30 +77,28 @@ namespace StorageAndTrade
 			buttonSpendAll.Enabled = true;
 			buttonCancel.Enabled = false;
 
-			CancelThread = true;
-		}
+			CancellationTokenThread.Cancel();
+        }
 
         private void buttonSpendAll_Click(object sender, EventArgs e)
         {
-			CancelThread = false;
-
 			buttonSpendAll.Enabled = false;
 			buttonCancel.Enabled = true;
 			button_CalculationBalancesAll.Enabled = false;
 
-			thread = new Thread(new ThreadStart(SpendAllDocument));
+			CancellationTokenThread = new CancellationTokenSource();
+            thread = new Thread(new ThreadStart(SpendAllDocument));
 			thread.Start();
 		}
 
 		private void button_CalculationBalancesAll_Click(object sender, EventArgs e)
 		{
-			CancelThread = false;
-
 			buttonSpendAll.Enabled = false;
 			buttonCancel.Enabled = true;
 			button_CalculationBalancesAll.Enabled = false;
 
-			thread = new Thread(new ThreadStart(CalculationBalancesAll));
+            CancellationTokenThread = new CancellationTokenSource();
+            thread = new Thread(new ThreadStart(CalculationBalancesAll));
 			thread.Start();
 		}
 
@@ -109,7 +110,7 @@ namespace StorageAndTrade
 
 			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
 
-			if (!this.Disposing)
+			if (!this.Disposing && this.IsHandleCreated)
 			{
 				buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
 				buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
@@ -118,36 +119,46 @@ namespace StorageAndTrade
 		}
 
 		void CalculationBalancesAll_Func()
-        {
-			if (!CancelThread)
-			{
-                ApendLine("\nПерерахунок залишків");
+		{
+			//Видалити всі задачі
+            CalculationBalances.ClearAllTask();
 
-                ApendLine("\nОбчислення залишків з групуванням по днях");
+            if (!CancellationTokenThread.IsCancellationRequested)
+			{
+				ApendLine("\nПерерахунок залишків");
+
+				ApendLine("\nОбчислення залишків з групуванням по днях");
 				foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
 				{
+					if (CancellationTokenThread.IsCancellationRequested)
+						break;
+
 					ApendLine(" --> регістер: " + registerAccumulation);
 					CalculationBalances.ОбчисленняВіртуальнихЗалишківПоВсіхДнях(registerAccumulation);
 				}
 			}
 
-			if (!CancelThread)
+			if (!CancellationTokenThread.IsCancellationRequested)
 			{
 				ApendLine("\nОбновлення актуальності:");
 				foreach (string registerAccumulation in CalculationBalances.СписокДоступнихВіртуальнихРегістрів)
 				{
+					if (CancellationTokenThread.IsCancellationRequested)
+						break;
+
 					ApendLine(" --> регістер: " + registerAccumulation);
 					CalculationBalances.СкинутиЗначенняАктуальностіВіртуальнихЗалишківПоВсіхМісяцях(registerAccumulation);
 				}
 			}
 
-			if (!CancelThread)
+			if (!CancellationTokenThread.IsCancellationRequested)
 			{
 				ApendLine("\nОбчислення залишків з групуванням по місяцях");
 				CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();
 			}
 
-			ApendLine("\nГотово!");
+			if (!CancellationTokenThread.IsCancellationRequested)
+				ApendLine("\nГотово!");
 		}
 
 		void SpendAllDocument()
@@ -159,7 +170,7 @@ namespace StorageAndTrade
 
 			while (journalSelect.MoveNext())
             {
-				if (CancelThread)
+				if (CancellationTokenThread.IsCancellationRequested)
 					break;
 
 				if (journalSelect.Current.Spend)
@@ -168,14 +179,11 @@ namespace StorageAndTrade
 
 					DocumentObject doc = journalSelect.GetDocumentObject(true);
 
-					if (CancelThread)
-						break;
+                    // !!!
+                    // треба додати перехват помилки
+                    //
 
-					// !!!
-					// треба додати перехват помилки
-					//
-
-					if (doc.GetType().GetMember("SpendTheDocument").Length == 1)
+                    if (doc.GetType().GetMember("SpendTheDocument").Length == 1)
 					{
 						try
 						{
@@ -202,58 +210,6 @@ namespace StorageAndTrade
 				buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
 				button_CalculationBalancesAll.Invoke(new Action(() => button_CalculationBalancesAll.Enabled = true));
 			}
-		}
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-			//Journal.Journal_Select journalSelect = new Journal.Journal_Select();
-			//journalSelect.Select();
-
-			//while (journalSelect.MoveNext())
-			//{
-			//	if (Cancel)
-			//		return;
-
-			//		ApendLine(journalSelect.Current.TypeDocument + " " + journalSelect.Current.SpendDate);
-
-			//		DocumentObject doc = journalSelect.GetDocumentObject(true);
-
-			//		PropertyInfo property_Назва = doc.GetType().GetProperty("Назва");
-			//		PropertyInfo property_ДатаДок = doc.GetType().GetProperty("ДатаДок");
-			//		PropertyInfo property_НомерДок = doc.GetType().GetProperty("НомерДок");
-
-			//		PropertyInfo property_Назва2 = doc.GetType().GetProperty("Назва2");
-			//		PropertyInfo property_ДатаДок2 = doc.GetType().GetProperty("ДатаДок2");
-			//		PropertyInfo property_НомерДок2 = doc.GetType().GetProperty("НомерДок2");
-
-			//		property_Назва2.SetValue(doc, property_Назва.GetValue(doc));
-			//		property_ДатаДок2.SetValue(doc, property_ДатаДок.GetValue(doc));
-			//		property_НомерДок2.SetValue(doc, property_НомерДок.GetValue(doc));
-
-			//		if (doc.GetType().GetMember("Save").Length == 1)
-			//			doc.GetType().InvokeMember(
-			//				"Save", BindingFlags.InvokeMethod, null, doc, new object[] { });
-			//}
-
-			//ApendLine("Готово!");
-
-			//buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
-			//buttonCancel.Invoke(new Action(() => buttonCancel.Enabled = false));
-		}
-
-        private void FormService_Load(object sender, EventArgs e)
-        {
-
-        }
-
-		private void FormService_FormClosing(object sender, FormClosingEventArgs e)
-		{
-            CancelThread = true;
-		}
-
-		private void button_TestTask_Click(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

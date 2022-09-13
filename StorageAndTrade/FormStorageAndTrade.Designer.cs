@@ -917,7 +917,6 @@ namespace StorageAndTrade
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStorageAndTrade_FormClosing);
             this.Load += new System.EventHandler(this.FormStorageAndTrade_Load);
-            this.Resize += new System.EventHandler(this.FormStorageAndTrade_Resize);
             this.menuStrip_ГоловнеМеню.ResumeLayout(false);
             this.menuStrip_ГоловнеМеню.PerformLayout();
             this.toolStrip_Довідники.ResumeLayout(false);

@@ -53,6 +53,7 @@ namespace StorageAndTrade
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox_ТипПеріодуДляЖурналівДокументів = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EnableBackgroundTask = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox_МетодиСписанняПартій = new System.Windows.Forms.ComboBox();
@@ -374,14 +375,25 @@ namespace StorageAndTrade
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.EnableBackgroundTask);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 462);
+            this.panel1.Size = new System.Drawing.Size(941, 641);
             this.panel1.TabIndex = 1;
+            // 
+            // EnableBackgroundTask
+            // 
+            this.EnableBackgroundTask.AutoSize = true;
+            this.EnableBackgroundTask.Location = new System.Drawing.Point(14, 451);
+            this.EnableBackgroundTask.Name = "EnableBackgroundTask";
+            this.EnableBackgroundTask.Size = new System.Drawing.Size(361, 19);
+            this.EnableBackgroundTask.TabIndex = 3;
+            this.EnableBackgroundTask.Text = "Виконувати фонові задачі обчислення віртуальних залишків";
+            this.EnableBackgroundTask.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -436,7 +448,7 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.buttonSaveAndClose);
             this.panel2.Controls.Add(this.buttonClose);
             this.panel2.Controls.Add(this.buttonSave);
-            this.panel2.Location = new System.Drawing.Point(0, 466);
+            this.panel2.Location = new System.Drawing.Point(0, 645);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(941, 39);
@@ -480,7 +492,7 @@ namespace StorageAndTrade
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(944, 508);
+            this.ClientSize = new System.Drawing.Size(944, 687);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -492,6 +504,7 @@ namespace StorageAndTrade
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -535,5 +548,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox_МетодиСписанняПартій;
+        private System.Windows.Forms.CheckBox EnableBackgroundTask;
     }
 }
