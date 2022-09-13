@@ -39,17 +39,17 @@
             this.Номенклатура_ТабличнаЧастина_Файли.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Номенклатура_ТабличнаЧастина_Файли.Location = new System.Drawing.Point(13, 12);
+            this.Номенклатура_ТабличнаЧастина_Файли.Location = new System.Drawing.Point(3, 3);
             this.Номенклатура_ТабличнаЧастина_Файли.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Номенклатура_ТабличнаЧастина_Файли.Name = "Номенклатура_ТабличнаЧастина_Файли";
-            this.Номенклатура_ТабличнаЧастина_Файли.Size = new System.Drawing.Size(850, 429);
+            this.Номенклатура_ТабличнаЧастина_Файли.Size = new System.Drawing.Size(869, 438);
             this.Номенклатура_ТабличнаЧастина_Файли.TabIndex = 0;
             this.Номенклатура_ТабличнаЧастина_Файли.ДовідникОбєкт = null;
             // 
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClose.Location = new System.Drawing.Point(155, 447);
+            this.buttonClose.Location = new System.Drawing.Point(143, 450);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(100, 31);
@@ -61,7 +61,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(13, 447);
+            this.buttonSave.Location = new System.Drawing.Point(1, 450);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(134, 31);
