@@ -50,22 +50,23 @@ namespace StorageAndTrade
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.directoryControl_НоменклатураПапка = new StorageAndTrade.DirectoryControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ОсновнаКартинка = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_Код = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileInput = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.buttonOnlySave = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ОсновнаКартинка)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(464, 575);
+            this.buttonClose.Location = new System.Drawing.Point(360, 542);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(191, 31);
+            this.buttonClose.Size = new System.Drawing.Size(93, 31);
             this.buttonClose.TabIndex = 16;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -73,12 +74,12 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(26, 575);
+            this.buttonSave.Location = new System.Drawing.Point(23, 541);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(191, 31);
+            this.buttonSave.Size = new System.Drawing.Size(136, 31);
             this.buttonSave.TabIndex = 15;
-            this.buttonSave.Text = "Зберегти";
+            this.buttonSave.Text = "Зберегти і закрити";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -275,16 +276,16 @@ namespace StorageAndTrade
             this.directoryControl_НоменклатураПапка.Size = new System.Drawing.Size(468, 31);
             this.directoryControl_НоменклатураПапка.TabIndex = 53;
             // 
-            // pictureBox1
+            // pictureBox_ОсновнаКартинка
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(663, 119);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 400);
-            this.pictureBox1.TabIndex = 55;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox_ОсновнаКартинка.BackColor = System.Drawing.Color.White;
+            this.pictureBox_ОсновнаКартинка.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_ОсновнаКартинка.Location = new System.Drawing.Point(663, 119);
+            this.pictureBox_ОсновнаКартинка.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBox_ОсновнаКартинка.Name = "pictureBox_ОсновнаКартинка";
+            this.pictureBox_ОсновнаКартинка.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox_ОсновнаКартинка.TabIndex = 55;
+            this.pictureBox_ОсновнаКартинка.TabStop = false;
             // 
             // label10
             // 
@@ -331,17 +332,30 @@ namespace StorageAndTrade
             this.toolStripButtonFileInput.Name = "toolStripButtonFileInput";
             this.toolStripButtonFileInput.Size = new System.Drawing.Size(63, 22);
             this.toolStripButtonFileInput.Text = "Файли";
+            this.toolStripButtonFileInput.Click += new System.EventHandler(this.toolStripButtonFileInput_Click);
+            // 
+            // buttonOnlySave
+            // 
+            this.buttonOnlySave.Location = new System.Drawing.Point(167, 541);
+            this.buttonOnlySave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonOnlySave.Name = "buttonOnlySave";
+            this.buttonOnlySave.Size = new System.Drawing.Size(86, 31);
+            this.buttonOnlySave.TabIndex = 60;
+            this.buttonOnlySave.Text = "Зберегти";
+            this.buttonOnlySave.UseVisualStyleBackColor = true;
+            this.buttonOnlySave.Click += new System.EventHandler(this.buttonOnlySave_Click);
             // 
             // Form_НоменклатураЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 618);
+            this.ClientSize = new System.Drawing.Size(1079, 585);
+            this.Controls.Add(this.buttonOnlySave);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox_Код);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox_ОсновнаКартинка);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.directoryControl_НоменклатураПапка);
             this.Controls.Add(this.textBox_Опис);
@@ -368,7 +382,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Номенклатура елемент";
             this.Load += new System.EventHandler(this.Form_НоменклатураЕлемент_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ОсновнаКартинка)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -398,11 +412,12 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private DirectoryControl directoryControl_НоменклатураПапка;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox_ОсновнаКартинка;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_Код;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileInput;
+        private System.Windows.Forms.Button buttonOnlySave;
     }
 }

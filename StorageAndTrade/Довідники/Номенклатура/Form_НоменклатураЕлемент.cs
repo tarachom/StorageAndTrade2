@@ -34,6 +34,7 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using System.IO;
 
 namespace StorageAndTrade
 {
@@ -106,32 +107,35 @@ namespace StorageAndTrade
 						directoryControl_ОдиницяВиміру.DirectoryPointerItem = new Довідники.ПакуванняОдиниціВиміру_Pointer(номенклатура_Objest.ОдиницяВиміру.UnigueID);
 						comboBox_ТипНоменклатури.SelectedItem = номенклатура_Objest.ТипНоменклатури;
 						textBox_Опис.Text = номенклатура_Objest.Опис;
-					}
+
+						ВідобразитиОсновнуКартинку();
+                    }
 					else
 						MessageBox.Show("Error read");
 				}
 			}
 		}
 
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
+		private void Save(bool close)
+		{
 			if (IsNew.HasValue)
 			{
 				if (IsNew.Value)
 					номенклатура_Objest.New();
 
+				номенклатура_Objest.Назва = textBox_Назва.Text;
+				номенклатура_Objest.НазваПовна = textBox_НазваПовна.Text;
+				номенклатура_Objest.Артикул = textBox_Артикул.Text;
+				номенклатура_Objest.Код = textBox_Код.Text;
+				номенклатура_Objest.Папка = (Довідники.Номенклатура_Папки_Pointer)directoryControl_НоменклатураПапка.DirectoryPointerItem;
+				номенклатура_Objest.Виробник = (Довідники.Виробники_Pointer)directoryControl_Виробник.DirectoryPointerItem;
+				номенклатура_Objest.ВидНоменклатури = (Довідники.ВидиНоменклатури_Pointer)directoryControl_ВидНоменклатури.DirectoryPointerItem;
+				номенклатура_Objest.ОдиницяВиміру = (Довідники.ПакуванняОдиниціВиміру_Pointer)directoryControl_ОдиницяВиміру.DirectoryPointerItem;
+				номенклатура_Objest.ТипНоменклатури = comboBox_ТипНоменклатури.SelectedItem != null ? (Перелічення.ТипиНоменклатури)comboBox_ТипНоменклатури.SelectedItem : 0;
+				номенклатура_Objest.Опис = textBox_Опис.Text;
+
 				try
 				{
-					номенклатура_Objest.Назва = textBox_Назва.Text;
-					номенклатура_Objest.НазваПовна = textBox_НазваПовна.Text;
-					номенклатура_Objest.Артикул = textBox_Артикул.Text;
-					номенклатура_Objest.Код = textBox_Код.Text;
-					номенклатура_Objest.Папка = (Довідники.Номенклатура_Папки_Pointer)directoryControl_НоменклатураПапка.DirectoryPointerItem;
-					номенклатура_Objest.Виробник = (Довідники.Виробники_Pointer)directoryControl_Виробник.DirectoryPointerItem;
-					номенклатура_Objest.ВидНоменклатури = (Довідники.ВидиНоменклатури_Pointer)directoryControl_ВидНоменклатури.DirectoryPointerItem;
-					номенклатура_Objest.ОдиницяВиміру = (Довідники.ПакуванняОдиниціВиміру_Pointer)directoryControl_ОдиницяВиміру.DirectoryPointerItem;
-					номенклатура_Objest.ТипНоменклатури = comboBox_ТипНоменклатури.SelectedItem != null ? (Перелічення.ТипиНоменклатури)comboBox_ТипНоменклатури.SelectedItem : 0;
-					номенклатура_Objest.Опис = textBox_Опис.Text;
 					номенклатура_Objest.Save();
 				}
 				catch (Exception exp)
@@ -146,13 +150,59 @@ namespace StorageAndTrade
 					OwnerForm.LoadRecords();
 				}
 
-				this.Close();
+				if (close)
+					this.Close();
 			}
-		}
+        }
 
-		private void buttonClose_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+			Save(true);
+        }
+
+        private void buttonOnlySave_Click(object sender, EventArgs e)
+        {
+            Save(false);
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
-    }
+
+		private void toolStripButtonFileInput_Click(object sender, EventArgs e)
+		{
+			if (IsNew.Value)
+			{
+				if (MessageBox.Show("Не записаний елемент довідника. Записати?", "Повідомлення", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+					Save(false);
+				else
+					return;
+			}
+
+			Form_Номенклатура_Файли form_Номенклатура_Файли = new Form_Номенклатура_Файли();
+			form_Номенклатура_Файли.MdiParent = this.MdiParent;
+			form_Номенклатура_Файли.ДовідникОбєкт = номенклатура_Objest;
+			form_Номенклатура_Файли.ВідобразитиКартинкуНаФорміНоменклатури = ВідобразитиОсновнуКартинку;
+            form_Номенклатура_Файли.Show();
+		}
+
+		public void ВідобразитиОсновнуКартинку()
+		{
+			if (!номенклатура_Objest.ОсновнаКартинкаФайл.IsEmpty())
+			{
+				Довідники.Файли_Objest файлКартинки = номенклатура_Objest.ОсновнаКартинкаФайл.GetDirectoryObject();
+
+				MemoryStream memoryStream = new MemoryStream(файлКартинки.БінарніДані);
+
+				try
+				{
+					pictureBox_ОсновнаКартинка.Image = Image.FromStream(memoryStream);
+				}
+				catch { }
+
+				memoryStream.Close();
+            }
+		}
+	}
 }

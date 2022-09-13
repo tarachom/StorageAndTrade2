@@ -1,0 +1,348 @@
+﻿/*
+Copyright (C) 2019-2022 TARAKHOMYN YURIY IVANOVYCH
+All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/*
+Автор:    Тарахомин Юрій Іванович
+Адреса:   Україна, м. Львів
+Сайт:     accounting.org.ua
+*/
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using AccountingSoftware;
+using Конфа = StorageAndTrade_1_0;
+using Константи = StorageAndTrade_1_0.Константи;
+using Довідники = StorageAndTrade_1_0.Довідники;
+using Документи = StorageAndTrade_1_0.Документи;
+using Перелічення = StorageAndTrade_1_0.Перелічення;
+using System.Diagnostics.Metrics;
+
+namespace StorageAndTrade
+{
+    public partial class Form_Номенклатура_ТабличнаЧастина_Файли : UserControl
+    {
+        public Form_Номенклатура_ТабличнаЧастина_Файли()
+        {
+            InitializeComponent();
+
+			RecordsBindingList = new BindingList<Записи>();
+			dataGridViewRecords.DataSource = RecordsBindingList;
+
+            dataGridViewRecords.Columns["Image"].Width = 30;
+            dataGridViewRecords.Columns["Image"].HeaderText = "";
+
+            dataGridViewRecords.Columns["ID"].Visible = false;
+            dataGridViewRecords.Columns["Файл"].Visible = false;
+            dataGridViewRecords.Columns["ФайлНазва"].Width = 500;
+            dataGridViewRecords.Columns["ФайлНазва"].HeaderText = "Назва файлу";
+            dataGridViewRecords.Columns["ФайлНазва"].ReadOnly = true;
+        }
+
+		/// <summary>
+		/// Власне довідник якому належить таблична частина
+		/// </summary>
+		public Довідники.Номенклатура_Objest ДовідникОбєкт { get; set; }
+
+		private BindingList<Записи> RecordsBindingList { get; set; }
+
+		private void Form_Номенклатура_ТабличнаЧастина_Файли_Load(object sender, EventArgs e) { }
+
+		public void LoadRecords()
+		{
+			RecordsBindingList.Clear();
+
+			Довідники.Номенклатура_Файли_TablePart номенклатура_Файли_TablePart =
+				new Довідники.Номенклатура_Файли_TablePart(ДовідникОбєкт);
+
+            номенклатура_Файли_TablePart.Read();
+
+            foreach (Довідники.Номенклатура_Файли_TablePart.Record record in номенклатура_Файли_TablePart.Records)
+            {
+                Записи запис = new Записи
+                {
+                    ID = record.UID.ToString(),
+                    Файл = record.Файл,
+                    Основний = record.Основний
+                };
+
+                RecordsBindingList.Add(запис);
+
+                Записи.ПісляЗміни_Файл(запис);
+            }
+		}
+
+		public void SaveRecords()
+        {
+			Довідники.Номенклатура_Файли_TablePart номенклатура_Файли_TablePart =
+				new Довідники.Номенклатура_Файли_TablePart(ДовідникОбєкт);
+
+            номенклатура_Файли_TablePart.Records.Clear();
+
+			int counter = 0;
+
+			foreach (Записи запис in RecordsBindingList)
+            {
+                номенклатура_Файли_TablePart.Records.Add(
+					new Довідники.Номенклатура_Файли_TablePart.Record()
+					{
+                        Файл = запис.Файл,
+                        Основний = запис.Основний
+                    }
+			    );
+
+				counter++;
+			}
+
+            номенклатура_Файли_TablePart.Save(true);
+		}
+
+        public Довідники.Файли_Pointer ОтриматиОсновнийФайл()
+        {
+            Довідники.Файли_Pointer файли_Pointer = new Довідники.Файли_Pointer();
+
+            foreach (Записи запис in RecordsBindingList)
+            {
+                if (запис.Основний)
+                    файли_Pointer = запис.Файл;
+            }
+
+            return файли_Pointer;
+        }
+
+		private class Записи
+		{
+            public Записи() { Image = Properties.Resources.doc_text_image; }
+            public Bitmap Image { get; set; }
+            public string ID { get; set; }
+			public Довідники.Файли_Pointer Файл { get; set; }
+            public string ФайлНазва { get; set; }
+            public bool Основний { get; set; }
+            public static Записи New()
+			{
+				return new Записи
+				{
+					ID = Guid.Empty.ToString(),
+                    Файл = new Довідники.Файли_Pointer()
+                };
+			}
+
+			public static Записи Clone(Записи запис)
+			{
+				return new Записи
+				{
+					ID = Guid.Empty.ToString(),
+                    Файл = запис.Файл
+                };
+			}
+
+            public static void ПісляЗміни_Файл(Записи запис)
+            {
+                запис.ФайлНазва = запис.Файл.GetPresentation();
+            }
+        }
+
+        private void toolStripButtonAdd_Click(object sender, EventArgs e)
+        {
+			Записи НовийЗапис = Записи.New();
+			RecordsBindingList.Add(НовийЗапис);
+		}
+
+        #region Вибір, Пошук, Зміна
+
+        private void dataGridViewRecords_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                dataGridViewRecords_CellDoubleClick(sender,
+                    new DataGridViewCellEventArgs(dataGridViewRecords.CurrentCell.ColumnIndex, dataGridViewRecords.CurrentCell.RowIndex));
+            else if (e.KeyCode == Keys.Delete)
+            {
+                if (dataGridViewRecords.CurrentCell == null)
+                    return;
+
+                string columnName = dataGridViewRecords.Columns[dataGridViewRecords.CurrentCell.ColumnIndex].Name;
+                Записи запис = RecordsBindingList[dataGridViewRecords.CurrentCell.RowIndex];
+
+                switch (columnName)
+                {
+                    case "ФайлНазва":
+                        {
+                            запис.Файл = new Довідники.Файли_Pointer();
+                            Записи.ПісляЗміни_Файл(запис);
+                            break;
+                        }
+                    default:
+                        break;
+                }
+
+                dataGridViewRecords.Refresh();
+            }
+            else if (e.KeyCode == Keys.Insert)
+                toolStripButtonAdd_Click(sender, new EventArgs());
+        }
+
+        private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+                ФункціїДляДокументів.ВідкритиМенюВибору(dataGridViewRecords, e.ColumnIndex, e.RowIndex, RecordsBindingList[e.RowIndex],
+                    new string[] { "ФайлНазва" }, SelectClick, FindTextChanged);
+        }
+
+        private void SelectClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem selectMenu = (ToolStripMenuItem)sender;
+            Записи запис = (Записи)selectMenu.Tag;
+
+            switch (selectMenu.Name)
+            {
+                case "ФайлНазва":
+                    {
+                        Form_Файли form_Файли = new Form_Файли();
+                        form_Файли.DirectoryPointerItem = запис.Файл;
+                        form_Файли.ShowDialog();
+
+                        запис.Файл = (Довідники.Файли_Pointer)form_Файли.DirectoryPointerItem;
+                        Записи.ПісляЗміни_Файл(запис);
+
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            dataGridViewRecords.Refresh();
+        }
+
+        private void FindTextChanged(object sender, EventArgs e)
+        {
+            ToolStripTextBox findMenu = (ToolStripTextBox)sender;
+            Записи запис = (Записи)findMenu.Tag;
+
+            ToolStrip parent = findMenu.GetCurrentParent();
+
+            ФункціїДляДокументів.ОчиститиМенюПошуку(parent);
+
+            string findText = findMenu.Text.TrimStart();
+
+            if (String.IsNullOrWhiteSpace(findMenu.Text))
+                findText = "%";
+
+            string query = "";
+
+            switch (findMenu.Name)
+            {
+                case "ФайлНазва":
+                    {
+                        query = ПошуковіЗапити.Файли;
+                        break;
+                    }
+                default:
+                    return;
+            }
+
+            ФункціїДляДокументів.ЗаповнитиМенюПошуку(parent, query, findText, findMenu.Name, запис, FindClick);
+        }
+
+        private void FindClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem selectMenu = (ToolStripMenuItem)sender;
+            NameValue<object> nameValue = (NameValue<object>)selectMenu.Tag;
+
+            string uid = nameValue.Name;
+            Записи запис = (Записи)nameValue.Value;
+
+            switch (selectMenu.Name)
+            {
+                case "ФайлНазва":
+                    {
+                        запис.Файл = new Довідники.Файли_Pointer(new UnigueID(uid));
+                        Записи.ПісляЗміни_Файл(запис);
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            dataGridViewRecords.Refresh();
+        }
+
+        #endregion
+
+        private void toolStripButtonCopy_Click(object sender, EventArgs e)
+        {
+			if (dataGridViewRecords.SelectedCells.Count > 0)
+			{
+				List<int> rowIndexList = new List<int>();
+
+				for (int i = 0; i < dataGridViewRecords.SelectedCells.Count; i++)
+					if (!rowIndexList.Contains(dataGridViewRecords.SelectedCells[i].RowIndex) &&
+						!dataGridViewRecords.Rows[dataGridViewRecords.SelectedCells[i].RowIndex].IsNewRow)
+						rowIndexList.Add(dataGridViewRecords.SelectedCells[i].RowIndex);
+
+				foreach (int rowIndex in rowIndexList)
+				{
+					Записи запис = Записи.Clone(RecordsBindingList[rowIndex]);
+					RecordsBindingList.Add(запис);
+
+                    Записи.ПісляЗміни_Файл(запис);
+                }
+			}
+		}
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+			if (dataGridViewRecords.SelectedCells.Count > 0)
+			{
+				List<int> deleteRowIndex = new List<int>();
+
+				for (int i = 0; i < dataGridViewRecords.SelectedCells.Count; i++)
+					if (!deleteRowIndex.Contains(dataGridViewRecords.SelectedCells[i].RowIndex) &&
+						!dataGridViewRecords.Rows[dataGridViewRecords.SelectedCells[i].RowIndex].IsNewRow)
+						deleteRowIndex.Add(dataGridViewRecords.SelectedCells[i].RowIndex);
+
+				deleteRowIndex.Sort();
+
+				foreach (int rowIndex in deleteRowIndex.Reverse<int>())
+					RecordsBindingList.RemoveAt(rowIndex);
+			}
+		}
+
+        private void dataGridViewRecords_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            string columnName = dataGridViewRecords.Columns[e.ColumnIndex].Name;
+
+            if (columnName == "Основний")
+            {
+                int counter = 0;
+
+                foreach (Записи запис in RecordsBindingList)
+                {
+                    if (counter != e.RowIndex)
+                        запис.Основний = false;
+
+                    counter++;
+                }
+
+                dataGridViewRecords.Refresh();
+            }
+        }
+    }
+}

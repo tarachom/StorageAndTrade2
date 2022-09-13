@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>13.09.2022 17:31:27</DateTimeSave>
+  <DateTimeSave>13.09.2022 19:22:53</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -2215,7 +2215,7 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           <IsIndex>1</IsIndex>
         </Field>
         <Field>
-          <Name>КартинкаФайл</Name>
+          <Name>ОсновнаКартинкаФайл</Name>
           <NameInTable>col_a7</NameInTable>
           <Type>pointer</Type>
           <Pointer>Довідники.Файли</Pointer>
@@ -2237,6 +2237,14 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
               <NameInTable>col_a1</NameInTable>
               <Type>pointer</Type>
               <Pointer>Довідники.Файли</Pointer>
+              <Desc>
+              </Desc>
+              <IsIndex>0</IsIndex>
+            </Field>
+            <Field>
+              <Name>Основний</Name>
+              <NameInTable>col_a3</NameInTable>
+              <Type>boolean</Type>
               <Desc>
               </Desc>
               <IsIndex>0</IsIndex>

@@ -39,6 +39,18 @@ namespace StorageAndTrade
         // ДОВІДНИКИ
         //
 
+        public static readonly string Файли = $@"
+SELECT 
+    uid,
+    {Довідники.Файли_Const.Назва} AS Назва
+FROM
+    {Довідники.Файли_Const.TABLE}
+WHERE
+    LOWER({Довідники.Файли_Const.Назва}) LIKE @like_param
+ORDER BY Назва
+LIMIT 10
+";
+
         public static readonly string ФізичніОсоби = $@"
 SELECT 
     uid,

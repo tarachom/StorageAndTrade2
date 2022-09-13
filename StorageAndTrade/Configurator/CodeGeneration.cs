@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 13.09.2022 17:31:27
+ * Дата конфігурації: 13.09.2022 19:22:53
  *
  */
 
@@ -3705,7 +3705,7 @@ namespace StorageAndTrade_1_0.Довідники
         public const string ВидНоменклатури = "col_a3";
         public const string ОдиницяВиміру = "col_a4";
         public const string Папка = "col_a5";
-        public const string КартинкаФайл = "col_a7";
+        public const string ОсновнаКартинкаФайл = "col_a7";
     }
 	
     
@@ -3724,7 +3724,7 @@ namespace StorageAndTrade_1_0.Довідники
             ВидНоменклатури = new Довідники.ВидиНоменклатури_Pointer();
             ОдиницяВиміру = new Довідники.ПакуванняОдиниціВиміру_Pointer();
             Папка = new Довідники.Номенклатура_Папки_Pointer();
-            КартинкаФайл = new Довідники.Файли_Pointer();
+            ОсновнаКартинкаФайл = new Довідники.Файли_Pointer();
             
             //Табличні частини
             Файли_TablePart = new Номенклатура_Файли_TablePart(this);
@@ -3745,7 +3745,7 @@ namespace StorageAndTrade_1_0.Довідники
                 ВидНоменклатури = new Довідники.ВидиНоменклатури_Pointer(base.FieldValue["col_a3"]);
                 ОдиницяВиміру = new Довідники.ПакуванняОдиниціВиміру_Pointer(base.FieldValue["col_a4"]);
                 Папка = new Довідники.Номенклатура_Папки_Pointer(base.FieldValue["col_a5"]);
-                КартинкаФайл = new Довідники.Файли_Pointer(base.FieldValue["col_a7"]);
+                ОсновнаКартинкаФайл = new Довідники.Файли_Pointer(base.FieldValue["col_a7"]);
                 
                 BaseClear();
                 return true;
@@ -3766,7 +3766,7 @@ namespace StorageAndTrade_1_0.Довідники
             base.FieldValue["col_a3"] = ВидНоменклатури.UnigueID.UGuid;
             base.FieldValue["col_a4"] = ОдиницяВиміру.UnigueID.UGuid;
             base.FieldValue["col_a5"] = Папка.UnigueID.UGuid;
-            base.FieldValue["col_a7"] = КартинкаФайл.UnigueID.UGuid;
+            base.FieldValue["col_a7"] = ОсновнаКартинкаФайл.UnigueID.UGuid;
             
             BaseSave();
 			
@@ -3786,7 +3786,7 @@ namespace StorageAndTrade_1_0.Довідники
 			copy.ВидНоменклатури = ВидНоменклатури;
 			copy.ОдиницяВиміру = ОдиницяВиміру;
 			copy.Папка = Папка;
-			copy.КартинкаФайл = КартинкаФайл;
+			copy.ОсновнаКартинкаФайл = ОсновнаКартинкаФайл;
 			
 			return copy;
         }
@@ -3813,7 +3813,7 @@ namespace StorageAndTrade_1_0.Довідники
         public Довідники.ВидиНоменклатури_Pointer ВидНоменклатури { get; set; }
         public Довідники.ПакуванняОдиниціВиміру_Pointer ОдиницяВиміру { get; set; }
         public Довідники.Номенклатура_Папки_Pointer Папка { get; set; }
-        public Довідники.Файли_Pointer КартинкаФайл { get; set; }
+        public Довідники.Файли_Pointer ОсновнаКартинкаФайл { get; set; }
         
         //Табличні частини
         public Номенклатура_Файли_TablePart Файли_TablePart { get; set; }
@@ -3891,7 +3891,7 @@ namespace StorageAndTrade_1_0.Довідники
     public class Номенклатура_Файли_TablePart : DirectoryTablePart
     {
         public Номенклатура_Файли_TablePart(Номенклатура_Objest owner) : base(Config.Kernel, "tab_b19",
-             new string[] { "col_a1" }) 
+             new string[] { "col_a1", "col_a3" }) 
         {
             if (owner == null) throw new Exception("owner null");
             
@@ -3914,6 +3914,7 @@ namespace StorageAndTrade_1_0.Довідники
                 record.UID = (Guid)fieldValue["uid"];
                 
                 record.Файл = new Довідники.Файли_Pointer(fieldValue["col_a1"]);
+                record.Основний = (fieldValue["col_a3"] != DBNull.Value) ? bool.Parse(fieldValue["col_a3"].ToString()) : false;
                 
                 Records.Add(record);
             }
@@ -3933,6 +3934,7 @@ namespace StorageAndTrade_1_0.Довідники
                 Dictionary<string, object> fieldValue = new Dictionary<string, object>();
 
                 fieldValue.Add("col_a1", record.Файл.UnigueID.UGuid);
+                fieldValue.Add("col_a3", record.Основний);
                 
                 base.BaseSave(record.UID, Owner.UnigueID, fieldValue);
             }
@@ -3953,9 +3955,11 @@ namespace StorageAndTrade_1_0.Довідники
             public Record()
             {
                 Файл = new Довідники.Файли_Pointer();
+                Основний = false;
                 
             }
             public Довідники.Файли_Pointer Файл { get; set; }
+            public bool Основний { get; set; }
             
         }
     }
