@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>13.09.2022 14:46:11</DateTimeSave>
+  <DateTimeSave>13.09.2022 17:31:27</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -2214,8 +2214,36 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           <IsPresentation>0</IsPresentation>
           <IsIndex>1</IsIndex>
         </Field>
+        <Field>
+          <Name>КартинкаФайл</Name>
+          <NameInTable>col_a7</NameInTable>
+          <Type>pointer</Type>
+          <Pointer>Довідники.Файли</Pointer>
+          <Desc>
+          </Desc>
+          <IsPresentation>0</IsPresentation>
+          <IsIndex>0</IsIndex>
+        </Field>
       </Fields>
-      <TabularParts />
+      <TabularParts>
+        <TablePart>
+          <Name>Файли</Name>
+          <Table>tab_b19</Table>
+          <Desc>
+          </Desc>
+          <Fields>
+            <Field>
+              <Name>Файл</Name>
+              <NameInTable>col_a1</NameInTable>
+              <Type>pointer</Type>
+              <Pointer>Довідники.Файли</Pointer>
+              <Desc>
+              </Desc>
+              <IsIndex>0</IsIndex>
+            </Field>
+          </Fields>
+        </TablePart>
+      </TabularParts>
       <TriggerFunctions>
         <BeforeSave>
         </BeforeSave>
@@ -3096,6 +3124,14 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
       <Desc>Файли</Desc>
       <Fields>
         <Field>
+          <Name>Код</Name>
+          <NameInTable>col_i6</NameInTable>
+          <Type>string</Type>
+          <Desc>Код</Desc>
+          <IsPresentation>0</IsPresentation>
+          <IsIndex>0</IsIndex>
+        </Field>
+        <Field>
           <Name>Назва</Name>
           <NameInTable>col_i5</NameInTable>
           <Type>string</Type>
@@ -3104,10 +3140,38 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           <IsIndex>0</IsIndex>
         </Field>
         <Field>
-          <Name>Код</Name>
-          <NameInTable>col_i6</NameInTable>
+          <Name>НазваФайлу</Name>
+          <NameInTable>col_a2</NameInTable>
           <Type>string</Type>
-          <Desc>Код</Desc>
+          <Desc>
+          </Desc>
+          <IsPresentation>0</IsPresentation>
+          <IsIndex>0</IsIndex>
+        </Field>
+        <Field>
+          <Name>БінарніДані</Name>
+          <NameInTable>col_a1</NameInTable>
+          <Type>bytea</Type>
+          <Desc>
+          </Desc>
+          <IsPresentation>0</IsPresentation>
+          <IsIndex>0</IsIndex>
+        </Field>
+        <Field>
+          <Name>Розмір</Name>
+          <NameInTable>col_a3</NameInTable>
+          <Type>string</Type>
+          <Desc>
+          </Desc>
+          <IsPresentation>0</IsPresentation>
+          <IsIndex>0</IsIndex>
+        </Field>
+        <Field>
+          <Name>ДатаСтворення</Name>
+          <NameInTable>col_a4</NameInTable>
+          <Type>datetime</Type>
+          <Desc>
+          </Desc>
           <IsPresentation>0</IsPresentation>
           <IsIndex>0</IsIndex>
         </Field>

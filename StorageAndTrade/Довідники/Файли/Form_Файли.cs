@@ -28,12 +28,13 @@ using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using StorageAndTrade_1_0.Довідники;
 
 namespace StorageAndTrade
 {
-    public partial class Form_Валюти : Form
+    public partial class Form_Файли : Form
     {
-        public Form_Валюти()
+        public Form_Файли()
         {
             InitializeComponent();
 
@@ -45,7 +46,11 @@ namespace StorageAndTrade
 
 			dataGridViewRecords.Columns["ID"].Visible = false;
 			dataGridViewRecords.Columns["Назва"].Width = 300;
-			dataGridViewRecords.Columns["Код"].Width = 50;
+			dataGridViewRecords.Columns["НазваФайлу"].Width = 300;
+            dataGridViewRecords.Columns["НазваФайлу"].HeaderText = "Назва файлу";
+            dataGridViewRecords.Columns["Розмір"].Width = 100;
+            dataGridViewRecords.Columns["Створений"].Width = 150;
+            dataGridViewRecords.Columns["Код"].Width = 50;
 		}
 
 		/// <summary>
@@ -58,7 +63,7 @@ namespace StorageAndTrade
 		/// </summary>
 		public DirectoryPointer SelectPointerItem { get; set; }
 
-		private void Form_Валюти_Load(object sender, EventArgs e)
+		private void Form_Файли_Load(object sender, EventArgs e)
         {
 			LoadRecords();
 		}
@@ -70,23 +75,29 @@ namespace StorageAndTrade
 			RecordsBindingList.Clear();
 			dataGridViewRecords.Rows.Clear();
 
-			Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
-			валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Назва);
-			валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Код);
+			Довідники.Файли_Select файли_Select = new Довідники.Файли_Select();
+            файли_Select.QuerySelect.Field.Add(Довідники.Файли_Const.Назва);
+            файли_Select.QuerySelect.Field.Add(Довідники.Файли_Const.НазваФайлу);
+            файли_Select.QuerySelect.Field.Add(Довідники.Файли_Const.Розмір);
+            файли_Select.QuerySelect.Field.Add(Довідники.Файли_Const.ДатаСтворення);
+            файли_Select.QuerySelect.Field.Add(Довідники.Файли_Const.Код);
 
-			//ORDER
-			валюти_Select.QuerySelect.Order.Add(Довідники.Валюти_Const.Назва, SelectOrder.ASC);
+            //ORDER
+            файли_Select.QuerySelect.Order.Add(Довідники.Файли_Const.Назва, SelectOrder.ASC);
 
-			валюти_Select.Select();
-			while (валюти_Select.MoveNext())
+            файли_Select.Select();
+			while (файли_Select.MoveNext())
 			{
-				Довідники.Валюти_Pointer cur = валюти_Select.Current;
+				Довідники.Файли_Pointer cur = файли_Select.Current;
 
 				RecordsBindingList.Add(new Записи
 				{
 					ID = cur.UnigueID.ToString(),
-					Назва = cur.Fields[Довідники.Валюти_Const.Назва].ToString(),
-					Код = cur.Fields[Довідники.Валюти_Const.Код].ToString()
+					Назва = cur.Fields[Довідники.Файли_Const.Назва].ToString(),
+                    НазваФайлу = cur.Fields[Довідники.Файли_Const.НазваФайлу].ToString(),
+                    Розмір = cur.Fields[Довідники.Файли_Const.Розмір].ToString(),
+                    Створений = cur.Fields[Довідники.Файли_Const.ДатаСтворення].ToString(),
+                    Код = cur.Fields[Довідники.Файли_Const.Код].ToString()
 				});
 			}
 
@@ -105,7 +116,10 @@ namespace StorageAndTrade
 			public Bitmap Image { get; set; }
 			public string ID { get; set; }
 			public string Назва { get; set; }
-			public string Код { get; set; }
+            public string НазваФайлу { get; set; }
+            public string Розмір { get; set; }
+            public string Створений { get; set; }
+            public string Код { get; set; }
 		}
 
         private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -116,7 +130,7 @@ namespace StorageAndTrade
 
 				if (DirectoryPointerItem != null)
 				{
-					DirectoryPointerItem = new Довідники.Валюти_Pointer(new UnigueID(Uid));
+					DirectoryPointerItem = new Довідники.Файли_Pointer(new UnigueID(Uid));
 					this.DialogResult = DialogResult.OK;
 					this.Close();
 				}
@@ -129,14 +143,14 @@ namespace StorageAndTrade
 
         private void toolStripButtonAdd_Click(object sender, EventArgs e)
         {
-			Form_ВалютиЕлемент form_ВалютиЕлемент = new Form_ВалютиЕлемент();
-			form_ВалютиЕлемент.MdiParent = this.MdiParent;
-			form_ВалютиЕлемент.IsNew = true;
-			form_ВалютиЕлемент.OwnerForm = this;
+            Form_ФайлиЕлемент form_ФайлиЕлемент = new Form_ФайлиЕлемент();
+            form_ФайлиЕлемент.MdiParent = this.MdiParent;
+            form_ФайлиЕлемент.IsNew = true;
+            form_ФайлиЕлемент.OwnerForm = this;
 			if (DirectoryPointerItem != null && this.MdiParent == null)
-				form_ВалютиЕлемент.ShowDialog();
+                form_ФайлиЕлемент.ShowDialog();
 			else
-				form_ВалютиЕлемент.Show();
+                form_ФайлиЕлемент.Show();
 		}
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
@@ -145,15 +159,15 @@ namespace StorageAndTrade
 			{
 				int RowIndex = dataGridViewRecords.SelectedRows[0].Index;
 
-				Form_ВалютиЕлемент form_ВалютиЕлемент = new Form_ВалютиЕлемент();
-				form_ВалютиЕлемент.MdiParent = this.MdiParent;
-				form_ВалютиЕлемент.IsNew = false;
-				form_ВалютиЕлемент.OwnerForm = this;
-				form_ВалютиЕлемент.Uid = dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString();
+                Form_ФайлиЕлемент form_ФайлиЕлемент = new Form_ФайлиЕлемент();
+                form_ФайлиЕлемент.MdiParent = this.MdiParent;
+                form_ФайлиЕлемент.IsNew = false;
+                form_ФайлиЕлемент.OwnerForm = this;
+                form_ФайлиЕлемент.Uid = dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString();
 				if (DirectoryPointerItem != null && this.MdiParent == null)
-					form_ВалютиЕлемент.ShowDialog();
+                    form_ФайлиЕлемент.ShowDialog();
 				else
-					form_ВалютиЕлемент.Show();
+                    form_ФайлиЕлемент.Show();
 			}			
 		}
 
@@ -172,15 +186,15 @@ namespace StorageAndTrade
 					DataGridViewRow row = dataGridViewRecords.SelectedRows[i];
 					string uid = row.Cells["ID"].Value.ToString();
 
-                    Довідники.Валюти_Objest валюти_Objest = new Довідники.Валюти_Objest();
-                    if (валюти_Objest.Read(new UnigueID(uid)))
+                    Довідники.Файли_Objest файли_Objest = new Довідники.Файли_Objest();
+                    if (файли_Objest.Read(new UnigueID(uid)))
                     {
-						Довідники.Валюти_Objest валюти_Objest_Новий = валюти_Objest.Copy();
-						валюти_Objest_Новий.Назва = "Копія - " + валюти_Objest_Новий.Назва;
-						валюти_Objest_Новий.Код = (++Константи.НумераціяДовідників.Валюти_Const).ToString("D6");
-						валюти_Objest_Новий.Save();
+						Довідники.Файли_Objest файли_Objest_Новий = файли_Objest.Copy();
+                        файли_Objest_Новий.Назва = "Копія - " + файли_Objest_Новий.Назва;
+                        файли_Objest_Новий.Код = (++Константи.НумераціяДовідників.Файли_Const).ToString("D6");
+                        файли_Objest_Новий.Save();
 
-						SelectPointerItem = валюти_Objest_Новий.GetDirectoryPointer();
+						SelectPointerItem = файли_Objest_Новий.GetDirectoryPointer();
 					}
                     else
                     {
@@ -203,10 +217,10 @@ namespace StorageAndTrade
 					DataGridViewRow row = dataGridViewRecords.SelectedRows[i];
 					string uid = row.Cells["ID"].Value.ToString();
 
-                    Довідники.Валюти_Objest валюти_Objest = new Довідники.Валюти_Objest();
-                    if (валюти_Objest.Read(new UnigueID(uid)))
+                    Довідники.Файли_Objest файли_Objest = new Довідники.Файли_Objest();
+                    if (файли_Objest.Read(new UnigueID(uid)))
                     {
-						валюти_Objest.Delete();
+                        файли_Objest.Delete();
                     }
                     else
                     {

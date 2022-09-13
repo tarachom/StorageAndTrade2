@@ -67,6 +67,12 @@
     <Compile Update="NumericControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Довідники\Файли\Form_Файли.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Довідники\Файли\Form_ФайлиЕлемент.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Документи\ВнутрішнєСпоживанняТоварів\Form_ВнутрішнєСпоживанняТоварів_ТабличнаЧастина_Товари.cs">
       <SubType>UserControl</SubType>
     </Compile>

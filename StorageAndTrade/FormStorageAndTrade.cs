@@ -258,6 +258,13 @@ namespace StorageAndTrade
             form_ПартіяТоварівКомпозит.Show();
         }
 
+        private void файлиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Файли form_Файли = new Form_Файли();
+            form_Файли.MdiParent = this;
+            form_Файли.Show();
+        }
+
         #endregion
 
         #region Документи Меню

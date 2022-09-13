@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 13.09.2022 14:46:11
+ * Дата конфігурації: 13.09.2022 17:31:27
  *
  */
 
@@ -3705,13 +3705,14 @@ namespace StorageAndTrade_1_0.Довідники
         public const string ВидНоменклатури = "col_a3";
         public const string ОдиницяВиміру = "col_a4";
         public const string Папка = "col_a5";
+        public const string КартинкаФайл = "col_a7";
     }
 	
     
     public class Номенклатура_Objest : DirectoryObject
     {
         public Номенклатура_Objest() : base(Config.Kernel, "tab_a03",
-             new string[] { "col_b1", "col_b2", "col_b4", "col_a1", "col_b3", "col_b5", "col_a2", "col_a3", "col_a4", "col_a5" }) 
+             new string[] { "col_b1", "col_b2", "col_b4", "col_a1", "col_b3", "col_b5", "col_a2", "col_a3", "col_a4", "col_a5", "col_a7" }) 
         {
             Назва = "";
             Код = "";
@@ -3723,6 +3724,10 @@ namespace StorageAndTrade_1_0.Довідники
             ВидНоменклатури = new Довідники.ВидиНоменклатури_Pointer();
             ОдиницяВиміру = new Довідники.ПакуванняОдиниціВиміру_Pointer();
             Папка = new Довідники.Номенклатура_Папки_Pointer();
+            КартинкаФайл = new Довідники.Файли_Pointer();
+            
+            //Табличні частини
+            Файли_TablePart = new Номенклатура_Файли_TablePart(this);
             
         }
         
@@ -3740,6 +3745,7 @@ namespace StorageAndTrade_1_0.Довідники
                 ВидНоменклатури = new Довідники.ВидиНоменклатури_Pointer(base.FieldValue["col_a3"]);
                 ОдиницяВиміру = new Довідники.ПакуванняОдиниціВиміру_Pointer(base.FieldValue["col_a4"]);
                 Папка = new Довідники.Номенклатура_Папки_Pointer(base.FieldValue["col_a5"]);
+                КартинкаФайл = new Довідники.Файли_Pointer(base.FieldValue["col_a7"]);
                 
                 BaseClear();
                 return true;
@@ -3760,6 +3766,7 @@ namespace StorageAndTrade_1_0.Довідники
             base.FieldValue["col_a3"] = ВидНоменклатури.UnigueID.UGuid;
             base.FieldValue["col_a4"] = ОдиницяВиміру.UnigueID.UGuid;
             base.FieldValue["col_a5"] = Папка.UnigueID.UGuid;
+            base.FieldValue["col_a7"] = КартинкаФайл.UnigueID.UGuid;
             
             BaseSave();
 			
@@ -3779,6 +3786,7 @@ namespace StorageAndTrade_1_0.Довідники
 			copy.ВидНоменклатури = ВидНоменклатури;
 			copy.ОдиницяВиміру = ОдиницяВиміру;
 			copy.Папка = Папка;
+			copy.КартинкаФайл = КартинкаФайл;
 			
 			return copy;
         }
@@ -3786,7 +3794,7 @@ namespace StorageAndTrade_1_0.Довідники
         public void Delete()
         {
             
-			base.BaseDelete(new string[] {  });
+			base.BaseDelete(new string[] { "tab_b19" });
         }
         
         public Номенклатура_Pointer GetDirectoryPointer()
@@ -3805,6 +3813,10 @@ namespace StorageAndTrade_1_0.Довідники
         public Довідники.ВидиНоменклатури_Pointer ВидНоменклатури { get; set; }
         public Довідники.ПакуванняОдиниціВиміру_Pointer ОдиницяВиміру { get; set; }
         public Довідники.Номенклатура_Папки_Pointer Папка { get; set; }
+        public Довідники.Файли_Pointer КартинкаФайл { get; set; }
+        
+        //Табличні частини
+        public Номенклатура_Файли_TablePart Файли_TablePart { get; set; }
         
     }
     
@@ -3875,6 +3887,78 @@ namespace StorageAndTrade_1_0.Довідники
         }
     }
     
+      
+    public class Номенклатура_Файли_TablePart : DirectoryTablePart
+    {
+        public Номенклатура_Файли_TablePart(Номенклатура_Objest owner) : base(Config.Kernel, "tab_b19",
+             new string[] { "col_a1" }) 
+        {
+            if (owner == null) throw new Exception("owner null");
+            
+            Owner = owner;
+            Records = new List<Record>();
+        }
+        
+        public Номенклатура_Objest Owner { get; private set; }
+        
+        public List<Record> Records { get; set; }
+        
+        public void Read()
+        {
+            Records.Clear();
+            base.BaseRead(Owner.UnigueID);
+
+            foreach (Dictionary<string, object> fieldValue in base.FieldValueList) 
+            {
+                Record record = new Record();
+                record.UID = (Guid)fieldValue["uid"];
+                
+                record.Файл = new Довідники.Файли_Pointer(fieldValue["col_a1"]);
+                
+                Records.Add(record);
+            }
+            
+            base.BaseClear();
+        }
+        
+        public void Save(bool clear_all_before_save /*= true*/) 
+        {
+            base.BaseBeginTransaction();
+                
+            if (clear_all_before_save)
+                base.BaseDelete(Owner.UnigueID);
+
+            foreach (Record record in Records)
+            {
+                Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+
+                fieldValue.Add("col_a1", record.Файл.UnigueID.UGuid);
+                
+                base.BaseSave(record.UID, Owner.UnigueID, fieldValue);
+            }
+                
+            base.BaseCommitTransaction();
+        }
+        
+        public void Delete()
+        {
+            base.BaseBeginTransaction();
+            base.BaseDelete(Owner.UnigueID);
+            base.BaseCommitTransaction();
+        }
+        
+        
+        public class Record : DirectoryTablePartRecord
+        {
+            public Record()
+            {
+                Файл = new Довідники.Файли_Pointer();
+                
+            }
+            public Довідники.Файли_Pointer Файл { get; set; }
+            
+        }
+    }
       
    
     #endregion
@@ -6136,18 +6220,26 @@ namespace StorageAndTrade_1_0.Довідники
     {
         public const string TABLE = "tab_a20";
         
-        public const string Назва = "col_i5";
         public const string Код = "col_i6";
+        public const string Назва = "col_i5";
+        public const string НазваФайлу = "col_a2";
+        public const string БінарніДані = "col_a1";
+        public const string Розмір = "col_a3";
+        public const string ДатаСтворення = "col_a4";
     }
 	
     
     public class Файли_Objest : DirectoryObject
     {
         public Файли_Objest() : base(Config.Kernel, "tab_a20",
-             new string[] { "col_i5", "col_i6" }) 
+             new string[] { "col_i6", "col_i5", "col_a2", "col_a1", "col_a3", "col_a4" }) 
         {
-            Назва = "";
             Код = "";
+            Назва = "";
+            НазваФайлу = "";
+            БінарніДані = new byte[] { };
+            Розмір = "";
+            ДатаСтворення = DateTime.MinValue;
             
         }
         
@@ -6155,8 +6247,12 @@ namespace StorageAndTrade_1_0.Довідники
         {
             if (BaseRead(uid))
             {
-                Назва = base.FieldValue["col_i5"].ToString();
                 Код = base.FieldValue["col_i6"].ToString();
+                Назва = base.FieldValue["col_i5"].ToString();
+                НазваФайлу = base.FieldValue["col_a2"].ToString();
+                БінарніДані = (base.FieldValue["col_a1"] != DBNull.Value) ? (byte[])base.FieldValue["col_a1"] : new byte[] { };
+                Розмір = base.FieldValue["col_a3"].ToString();
+                ДатаСтворення = (base.FieldValue["col_a4"] != DBNull.Value) ? DateTime.Parse(base.FieldValue["col_a4"].ToString()) : DateTime.MinValue;
                 
                 BaseClear();
                 return true;
@@ -6167,8 +6263,12 @@ namespace StorageAndTrade_1_0.Довідники
         
         public void Save()
         {
-		    base.FieldValue["col_i5"] = Назва;
-            base.FieldValue["col_i6"] = Код;
+		    base.FieldValue["col_i6"] = Код;
+            base.FieldValue["col_i5"] = Назва;
+            base.FieldValue["col_a2"] = НазваФайлу;
+            base.FieldValue["col_a1"] = БінарніДані;
+            base.FieldValue["col_a3"] = Розмір;
+            base.FieldValue["col_a4"] = ДатаСтворення;
             
             BaseSave();
 			
@@ -6178,8 +6278,12 @@ namespace StorageAndTrade_1_0.Довідники
         {
             Файли_Objest copy = new Файли_Objest();
 			copy.New();
-            copy.Назва = Назва;
-			copy.Код = Код;
+            copy.Код = Код;
+			copy.Назва = Назва;
+			copy.НазваФайлу = НазваФайлу;
+			copy.БінарніДані = БінарніДані;
+			copy.Розмір = Розмір;
+			copy.ДатаСтворення = ДатаСтворення;
 			
 			return copy;
         }
@@ -6196,8 +6300,12 @@ namespace StorageAndTrade_1_0.Довідники
             return directoryPointer;
         }
         
-        public string Назва { get; set; }
         public string Код { get; set; }
+        public string Назва { get; set; }
+        public string НазваФайлу { get; set; }
+        public byte[] БінарніДані { get; set; }
+        public string Розмір { get; set; }
+        public DateTime ДатаСтворення { get; set; }
         
     }
     

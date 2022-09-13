@@ -119,6 +119,7 @@ namespace StorageAndTrade
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_ПереміщенняТоварівМіжСкладами = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_ВстановленняЦінНоменклатури = new System.Windows.Forms.ToolStripButton();
+            this.файлиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_ГоловнеМеню.SuspendLayout();
             this.toolStrip_Довідники.SuspendLayout();
             this.toolStrip_Документи.SuspendLayout();
@@ -162,7 +163,8 @@ namespace StorageAndTrade
             this.банківськіРахункиКонтрагентівToolStripMenuItem,
             this.характеристикиНоменклатуриToolStripMenuItem,
             this.серіїНоменклатуриToolStripMenuItem,
-            this.партіїТоварівКомпозитToolStripMenuItem});
+            this.партіїТоварівКомпозитToolStripMenuItem,
+            this.файлиToolStripMenuItem});
             this.довідникиToolStripMenuItem.Name = "довідникиToolStripMenuItem";
             this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.довідникиToolStripMenuItem.Text = "Довідники";
@@ -896,6 +898,13 @@ namespace StorageAndTrade
             this.toolStripButton_ВстановленняЦінНоменклатури.Text = "Документ \"Встановлення цін номенклатури\"";
             this.toolStripButton_ВстановленняЦінНоменклатури.Click += new System.EventHandler(this.toolStripButton_ВстановленняЦінНоменклатури_Click);
             // 
+            // файлиToolStripMenuItem
+            // 
+            this.файлиToolStripMenuItem.Name = "файлиToolStripMenuItem";
+            this.файлиToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.файлиToolStripMenuItem.Text = "Файли";
+            this.файлиToolStripMenuItem.Click += new System.EventHandler(this.файлиToolStripMenuItem_Click);
+            // 
             // FormStorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1019,6 +1028,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripMenuItem розрахункиЗКонтрагентамиToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem псуванняТоварівToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem файлиToolStripMenuItem;
     }
 }
 
