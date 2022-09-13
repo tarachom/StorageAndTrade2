@@ -51,7 +51,6 @@ namespace StorageAndTrade
             this.label9 = new System.Windows.Forms.Label();
             this.directoryControl_НоменклатураПапка = new StorageAndTrade.DirectoryControl();
             this.pictureBox_ОсновнаКартинка = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox_Код = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -63,7 +62,7 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(360, 542);
+            this.buttonClose.Location = new System.Drawing.Point(360, 577);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(93, 31);
@@ -74,7 +73,7 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(23, 541);
+            this.buttonSave.Location = new System.Drawing.Point(23, 576);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(136, 31);
@@ -88,7 +87,7 @@ namespace StorageAndTrade
             this.textBox_Назва.Location = new System.Drawing.Point(132, 37);
             this.textBox_Назва.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Назва.Name = "textBox_Назва";
-            this.textBox_Назва.Size = new System.Drawing.Size(747, 23);
+            this.textBox_Назва.Size = new System.Drawing.Size(520, 23);
             this.textBox_Назва.TabIndex = 20;
             // 
             // label2
@@ -201,7 +200,7 @@ namespace StorageAndTrade
             this.textBox_Артикул.Location = new System.Drawing.Point(132, 200);
             this.textBox_Артикул.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Артикул.Name = "textBox_Артикул";
-            this.textBox_Артикул.Size = new System.Drawing.Size(382, 23);
+            this.textBox_Артикул.Size = new System.Drawing.Size(301, 23);
             this.textBox_Артикул.TabIndex = 32;
             // 
             // label6
@@ -219,7 +218,7 @@ namespace StorageAndTrade
             this.textBox_НазваПовна.Location = new System.Drawing.Point(132, 68);
             this.textBox_НазваПовна.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_НазваПовна.Name = "textBox_НазваПовна";
-            this.textBox_НазваПовна.Size = new System.Drawing.Size(931, 23);
+            this.textBox_НазваПовна.Size = new System.Drawing.Size(520, 23);
             this.textBox_НазваПовна.TabIndex = 34;
             // 
             // label7
@@ -234,7 +233,7 @@ namespace StorageAndTrade
             // 
             // textBox_Опис
             // 
-            this.textBox_Опис.Location = new System.Drawing.Point(23, 331);
+            this.textBox_Опис.Location = new System.Drawing.Point(23, 318);
             this.textBox_Опис.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Опис.Multiline = true;
             this.textBox_Опис.Name = "textBox_Опис";
@@ -244,7 +243,7 @@ namespace StorageAndTrade
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 313);
+            this.label8.Location = new System.Drawing.Point(24, 300);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
@@ -278,37 +277,30 @@ namespace StorageAndTrade
             // 
             // pictureBox_ОсновнаКартинка
             // 
+            this.pictureBox_ОсновнаКартинка.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox_ОсновнаКартинка.BackColor = System.Drawing.Color.White;
             this.pictureBox_ОсновнаКартинка.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_ОсновнаКартинка.Location = new System.Drawing.Point(663, 119);
+            this.pictureBox_ОсновнаКартинка.Location = new System.Drawing.Point(663, 37);
             this.pictureBox_ОсновнаКартинка.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox_ОсновнаКартинка.Name = "pictureBox_ОсновнаКартинка";
-            this.pictureBox_ОсновнаКартинка.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox_ОсновнаКартинка.Size = new System.Drawing.Size(403, 575);
             this.pictureBox_ОсновнаКартинка.TabIndex = 55;
             this.pictureBox_ОсновнаКартинка.TabStop = false;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(660, 100);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 15);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "Картинка:";
-            // 
             // textBox_Код
             // 
-            this.textBox_Код.Location = new System.Drawing.Point(927, 37);
+            this.textBox_Код.Location = new System.Drawing.Point(484, 200);
             this.textBox_Код.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Код.Name = "textBox_Код";
-            this.textBox_Код.Size = new System.Drawing.Size(136, 23);
+            this.textBox_Код.Size = new System.Drawing.Size(168, 23);
             this.textBox_Код.TabIndex = 58;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(887, 40);
+            this.label11.Location = new System.Drawing.Point(444, 203);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 15);
@@ -336,7 +328,7 @@ namespace StorageAndTrade
             // 
             // buttonOnlySave
             // 
-            this.buttonOnlySave.Location = new System.Drawing.Point(167, 541);
+            this.buttonOnlySave.Location = new System.Drawing.Point(167, 576);
             this.buttonOnlySave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOnlySave.Name = "buttonOnlySave";
             this.buttonOnlySave.Size = new System.Drawing.Size(86, 31);
@@ -349,12 +341,11 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 585);
+            this.ClientSize = new System.Drawing.Size(1079, 617);
             this.Controls.Add(this.buttonOnlySave);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox_Код);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox_ОсновнаКартинка);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.directoryControl_НоменклатураПапка);
@@ -413,7 +404,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label9;
         private DirectoryControl directoryControl_НоменклатураПапка;
         private System.Windows.Forms.PictureBox pictureBox_ОсновнаКартинка;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_Код;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ToolStrip toolStrip1;
