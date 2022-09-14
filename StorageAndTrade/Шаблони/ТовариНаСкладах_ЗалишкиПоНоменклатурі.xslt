@@ -25,8 +25,8 @@
 						Номенклатура: <xsl:value-of select="head/row/Номенклатура"/>
 					</p>
 					
-					<table class="table table-bordered table-sm table-hover">
-						<tr class="table-success">
+					<table>
+						<tr>
 							<th width="40%" style="vertical-align:middle">Характеристика</th>
 							<th width="30%" style="vertical-align:middle">Склад</th>
 							<th width="20%" style="vertical-align:middle">Серія</th>
