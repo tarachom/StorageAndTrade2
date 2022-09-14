@@ -146,13 +146,13 @@ namespace StorageAndTrade
             this.toolStripButtonFileInput.Image = global::StorageAndTrade.Properties.Resources.add_document;
             this.toolStripButtonFileInput.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFileInput.Name = "toolStripButtonFileInput";
-            this.toolStripButtonFileInput.Size = new System.Drawing.Size(98, 22);
-            this.toolStripButtonFileInput.Text = "Додати файл";
+            this.toolStripButtonFileInput.Size = new System.Drawing.Size(114, 22);
+            this.toolStripButtonFileInput.Text = "Загрузити файл";
             this.toolStripButtonFileInput.Click += new System.EventHandler(this.toolStripButtonFileInput_Click);
             // 
             // toolStripButtonSaveFile
             // 
-            this.toolStripButtonSaveFile.Image = global::StorageAndTrade.Properties.Resources.down;
+            this.toolStripButtonSaveFile.Image = global::StorageAndTrade.Properties.Resources.up;
             this.toolStripButtonSaveFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveFile.Name = "toolStripButtonSaveFile";
             this.toolStripButtonSaveFile.Size = new System.Drawing.Size(115, 22);

@@ -103,7 +103,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 274);
+            this.label1.Location = new System.Drawing.Point(58, 301);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
@@ -123,7 +123,7 @@ namespace StorageAndTrade
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 239);
+            this.label4.Location = new System.Drawing.Point(23, 266);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 15);
@@ -157,7 +157,7 @@ namespace StorageAndTrade
             this.directoryControl_ОдиницяВиміру.BeforeFindFunc = null;
             this.directoryControl_ОдиницяВиміру.Bind = null;
             this.directoryControl_ОдиницяВиміру.DirectoryPointerItem = null;
-            this.directoryControl_ОдиницяВиміру.Location = new System.Drawing.Point(132, 231);
+            this.directoryControl_ОдиницяВиміру.Location = new System.Drawing.Point(132, 258);
             this.directoryControl_ОдиницяВиміру.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_ОдиницяВиміру.Name = "directoryControl_ОдиницяВиміру";
             this.directoryControl_ОдиницяВиміру.QueryFind = null;
@@ -187,7 +187,7 @@ namespace StorageAndTrade
             this.directoryControl_Виробник.BeforeFindFunc = null;
             this.directoryControl_Виробник.Bind = null;
             this.directoryControl_Виробник.DirectoryPointerItem = null;
-            this.directoryControl_Виробник.Location = new System.Drawing.Point(132, 266);
+            this.directoryControl_Виробник.Location = new System.Drawing.Point(132, 293);
             this.directoryControl_Виробник.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Виробник.Name = "directoryControl_Виробник";
             this.directoryControl_Виробник.QueryFind = null;
@@ -233,17 +233,17 @@ namespace StorageAndTrade
             // 
             // textBox_Опис
             // 
-            this.textBox_Опис.Location = new System.Drawing.Point(23, 318);
+            this.textBox_Опис.Location = new System.Drawing.Point(23, 355);
             this.textBox_Опис.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Опис.Multiline = true;
             this.textBox_Опис.Name = "textBox_Опис";
-            this.textBox_Опис.Size = new System.Drawing.Size(629, 188);
+            this.textBox_Опис.Size = new System.Drawing.Size(629, 206);
             this.textBox_Опис.TabIndex = 36;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 300);
+            this.label8.Location = new System.Drawing.Point(24, 337);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
@@ -291,7 +291,7 @@ namespace StorageAndTrade
             // 
             // textBox_Код
             // 
-            this.textBox_Код.Location = new System.Drawing.Point(484, 200);
+            this.textBox_Код.Location = new System.Drawing.Point(132, 229);
             this.textBox_Код.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Код.Name = "textBox_Код";
             this.textBox_Код.Size = new System.Drawing.Size(168, 23);
@@ -300,7 +300,7 @@ namespace StorageAndTrade
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(444, 203);
+            this.label11.Location = new System.Drawing.Point(92, 232);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 15);
