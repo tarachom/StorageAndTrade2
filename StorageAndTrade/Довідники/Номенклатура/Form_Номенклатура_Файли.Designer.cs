@@ -81,7 +81,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Номенклатура_Файли";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Файли елементу номенклатури";
+            this.Text = "Файли номенклатури";
             this.Load += new System.EventHandler(this.Form_Номенклатура_Файли_Load);
             this.ResumeLayout(false);
 

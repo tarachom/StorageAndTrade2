@@ -30,9 +30,9 @@ using Довідники = StorageAndTrade_1_0.Довідники;
 
 namespace StorageAndTrade
 {
-    public partial class Form_Номенклатура_ТабличнаЧастина_Файли : UserControl
+    public partial class Form_Контрагенти_ТабличнаЧастина_Файли : UserControl
     {
-        public Form_Номенклатура_ТабличнаЧастина_Файли()
+        public Form_Контрагенти_ТабличнаЧастина_Файли()
         {
             InitializeComponent();
 
@@ -52,28 +52,27 @@ namespace StorageAndTrade
 		/// <summary>
 		/// Власне довідник якому належить таблична частина
 		/// </summary>
-		public Довідники.Номенклатура_Objest ДовідникОбєкт { get; set; }
+		public Довідники.Контрагенти_Objest ДовідникОбєкт { get; set; }
 
 		private BindingList<Записи> RecordsBindingList { get; set; }
 
-		private void Form_Номенклатура_ТабличнаЧастина_Файли_Load(object sender, EventArgs e) { }
+		private void Form_Контрагенти_ТабличнаЧастина_Файли_Load(object sender, EventArgs e) { }
 
 		public void LoadRecords()
 		{
 			RecordsBindingList.Clear();
 
-			Довідники.Номенклатура_Файли_TablePart номенклатура_Файли_TablePart =
-				new Довідники.Номенклатура_Файли_TablePart(ДовідникОбєкт);
+			Довідники.Контрагенти_Файли_TablePart контрагенти_Файли_TablePart =
+				new Довідники.Контрагенти_Файли_TablePart(ДовідникОбєкт);
 
-            номенклатура_Файли_TablePart.Read();
+            контрагенти_Файли_TablePart.Read();
 
-            foreach (Довідники.Номенклатура_Файли_TablePart.Record record in номенклатура_Файли_TablePart.Records)
+            foreach (Довідники.Контрагенти_Файли_TablePart.Record record in контрагенти_Файли_TablePart.Records)
             {
                 Записи запис = new Записи
                 {
                     ID = record.UID.ToString(),
-                    Файл = record.Файл,
-                    Основний = record.Основний
+                    Файл = record.Файл
                 };
 
                 RecordsBindingList.Add(запис);
@@ -84,41 +83,27 @@ namespace StorageAndTrade
 
 		public void SaveRecords()
         {
-			Довідники.Номенклатура_Файли_TablePart номенклатура_Файли_TablePart =
-				new Довідники.Номенклатура_Файли_TablePart(ДовідникОбєкт);
+            Довідники.Контрагенти_Файли_TablePart контрагенти_Файли_TablePart =
+                new Довідники.Контрагенти_Файли_TablePart(ДовідникОбєкт);
 
-            номенклатура_Файли_TablePart.Records.Clear();
+            контрагенти_Файли_TablePart.Records.Clear();
 
 			int counter = 0;
 
 			foreach (Записи запис in RecordsBindingList)
             {
-                номенклатура_Файли_TablePart.Records.Add(
-					new Довідники.Номенклатура_Файли_TablePart.Record()
+                контрагенти_Файли_TablePart.Records.Add(
+					new Довідники.Контрагенти_Файли_TablePart.Record()
 					{
-                        Файл = запис.Файл,
-                        Основний = запис.Основний
+                        Файл = запис.Файл
                     }
 			    );
 
 				counter++;
 			}
 
-            номенклатура_Файли_TablePart.Save(true);
+            контрагенти_Файли_TablePart.Save(true);
 		}
-
-        public Довідники.Файли_Pointer ОтриматиОсновнийФайл()
-        {
-            Довідники.Файли_Pointer файли_Pointer = new Довідники.Файли_Pointer();
-
-            foreach (Записи запис in RecordsBindingList)
-            {
-                if (запис.Основний)
-                    файли_Pointer = запис.Файл;
-            }
-
-            return файли_Pointer;
-        }
 
 		private class Записи
 		{
@@ -127,7 +112,6 @@ namespace StorageAndTrade
             public string ID { get; set; }
 			public Довідники.Файли_Pointer Файл { get; set; }
             public string ФайлНазва { get; set; }
-            public bool Основний { get; set; }
             public static Записи New()
 			{
 				return new Записи
@@ -319,22 +303,7 @@ namespace StorageAndTrade
 
         private void dataGridViewRecords_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            string columnName = dataGridViewRecords.Columns[e.ColumnIndex].Name;
-
-            if (columnName == "Основний")
-            {
-                int counter = 0;
-
-                foreach (Записи запис in RecordsBindingList)
-                {
-                    if (counter != e.RowIndex)
-                        запис.Основний = false;
-
-                    counter++;
-                }
-
-                dataGridViewRecords.Refresh();
-            }
+            
         }
     }
 }

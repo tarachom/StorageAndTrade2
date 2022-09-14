@@ -49,6 +49,10 @@ namespace StorageAndTrade
             this.textBox_СвідоцтвоДатаВидачі = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Організація_ТабличнаЧастина_Контакти = new StorageAndTrade.Form_Організація_ТабличнаЧастина_Контакти();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -221,22 +225,43 @@ namespace StorageAndTrade
             // 
             // Організація_ТабличнаЧастина_Контакти
             // 
-            this.Організація_ТабличнаЧастина_Контакти.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Організація_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(18, 242);
+            this.Організація_ТабличнаЧастина_Контакти.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Організація_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(3, 3);
             this.Організація_ТабличнаЧастина_Контакти.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Організація_ТабличнаЧастина_Контакти.Name = "Організація_ТабличнаЧастина_Контакти";
-            this.Організація_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(830, 317);
+            this.Організація_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(820, 300);
             this.Організація_ТабличнаЧастина_Контакти.TabIndex = 35;
             this.Організація_ТабличнаЧастина_Контакти.ДовідникОбєкт = null;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(14, 237);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(834, 334);
+            this.tabControl1.TabIndex = 36;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.Організація_ТабличнаЧастина_Контакти);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(826, 306);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Контакти";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // Form_ОрганізаціїЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 622);
-            this.Controls.Add(this.Організація_ТабличнаЧастина_Контакти);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox_СвідоцтвоДатаВидачі);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox_СвідоцтвоСеріяНомер);
@@ -261,6 +286,8 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Організації";
             this.Load += new System.EventHandler(this.Form_ОрганізаціїЕлемент_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +314,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.TextBox textBox_СвідоцтвоДатаВидачі;
         private System.Windows.Forms.Label label8;
         private Form_Організація_ТабличнаЧастина_Контакти Організація_ТабличнаЧастина_Контакти;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }

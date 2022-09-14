@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>13.09.2022 19:22:53</DateTimeSave>
+  <DateTimeSave>14.09.2022 10:48:34</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -2555,6 +2555,23 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
               <Name>Місто</Name>
               <NameInTable>col_d6</NameInTable>
               <Type>string</Type>
+              <Desc>
+              </Desc>
+              <IsIndex>0</IsIndex>
+            </Field>
+          </Fields>
+        </TablePart>
+        <TablePart>
+          <Name>Файли</Name>
+          <Table>tab_b20</Table>
+          <Desc>
+          </Desc>
+          <Fields>
+            <Field>
+              <Name>Файл</Name>
+              <NameInTable>col_a1</NameInTable>
+              <Type>pointer</Type>
+              <Pointer>Довідники.Файли</Pointer>
               <Desc>
               </Desc>
               <IsIndex>0</IsIndex>

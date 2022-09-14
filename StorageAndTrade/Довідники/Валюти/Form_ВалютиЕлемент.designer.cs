@@ -36,6 +36,9 @@ namespace StorageAndTrade
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_Код = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonКурсиВалюти = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -62,7 +65,7 @@ namespace StorageAndTrade
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(70, 14);
+            this.textBoxName.Location = new System.Drawing.Point(70, 45);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(570, 23);
@@ -71,7 +74,7 @@ namespace StorageAndTrade
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 17);
+            this.label2.Location = new System.Drawing.Point(14, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
@@ -80,7 +83,7 @@ namespace StorageAndTrade
             // 
             // textBox_Код
             // 
-            this.textBox_Код.Location = new System.Drawing.Point(690, 14);
+            this.textBox_Код.Location = new System.Drawing.Point(690, 45);
             this.textBox_Код.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Код.Name = "textBox_Код";
             this.textBox_Код.Size = new System.Drawing.Size(194, 23);
@@ -89,18 +92,38 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(649, 17);
+            this.label1.Location = new System.Drawing.Point(649, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 15);
             this.label1.TabIndex = 21;
             this.label1.Text = "Код:";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonКурсиВалюти});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(896, 25);
+            this.toolStrip1.TabIndex = 60;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonКурсиВалюти
+            // 
+            this.toolStripButtonКурсиВалюти.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonКурсиВалюти.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonКурсиВалюти.Name = "toolStripButtonКурсиВалюти";
+            this.toolStripButtonКурсиВалюти.Size = new System.Drawing.Size(104, 22);
+            this.toolStripButtonКурсиВалюти.Text = "Курси валюти";
+            this.toolStripButtonКурсиВалюти.Click += new System.EventHandler(this.toolStripButtonКурсиВалюти_Click);
+            // 
             // Form_ВалютиЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 277);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox_Код);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxName);
@@ -113,6 +136,8 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Валюти";
             this.Load += new System.EventHandler(this.Form_ВалютиЕлемент_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +151,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_Код;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonКурсиВалюти;
     }
 }

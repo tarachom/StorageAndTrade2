@@ -51,11 +51,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Trash\**" />
-    <Compile Remove="РегістриІнформації\КурсиВалют\**" />
+    <Compile Remove="РегістриІнформації\NewFolder\**" />
     <EmbeddedResource Remove="Trash\**" />
-    <EmbeddedResource Remove="РегістриІнформації\КурсиВалют\**" />
+    <EmbeddedResource Remove="РегістриІнформації\NewFolder\**" />
     <None Remove="Trash\**" />
-    <None Remove="РегістриІнформації\КурсиВалют\**" />
+    <None Remove="РегістриІнформації\NewFolder\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Configurator\Confa.xml" />
@@ -65,6 +65,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="NumericControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Довідники\Контрагенти\Form_Контрагенти_ТабличнаЧастина_Файли.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Довідники\Номенклатура\Form_Номенклатура_ТабличнаЧастина_Файли.cs">

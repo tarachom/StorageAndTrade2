@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 13.09.2022 19:22:53
+ * Дата конфігурації: 14.09.2022 10:48:34
  *
  */
 
@@ -4594,6 +4594,7 @@ namespace StorageAndTrade_1_0.Довідники
             
             //Табличні частини
             Контакти_TablePart = new Контрагенти_Контакти_TablePart(this);
+            Файли_TablePart = new Контрагенти_Файли_TablePart(this);
             
         }
         
@@ -4646,7 +4647,7 @@ namespace StorageAndTrade_1_0.Довідники
         public void Delete()
         {
             Контрагенти_Triggers.BeforeDelete(this);
-			base.BaseDelete(new string[] { "tab_a09" });
+			base.BaseDelete(new string[] { "tab_a09", "tab_b20" });
         }
         
         public Контрагенти_Pointer GetDirectoryPointer()
@@ -4664,6 +4665,7 @@ namespace StorageAndTrade_1_0.Довідники
         
         //Табличні частини
         public Контрагенти_Контакти_TablePart Контакти_TablePart { get; set; }
+        public Контрагенти_Файли_TablePart Файли_TablePart { get; set; }
         
     }
     
@@ -4827,6 +4829,78 @@ namespace StorageAndTrade_1_0.Довідники
             public string Область { get; set; }
             public string Район { get; set; }
             public string Місто { get; set; }
+            
+        }
+    }
+      
+    public class Контрагенти_Файли_TablePart : DirectoryTablePart
+    {
+        public Контрагенти_Файли_TablePart(Контрагенти_Objest owner) : base(Config.Kernel, "tab_b20",
+             new string[] { "col_a1" }) 
+        {
+            if (owner == null) throw new Exception("owner null");
+            
+            Owner = owner;
+            Records = new List<Record>();
+        }
+        
+        public Контрагенти_Objest Owner { get; private set; }
+        
+        public List<Record> Records { get; set; }
+        
+        public void Read()
+        {
+            Records.Clear();
+            base.BaseRead(Owner.UnigueID);
+
+            foreach (Dictionary<string, object> fieldValue in base.FieldValueList) 
+            {
+                Record record = new Record();
+                record.UID = (Guid)fieldValue["uid"];
+                
+                record.Файл = new Довідники.Файли_Pointer(fieldValue["col_a1"]);
+                
+                Records.Add(record);
+            }
+            
+            base.BaseClear();
+        }
+        
+        public void Save(bool clear_all_before_save /*= true*/) 
+        {
+            base.BaseBeginTransaction();
+                
+            if (clear_all_before_save)
+                base.BaseDelete(Owner.UnigueID);
+
+            foreach (Record record in Records)
+            {
+                Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+
+                fieldValue.Add("col_a1", record.Файл.UnigueID.UGuid);
+                
+                base.BaseSave(record.UID, Owner.UnigueID, fieldValue);
+            }
+                
+            base.BaseCommitTransaction();
+        }
+        
+        public void Delete()
+        {
+            base.BaseBeginTransaction();
+            base.BaseDelete(Owner.UnigueID);
+            base.BaseCommitTransaction();
+        }
+        
+        
+        public class Record : DirectoryTablePartRecord
+        {
+            public Record()
+            {
+                Файл = new Довідники.Файли_Pointer();
+                
+            }
+            public Довідники.Файли_Pointer Файл { get; set; }
             
         }
     }

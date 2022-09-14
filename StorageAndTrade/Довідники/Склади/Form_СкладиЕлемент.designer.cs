@@ -47,6 +47,10 @@ namespace StorageAndTrade
             this.textBox_Код = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Склади_ТабличнаЧастина_Контакти = new StorageAndTrade.Form_Склади_ТабличнаЧастина_Контакти();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -233,22 +237,43 @@ namespace StorageAndTrade
             // 
             // Склади_ТабличнаЧастина_Контакти
             // 
-            this.Склади_ТабличнаЧастина_Контакти.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Склади_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(12, 246);
+            this.Склади_ТабличнаЧастина_Контакти.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Склади_ТабличнаЧастина_Контакти.Location = new System.Drawing.Point(3, 3);
             this.Склади_ТабличнаЧастина_Контакти.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Склади_ТабличнаЧастина_Контакти.Name = "Склади_ТабличнаЧастина_Контакти";
-            this.Склади_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(821, 338);
+            this.Склади_ТабличнаЧастина_Контакти.Size = new System.Drawing.Size(807, 320);
             this.Склади_ТабличнаЧастина_Контакти.TabIndex = 59;
             this.Склади_ТабличнаЧастина_Контакти.ДовідникОбєкт = null;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(14, 242);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(821, 354);
+            this.tabControl1.TabIndex = 60;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.Склади_ТабличнаЧастина_Контакти);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(813, 326);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Контакти";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // Form_СкладиЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 647);
-            this.Controls.Add(this.Склади_ТабличнаЧастина_Контакти);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox_Код);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
@@ -271,6 +296,8 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склади";
             this.Load += new System.EventHandler(this.Form_СкладиЕлемент_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +322,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.TextBox textBox_Код;
         private System.Windows.Forms.Label label6;
         private Form_Склади_ТабличнаЧастина_Контакти Склади_ТабличнаЧастина_Контакти;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }

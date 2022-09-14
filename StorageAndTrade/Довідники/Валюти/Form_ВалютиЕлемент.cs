@@ -123,5 +123,13 @@ namespace StorageAndTrade
 		{
 			this.Close();
 		}
+
+		private void toolStripButtonКурсиВалюти_Click(object sender, EventArgs e)
+		{
+            Form_КурсиВалют Form_КурсиВалют = new Form_КурсиВалют();
+            Form_КурсиВалют.MdiParent = this.MdiParent;
+            Form_КурсиВалют.ВалютаВласник = валюти_Objest.GetDirectoryPointer();
+            Form_КурсиВалют.Show();
+        }
 	}
 }

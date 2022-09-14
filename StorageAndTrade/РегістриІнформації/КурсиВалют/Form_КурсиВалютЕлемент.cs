@@ -19,20 +19,10 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
-using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
 
 namespace StorageAndTrade
@@ -60,66 +50,37 @@ namespace StorageAndTrade
         public string Uid { get; set; }
 
 		/// <summary>
-		/// Номенклатура власник
+		/// Власник
 		/// </summary>
-		public Довідники.Номенклатура_Pointer НоменклатураВласник { get; set; }
+		public Довідники.Валюти_Pointer ВалютаВласник { get; set; }
 
 		/// <summary>
 		/// Обєкт запису
 		/// </summary>
-		private РегістриВідомостей.ШтрихкодиНоменклатури_Objest штрихкодиНоменклатури_Objest { get; set; }
+		private РегістриВідомостей.КурсиВалют_Objest курсиВалют_Objest { get; set; }
 
-		private void Form_ШтрихкодиНоменклатуриЕлемент_Load(object sender, EventArgs e)
+		private void Form_КурсиВалютЕлемент_Load(object sender, EventArgs e)
         {
-			штрихкодиНоменклатури_Objest = new РегістриВідомостей.ШтрихкодиНоменклатури_Objest();
+            курсиВалют_Objest = new РегістриВідомостей.КурсиВалют_Objest();
 
-			directoryControl_Номенклатура.Init(new Form_Номенклатура(), new Довідники.Номенклатура_Pointer(), ПошуковіЗапити.Номенклатура);
-			directoryControl_Номенклатура.AfterSelectFunc = () =>
-			{
-				if (directoryControl_Номенклатура.DirectoryPointerItem != null && !directoryControl_Номенклатура.DirectoryPointerItem.IsEmpty())
-				{
-					Довідники.Номенклатура_Objest номенклатура_Objest = new Довідники.Номенклатура_Objest();
-					if (номенклатура_Objest.Read(directoryControl_Номенклатура.DirectoryPointerItem.UnigueID))
-					{
-						directoryControl_Пакування.DirectoryPointerItem = номенклатура_Objest.ОдиницяВиміру;
-					}
-				}
+			directoryControl_Валюта.Init(new Form_Валюти(), new Довідники.Валюти_Pointer(), ПошуковіЗапити.Валюти);
 
-				return true;
-			};
-			directoryControl_ХарактеристикаНоменклатури.Init(new Form_ХарактеристикиНоменклатури(), new Довідники.ХарактеристикиНоменклатури_Pointer(), ПошуковіЗапити.ХарактеристикаНоменклатуриЗВідбором());
-			directoryControl_ХарактеристикаНоменклатури.BeforeClickOpenFunc = () =>
-			{
-				((Form_ХарактеристикиНоменклатури)directoryControl_ХарактеристикаНоменклатури.SelectForm).НоменклатураВласник = (Довідники.Номенклатура_Pointer)directoryControl_Номенклатура.DirectoryPointerItem;
-				return true;
-			};
-			directoryControl_ХарактеристикаНоменклатури.BeforeFindFunc = () =>
-			{
-				directoryControl_ХарактеристикаНоменклатури.QueryFind =
-				   ПошуковіЗапити.ХарактеристикаНоменклатуриЗВідбором((Довідники.Номенклатура_Pointer)directoryControl_Номенклатура.DirectoryPointerItem);
-			};
-			directoryControl_Пакування.Init(new Form_ПакуванняОдиниціВиміру(), new Довідники.ПакуванняОдиниціВиміру_Pointer(), ПошуковіЗапити.ПакуванняОдиниціВиміру);
-
+			
 			if (IsNew.HasValue)
 			{
 				if (IsNew.Value)
 				{
 					this.Text += " - Новий";
-					directoryControl_Номенклатура.DirectoryPointerItem = НоменклатураВласник;
-
-					if (directoryControl_Номенклатура.AfterSelectFunc != null)
-						directoryControl_Номенклатура.AfterSelectFunc.Invoke();
+					directoryControl_Валюта.DirectoryPointerItem = ВалютаВласник;
 				}
 				else
 				{
-					if (штрихкодиНоменклатури_Objest.Read(new UnigueID(Uid)))
+					if (курсиВалют_Objest.Read(new UnigueID(Uid)))
                     {
 						this.Text += " - Редагування";
 
-						textBox_Штрихкод.Text = штрихкодиНоменклатури_Objest.Штрихкод;
-						directoryControl_Номенклатура.DirectoryPointerItem = штрихкодиНоменклатури_Objest.Номенклатура;
-						directoryControl_ХарактеристикаНоменклатури.DirectoryPointerItem = штрихкодиНоменклатури_Objest.ХарактеристикаНоменклатури;
-						directoryControl_Пакування.DirectoryPointerItem = штрихкодиНоменклатури_Objest.Пакування;
+						numericControlКурс.Value = курсиВалют_Objest.Курс;
+						directoryControl_Валюта.DirectoryPointerItem = курсиВалют_Objest.Валюта;
 					}
 					else
 						MessageBox.Show("Error read");
@@ -129,19 +90,23 @@ namespace StorageAndTrade
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+			if (!numericControlКурс.IsValid)
+			{
+                MessageBox.Show("Перевірте правельність формату курсу", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+			
 			if (IsNew.HasValue)
 			{
 				if (IsNew.Value)
-					штрихкодиНоменклатури_Objest.New();
+                    курсиВалют_Objest.New();
 
-				штрихкодиНоменклатури_Objest.Штрихкод = textBox_Штрихкод.Text;
-				штрихкодиНоменклатури_Objest.Номенклатура = (Довідники.Номенклатура_Pointer)directoryControl_Номенклатура.DirectoryPointerItem;
-				штрихкодиНоменклатури_Objest.ХарактеристикаНоменклатури = (Довідники.ХарактеристикиНоменклатури_Pointer)directoryControl_ХарактеристикаНоменклатури.DirectoryPointerItem;
-				штрихкодиНоменклатури_Objest.Пакування = (Довідники.ПакуванняОдиниціВиміру_Pointer)directoryControl_Пакування.DirectoryPointerItem;
+				курсиВалют_Objest.Курс = numericControlКурс.Value;
+                курсиВалют_Objest.Валюта = (Довідники.Валюти_Pointer)directoryControl_Валюта.DirectoryPointerItem;
 
 				try
 				{
-					штрихкодиНоменклатури_Objest.Save();
+                    курсиВалют_Objest.Save();
 				}
 				catch (Exception exp)
 				{
@@ -151,7 +116,7 @@ namespace StorageAndTrade
 
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
-					OwnerForm.SelectPointerItem = штрихкодиНоменклатури_Objest.UnigueID.ToString();
+					OwnerForm.SelectPointerItem = курсиВалют_Objest.UnigueID.ToString();
 					OwnerForm.LoadRecords();
 				}
 

@@ -77,8 +77,9 @@ namespace StorageAndTrade
 				контрагенти_Objest = new Довідники.Контрагенти_Objest();
 
 				Контрагенти_ТабличнаЧастина_Контакти.ДовідникОбєкт = контрагенти_Objest;
+                Контрагенти_ТабличнаЧастина_Файли.ДовідникОбєкт = контрагенти_Objest;
 
-				if (IsNew.Value)
+                if (IsNew.Value)
 				{
 					this.Text += " - Новий";
 					textBox_Код.Text = контрагенти_Objest.Код = (++Константи.НумераціяДовідників.Контрагенти_Const).ToString("D6");
@@ -96,7 +97,8 @@ namespace StorageAndTrade
 						textBox_Опис.Text = контрагенти_Objest.Опис;
 
 						Контрагенти_ТабличнаЧастина_Контакти.LoadRecords();
-					}
+						Контрагенти_ТабличнаЧастина_Файли.LoadRecords();
+                    }
 					else
 						MessageBox.Show("Error read");
 				}
@@ -119,7 +121,8 @@ namespace StorageAndTrade
 				{
 					контрагенти_Objest.Save();
 					Контрагенти_ТабличнаЧастина_Контакти.SaveRecords();
-				}
+					Контрагенти_ТабличнаЧастина_Файли.SaveRecords();
+                }
 				catch (Exception exp)
 				{
 					MessageBox.Show(exp.Message);
