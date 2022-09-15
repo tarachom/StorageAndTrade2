@@ -37,10 +37,11 @@ namespace StorageAndTrade
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonDownloadExchangeCurrency = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
+            this.toolStripButtonКурсиВалюти = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,6 +67,7 @@ namespace StorageAndTrade
             this.toolStripButtonCopy,
             this.toolStripButtonDelete,
             this.toolStripSeparator1,
+            this.toolStripButtonКурсиВалюти,
             this.toolStripButtonDownloadExchangeCurrency});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -118,6 +120,20 @@ namespace StorageAndTrade
             this.toolStripButtonDelete.Text = "Видалити";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonDownloadExchangeCurrency
+            // 
+            this.toolStripButtonDownloadExchangeCurrency.Image = global::StorageAndTrade.Properties.Resources.page;
+            this.toolStripButtonDownloadExchangeCurrency.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDownloadExchangeCurrency.Name = "toolStripButtonDownloadExchangeCurrency";
+            this.toolStripButtonDownloadExchangeCurrency.Size = new System.Drawing.Size(170, 22);
+            this.toolStripButtonDownloadExchangeCurrency.Text = "Завантажити курси валют";
+            this.toolStripButtonDownloadExchangeCurrency.Click += new System.EventHandler(this.toolStripButtonDownloadExchangeCurrency_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridViewRecords);
@@ -147,19 +163,14 @@ namespace StorageAndTrade
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             // 
-            // toolStripSeparator1
+            // toolStripButtonКурсиВалюти
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButtonDownloadExchangeCurrency
-            // 
-            this.toolStripButtonDownloadExchangeCurrency.Image = global::StorageAndTrade.Properties.Resources.page;
-            this.toolStripButtonDownloadExchangeCurrency.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDownloadExchangeCurrency.Name = "toolStripButtonDownloadExchangeCurrency";
-            this.toolStripButtonDownloadExchangeCurrency.Size = new System.Drawing.Size(170, 22);
-            this.toolStripButtonDownloadExchangeCurrency.Text = "Завантажити курси валют";
-            this.toolStripButtonDownloadExchangeCurrency.Click += new System.EventHandler(this.toolStripButtonDownloadExchangeCurrency_Click);
+            this.toolStripButtonКурсиВалюти.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonКурсиВалюти.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonКурсиВалюти.Name = "toolStripButtonКурсиВалюти";
+            this.toolStripButtonКурсиВалюти.Size = new System.Drawing.Size(104, 22);
+            this.toolStripButtonКурсиВалюти.Text = "Курси валюти";
+            this.toolStripButtonКурсиВалюти.Click += new System.EventHandler(this.toolStripButtonКурсиВалюти_Click);
             // 
             // Form_Валюти
             // 
@@ -197,5 +208,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonDownloadExchangeCurrency;
+        private System.Windows.Forms.ToolStripButton toolStripButtonКурсиВалюти;
     }
 }

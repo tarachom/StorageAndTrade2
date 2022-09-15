@@ -71,6 +71,9 @@
     <Compile Update="NumericControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Довідники\Валюти\Form_ЗавантаженняКурсівВалют.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Довідники\Контрагенти\Form_Контрагенти_ТабличнаЧастина_Файли.cs">
       <SubType>UserControl</SubType>
     </Compile>
