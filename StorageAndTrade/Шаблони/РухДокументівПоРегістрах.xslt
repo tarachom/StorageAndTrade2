@@ -57,22 +57,9 @@
 	
 	<xsl:template match="Заголовок">
 
-	     <table>
-			<xsl:for-each select="row">
-				<tr class="table-info">
-					<th>Документ:</th>
-					<td><xsl:value-of select="Назва"/></td>
-				</tr>
-				<tr>
-					<th>Дата:</th>
-					<td><xsl:value-of select="ДатаДок"/></td>
-				</tr>
-				<tr>	
-					<th>Номер:</th>
-				    <td><xsl:value-of select="НомерДок"/></td>
-				</tr>
-			</xsl:for-each>
-		</table>
+		<p>
+			Документ: <xsl:value-of select="row/Назва"/>
+		</p>
 	
 	</xsl:template>
 	
@@ -140,7 +127,7 @@
 			<tr>
 				<th></th>
 				<th>Організація</th>
-				<th>ПартіяТоварівКомпозит</th>
+				<th>Партія</th>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
 				<th>Серія</th>

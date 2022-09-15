@@ -24,12 +24,7 @@ limitations under the License.
 using System;
 using System.Collections.Generic;
 using AccountingSoftware;
-
-using System.Windows.Forms;
-using System.IO;
 using System.Xml;
-using System.Xml.Xsl;
-using System.Xml.XPath;
 
 using StorageAndTrade_1_0;
 using StorageAndTrade_1_0.Довідники;
