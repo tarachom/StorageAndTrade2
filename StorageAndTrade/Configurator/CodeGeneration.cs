@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 14.09.2022 10:48:34
+ * Дата конфігурації: 15.09.2022 12:36:08
  *
  */
 
@@ -4430,17 +4430,21 @@ namespace StorageAndTrade_1_0.Довідники
         public const string TABLE = "tab_a07";
         
         public const string Назва = "col_c5";
+        public const string КороткаНазва = "col_a2";
         public const string Код = "col_c6";
+        public const string Код_R030 = "col_a1";
     }
 	
     
     public class Валюти_Objest : DirectoryObject
     {
         public Валюти_Objest() : base(Config.Kernel, "tab_a07",
-             new string[] { "col_c5", "col_c6" }) 
+             new string[] { "col_c5", "col_a2", "col_c6", "col_a1" }) 
         {
             Назва = "";
+            КороткаНазва = "";
             Код = "";
+            Код_R030 = "";
             
         }
         
@@ -4449,7 +4453,9 @@ namespace StorageAndTrade_1_0.Довідники
             if (BaseRead(uid))
             {
                 Назва = base.FieldValue["col_c5"].ToString();
+                КороткаНазва = base.FieldValue["col_a2"].ToString();
                 Код = base.FieldValue["col_c6"].ToString();
+                Код_R030 = base.FieldValue["col_a1"].ToString();
                 
                 BaseClear();
                 return true;
@@ -4461,7 +4467,9 @@ namespace StorageAndTrade_1_0.Довідники
         public void Save()
         {
 		    base.FieldValue["col_c5"] = Назва;
+            base.FieldValue["col_a2"] = КороткаНазва;
             base.FieldValue["col_c6"] = Код;
+            base.FieldValue["col_a1"] = Код_R030;
             
             BaseSave();
 			
@@ -4472,7 +4480,9 @@ namespace StorageAndTrade_1_0.Довідники
             Валюти_Objest copy = new Валюти_Objest();
 			copy.New();
             copy.Назва = Назва;
+			copy.КороткаНазва = КороткаНазва;
 			copy.Код = Код;
+			copy.Код_R030 = Код_R030;
 			
 			return copy;
         }
@@ -4490,7 +4500,9 @@ namespace StorageAndTrade_1_0.Довідники
         }
         
         public string Назва { get; set; }
+        public string КороткаНазва { get; set; }
         public string Код { get; set; }
+        public string Код_R030 { get; set; }
         
     }
     

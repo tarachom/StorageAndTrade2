@@ -45,8 +45,12 @@ namespace StorageAndTrade
 
 			dataGridViewRecords.Columns["ID"].Visible = false;
 			dataGridViewRecords.Columns["Назва"].Width = 300;
-			dataGridViewRecords.Columns["Код"].Width = 50;
-		}
+            dataGridViewRecords.Columns["КороткаНазва"].Width = 80;
+            dataGridViewRecords.Columns["КороткаНазва"].HeaderText = "Коротко";
+            dataGridViewRecords.Columns["Код_R030"].Width = 80;
+            dataGridViewRecords.Columns["Код_R030"].HeaderText = "R030";
+            dataGridViewRecords.Columns["Код"].Width = 80;
+        }
 
 		/// <summary>
 		/// Вказівник для вибору
@@ -72,10 +76,12 @@ namespace StorageAndTrade
 
 			Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
 			валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Назва);
-			валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Код);
+            валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Код_R030);
+            валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Код);
+            валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.КороткаНазва);
 
-			//ORDER
-			валюти_Select.QuerySelect.Order.Add(Довідники.Валюти_Const.Назва, SelectOrder.ASC);
+            //ORDER
+            валюти_Select.QuerySelect.Order.Add(Довідники.Валюти_Const.Код, SelectOrder.ASC);
 
 			валюти_Select.Select();
 			while (валюти_Select.MoveNext())
@@ -86,8 +92,10 @@ namespace StorageAndTrade
 				{
 					ID = cur.UnigueID.ToString(),
 					Назва = cur.Fields[Довідники.Валюти_Const.Назва].ToString(),
-					Код = cur.Fields[Довідники.Валюти_Const.Код].ToString()
-				});
+                    КороткаНазва = cur.Fields[Довідники.Валюти_Const.КороткаНазва].ToString(),
+                    Код = cur.Fields[Довідники.Валюти_Const.Код].ToString(),
+                    Код_R030 = cur.Fields[Довідники.Валюти_Const.Код_R030].ToString()
+                });
 			}
 
 			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
@@ -105,8 +113,10 @@ namespace StorageAndTrade
 			public Bitmap Image { get; set; }
 			public string ID { get; set; }
 			public string Назва { get; set; }
-			public string Код { get; set; }
-		}
+            public string КороткаНазва { get; set; }
+            public string Код_R030 { get; set; }
+            public string Код { get; set; }
+        }
 
         private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

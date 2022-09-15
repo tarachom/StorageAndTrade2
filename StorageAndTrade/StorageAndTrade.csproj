@@ -59,10 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Configurator\Confa.xml" />
+    <None Remove="Configurator\InitialFilling.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="DirectoryAnyControl.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormInitialFilling.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="NumericControl.cs">
       <SubType>UserControl</SubType>

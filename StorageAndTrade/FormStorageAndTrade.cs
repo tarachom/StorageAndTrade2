@@ -465,6 +465,12 @@ namespace StorageAndTrade
             formService.ShowDialog();
         }
 
+        private void початковеЗаповненняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInitialFilling formInitialFilling = new FormInitialFilling();
+            formInitialFilling.ShowDialog();
+        }
+
         #endregion
 
         #region Журнали

@@ -82,7 +82,9 @@ namespace StorageAndTrade
 
 						textBoxName.Text = валюти_Objest.Назва;
 						textBox_Код.Text = валюти_Objest.Код;
-					}
+                        textBox_Код_R030.Text = валюти_Objest.Код_R030;
+						textBox_КороткаНазва.Text = валюти_Objest.КороткаНазва;
+                    }
 					else
 						MessageBox.Show("Error read");
 				}
@@ -98,8 +100,10 @@ namespace StorageAndTrade
 
 				валюти_Objest.Назва = textBoxName.Text;
 				валюти_Objest.Код = textBox_Код.Text;
+				валюти_Objest.Код_R030 = textBox_Код_R030.Text;
+				валюти_Objest.КороткаНазва = textBox_КороткаНазва.Text;
 
-				try
+                try
 				{
 					валюти_Objest.Save();
 				}
