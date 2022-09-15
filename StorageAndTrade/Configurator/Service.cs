@@ -162,7 +162,6 @@ OR
        -Рег_ЗамовленняКлієнтів.{ЗамовленняКлієнтів_Const.Сума} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -210,7 +209,6 @@ OR
        -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -262,7 +260,6 @@ OR
        -Рег_ПартіїТоварів.{ПартіїТоварів_Const.Собівартість} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -298,7 +295,6 @@ HAVING
        -Рег_РозрахункиЗКлієнтами.{РозрахункиЗКлієнтами_Const.Сума} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -334,7 +330,6 @@ HAVING
        -Рег_РозрахункиЗПостачальниками.{РозрахункиЗПостачальниками_Const.Сума} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -372,7 +367,6 @@ HAVING
        -Рег_ЗамовленняПостачальникам.{ЗамовленняПостачальникам_Const.Замовлено} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -426,7 +420,6 @@ OR
        -Рег_ВільніЗалишки.{ВільніЗалишки_Const.ВРезервіПідЗамовлення} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -464,7 +457,6 @@ HAVING
        -Рег_РухКоштів.{РухКоштів_Const.Сума} END) != 0
 ";
 
-                        //Console.WriteLine(query);
                         Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                         break;
@@ -511,7 +503,7 @@ SELECT
 FROM
     register
 ";
-            //Console.WriteLine(query);
+
             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
             //Таблична частина Місяць з конфігурації
@@ -523,7 +515,6 @@ FROM
             string clearQueryMonth = $@"
 DELETE FROM {tableMonth};
 ";
-            //Console.WriteLine(query);
             Config.KernelBackgroundTask.DataBase.ExecuteSQL(clearQueryMonth);
         }
 
@@ -574,15 +565,12 @@ ORDER BY Дата ASC
                 string ТипДокументу = row[3].ToString();
                 string Період = row[4].ToString();
 
-                //Console.WriteLine($"Документ: {Документ} ТипДокументу: {ТипДокументу} Період:{Період}");
-
                 bool documentProcessed = false;
 
                 if (documentProcessedList.ContainsKey(Період))
                 {
                     if (documentProcessedList[Період].Contains(ТипДокументу))
                     {
-                        //Console.WriteLine($"continue: {Період} {ТипДокументу}");
                         documentProcessed = true;
                     }
                     else
@@ -644,7 +632,6 @@ OR
        -Рег_ЗамовленняКлієнтів.{ЗамовленняКлієнтів_Const.Сума} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -695,7 +682,6 @@ OR
        -Рег_ТовариНаСкладах.{ТовариНаСкладах_Const.ДоВідвантаження} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -750,7 +736,6 @@ OR
        -Рег_ПартіїТоварів.{ПартіїТоварів_Const.Собівартість} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -789,7 +774,6 @@ HAVING
        -Рег_РозрахункиЗКлієнтами.{РозрахункиЗКлієнтами_Const.Сума} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -828,7 +812,6 @@ HAVING
        -Рег_РозрахункиЗПостачальниками.{РозрахункиЗПостачальниками_Const.Сума} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -869,7 +852,6 @@ HAVING
        -Рег_ЗамовленняПостачальникам.{ЗамовленняПостачальникам_Const.Замовлено} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -926,7 +908,6 @@ OR
        -Рег_ВільніЗалишки.{ВільніЗалишки_Const.ВРезервіПідЗамовлення} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -967,7 +948,6 @@ HAVING
        -Рег_РухКоштів.{РухКоштів_Const.Сума} END) != 0
 ";
 
-                                    //Console.WriteLine(query);
                                     Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                                     break;
@@ -1030,7 +1010,6 @@ DELETE FROM {Системні.ФоновіЗадачі_Актуальність�
 WHERE date_trunc('month', '{period}'::timestamp) = {Системні.ФоновіЗадачі_АктуальністьВіртуальнихЗалишків_TablePart.Місяць} AND
     {Системні.ФоновіЗадачі_АктуальністьВіртуальнихЗалишків_TablePart.Регістр} IN({queryPartRegisterAccumulation})";
 
-            //Console.WriteLine(queryDelete);
             Config.KernelBackgroundTask.DataBase.ExecuteSQL(queryDelete);
 
             foreach (string registerAccumulation in allowRegisterAccumulation)
@@ -1050,7 +1029,7 @@ VALUES
     date_trunc('month', '{period}'::timestamp),
     false
 )";
-                //Console.WriteLine(queryInsert);
+
                 Config.KernelBackgroundTask.DataBase.ExecuteSQL(queryInsert);
             }
         }
@@ -1082,8 +1061,6 @@ ORDER BY Місяць ASC
                 string uid = row["uid"].ToString();
                 string Регістр = row["Регістр"].ToString();
                 string Місяць = row["Місяць"].ToString();
-
-                //Console.WriteLine($"Регістр {Регістр} Місяць {Місяць}");
 
                 switch (Регістр)
                 {
@@ -1122,7 +1099,6 @@ HAVING
     SUM(ЗамовленняКлієнтів_День.{ВіртуальніТаблиціРегістрів.ЗамовленняКлієнтів_День_TablePart.Сума}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1164,7 +1140,6 @@ HAVING
    SUM(ТовариНаСкладах_День.{ВіртуальніТаблиціРегістрів.ТовариНаСкладах_День_TablePart.ДоВідвантаження}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             //Додаткове обчислення підсумкових залишків
@@ -1240,7 +1215,6 @@ HAVING
    SUM(ПартіїТоварів_День.{ВіртуальніТаблиціРегістрів.ПартіїТоварів_День_TablePart.Собівартість}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1275,7 +1249,6 @@ HAVING
    SUM(РозрахункиЗКлієнтами_День.{ВіртуальніТаблиціРегістрів.РозрахункиЗКлієнтами_День_TablePart.Сума}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1310,7 +1283,6 @@ HAVING
     SUM(РозрахункиЗПостачальниками_День.{ВіртуальніТаблиціРегістрів.РозрахункиЗПостачальниками_День_TablePart.Сума}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1347,7 +1319,6 @@ HAVING
     SUM(ЗамовленняПостачальникам_День.{ВіртуальніТаблиціРегістрів.ЗамовленняПостачальникам_День_TablePart.Замовлено}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1390,7 +1361,6 @@ HAVING
    SUM(ВільніЗалишки_День.{ВіртуальніТаблиціРегістрів.ВільніЗалишки_День_TablePart.ВРезервіПідЗамовлення}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
@@ -1427,7 +1397,6 @@ HAVING
    SUM(РухКоштів_День.{ВіртуальніТаблиціРегістрів.РухКоштів_День_TablePart.Сума}) != 0
 ";
 
-                            //Console.WriteLine(query);
                             Config.KernelBackgroundTask.DataBase.ExecuteSQL(query);
 
                             break;
