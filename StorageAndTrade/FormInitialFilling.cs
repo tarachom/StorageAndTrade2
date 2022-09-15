@@ -29,10 +29,6 @@ using System.Xml.XPath;
 
 using AccountingSoftware;
 using Константи = StorageAndTrade_1_0.Константи;
-using Journal = StorageAndTrade_1_0.Журнали;
-using System.Reflection;
-using StorageAndTrade.Service;
-using System.Xml;
 using StorageAndTrade_1_0.Довідники;
 
 namespace StorageAndTrade
@@ -65,8 +61,6 @@ namespace StorageAndTrade
         {
 			buttonSpendAll.Enabled = false;
 			buttonCancel.Enabled = true;
-
-			
 
 			CancellationTokenThread = new CancellationTokenSource();
             thread = new Thread(new ThreadStart(InitialFilling));

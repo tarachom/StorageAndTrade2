@@ -39,6 +39,8 @@ namespace StorageAndTrade
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonDownloadExchangeCurrency = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,7 +64,9 @@ namespace StorageAndTrade
             this.toolStripButtonEdit,
             this.toolStripButtonRefresh,
             this.toolStripButtonCopy,
-            this.toolStripButtonDelete});
+            this.toolStripButtonDelete,
+            this.toolStripSeparator1,
+            this.toolStripButtonDownloadExchangeCurrency});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(778, 25);
@@ -143,6 +147,20 @@ namespace StorageAndTrade
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonDownloadExchangeCurrency
+            // 
+            this.toolStripButtonDownloadExchangeCurrency.Image = global::StorageAndTrade.Properties.Resources.page;
+            this.toolStripButtonDownloadExchangeCurrency.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDownloadExchangeCurrency.Name = "toolStripButtonDownloadExchangeCurrency";
+            this.toolStripButtonDownloadExchangeCurrency.Size = new System.Drawing.Size(170, 22);
+            this.toolStripButtonDownloadExchangeCurrency.Text = "Завантажити курси валют";
+            this.toolStripButtonDownloadExchangeCurrency.Click += new System.EventHandler(this.toolStripButtonDownloadExchangeCurrency_Click);
+            // 
             // Form_Валюти
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -177,5 +195,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDownloadExchangeCurrency;
     }
 }

@@ -46,7 +46,38 @@ namespace StorageAndTrade_1_0.Константи
 
 namespace StorageAndTrade_1_0.Довідники
 {
-	class Контрагенти_Triggers
+    class Валюти_Triggers
+    {
+        public static void BeforeRecording(Валюти_Objest ДовідникОбєкт)
+        {
+
+        }
+
+        public static void AfterRecording(Валюти_Objest ДовідникОбєкт)
+        {
+            
+        }
+
+        public static void BeforeDelete(Валюти_Objest ДовідникОбєкт)
+        {
+            //Очистити регістр КурсиВалют
+			//при видаленні валюти
+
+            string query = $@"
+DELETE FROM 
+	{РегістриВідомостей.КурсиВалют_Const.TABLE} AS КурсиВалют
+WHERE
+    КурсиВалют.{РегістриВідомостей.КурсиВалют_Const.Валюта} = @Валюта
+";
+
+            Dictionary<string, object> paramQuery = new Dictionary<string, object>();
+            paramQuery.Add("Валюта", ДовідникОбєкт.UnigueID.UGuid);
+
+            Конфа.Config.Kernel.DataBase.ExecuteSQL(query, paramQuery);
+        }
+    }
+
+    class Контрагенти_Triggers
 	{
 		public static void BeforeRecording(Контрагенти_Objest ДовідникОбєкт)
 		{
