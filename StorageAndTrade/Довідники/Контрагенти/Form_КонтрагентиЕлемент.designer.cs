@@ -54,7 +54,6 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonClose.Location = new System.Drawing.Point(647, 543);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
@@ -66,7 +65,6 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSave.Location = new System.Drawing.Point(13, 543);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
@@ -124,8 +122,6 @@ namespace StorageAndTrade
             // 
             // textBox_ПовнаНазва
             // 
-            this.textBox_ПовнаНазва.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_ПовнаНазва.Location = new System.Drawing.Point(70, 82);
             this.textBox_ПовнаНазва.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_ПовнаНазва.Multiline = true;
@@ -145,8 +141,6 @@ namespace StorageAndTrade
             // 
             // textBox_Опис
             // 
-            this.textBox_Опис.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Опис.Location = new System.Drawing.Point(70, 130);
             this.textBox_Опис.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Опис.Multiline = true;
@@ -195,15 +189,12 @@ namespace StorageAndTrade
             this.Контрагенти_ТабличнаЧастина_Файли.Location = new System.Drawing.Point(3, 3);
             this.Контрагенти_ТабличнаЧастина_Файли.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Контрагенти_ТабличнаЧастина_Файли.Name = "Контрагенти_ТабличнаЧастина_Файли";
-            this.Контрагенти_ТабличнаЧастина_Файли.Size = new System.Drawing.Size(810, 324);
+            this.Контрагенти_ТабличнаЧастина_Файли.Size = new System.Drawing.Size(810, 300);
             this.Контрагенти_ТабличнаЧастина_Файли.TabIndex = 64;
             this.Контрагенти_ТабличнаЧастина_Файли.ДовідникОбєкт = null;
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(12, 200);
@@ -229,7 +220,7 @@ namespace StorageAndTrade
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(816, 330);
+            this.tabPage2.Size = new System.Drawing.Size(816, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Файли";
             this.tabPage2.UseVisualStyleBackColor = true;

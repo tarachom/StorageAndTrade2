@@ -5,7 +5,7 @@
 	<xsl:template name="Head">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="Style/bootstrap.min.css" />
+		<link rel="stylesheet" href="Style/template.css" />
 	</xsl:template>
 
 	<xsl:template match="/root">
@@ -16,59 +16,55 @@
 				<xsl:call-template name="Head" />
 			</head>
 			<body>
+				
+				<h3>Розрахунки з клієнтами: залишки та обороти</h3>
+				<p>
+					Період з <xsl:value-of select="head/row/ПочатокПеріоду"/> по <xsl:value-of select="head/row/КінецьПеріоду"/>
+				</p>
 
-				<div class="container-fluid">
+				<table>
+					<tr>
+						<th width="40%" style="vertical-align:middle">Контрагент</th>
+						<th width="20%" style="vertical-align:middle">Валюта</th>
+						<th width="10%" style="text-align:center;vertical-align:middle">На початок</th>
+						<th width="10%" style="text-align:center;vertical-align:middle">Прихід</th>
+						<th width="10%" style="text-align:center;vertical-align:middle">Розхід</th>
+						<th width="10%" style="text-align:center;vertical-align:middle">На кінець</th>
+					</tr>
 
-					<h4>Розрахунки з клієнтами: залишки та обороти</h4>
-					<p>
-						Період з <xsl:value-of select="head/row/ПочатокПеріоду"/> по <xsl:value-of select="head/row/КінецьПеріоду"/>
-					</p>
-
-					<table class="table table-bordered table-sm table-hover">
-						<tr class="table-success">
-							<th width="40%" style="vertical-align:middle">Контрагент</th>
-							<th width="20%" style="vertical-align:middle">Валюта</th>
-							<th width="10%" style="text-align:center;vertical-align:middle">На початок</th>
-							<th width="10%" style="text-align:center;vertical-align:middle">Прихід</th>
-							<th width="10%" style="text-align:center;vertical-align:middle">Розхід</th>
-							<th width="10%" style="text-align:center;vertical-align:middle">На кінець</th>
+					<xsl:for-each select="ЗалишкиТаОбороти/row">
+						<tr>
+							<td>
+								<a id="{Контрагент}" name="Довідник.Контрагенти" href="?id={Контрагент}&amp;name=Довідник.Контрагенти">
+									<xsl:value-of select="Контрагент_Назва"/>
+								</a>
+							</td>
+							<td>
+								<a id="{Валюта}" name="Довідник.Валюти" href="?id={Валюта}&amp;name=Довідник.Валюти">
+									<xsl:value-of select="Валюта_Назва"/>
+								</a>
+							</td>
+							<td align="right">
+								<xsl:value-of select="ПочатковийЗалишок"/>
+							</td>
+							<td align="right">
+								<xsl:value-of select="Прихід"/>
+							</td>
+							<td align="right">
+								<xsl:value-of select="Розхід"/>
+							</td>
+							<td align="right">
+								<xsl:value-of select="КінцевийЗалишок"/>
+							</td>
 						</tr>
+					</xsl:for-each>
 
-						<xsl:for-each select="ЗалишкиТаОбороти/row">
-							<tr>
-								<td>
-									<a id="{Контрагент}" name="Довідник.Контрагенти" href="?id={Контрагент}&amp;name=Довідник.Контрагенти">
-										<xsl:value-of select="Контрагент_Назва"/>
-									</a>
-								</td>
-								<td>
-									<a id="{Валюта}" name="Довідник.Валюти" href="?id={Валюта}&amp;name=Довідник.Валюти">
-										<xsl:value-of select="Валюта_Назва"/>
-									</a>
-								</td>
-								<td align="right">
-									<xsl:value-of select="ПочатковийЗалишок"/>
-								</td>
-								<td align="right">
-									<xsl:value-of select="Прихід"/>
-								</td>
-								<td align="right">
-									<xsl:value-of select="Розхід"/>
-								</td>
-								<td align="right">
-									<xsl:value-of select="КінцевийЗалишок"/>
-								</td>
-							</tr>
-						</xsl:for-each>
+				</table>
 
-					</table>
-
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-
-				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 
 			</body>
 		</html>

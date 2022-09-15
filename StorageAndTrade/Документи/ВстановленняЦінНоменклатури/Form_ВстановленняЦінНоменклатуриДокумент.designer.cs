@@ -91,7 +91,7 @@ namespace StorageAndTrade
             // textBox_НомерДок
             // 
             this.textBox_НомерДок.BackColor = System.Drawing.Color.White;
-            this.textBox_НомерДок.Location = new System.Drawing.Point(400, 13);
+            this.textBox_НомерДок.Location = new System.Drawing.Point(394, 13);
             this.textBox_НомерДок.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_НомерДок.Name = "textBox_НомерДок";
             this.textBox_НомерДок.ReadOnly = true;
@@ -111,7 +111,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(559, 16);
+            this.label1.Location = new System.Drawing.Point(552, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 15);
@@ -120,7 +120,7 @@ namespace StorageAndTrade
             // 
             // dateTimePicker_ДатаДок
             // 
-            this.dateTimePicker_ДатаДок.Location = new System.Drawing.Point(608, 13);
+            this.dateTimePicker_ДатаДок.Location = new System.Drawing.Point(593, 13);
             this.dateTimePicker_ДатаДок.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker_ДатаДок.Name = "dateTimePicker_ДатаДок";
             this.dateTimePicker_ДатаДок.Size = new System.Drawing.Size(228, 23);
@@ -147,7 +147,7 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(4, 32);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 164);
+            this.panel1.Size = new System.Drawing.Size(929, 147);
             this.panel1.TabIndex = 23;
             // 
             // label6
@@ -164,7 +164,7 @@ namespace StorageAndTrade
             // dateTimePicker_ЧасДок
             // 
             this.dateTimePicker_ЧасДок.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker_ЧасДок.Location = new System.Drawing.Point(843, 13);
+            this.dateTimePicker_ЧасДок.Location = new System.Drawing.Point(828, 13);
             this.dateTimePicker_ЧасДок.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker_ЧасДок.Name = "dateTimePicker_ЧасДок";
             this.dateTimePicker_ЧасДок.ShowUpDown = true;
@@ -174,7 +174,7 @@ namespace StorageAndTrade
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(544, 54);
+            this.label5.Location = new System.Drawing.Point(534, 50);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 15);
@@ -188,18 +188,18 @@ namespace StorageAndTrade
             this.directoryControl_ВидЦіни.BeforeFindFunc = null;
             this.directoryControl_ВидЦіни.Bind = null;
             this.directoryControl_ВидЦіни.DirectoryPointerItem = null;
-            this.directoryControl_ВидЦіни.Location = new System.Drawing.Point(612, 46);
+            this.directoryControl_ВидЦіни.Location = new System.Drawing.Point(596, 42);
             this.directoryControl_ВидЦіни.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_ВидЦіни.Name = "directoryControl_ВидЦіни";
             this.directoryControl_ВидЦіни.QueryFind = null;
             this.directoryControl_ВидЦіни.SelectForm = null;
-            this.directoryControl_ВидЦіни.Size = new System.Drawing.Size(326, 31);
+            this.directoryControl_ВидЦіни.Size = new System.Drawing.Size(320, 31);
             this.directoryControl_ВидЦіни.TabIndex = 67;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 92);
+            this.label4.Location = new System.Drawing.Point(31, 83);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
@@ -213,7 +213,7 @@ namespace StorageAndTrade
             this.directoryControl_Валюта.BeforeFindFunc = null;
             this.directoryControl_Валюта.Bind = null;
             this.directoryControl_Валюта.DirectoryPointerItem = null;
-            this.directoryControl_Валюта.Location = new System.Drawing.Point(96, 84);
+            this.directoryControl_Валюта.Location = new System.Drawing.Point(86, 75);
             this.directoryControl_Валюта.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Валюта.Name = "directoryControl_Валюта";
             this.directoryControl_Валюта.QueryFind = null;
@@ -224,7 +224,7 @@ namespace StorageAndTrade
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 126);
+            this.label7.Location = new System.Drawing.Point(19, 113);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 15);
@@ -233,16 +233,16 @@ namespace StorageAndTrade
             // 
             // textBox_Коментар
             // 
-            this.textBox_Коментар.Location = new System.Drawing.Point(96, 122);
+            this.textBox_Коментар.Location = new System.Drawing.Point(86, 109);
             this.textBox_Коментар.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Коментар.Name = "textBox_Коментар";
-            this.textBox_Коментар.Size = new System.Drawing.Size(842, 23);
+            this.textBox_Коментар.Size = new System.Drawing.Size(830, 23);
             this.textBox_Коментар.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 54);
+            this.label3.Location = new System.Drawing.Point(8, 50);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 15);
@@ -256,7 +256,7 @@ namespace StorageAndTrade
             this.directoryControl_Організація.BeforeFindFunc = null;
             this.directoryControl_Організація.Bind = null;
             this.directoryControl_Організація.DirectoryPointerItem = null;
-            this.directoryControl_Організація.Location = new System.Drawing.Point(96, 46);
+            this.directoryControl_Організація.Location = new System.Drawing.Point(86, 42);
             this.directoryControl_Організація.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
@@ -270,10 +270,10 @@ namespace StorageAndTrade
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.tabControl1);
-            this.panel2.Location = new System.Drawing.Point(4, 203);
+            this.panel2.Location = new System.Drawing.Point(4, 185);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(970, 384);
+            this.panel2.Size = new System.Drawing.Size(937, 402);
             this.panel2.TabIndex = 24;
             // 
             // tabControl1
@@ -285,7 +285,7 @@ namespace StorageAndTrade
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(970, 384);
+            this.tabControl1.Size = new System.Drawing.Size(937, 402);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -295,7 +295,7 @@ namespace StorageAndTrade
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage1.Size = new System.Drawing.Size(962, 356);
+            this.tabPage1.Size = new System.Drawing.Size(929, 374);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Товари";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@ namespace StorageAndTrade
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.Location = new System.Drawing.Point(4, 3);
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.Name = "ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари";
-            this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.Size = new System.Drawing.Size(954, 350);
+            this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.Size = new System.Drawing.Size(921, 368);
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.TabIndex = 0;
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.ДокументОбєкт = null;
             this.ВстановленняЦінНоменклатури_ТабличнаЧастина_Товари.ОбновитиЗначенняЗФормиДокумента = null;
@@ -317,7 +317,7 @@ namespace StorageAndTrade
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Size = new System.Drawing.Size(954, 356);
+            this.tabPage2.Size = new System.Drawing.Size(962, 356);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Додаток";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -333,7 +333,7 @@ namespace StorageAndTrade
             this.panel3.Location = new System.Drawing.Point(4, 590);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(962, 38);
+            this.panel3.Size = new System.Drawing.Size(929, 38);
             this.panel3.TabIndex = 25;
             // 
             // buttonSaveAndSpend
@@ -365,7 +365,7 @@ namespace StorageAndTrade
             this.toolStripButtonДрукПроводок});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(974, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(941, 25);
             this.toolStrip1.TabIndex = 28;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -391,7 +391,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 634);
+            this.ClientSize = new System.Drawing.Size(941, 634);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

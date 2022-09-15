@@ -6,7 +6,7 @@
 	<xsl:template name="Head">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="Style/bootstrap.min.css" />
+		<link rel="stylesheet" href="Style/template.css" />
 	</xsl:template>
 
 	<xsl:template match="/root">
@@ -18,41 +18,37 @@
 			</head>
 			<body>
 
-				<div class="container">
-
-					<br />
-					<h2>Рух документу по регістрах</h2>
-					<xsl:apply-templates select="Заголовок" />
+				<br />
+				<h3>Рух документу по регістрах</h3>
+				<xsl:apply-templates select="Заголовок" />
 					
-					<!--  -->
-					<xsl:apply-templates select="ТовариНаСкладах" />
+				<!--  -->
+				<xsl:apply-templates select="ТовариНаСкладах" />
 
-					<xsl:apply-templates select="ПартіїТоварів" />
+				<xsl:apply-templates select="ПартіїТоварів" />
 					
-					<xsl:apply-templates select="РухТоварів" />
+				<xsl:apply-templates select="РухТоварів" />
 
-					<xsl:apply-templates select="ЗамовленняКлієнтів" />
+				<xsl:apply-templates select="ЗамовленняКлієнтів" />
 
-					<xsl:apply-templates select="РозрахункиЗКлієнтами" />
+				<xsl:apply-templates select="РозрахункиЗКлієнтами" />
 
-					<xsl:apply-templates select="ВільніЗалишки" />
+				<xsl:apply-templates select="ВільніЗалишки" />
 
-					<xsl:apply-templates select="ЗамовленняПостачальникам" />
+				<xsl:apply-templates select="ЗамовленняПостачальникам" />
 
-					<xsl:apply-templates select="РозрахункиЗПостачальниками" />
+				<xsl:apply-templates select="РозрахункиЗПостачальниками" />
 
-					<xsl:apply-templates select="ТовариДоПоступлення" />
+				<xsl:apply-templates select="ТовариДоПоступлення" />
 
-					<xsl:apply-templates select="РухКоштів" />
+				<xsl:apply-templates select="РухКоштів" />
 					
-					<xsl:apply-templates select="ЦіниНоменклатури" />
+				<xsl:apply-templates select="ЦіниНоменклатури" />
 
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-
-				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 
 			</body>
 		</html>
@@ -61,7 +57,7 @@
 	
 	<xsl:template match="Заголовок">
 
-	     <table class="table table-sm">
+	     <table>
 			<xsl:for-each select="row">
 				<tr class="table-info">
 					<th>Документ:</th>
@@ -84,8 +80,8 @@
 		<br/>
 		<h5>Товари на cкладах</h5>
 
-		<table class="table table-bordered table-sm">
-			<tr class="table-success">
+		<table>
+			<tr>
 				<th></th>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
@@ -140,8 +136,8 @@
 		<br/>
 		<h5>Партії товарів</h5>
 
-		<table class="table table-bordered table-sm">
-			<tr class="table-success">
+		<table>
+			<tr>
 				<th></th>
 				<th>Організація</th>
 				<th>ПартіяТоварівКомпозит</th>
@@ -212,9 +208,9 @@
 		<br/>
 		<h5>Рух товарів</h5>
 
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
@@ -261,9 +257,9 @@
 		<br/>
 		<h5>Замовлення клієнтів</h5>
 		
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>ЗамовленняКлієнта</th>
 				<th>Номенклатура</th>
@@ -320,9 +316,9 @@
 		<br/>
 		<h5>Розрахунки з клієнтами</h5>
 		
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Контрагент</th>
 				<th>Валюта</th>
@@ -363,9 +359,9 @@
 		<br/>
 		<h5>Вільні залишки</h5>
 		
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
@@ -420,9 +416,9 @@
 		<br/>
 		<h5>Замовлення постачальникам</h5>
 
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Замовлення постачальнику</th>
 				<th>Номенклатура</th>
@@ -475,9 +471,9 @@
 		<br/>
 		<h5>Розрахунки з постачальниками</h5>
 
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Контрагент</th>
 				<th>Валюта</th>
@@ -518,9 +514,9 @@
 		<br/>
 		<h5>Товари до поступлення</h5>
 
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
@@ -567,9 +563,9 @@
 		<br/>
 		<h5>Рух коштів</h5>
 
-		<table class="table table-bordered table-sm">
+		<table>
 
-			<tr class="table-success">
+			<tr>
 				<th></th>
 				<th>Організація</th>
 				<th>Каса</th>
@@ -616,8 +612,8 @@
 		<br/>
 		<h5>Ціни номенклатури</h5>
 
-		<table class="table table-bordered table-sm">
-			<tr class="table-success">
+		<table>
+			<tr>
 				<th>Номенклатура</th>
 				<th>Характеристика</th>
 				<th>Види цін</th>

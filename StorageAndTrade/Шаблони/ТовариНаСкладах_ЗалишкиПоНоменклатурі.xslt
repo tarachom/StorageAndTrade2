@@ -19,7 +19,7 @@
 
 				<div class="container-fluid">
 
-					<h4>Залишки номенклатури</h4>
+					<h3>Залишки номенклатури</h3>
 					<p>
 						На дату: <xsl:value-of select="head/row/КінецьПеріоду"/><br/>
 						Номенклатура: <xsl:value-of select="head/row/Номенклатура"/>
