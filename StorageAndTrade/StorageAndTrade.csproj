@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -62,13 +62,13 @@
     <None Remove="Configurator\InitialFilling.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DirectoryAnyControl.cs">
+    <Compile Update="Controls\DirectoryAnyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="FormInitialFilling.cs">
+    <Compile Update="Форми\FormInitialFilling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="NumericControl.cs">
+    <Compile Update="Controls\NumericControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Довідники\Валюти\Form_ЗавантаженняКурсівВалют.cs">
@@ -125,10 +125,10 @@
     <Compile Update="Документи\ПереміщенняТоварів\Form_ПереміщенняТоварів_ТабличнаЧастина_Товари.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="DocumentControl.cs">
+    <Compile Update="Controls\DocumentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="DirectoryControl.cs">
+    <Compile Update="Controls\DirectoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Довідники\Контрагенти\Form_Контрагенти_Папки_Дерево.cs">

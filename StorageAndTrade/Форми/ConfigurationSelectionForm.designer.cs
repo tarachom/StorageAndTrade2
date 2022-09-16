@@ -39,21 +39,23 @@
             // 
             // listBoxConfiguration
             // 
-            this.listBoxConfiguration.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxConfiguration.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxConfiguration.FormattingEnabled = true;
             this.listBoxConfiguration.ItemHeight = 19;
-            this.listBoxConfiguration.Location = new System.Drawing.Point(12, 12);
+            this.listBoxConfiguration.Location = new System.Drawing.Point(6, 8);
+            this.listBoxConfiguration.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxConfiguration.Name = "listBoxConfiguration";
-            this.listBoxConfiguration.Size = new System.Drawing.Size(502, 270);
+            this.listBoxConfiguration.Size = new System.Drawing.Size(585, 308);
             this.listBoxConfiguration.TabIndex = 0;
             this.listBoxConfiguration.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxConfiguration_KeyDown);
             this.listBoxConfiguration.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxConfiguration_MouseDoubleClick);
             // 
             // buttonAddConf
             // 
-            this.buttonAddConf.Location = new System.Drawing.Point(520, 180);
+            this.buttonAddConf.Location = new System.Drawing.Point(599, 198);
+            this.buttonAddConf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAddConf.Name = "buttonAddConf";
-            this.buttonAddConf.Size = new System.Drawing.Size(97, 30);
+            this.buttonAddConf.Size = new System.Drawing.Size(113, 35);
             this.buttonAddConf.TabIndex = 1;
             this.buttonAddConf.Text = "Додати";
             this.buttonAddConf.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // buttonOpenConf
             // 
-            this.buttonOpenConf.Location = new System.Drawing.Point(520, 12);
+            this.buttonOpenConf.Location = new System.Drawing.Point(599, 8);
+            this.buttonOpenConf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOpenConf.Name = "buttonOpenConf";
-            this.buttonOpenConf.Size = new System.Drawing.Size(97, 30);
+            this.buttonOpenConf.Size = new System.Drawing.Size(113, 35);
             this.buttonOpenConf.TabIndex = 3;
             this.buttonOpenConf.Text = "Відкрити";
             this.buttonOpenConf.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(520, 252);
+            this.buttonDelete.Location = new System.Drawing.Point(599, 281);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(97, 30);
+            this.buttonDelete.Size = new System.Drawing.Size(113, 35);
             this.buttonDelete.TabIndex = 4;
             this.buttonDelete.Text = "Видалити";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(520, 216);
+            this.buttonCopy.Location = new System.Drawing.Point(599, 239);
+            this.buttonCopy.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(97, 30);
+            this.buttonCopy.Size = new System.Drawing.Size(113, 35);
             this.buttonCopy.TabIndex = 5;
             this.buttonCopy.Text = "Копіювати";
             this.buttonCopy.UseVisualStyleBackColor = true;
@@ -91,9 +96,10 @@
             // 
             // button_OpenConfigurator
             // 
-            this.button_OpenConfigurator.Location = new System.Drawing.Point(520, 144);
+            this.button_OpenConfigurator.Location = new System.Drawing.Point(599, 156);
+            this.button_OpenConfigurator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_OpenConfigurator.Name = "button_OpenConfigurator";
-            this.button_OpenConfigurator.Size = new System.Drawing.Size(97, 30);
+            this.button_OpenConfigurator.Size = new System.Drawing.Size(113, 35);
             this.button_OpenConfigurator.TabIndex = 6;
             this.button_OpenConfigurator.Text = "Конфігуратор";
             this.button_OpenConfigurator.UseVisualStyleBackColor = true;
@@ -101,9 +107,9 @@
             // 
             // ConfigurationSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 292);
+            this.ClientSize = new System.Drawing.Size(718, 322);
             this.Controls.Add(this.button_OpenConfigurator);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonDelete);
@@ -112,6 +118,7 @@
             this.Controls.Add(this.listBoxConfiguration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigurationSelectionForm";
