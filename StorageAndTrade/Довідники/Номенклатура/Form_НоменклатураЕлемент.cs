@@ -192,19 +192,26 @@ namespace StorageAndTrade
 			if (!номенклатура_Objest.ОсновнаКартинкаФайл.IsEmpty())
 			{
 				Довідники.Файли_Objest файлКартинки = номенклатура_Objest.ОсновнаКартинкаФайл.GetDirectoryObject();
-
-				MemoryStream memoryStream = new MemoryStream(файлКартинки.БінарніДані);
-
-				try
+				if (файлКартинки != null)
 				{
-					pictureBox_ОсновнаКартинка.Image = Image.FromStream(memoryStream);
-                    pictureBox_ОсновнаКартинка.SizeMode = PictureBoxSizeMode.Zoom;
+					MemoryStream memoryStream = new MemoryStream(файлКартинки.БінарніДані);
 
+					try
+					{
+						pictureBox_ОсновнаКартинка.Image = Image.FromStream(memoryStream);
+						pictureBox_ОсновнаКартинка.SizeMode = PictureBoxSizeMode.Zoom;
+
+					}
+					catch
+					{
+						pictureBox_ОсновнаКартинка.Image = null;
+					}
+
+					memoryStream.Close();
 				}
-				catch { }
-
-				memoryStream.Close();
             }
-		}
+			else
+                pictureBox_ОсновнаКартинка.Image = null;
+        }
 	}
 }

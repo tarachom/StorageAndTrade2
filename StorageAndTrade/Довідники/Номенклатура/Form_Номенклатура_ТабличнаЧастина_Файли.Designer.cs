@@ -31,8 +31,11 @@ namespace StorageAndTrade
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonAddImage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).BeginInit();
@@ -42,8 +45,11 @@ namespace StorageAndTrade
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonAdd,
+            this.toolStripButtonRefresh,
             this.toolStripButtonCopy,
-            this.toolStripButtonDelete});
+            this.toolStripButtonDelete,
+            this.toolStripSeparator1,
+            this.toolStripButtonAddImage});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(734, 25);
@@ -58,6 +64,15 @@ namespace StorageAndTrade
             this.toolStripButtonAdd.Size = new System.Drawing.Size(66, 22);
             this.toolStripButtonAdd.Text = "Додати";
             this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
+            // 
+            // toolStripButtonRefresh
+            // 
+            this.toolStripButtonRefresh.Image = global::StorageAndTrade.Properties.Resources.refresh;
+            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(82, 22);
+            this.toolStripButtonRefresh.Text = "Обновити";
+            this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
             // 
             // toolStripButtonCopy
             // 
@@ -77,6 +92,20 @@ namespace StorageAndTrade
             this.toolStripButtonDelete.Text = "Видалити";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonAddImage
+            // 
+            this.toolStripButtonAddImage.Image = global::StorageAndTrade.Properties.Resources.down;
+            this.toolStripButtonAddImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddImage.Name = "toolStripButtonAddImage";
+            this.toolStripButtonAddImage.Size = new System.Drawing.Size(114, 22);
+            this.toolStripButtonAddImage.Text = "Загрузити файл";
+            this.toolStripButtonAddImage.Click += new System.EventHandler(this.toolStripButtonAddImage_Click);
+            // 
             // dataGridViewRecords
             // 
             this.dataGridViewRecords.AllowUserToAddRows = false;
@@ -91,7 +120,6 @@ namespace StorageAndTrade
             this.dataGridViewRecords.RowHeadersVisible = false;
             this.dataGridViewRecords.Size = new System.Drawing.Size(734, 210);
             this.dataGridViewRecords.TabIndex = 2;
-            this.dataGridViewRecords.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewRecords_CellBeginEdit);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewRecords_KeyDown);
             // 
@@ -120,5 +148,8 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.DataGridView dataGridViewRecords;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddImage;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
     }
 }

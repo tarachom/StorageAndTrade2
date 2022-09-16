@@ -21,12 +21,16 @@ limitations under the License.
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
 using AccountingSoftware;
 using Довідники = StorageAndTrade_1_0.Довідники;
+using Константи = StorageAndTrade_1_0.Константи;
 
 namespace StorageAndTrade
 {
@@ -315,26 +319,74 @@ namespace StorageAndTrade
 				foreach (int rowIndex in deleteRowIndex.Reverse<int>())
 					RecordsBindingList.RemoveAt(rowIndex);
 			}
-		}
+        }
 
-        private void dataGridViewRecords_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        //private void dataGridViewRecords_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        //{
+        //    string columnName = dataGridViewRecords.Columns[e.ColumnIndex].Name;
+
+        //    Записи запис = RecordsBindingList[e.RowIndex];
+        //    Debug.WriteLine(запис.Основний);
+
+        //    //if (columnName == "Основний")
+        //    //{
+        //    //    int counter = 0;
+
+        //    //    foreach (Записи запис in RecordsBindingList)
+        //    //    {
+        //    //        if (counter != e.RowIndex)
+        //    //            запис.Основний = false;
+
+        //    //        counter++;
+        //    //    }
+
+        //    //    dataGridViewRecords.Refresh();
+        //    //}
+        //}
+
+        //private void dataGridViewRecords_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    string columnName = dataGridViewRecords.Columns[e.ColumnIndex].Name;
+
+        //    Записи запис = RecordsBindingList[e.RowIndex];
+        //}
+
+        private void toolStripButtonAddImage_Click(object sender, EventArgs e)
         {
-            string columnName = dataGridViewRecords.Columns[e.ColumnIndex].Name;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "*.*|*.*";
+            openFileDialog.Title = "Файл";
+            openFileDialog.InitialDirectory = Environment.SpecialFolder.Desktop.ToString();
 
-            if (columnName == "Основний")
+            if (!(openFileDialog.ShowDialog() == DialogResult.OK))
+                return;
+            else
             {
-                int counter = 0;
+                string FileInput = openFileDialog.FileName;
 
-                foreach (Записи запис in RecordsBindingList)
-                {
-                    if (counter != e.RowIndex)
-                        запис.Основний = false;
+                FileInfo fileInfo = new FileInfo(FileInput);
 
-                    counter++;
-                }
+                Довідники.Файли_Objest файли_Objest = new Довідники.Файли_Objest();
+                файли_Objest.New();
+                файли_Objest.Код = (++Константи.НумераціяДовідників.Файли_Const).ToString("D6");
+                файли_Objest.НазваФайлу = fileInfo.Name;
+                файли_Objest.Назва = файли_Objest.НазваФайлу;
+                файли_Objest.Розмір = Math.Round((decimal)(fileInfo.Length / 1024)).ToString() + " KB";
+                файли_Objest.ДатаСтворення = DateTime.Now;
+                файли_Objest.БінарніДані = File.ReadAllBytes(FileInput);
+                файли_Objest.Save();
 
-                dataGridViewRecords.Refresh();
+                Записи НовийЗапис = Записи.New();
+                НовийЗапис.Файл = файли_Objest.GetDirectoryPointer();
+                Записи.ПісляЗміни_Файл(НовийЗапис);
+
+                RecordsBindingList.Add(НовийЗапис);
             }
+        }
+
+        private void toolStripButtonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadRecords();
         }
     }
 }
