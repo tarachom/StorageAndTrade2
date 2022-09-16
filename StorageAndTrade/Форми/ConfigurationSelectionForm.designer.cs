@@ -42,7 +42,7 @@
             this.listBoxConfiguration.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxConfiguration.FormattingEnabled = true;
             this.listBoxConfiguration.ItemHeight = 19;
-            this.listBoxConfiguration.Location = new System.Drawing.Point(6, 8);
+            this.listBoxConfiguration.Location = new System.Drawing.Point(9, 8);
             this.listBoxConfiguration.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listBoxConfiguration.Name = "listBoxConfiguration";
             this.listBoxConfiguration.Size = new System.Drawing.Size(585, 308);
@@ -52,7 +52,7 @@
             // 
             // buttonAddConf
             // 
-            this.buttonAddConf.Location = new System.Drawing.Point(599, 198);
+            this.buttonAddConf.Location = new System.Drawing.Point(602, 198);
             this.buttonAddConf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAddConf.Name = "buttonAddConf";
             this.buttonAddConf.Size = new System.Drawing.Size(113, 35);
@@ -63,7 +63,7 @@
             // 
             // buttonOpenConf
             // 
-            this.buttonOpenConf.Location = new System.Drawing.Point(599, 8);
+            this.buttonOpenConf.Location = new System.Drawing.Point(602, 8);
             this.buttonOpenConf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOpenConf.Name = "buttonOpenConf";
             this.buttonOpenConf.Size = new System.Drawing.Size(113, 35);
@@ -74,7 +74,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(599, 281);
+            this.buttonDelete.Location = new System.Drawing.Point(602, 281);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(113, 35);
@@ -85,7 +85,7 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(599, 239);
+            this.buttonCopy.Location = new System.Drawing.Point(602, 239);
             this.buttonCopy.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(113, 35);
@@ -96,7 +96,7 @@
             // 
             // button_OpenConfigurator
             // 
-            this.button_OpenConfigurator.Location = new System.Drawing.Point(599, 156);
+            this.button_OpenConfigurator.Location = new System.Drawing.Point(602, 156);
             this.button_OpenConfigurator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_OpenConfigurator.Name = "button_OpenConfigurator";
             this.button_OpenConfigurator.Size = new System.Drawing.Size(113, 35);
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 322);
+            this.ClientSize = new System.Drawing.Size(722, 325);
             this.Controls.Add(this.button_OpenConfigurator);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonDelete);
