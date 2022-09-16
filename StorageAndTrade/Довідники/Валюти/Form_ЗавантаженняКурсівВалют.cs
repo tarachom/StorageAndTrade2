@@ -73,72 +73,62 @@ namespace StorageAndTrade
 
         void DownloadExCurr()
         {
-            DateTime dateTimeKurs = new DateTime(2020, 01, 22);
+            bool isOK = false;
 
-            while (!CancellationTokenThread.IsCancellationRequested)
+            ApendLine("Завантаження ХМЛ файлу з курсами валют з офційного сайту: bank.gov.ua");
+            ApendLine(" --> https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+
+            XPathDocument xPathDoc;
+            XPathNavigator xPathDocNavigator = null;
+
+            try
             {
-                ApendLine(dateTimeKurs.ToString());
 
-                string url = @$"https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date={dateTimeKurs.Year}{dateTimeKurs.Month.ToString("D2")}{dateTimeKurs.Day.ToString("D2")}";
+                xPathDoc = new XPathDocument("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+                xPathDocNavigator = xPathDoc.CreateNavigator();
 
-                bool isOK = false;
+                isOK = true;
+                ApendLine("OK\n");
+            }
+            catch (Exception ex)
+            {
+                ApendLine("Помилка завантаження або аналізу ХМЛ файлу: " + ex.Message);
+                Thread.Sleep(5000);
+            }
 
-                //ApendLine("Завантаження ХМЛ файлу з курсами валют з офційного сайту: bank.gov.ua");
-                //ApendLine(" --> https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
-                ApendLine(url);
+            if (isOK)
+            {
+                Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
 
-                XPathDocument xPathDoc;
-                XPathNavigator xPathDocNavigator = null;
-
-                try
+                XPathNodeIterator КурсВалюти = xPathDocNavigator.Select("/exchange/currency");
+                while (КурсВалюти.MoveNext())
                 {
+                    if (CancellationTokenThread.IsCancellationRequested)
+                        break;
 
-                    //xPathDoc = new XPathDocument("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
-                    xPathDoc = new XPathDocument(url);
-                    xPathDocNavigator = xPathDoc.CreateNavigator();
+                    string Код_R030 = int.Parse(КурсВалюти.Current.SelectSingleNode("r030").Value).ToString("D3");
+                    string НазваВалюти = КурсВалюти.Current.SelectSingleNode("txt").Value;
+                    string Коротко = КурсВалюти.Current.SelectSingleNode("cc").Value;
+                    decimal Курс = decimal.Parse(КурсВалюти.Current.SelectSingleNode("rate").Value.Replace(".", ","));
+                    DateTime ДатаКурсу = DateTime.Parse(КурсВалюти.Current.SelectSingleNode("exchangedate").Value);
 
-                    isOK = true;
-                    ApendLine("OK\n");
-                }
-                catch (Exception ex)
-                {
-                    ApendLine("Помилка завантаження або аналізу ХМЛ файлу: " + ex.Message);
-                    Thread.Sleep(5000);
-                }
-
-                if (isOK)
-                {
-                    Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
-
-                    XPathNodeIterator КурсВалюти = xPathDocNavigator.Select("/exchange/currency");
-                    while (КурсВалюти.MoveNext())
+                    Довідники.Валюти_Pointer валюти_Pointer = валюти_Select.FindByField(Довідники.Валюти_Const.Код_R030, Код_R030);
+                    if (валюти_Pointer.IsEmpty())
                     {
-                        if (CancellationTokenThread.IsCancellationRequested)
-                            break;
+                        Довідники.Валюти_Objest валюти_Objest = new Довідники.Валюти_Objest();
+                        валюти_Objest.New();
+                        валюти_Objest.Код = (++Константи.НумераціяДовідників.Валюти_Const).ToString("D6");
+                        валюти_Objest.Назва = НазваВалюти;
+                        валюти_Objest.Код_R030 = Код_R030;
+                        валюти_Objest.КороткаНазва = Коротко;
+                        валюти_Objest.Save();
 
-                        string Код_R030 = int.Parse(КурсВалюти.Current.SelectSingleNode("r030").Value).ToString("D3");
-                        string НазваВалюти = КурсВалюти.Current.SelectSingleNode("txt").Value;
-                        string Коротко = КурсВалюти.Current.SelectSingleNode("cc").Value;
-                        decimal Курс = decimal.Parse(КурсВалюти.Current.SelectSingleNode("rate").Value.Replace(".", ","));
-                        DateTime ДатаКурсу = DateTime.Parse(КурсВалюти.Current.SelectSingleNode("exchangedate").Value);
+                        валюти_Pointer = валюти_Objest.GetDirectoryPointer();
 
-                        Довідники.Валюти_Pointer валюти_Pointer = валюти_Select.FindByField(Довідники.Валюти_Const.Код_R030, Код_R030);
-                        if (валюти_Pointer.IsEmpty())
-                        {
-                            Довідники.Валюти_Objest валюти_Objest = new Довідники.Валюти_Objest();
-                            валюти_Objest.New();
-                            валюти_Objest.Код = (++Константи.НумераціяДовідників.Валюти_Const).ToString("D6");
-                            валюти_Objest.Назва = НазваВалюти;
-                            валюти_Objest.Код_R030 = Код_R030;
-                            валюти_Objest.КороткаНазва = Коротко;
-                            валюти_Objest.Save();
+                        ApendLine($"Додано новий елемент довідника Валюти: {НазваВалюти}, код {Код_R030}");
+                    }
 
-                            валюти_Pointer = валюти_Objest.GetDirectoryPointer();
-
-                            ApendLine($"Додано новий елемент довідника Валюти: {НазваВалюти}, код {Код_R030}");
-                        }
-
-                        string query = $@"
+                    string query = $@"
 SELECT
     КурсиВалют.uid
 FROM
@@ -148,46 +138,41 @@ WHERE
     date_trunc('day', КурсиВалют.period::timestamp) = date_trunc('day', @ДатаКурсу::timestamp)
 LIMIT 1
 ";
-                        Dictionary<string, object> paramQuery = new Dictionary<string, object>();
-                        paramQuery.Add("Валюта", валюти_Pointer.UnigueID.UGuid);
-                        paramQuery.Add("ДатаКурсу", ДатаКурсу);
+                    Dictionary<string, object> paramQuery = new Dictionary<string, object>();
+                    paramQuery.Add("Валюта", валюти_Pointer.UnigueID.UGuid);
+                    paramQuery.Add("ДатаКурсу", ДатаКурсу);
 
-                        string[] columnsName;
-                        List<Dictionary<string, object>> listRow;
+                    string[] columnsName;
+                    List<Dictionary<string, object>> listRow;
 
-                        Конфа.Config.Kernel.DataBase.SelectRequest(query, paramQuery, out columnsName, out listRow);
+                    Конфа.Config.Kernel.DataBase.SelectRequest(query, paramQuery, out columnsName, out listRow);
 
-                        if (listRow.Count == 0)
+                    if (listRow.Count == 0)
+                    {
+                        РегістриВідомостей.КурсиВалют_Objest курсиВалют_Objest = new РегістриВідомостей.КурсиВалют_Objest();
+                        курсиВалют_Objest.New();
+                        курсиВалют_Objest.Period = ДатаКурсу;
+                        курсиВалют_Objest.Валюта = валюти_Pointer;
+                        курсиВалют_Objest.Кратність = 1;
+                        курсиВалют_Objest.Курс = Курс;
+                        курсиВалют_Objest.Save();
+
+                        ApendLine($"Додано новий курс валюти: {НазваВалюти} - курс {Курс}");
+                    }
+                    else
+                    {
+                        Dictionary<string, object> Рядок = listRow[0];
+
+                        РегістриВідомостей.КурсиВалют_Objest курсиВалют_Objest = new РегістриВідомостей.КурсиВалют_Objest();
+                        if (курсиВалют_Objest.Read(new UnigueID(Рядок["uid"])))
                         {
-                            РегістриВідомостей.КурсиВалют_Objest курсиВалют_Objest = new РегістриВідомостей.КурсиВалют_Objest();
-                            курсиВалют_Objest.New();
-                            курсиВалют_Objest.Period = ДатаКурсу;
-                            курсиВалют_Objest.Валюта = валюти_Pointer;
-                            курсиВалют_Objest.Кратність = 1;
                             курсиВалют_Objest.Курс = Курс;
                             курсиВалют_Objest.Save();
 
-                            ApendLine($"Додано новий курс валюти: {НазваВалюти} - курс {Курс}");
-                        }
-                        else
-                        {
-                            Dictionary<string, object> Рядок = listRow[0];
-
-                            РегістриВідомостей.КурсиВалют_Objest курсиВалют_Objest = new РегістриВідомостей.КурсиВалют_Objest();
-                            if (курсиВалют_Objest.Read(new UnigueID(Рядок["uid"])))
-                            {
-                                курсиВалют_Objest.Курс = Курс;
-                                курсиВалют_Objest.Save();
-
-                                ApendLine($"Перезаписано курс валюти: {НазваВалюти} - курс {Курс}");
-                            }
+                            ApendLine($"Перезаписано курс валюти: {НазваВалюти} - курс {Курс}");
                         }
                     }
-
-                    dateTimeKurs = dateTimeKurs.AddDays(1);
                 }
-
-                Thread.Sleep(5000);
             }
 
             if (!this.Disposing)

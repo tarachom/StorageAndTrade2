@@ -19,6 +19,7 @@ limitations under the License.
 */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -53,7 +54,6 @@ namespace StorageAndTrade
 
             dataGridViewRecords.Columns["Курс"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridViewRecords.Columns["Курс"].Width = 150;
-
         }
 
 		/// <summary>
@@ -76,7 +76,11 @@ namespace StorageAndTrade
 			directoryControl_Валюта.AfterSelectFunc = () =>
 			{
                 ВалютаВласник = (Довідники.Валюти_Pointer)directoryControl_Валюта.DirectoryPointerItem;
-				LoadRecords();
+
+                RecordsBindingList.Clear();
+                loadRecordsLimit.PageIndex = 0;
+
+                LoadRecords();
 
 				return true;
 			};
@@ -85,11 +89,10 @@ namespace StorageAndTrade
 		}
 
 		private BindingList<Записи> RecordsBindingList { get; set; }
+        private LoadRecordsLimit loadRecordsLimit = new LoadRecordsLimit() { Limit = 50 };
 
-		public void LoadRecords()
+        public void LoadRecords()
 		{
-			RecordsBindingList.Clear();
-
 			РегістриВідомостей.КурсиВалют_RecordsSet КурсиВалют = new РегістриВідомостей.КурсиВалют_RecordsSet();
 
             //JOIN 1
@@ -104,10 +107,18 @@ namespace StorageAndTrade
 					new Where(РегістриВідомостей.КурсиВалют_Const.Валюта, Comparison.EQ, ВалютаВласник.UnigueID.UGuid));
 
             //ORDER
-            КурсиВалют.QuerySelect.Order.Add(РегістриВідомостей.КурсиВалют_Const.Валюта, SelectOrder.ASC);
+            КурсиВалют.QuerySelect.Order.Add("period", SelectOrder.DESC);
+            КурсиВалют.QuerySelect.Order.Add(РегістриВідомостей.КурсиВалют_Const.TABLE + "." + РегістриВідомостей.КурсиВалют_Const.Валюта, SelectOrder.ASC);
+
+            //Обмеження завантаження
+            КурсиВалют.QuerySelect.Limit = loadRecordsLimit.Limit;
+			КурсиВалют.QuerySelect.Offset = loadRecordsLimit.Limit * loadRecordsLimit.PageIndex;
 
             КурсиВалют.Read();
-			foreach (РегістриВідомостей.КурсиВалют_RecordsSet.Record запис in КурсиВалют.Records)
+
+            loadRecordsLimit.LastCountRow = КурсиВалют.Records.Count;
+
+            foreach (РегістриВідомостей.КурсиВалют_RecordsSet.Record запис in КурсиВалют.Records)
 			{
 				RecordsBindingList.Add(new Записи
 				{
@@ -119,7 +130,9 @@ namespace StorageAndTrade
                 });
 			}
 
-			if (!String.IsNullOrEmpty(SelectPointerItem) && dataGridViewRecords.Rows.Count > 0)
+            loadRecordsLimit.PageIndex++;
+
+            if (!String.IsNullOrEmpty(SelectPointerItem) && dataGridViewRecords.Rows.Count > 0)
 			{
 				string UidSelect = SelectPointerItem;
 
@@ -189,7 +202,11 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+            RecordsBindingList.Clear();
+
+            loadRecordsLimit.PageIndex = 0;
+
+            LoadRecords();
 		}
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
@@ -228,9 +245,18 @@ namespace StorageAndTrade
 			}
 		}
 
-        private void dataGridViewRecords_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+		private void dataGridViewRecords_Scroll(object sender, ScrollEventArgs e)
+		{
+			if (e.ScrollOrientation == ScrollOrientation.VerticalScroll)
+			{
+				int rowHeight = dataGridViewRecords.Rows[dataGridViewRecords.FirstDisplayedScrollingRowIndex].Height;
+				int countVisibleRows = dataGridViewRecords.Height / rowHeight;
 
+				if (e.NewValue >= dataGridViewRecords.Rows.Count - countVisibleRows && loadRecordsLimit.LastCountRow == loadRecordsLimit.Limit)
+				{
+					LoadRecords();
+				}
+			}
         }
-    }
+	}
 }
