@@ -38,10 +38,10 @@ namespace StorageAndTrade
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonКурсиВалюти = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDownloadExchangeCurrency = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
-            this.toolStripButtonКурсиВалюти = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,7 +55,7 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 33);
+            this.panel1.Size = new System.Drawing.Size(873, 33);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
@@ -71,7 +71,7 @@ namespace StorageAndTrade
             this.toolStripButtonDownloadExchangeCurrency});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(778, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(873, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -125,13 +125,22 @@ namespace StorageAndTrade
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButtonКурсиВалюти
+            // 
+            this.toolStripButtonКурсиВалюти.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonКурсиВалюти.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonКурсиВалюти.Name = "toolStripButtonКурсиВалюти";
+            this.toolStripButtonКурсиВалюти.Size = new System.Drawing.Size(104, 22);
+            this.toolStripButtonКурсиВалюти.Text = "Курси валюти";
+            this.toolStripButtonКурсиВалюти.Click += new System.EventHandler(this.toolStripButtonКурсиВалюти_Click);
+            // 
             // toolStripButtonDownloadExchangeCurrency
             // 
             this.toolStripButtonDownloadExchangeCurrency.Image = global::StorageAndTrade.Properties.Resources.page;
             this.toolStripButtonDownloadExchangeCurrency.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDownloadExchangeCurrency.Name = "toolStripButtonDownloadExchangeCurrency";
-            this.toolStripButtonDownloadExchangeCurrency.Size = new System.Drawing.Size(170, 22);
-            this.toolStripButtonDownloadExchangeCurrency.Text = "Завантажити курси валют";
+            this.toolStripButtonDownloadExchangeCurrency.Size = new System.Drawing.Size(163, 22);
+            this.toolStripButtonDownloadExchangeCurrency.Text = "Завантажити курс валют";
             this.toolStripButtonDownloadExchangeCurrency.Click += new System.EventHandler(this.toolStripButtonDownloadExchangeCurrency_Click);
             // 
             // panel2
@@ -141,7 +150,7 @@ namespace StorageAndTrade
             this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(778, 437);
+            this.panel2.Size = new System.Drawing.Size(873, 437);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewRecords
@@ -158,25 +167,16 @@ namespace StorageAndTrade
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
             this.dataGridViewRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(778, 437);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(873, 437);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
-            // 
-            // toolStripButtonКурсиВалюти
-            // 
-            this.toolStripButtonКурсиВалюти.Image = global::StorageAndTrade.Properties.Resources.layers;
-            this.toolStripButtonКурсиВалюти.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonКурсиВалюти.Name = "toolStripButtonКурсиВалюти";
-            this.toolStripButtonКурсиВалюти.Size = new System.Drawing.Size(104, 22);
-            this.toolStripButtonКурсиВалюти.Text = "Курси валюти";
-            this.toolStripButtonКурсиВалюти.Click += new System.EventHandler(this.toolStripButtonКурсиВалюти_Click);
             // 
             // Form_Валюти
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 470);
+            this.ClientSize = new System.Drawing.Size(873, 470);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
