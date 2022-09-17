@@ -22,7 +22,7 @@
 					Період з <xsl:value-of select="head/row/ПочатокПеріоду"/> по <xsl:value-of select="head/row/КінецьПеріоду"/>
 				</p>
 
-				<table>
+				<table width="70%">
 					<tr>
 						<th width="40%" style="vertical-align:middle">Контрагент</th>
 						<th width="20%" style="vertical-align:middle">Валюта</th>

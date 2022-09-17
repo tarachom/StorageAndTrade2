@@ -24,8 +24,8 @@
 						На дату: <xsl:value-of select="head/row/КінецьПеріоду"/><br/>
 						Номенклатура: <xsl:value-of select="head/row/Номенклатура"/>
 					</p>
-					
-					<table>
+
+					<table width="70%">
 						<tr>
 							<th width="40%" style="vertical-align:middle">Характеристика</th>
 							<th width="30%" style="vertical-align:middle">Склад</th>

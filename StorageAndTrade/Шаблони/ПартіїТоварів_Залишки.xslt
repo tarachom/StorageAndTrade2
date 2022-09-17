@@ -21,8 +21,8 @@
 				<p>
 					На дату <xsl:value-of select="head/row/КінецьПеріоду"/>
 				</p>
-					
-				<table>
+
+				<table width="70%">
 					<tr>
 						<th width="10%" style="vertical-align:middle">Організація</th>
 						<th width="25%" style="vertical-align:middle">Партія товарів</th>

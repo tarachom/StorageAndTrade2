@@ -22,7 +22,7 @@
 					На дату <xsl:value-of select="head/row/КінецьПеріоду"/>
 				</p>
 
-				<table>
+				<table width="70%">
 					<tr>
 						<th width="60%" style="vertical-align:middle">Контрагент</th>
 						<th width="30%" style="vertical-align:middle">Валюта</th>

@@ -22,7 +22,7 @@
 					На дату <xsl:value-of select="head/row/КінецьПеріоду"/>
 				</p>
 
-				<table>
+				<table width="70%">
 					<tr>
 						<th width="40%" style="vertical-align:middle">Номенклатура</th>
 						<th width="35%" style="vertical-align:middle">Характеристика</th>
