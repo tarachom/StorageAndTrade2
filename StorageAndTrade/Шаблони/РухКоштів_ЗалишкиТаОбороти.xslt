@@ -21,7 +21,7 @@
 					Період з <xsl:value-of select="head/row/ПочатокПеріоду"/> по <xsl:value-of select="head/row/КінецьПеріоду"/>
 				</p>
 
-				<table>
+				<table width="75%">
 					<tr>
 						<th width="20%" style="vertical-align:middle">Організація</th>
 						<th width="20%" style="vertical-align:middle">Каса</th>

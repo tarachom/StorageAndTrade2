@@ -124,17 +124,12 @@ FROM
             #endregion
 
             query += $@"
-GROUP BY Організація, Організація_Назва, 
-         Каса, Каса_Назва,
-         Валюта, Валюта_Назва
+GROUP BY Організація, Організація_Назва, Каса, Каса_Назва, Валюта, Валюта_Назва
 
-HAVING
-     SUM(РухКоштів_Місяць.{ВіртуальніТаблиціРегістрів.РухКоштів_Місяць_TablePart.Сума}) != 0
+HAVING SUM(РухКоштів_Місяць.{ВіртуальніТаблиціРегістрів.РухКоштів_Місяць_TablePart.Сума}) != 0
 
 ORDER BY Організація_Назва, Каса_Назва, Валюта_Назва
 ";
-
-            //Console.WriteLine(queryDoc);
 
             XmlDocument xmlDoc =  ФункціїДляЗвітів.CreateXmlDocument();
 
@@ -146,8 +141,6 @@ ORDER BY Організація_Назва, Каса_Назва, Валюта_Н
             );
 
             Dictionary<string, object> paramQuery = new Dictionary<string, object>();
-            paramQuery.Add("period_start", DateTime.Parse($"01.{dateTimeStart.Value.Month}.{dateTimeStart.Value.Year} 00:00:00"));
-            paramQuery.Add("period_end", DateTime.Parse($"01.{dateTimeStop.Value.Month}.{dateTimeStop.Value.Year} 00:00:00"));
 
             string[] columnsName;
             List<object[]> listRow;
