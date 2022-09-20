@@ -24,12 +24,8 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
-using StorageAndTrade_1_0.Довідники;
 
 namespace StorageAndTrade
 {
@@ -74,7 +70,6 @@ namespace StorageAndTrade
 		public void LoadRecords()
 		{
 			RecordsBindingList.Clear();
-			dataGridViewRecords.Rows.Clear();
 
 			Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
 			валюти_Select.QuerySelect.Field.Add(Довідники.Валюти_Const.Назва);

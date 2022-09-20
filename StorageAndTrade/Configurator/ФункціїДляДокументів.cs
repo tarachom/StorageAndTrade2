@@ -41,7 +41,8 @@ using Конфа = StorageAndTrade_1_0;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
-using StorageAndTrade_1_0.Довідники;
+using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
+using System.Diagnostics;
 
 namespace StorageAndTrade
 {
@@ -242,6 +243,45 @@ namespace StorageAndTrade
                 return договориКонтрагентів.Current;
             else
                 return null;
+        }
+
+        public static decimal ПоточнийКурсВалюти(Довідники.Валюти_Pointer Валюта, DateTime ДатаКурсу)
+        {
+            if (Валюта.IsEmpty())
+                return 0;
+
+            string query = @$"
+SELECT
+    {РегістриВідомостей.КурсиВалют_Const.Курс} AS Курс
+FROM
+    {РегістриВідомостей.КурсиВалют_Const.TABLE} AS КурсиВалют
+WHERE
+    КурсиВалют.{РегістриВідомостей.КурсиВалют_Const.Валюта} = @valuta AND
+    КурсиВалют.period <= @date_curs
+ORDER BY КурсиВалют.period DESC
+LIMIT 1
+";
+            Debug.WriteLine(query);
+
+            Dictionary<string, object> paramQuery = new Dictionary<string, object>();
+            paramQuery.Add("valuta", Валюта.UnigueID.UGuid);
+            paramQuery.Add("date_curs", new DateTime(ДатаКурсу.Year, ДатаКурсу.Month, ДатаКурсу.Day, 23, 59, 59));
+
+            Debug.WriteLine(Валюта.UnigueID.UGuid);
+            Debug.WriteLine(new DateTime(ДатаКурсу.Year, ДатаКурсу.Month, ДатаКурсу.Day, 23, 59, 59));
+
+            string[] columnsName;
+            List<Dictionary<string, object>> listRow;
+
+            Конфа.Config.Kernel.DataBase.SelectRequest(query, paramQuery, out columnsName, out listRow);
+
+            if (listRow.Count == 1)
+            {
+                Dictionary<string, object> Рядок = listRow[0];
+                return (decimal)Рядок["Курс"];
+            }
+            else
+                return 0;
         }
     }
 }

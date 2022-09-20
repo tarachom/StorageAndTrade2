@@ -91,9 +91,15 @@ namespace StorageAndTrade
 		private BindingList<Записи> RecordsBindingList { get; set; }
         private LoadRecordsLimit loadRecordsLimit = new LoadRecordsLimit() { Limit = 50 };
 
-        public void LoadRecords()
+        public void LoadRecords(bool isClear = false)
 		{
-			РегістриВідомостей.КурсиВалют_RecordsSet КурсиВалют = new РегістриВідомостей.КурсиВалют_RecordsSet();
+			if (isClear)
+			{
+                RecordsBindingList.Clear();
+                loadRecordsLimit.PageIndex = 0;
+            }
+
+            РегістриВідомостей.КурсиВалют_RecordsSet КурсиВалют = new РегістриВідомостей.КурсиВалют_RecordsSet();
 
             //JOIN 1
             КурсиВалют.QuerySelect.FieldAndAlias.Add(
@@ -202,11 +208,7 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-            RecordsBindingList.Clear();
-
-            loadRecordsLimit.PageIndex = 0;
-
-            LoadRecords();
+            LoadRecords(true);
 		}
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)

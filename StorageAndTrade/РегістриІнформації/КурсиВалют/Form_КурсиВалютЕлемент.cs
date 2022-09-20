@@ -22,6 +22,7 @@ using System;
 using System.Windows.Forms;
 
 using AccountingSoftware;
+using StorageAndTrade_1_0.РегістриВідомостей;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
 
@@ -65,14 +66,15 @@ namespace StorageAndTrade
 
 			directoryControl_Валюта.Init(new Form_Валюти(), new Довідники.Валюти_Pointer(), ПошуковіЗапити.Валюти);
 
-			
 			if (IsNew.HasValue)
 			{
 				if (IsNew.Value)
 				{
 					this.Text += " - Новий";
 					directoryControl_Валюта.DirectoryPointerItem = ВалютаВласник;
-				}
+                    dateTimePicker_Дата.Value = DateTime.Now;
+
+                }
 				else
 				{
 					if (курсиВалют_Objest.Read(new UnigueID(Uid)))
@@ -81,7 +83,8 @@ namespace StorageAndTrade
 
 						numericControlКурс.Value = курсиВалют_Objest.Курс;
 						directoryControl_Валюта.DirectoryPointerItem = курсиВалют_Objest.Валюта;
-					}
+                        dateTimePicker_Дата.Value = курсиВалют_Objest.Period;
+                    }
 					else
 						MessageBox.Show("Error read");
 				}
@@ -101,7 +104,8 @@ namespace StorageAndTrade
 				if (IsNew.Value)
                     курсиВалют_Objest.New();
 
-				курсиВалют_Objest.Курс = numericControlКурс.Value;
+				курсиВалют_Objest.Period = dateTimePicker_Дата.Value;
+                курсиВалют_Objest.Курс = numericControlКурс.Value;
                 курсиВалют_Objest.Валюта = (Довідники.Валюти_Pointer)directoryControl_Валюта.DirectoryPointerItem;
 
 				try
@@ -117,7 +121,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = курсиВалют_Objest.UnigueID.ToString();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				this.Close();

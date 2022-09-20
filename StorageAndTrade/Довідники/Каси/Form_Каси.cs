@@ -19,34 +19,43 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
 
 namespace StorageAndTrade
 {
-    public partial class Form_Каси : Form
-    {
-        public Form_Каси()
-        {
-            InitializeComponent();
-        }
+	public partial class Form_Каси : Form
+	{
+		public Form_Каси()
+		{
+			InitializeComponent();
 
-		/// <summary>
-		/// Вказівник для вибору
-		/// </summary>
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+			dataGridViewRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+			RecordsBindingList = new BindingList<Записи>();
+			dataGridViewRecords.DataSource = RecordsBindingList;
+
+            IsLoadRecords = false;
+
+            dataGridViewRecords.Columns["Image"].Width = 30;
+			dataGridViewRecords.Columns["Image"].HeaderText = "";
+
+			dataGridViewRecords.Columns["ID"].Visible = false;
+			dataGridViewRecords.Columns["Назва"].Width = 300;
+			dataGridViewRecords.Columns["Код"].Width = 50;
+		}
+
+		private bool IsLoadRecords{ get; set; }
+
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
 
 		/// <summary>
 		/// Вказівник для виділення в списку
@@ -54,29 +63,23 @@ namespace StorageAndTrade
 		public DirectoryPointer SelectPointerItem { get; set; }
 
 		private void Form_Каси_Load(object sender, EventArgs e)
+		{
+			if (!IsLoadRecords)
+				LoadRecords();
+        }
+
+        private void Form_Каси_Shown(object sender, EventArgs e)
         {
-			dataGridViewRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            SelectRecord();
+        }
 
-			RecordsBindingList = new BindingList<Записи>();
-			dataGridViewRecords.DataSource = RecordsBindingList;
+        private BindingList<Записи> RecordsBindingList { get; set; }
 
-			dataGridViewRecords.Columns["Image"].Width = 30;
-			dataGridViewRecords.Columns["Image"].HeaderText = "";
-
-			dataGridViewRecords.Columns["ID"].Visible = false;
-			dataGridViewRecords.Columns["Назва"].Width = 300;
-			dataGridViewRecords.Columns["Код"].Width = 50;
-
-			LoadRecords();
-		}
-
-		private BindingList<Записи> RecordsBindingList { get; set; }
-
-		public void LoadRecords()
+		public void LoadRecords(bool isSelectRecord = false)
 		{
 			RecordsBindingList.Clear();
 
-			Довідники.Каси_Select каси_Select = new Довідники.Каси_Select();
+            Довідники.Каси_Select каси_Select = new Довідники.Каси_Select();
 			каси_Select.QuerySelect.Field.Add(Довідники.Каси_Const.Назва);
 			каси_Select.QuerySelect.Field.Add(Довідники.Каси_Const.Код);
 			каси_Select.QuerySelect.Field.Add(Довідники.Каси_Const.Валюта);
@@ -104,16 +107,24 @@ namespace StorageAndTrade
 				});
 			}
 
-			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+			if (isSelectRecord)
+				SelectRecord();
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
-		}
+            IsLoadRecords = true;
+        }
 
-		private class Записи
+		private void SelectRecord()
+		{
+            if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
+            {
+                string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+
+                if (UidSelect != Guid.Empty.ToString())
+                    ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
+            }
+        }
+
+        private class Записи
 		{
 			public Записи() { Image = Properties.Resources.doc_text_image; }
 			public Bitmap Image { get; set; }
@@ -174,9 +185,9 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
-
+		       
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
         {
 			if (dataGridViewRecords.SelectedRows.Count != 0 &&
@@ -243,5 +254,5 @@ namespace StorageAndTrade
 				SelectPointerItem = new Довідники.Каси_Pointer(new UnigueID(dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString()));
 			}
 		}
-    }
+	}
 }

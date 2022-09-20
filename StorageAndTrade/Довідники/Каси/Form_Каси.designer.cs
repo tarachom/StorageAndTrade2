@@ -155,6 +155,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Каси";
             this.Load += new System.EventHandler(this.Form_Каси_Load);
+            this.Shown += new System.EventHandler(this.Form_Каси_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

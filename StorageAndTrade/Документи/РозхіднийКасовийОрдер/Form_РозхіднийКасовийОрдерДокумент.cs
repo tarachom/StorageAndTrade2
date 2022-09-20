@@ -28,7 +28,6 @@ using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
 
-
 namespace StorageAndTrade
 {
     public partial class Form_РозхіднийКасовийОрдерДокумент : Form
@@ -64,28 +63,23 @@ namespace StorageAndTrade
 
 			//ГосподарськіОперації
 			comboBox_ГосподарськаОперація.Items.Add(
-				new NameValue<Перелічення.ГосподарськіОперації>(
-					ГосподарськіОперації.Fields["ОплатаПостачальнику"].Desc,
-					Перелічення.ГосподарськіОперації.ОплатаПостачальнику));
+				new NameValue<Перелічення.ГосподарськіОперації>(ГосподарськіОперації.Fields["ОплатаПостачальнику"].Desc, 
+				    Перелічення.ГосподарськіОперації.ОплатаПостачальнику));
 
 			comboBox_ГосподарськаОперація.Items.Add(
-				new NameValue<Перелічення.ГосподарськіОперації>(
-					ГосподарськіОперації.Fields["ВидачаКоштівВІншуКасу"].Desc,
+				new NameValue<Перелічення.ГосподарськіОперації>(ГосподарськіОперації.Fields["ВидачаКоштівВІншуКасу"].Desc,
 					Перелічення.ГосподарськіОперації.ВидачаКоштівВІншуКасу));
 
 			comboBox_ГосподарськаОперація.Items.Add(
-				new NameValue<Перелічення.ГосподарськіОперації>(
-					ГосподарськіОперації.Fields["ЗдачаКоштівВБанк"].Desc,
+				new NameValue<Перелічення.ГосподарськіОперації>(ГосподарськіОперації.Fields["ЗдачаКоштівВБанк"].Desc,
 					Перелічення.ГосподарськіОперації.ЗдачаКоштівВБанк));
 
 			comboBox_ГосподарськаОперація.Items.Add(
-				new NameValue<Перелічення.ГосподарськіОперації>(
-					ГосподарськіОперації.Fields["ІншіВитрати"].Desc,
+				new NameValue<Перелічення.ГосподарськіОперації>(ГосподарськіОперації.Fields["ІншіВитрати"].Desc,
 					Перелічення.ГосподарськіОперації.ІншіВитрати));
 
 			comboBox_ГосподарськаОперація.Items.Add(
-				new NameValue<Перелічення.ГосподарськіОперації>(
-					ГосподарськіОперації.Fields["ПоверненняОплатиКлієнту"].Desc,
+				new NameValue<Перелічення.ГосподарськіОперації>(ГосподарськіОперації.Fields["ПоверненняОплатиКлієнту"].Desc,
 					Перелічення.ГосподарськіОперації.ПоверненняОплатиКлієнту));
 
 			//ПоступленняОплатиВідКлієнта
@@ -131,7 +125,28 @@ namespace StorageAndTrade
 			directoryControl_Валюта.Init(new Form_Валюти(), new Довідники.Валюти_Pointer(), ПошуковіЗапити.Валюти);
 			directoryControl_Каса.Init(new Form_Каси(), new Довідники.Каси_Pointer(), ПошуковіЗапити.Каси);
 			directoryControl_КасаОтримувач.Init(new Form_Каси(), new Довідники.Каси_Pointer(), ПошуковіЗапити.Каси);
-			directoryControl_БанківськийРахунок.Init(new Form_БанківськіРахункиОрганізацій(), new Довідники.БанківськіРахункиОрганізацій_Pointer(), ПошуковіЗапити.БанківськіРахункиОрганізацій);
+			directoryControl_КасаОтримувач.AfterSelectFunc = () =>
+			{
+				if (directoryControl_КасаОтримувач.DirectoryPointerItem.IsEmpty())
+					return false;
+
+				Довідники.Каси_Pointer каса_Pointer = (Довідники.Каси_Pointer)directoryControl_КасаОтримувач.DirectoryPointerItem;
+				Довідники.Каси_Objest каса_Objest = каса_Pointer.GetDirectoryObject();
+				if (каса_Objest == null)
+					return false;
+
+                //Отримую валюту з каси
+                Довідники.Валюти_Pointer валюта_Pointer = каса_Objest.Валюта;
+
+				if (валюта_Pointer.IsEmpty())
+					return false;
+
+				//Курс валюти
+				numericControl_Курс.Value = ФункціїДляДокументів.ПоточнийКурсВалюти(валюта_Pointer, dateTimePicker_ДатаДок.Value);
+
+				return true;
+			};
+            directoryControl_БанківськийРахунок.Init(new Form_БанківськіРахункиОрганізацій(), new Довідники.БанківськіРахункиОрганізацій_Pointer(), ПошуковіЗапити.БанківськіРахункиОрганізацій);
 			directoryControl_Договір.Init(new Form_ДоговориКонтрагентів(), new Довідники.ДоговориКонтрагентів_Pointer());
 			directoryControl_Договір.BeforeClickOpenFunc = () =>
 			{
@@ -268,14 +283,48 @@ namespace StorageAndTrade
 			SaveDoc(true, true);
 		}
 
-        private void linkLabel_Основа_Click(object sender, EventArgs e)
+        private void comboBox_ГосподарськаОперація_SelectedIndexChanged(object sender, EventArgs e)
         {
-			
+            Перелічення.ГосподарськіОперації ГосподарськаОперація = ((NameValue<Перелічення.ГосподарськіОперації>)comboBox_ГосподарськаОперація.SelectedItem).Value;
+
+			switch (ГосподарськаОперація)
+			{
+				case Перелічення.ГосподарськіОперації.ВидачаКоштівВІншуКасу:
+					{
+						directoryControl_КасаОтримувач.Visible = label6.Visible = true;
+						numericControl_Курс.Visible = label15.Visible = true;
+						directoryControl_Контрагент.Visible = label5.Visible = false;
+						directoryControl_Договір.Visible = label11.Visible = false;
+                        directoryControl_БанківськийРахунок.Visible = label8.Visible = false;
+
+                        break;
+					}
+                case Перелічення.ГосподарськіОперації.ЗдачаКоштівВБанк:
+                    {
+                        directoryControl_КасаОтримувач.Visible = label6.Visible = false;
+                        numericControl_Курс.Visible = label15.Visible = false;
+                        directoryControl_Контрагент.Visible = label5.Visible = false;
+                        directoryControl_Договір.Visible = label11.Visible = false;
+                        directoryControl_БанківськийРахунок.Visible = label8.Visible = true;
+
+                        break;
+                    }
+                default:
+					{
+						directoryControl_КасаОтримувач.Visible = label6.Visible = false;
+						numericControl_Курс.Visible = label15.Visible = false;
+						directoryControl_Контрагент.Visible = label5.Visible = true;
+						directoryControl_Договір.Visible = label11.Visible = true;
+                        directoryControl_БанківськийРахунок.Visible = label8.Visible = false;
+
+                        break;
+					}
+			}			
         }
 
-		#region Панель меню
+        #region Панель меню
 
-		private void toolStripButton_FindToJournal_Click(object sender, EventArgs e)
+        private void toolStripButton_FindToJournal_Click(object sender, EventArgs e)
 		{
 			if (розхіднийКасовийОрдер_Objest.IsSave)
 			{
@@ -303,5 +352,6 @@ namespace StorageAndTrade
 		}
 
 		#endregion
+
 	}
 }

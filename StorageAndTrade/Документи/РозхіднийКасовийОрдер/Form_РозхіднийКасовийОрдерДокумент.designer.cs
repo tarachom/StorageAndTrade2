@@ -36,6 +36,8 @@ namespace StorageAndTrade
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_ДатаДок = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericControl_Курс = new StorageAndTrade.NumericControl();
             this.numericControl_СумаДокументу = new StorageAndTrade.NumericControl();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker_ЧасДок = new System.Windows.Forms.DateTimePicker();
@@ -71,8 +73,6 @@ namespace StorageAndTrade
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_FindToJournal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonДрукПроводок = new System.Windows.Forms.ToolStripButton();
-            this.numericControl_Курс = new StorageAndTrade.NumericControl();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -168,6 +168,29 @@ namespace StorageAndTrade
             this.panel1.Size = new System.Drawing.Size(1057, 240);
             this.panel1.TabIndex = 23;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(651, 147);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 15);
+            this.label15.TabIndex = 80;
+            this.label15.Text = "Курс:";
+            // 
+            // numericControl_Курс
+            // 
+            this.numericControl_Курс.Location = new System.Drawing.Point(694, 143);
+            this.numericControl_Курс.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numericControl_Курс.Name = "numericControl_Курс";
+            this.numericControl_Курс.Size = new System.Drawing.Size(286, 23);
+            this.numericControl_Курс.TabIndex = 79;
+            this.numericControl_Курс.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
             // numericControl_СумаДокументу
             // 
             this.numericControl_СумаДокументу.Location = new System.Drawing.Point(87, 175);
@@ -261,6 +284,7 @@ namespace StorageAndTrade
             this.comboBox_ГосподарськаОперація.Name = "comboBox_ГосподарськаОперація";
             this.comboBox_ГосподарськаОперація.Size = new System.Drawing.Size(349, 23);
             this.comboBox_ГосподарськаОперація.TabIndex = 58;
+            this.comboBox_ГосподарськаОперація.SelectedIndexChanged += new System.EventHandler(this.comboBox_ГосподарськаОперація_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -483,7 +507,6 @@ namespace StorageAndTrade
             this.linkLabel_Основа.TabIndex = 1;
             this.linkLabel_Основа.TabStop = true;
             this.linkLabel_Основа.Text = "...";
-            this.linkLabel_Основа.Click += new System.EventHandler(this.linkLabel_Основа_Click);
             // 
             // label12
             // 
@@ -570,29 +593,6 @@ namespace StorageAndTrade
             this.toolStripButtonДрукПроводок.Size = new System.Drawing.Size(82, 22);
             this.toolStripButtonДрукПроводок.Text = "Проводки";
             this.toolStripButtonДрукПроводок.Click += new System.EventHandler(this.toolStripButtonДрукПроводок_Click);
-            // 
-            // numericControl_Курс
-            // 
-            this.numericControl_Курс.Location = new System.Drawing.Point(694, 143);
-            this.numericControl_Курс.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericControl_Курс.Name = "numericControl_Курс";
-            this.numericControl_Курс.Size = new System.Drawing.Size(286, 23);
-            this.numericControl_Курс.TabIndex = 79;
-            this.numericControl_Курс.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(651, 147);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 15);
-            this.label15.TabIndex = 80;
-            this.label15.Text = "Курс:";
             // 
             // Form_РозхіднийКасовийОрдерДокумент
             // 
