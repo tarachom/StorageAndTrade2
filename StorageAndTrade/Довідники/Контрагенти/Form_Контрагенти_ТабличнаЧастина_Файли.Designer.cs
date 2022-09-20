@@ -91,18 +91,17 @@ namespace StorageAndTrade
             this.dataGridViewRecords.RowHeadersVisible = false;
             this.dataGridViewRecords.Size = new System.Drawing.Size(734, 210);
             this.dataGridViewRecords.TabIndex = 2;
-            this.dataGridViewRecords.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewRecords_CellBeginEdit);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewRecords_KeyDown);
             // 
-            // Form_Номенклатура_ТабличнаЧастина_Файли
+            // Form_Контрагенти_ТабличнаЧастина_Файли
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridViewRecords);
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form_Номенклатура_ТабличнаЧастина_Файли";
+            this.Name = "Form_Контрагенти_ТабличнаЧастина_Файли";
             this.Size = new System.Drawing.Size(734, 235);
             this.Load += new System.EventHandler(this.Form_Контрагенти_ТабличнаЧастина_Файли_Load);
             this.toolStrip1.ResumeLayout(false);

@@ -44,9 +44,14 @@ namespace StorageAndTrade
 
             dataGridViewRecords.Columns["ID"].Visible = false;
             dataGridViewRecords.Columns["Файл"].Visible = false;
+
             dataGridViewRecords.Columns["ФайлНазва"].Width = 500;
             dataGridViewRecords.Columns["ФайлНазва"].HeaderText = "Назва файлу";
             dataGridViewRecords.Columns["ФайлНазва"].ReadOnly = true;
+
+            dataGridViewRecords.Columns["ДатаСтворенняФайлу"].Width = 150;
+            dataGridViewRecords.Columns["ДатаСтворенняФайлу"].HeaderText = "Створений";
+            dataGridViewRecords.Columns["ДатаСтворенняФайлу"].ReadOnly = true;
         }
 
 		/// <summary>
@@ -65,14 +70,26 @@ namespace StorageAndTrade
 			Довідники.Контрагенти_Файли_TablePart контрагенти_Файли_TablePart =
 				new Довідники.Контрагенти_Файли_TablePart(ДовідникОбєкт);
 
+            Query querySelect = контрагенти_Файли_TablePart.QuerySelect;
+            querySelect.Clear();
+
+            //JOIN 1
+            querySelect.FieldAndAlias.Add(
+                new NameValue<string>(Довідники.Файли_Const.TABLE + "." + Довідники.Файли_Const.ДатаСтворення, "date_create"));
+            querySelect.Joins.Add(
+                new Join(Довідники.Файли_Const.TABLE, Довідники.Контрагенти_Файли_TablePart.Файл, querySelect.Table));
+
             контрагенти_Файли_TablePart.Read();
+
+            Dictionary<string, Dictionary<string, string>> JoinValue = контрагенти_Файли_TablePart.JoinValue;
 
             foreach (Довідники.Контрагенти_Файли_TablePart.Record record in контрагенти_Файли_TablePart.Records)
             {
                 Записи запис = new Записи
                 {
                     ID = record.UID.ToString(),
-                    Файл = record.Файл
+                    Файл = record.Файл,
+                    ДатаСтворенняФайлу = JoinValue[record.UID.ToString()]["date_create"]
                 };
 
                 RecordsBindingList.Add(запис);
@@ -112,6 +129,7 @@ namespace StorageAndTrade
             public string ID { get; set; }
 			public Довідники.Файли_Pointer Файл { get; set; }
             public string ФайлНазва { get; set; }
+            public string ДатаСтворенняФайлу { get; set; }
             public static Записи New()
 			{
 				return new Записи
@@ -133,6 +151,13 @@ namespace StorageAndTrade
             public static void ПісляЗміни_Файл(Записи запис)
             {
                 запис.ФайлНазва = запис.Файл.GetPresentation();
+
+                if (!запис.Файл.IsEmpty())
+                {
+                    Довідники.Файли_Objest файли_Objest = запис.Файл.GetDirectoryObject();
+                    if (файли_Objest != null)
+                        запис.ДатаСтворенняФайлу = файли_Objest.ДатаСтворення.ToString();
+                }
             }
         }
 
@@ -300,10 +325,5 @@ namespace StorageAndTrade
 					RecordsBindingList.RemoveAt(rowIndex);
 			}
 		}
-
-        private void dataGridViewRecords_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            
-        }
     }
 }

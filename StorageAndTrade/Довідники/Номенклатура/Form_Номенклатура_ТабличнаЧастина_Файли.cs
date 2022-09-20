@@ -170,6 +170,13 @@ namespace StorageAndTrade
             public static void ПісляЗміни_Файл(Записи запис)
             {
                 запис.ФайлНазва = запис.Файл.GetPresentation();
+
+                if (!запис.Файл.IsEmpty())
+                {
+                    Довідники.Файли_Objest файли_Objest = запис.Файл.GetDirectoryObject();
+                    if (файли_Objest != null)
+                        запис.ДатаСтворенняФайлу = файли_Objest.ДатаСтворення.ToString();
+                }
             }
         }
 
