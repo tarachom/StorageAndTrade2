@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 17.09.2022 19:41:11
+ * Дата конфігурації: 20.09.2022 15:07:39
  *
  */
 
@@ -11600,6 +11600,7 @@ namespace StorageAndTrade_1_0.Документи
         public const string Валюта = "col_i6";
         public const string СтаттяРухуКоштів = "col_a1";
         public const string КасаВідправник = "col_a2";
+        public const string Курс = "col_a4";
         public const string Коментар = "col_a3";
     }
 	
@@ -11607,7 +11608,7 @@ namespace StorageAndTrade_1_0.Документи
     public class ПрихіднийКасовийОрдер_Objest : DocumentObject
     {
         public ПрихіднийКасовийОрдер_Objest() : base(Config.Kernel, "tab_a44", "ПрихіднийКасовийОрдер",
-             new string[] { "docname", "docnomer", "docdate", "col_h8", "col_h9", "col_i1", "col_i2", "col_i3", "col_i4", "col_a6", "col_i5", "col_i6", "col_a1", "col_a2", "col_a3" }) 
+             new string[] { "docname", "docnomer", "docdate", "col_h8", "col_h9", "col_i1", "col_i2", "col_i3", "col_i4", "col_a6", "col_i5", "col_i6", "col_a1", "col_a2", "col_a4", "col_a3" }) 
         {
             Назва = "";
             НомерДок = "";
@@ -11623,6 +11624,7 @@ namespace StorageAndTrade_1_0.Документи
             Валюта = new Довідники.Валюти_Pointer();
             СтаттяРухуКоштів = new Довідники.СтаттяРухуКоштів_Pointer();
             КасаВідправник = new Довідники.Каси_Pointer();
+            Курс = 0;
             Коментар = "";
             
             //Табличні частини
@@ -11648,6 +11650,7 @@ namespace StorageAndTrade_1_0.Документи
                 Валюта = new Довідники.Валюти_Pointer(base.FieldValue["col_i6"]);
                 СтаттяРухуКоштів = new Довідники.СтаттяРухуКоштів_Pointer(base.FieldValue["col_a1"]);
                 КасаВідправник = new Довідники.Каси_Pointer(base.FieldValue["col_a2"]);
+                Курс = (base.FieldValue["col_a4"] != DBNull.Value) ? (decimal)base.FieldValue["col_a4"] : 0;
                 Коментар = base.FieldValue["col_a3"].ToString();
                 
                 BaseClear();
@@ -11674,6 +11677,7 @@ namespace StorageAndTrade_1_0.Документи
             base.FieldValue["col_i6"] = Валюта.UnigueID.UGuid;
             base.FieldValue["col_a1"] = СтаттяРухуКоштів.UnigueID.UGuid;
             base.FieldValue["col_a2"] = КасаВідправник.UnigueID.UGuid;
+            base.FieldValue["col_a4"] = Курс;
             base.FieldValue["col_a3"] = Коментар;
             
             BaseSave();
@@ -11709,6 +11713,7 @@ namespace StorageAndTrade_1_0.Документи
 			copy.Валюта = Валюта;
 			copy.СтаттяРухуКоштів = СтаттяРухуКоштів;
 			copy.КасаВідправник = КасаВідправник;
+			copy.Курс = Курс;
 			copy.Коментар = Коментар;
 			
 			return copy;
@@ -11740,6 +11745,7 @@ namespace StorageAndTrade_1_0.Документи
         public Довідники.Валюти_Pointer Валюта { get; set; }
         public Довідники.СтаттяРухуКоштів_Pointer СтаттяРухуКоштів { get; set; }
         public Довідники.Каси_Pointer КасаВідправник { get; set; }
+        public decimal Курс { get; set; }
         public string Коментар { get; set; }
         
         //Табличні частини
@@ -11938,6 +11944,7 @@ namespace StorageAndTrade_1_0.Документи
         public const string Валюта = "col_k9";
         public const string СтаттяРухуКоштів = "col_l2";
         public const string КасаОтримувач = "col_k6";
+        public const string Курс = "col_a2";
         public const string Основа = "col_a1";
         public const string Коментар = "col_l1";
     }
@@ -11946,7 +11953,7 @@ namespace StorageAndTrade_1_0.Документи
     public class РозхіднийКасовийОрдер_Objest : DocumentObject
     {
         public РозхіднийКасовийОрдер_Objest() : base(Config.Kernel, "tab_a48", "РозхіднийКасовийОрдер",
-             new string[] { "docname", "docnomer", "docdate", "col_k2", "col_k3", "col_a3", "col_k5", "col_k4", "col_k7", "col_a4", "col_k8", "col_k9", "col_l2", "col_k6", "col_a1", "col_l1" }) 
+             new string[] { "docname", "docnomer", "docdate", "col_k2", "col_k3", "col_a3", "col_k5", "col_k4", "col_k7", "col_a4", "col_k8", "col_k9", "col_l2", "col_k6", "col_a2", "col_a1", "col_l1" }) 
         {
             Назва = "";
             НомерДок = "";
@@ -11962,6 +11969,7 @@ namespace StorageAndTrade_1_0.Документи
             Валюта = new Довідники.Валюти_Pointer();
             СтаттяРухуКоштів = new Довідники.СтаттяРухуКоштів_Pointer();
             КасаОтримувач = new Довідники.Каси_Pointer();
+            Курс = 0;
             Основа = new UuidAndText();
             Коментар = "";
             
@@ -11988,6 +11996,7 @@ namespace StorageAndTrade_1_0.Документи
                 Валюта = new Довідники.Валюти_Pointer(base.FieldValue["col_k9"]);
                 СтаттяРухуКоштів = new Довідники.СтаттяРухуКоштів_Pointer(base.FieldValue["col_l2"]);
                 КасаОтримувач = new Довідники.Каси_Pointer(base.FieldValue["col_k6"]);
+                Курс = (base.FieldValue["col_a2"] != DBNull.Value) ? (decimal)base.FieldValue["col_a2"] : 0;
                 Основа = (base.FieldValue["col_a1"] != DBNull.Value) ? (UuidAndText)base.FieldValue["col_a1"] : new UuidAndText();
                 Коментар = base.FieldValue["col_l1"].ToString();
                 
@@ -12015,6 +12024,7 @@ namespace StorageAndTrade_1_0.Документи
             base.FieldValue["col_k9"] = Валюта.UnigueID.UGuid;
             base.FieldValue["col_l2"] = СтаттяРухуКоштів.UnigueID.UGuid;
             base.FieldValue["col_k6"] = КасаОтримувач.UnigueID.UGuid;
+            base.FieldValue["col_a2"] = Курс;
             base.FieldValue["col_a1"] = Основа;
             base.FieldValue["col_l1"] = Коментар;
             
@@ -12051,6 +12061,7 @@ namespace StorageAndTrade_1_0.Документи
 			copy.Валюта = Валюта;
 			copy.СтаттяРухуКоштів = СтаттяРухуКоштів;
 			copy.КасаОтримувач = КасаОтримувач;
+			copy.Курс = Курс;
 			copy.Основа = Основа;
 			copy.Коментар = Коментар;
 			
@@ -12083,6 +12094,7 @@ namespace StorageAndTrade_1_0.Документи
         public Довідники.Валюти_Pointer Валюта { get; set; }
         public Довідники.СтаттяРухуКоштів_Pointer СтаттяРухуКоштів { get; set; }
         public Довідники.Каси_Pointer КасаОтримувач { get; set; }
+        public decimal Курс { get; set; }
         public UuidAndText Основа { get; set; }
         public string Коментар { get; set; }
         

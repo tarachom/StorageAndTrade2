@@ -19,13 +19,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -183,8 +176,9 @@ namespace StorageAndTrade
 						directoryControl_КасаОтримувач.DirectoryPointerItem = new Довідники.Каси_Pointer(розхіднийКасовийОрдер_Objest.КасаОтримувач.UnigueID);
 						directoryControl_БанківськийРахунок.DirectoryPointerItem = new Довідники.БанківськіРахункиОрганізацій_Pointer(розхіднийКасовийОрдер_Objest.БанківськийРахунок.UnigueID);
 						directoryControl_Договір.DirectoryPointerItem = new Довідники.ДоговориКонтрагентів_Pointer(розхіднийКасовийОрдер_Objest.Договір.UnigueID);
-						textBox_СумаДокументу.Text = розхіднийКасовийОрдер_Objest.СумаДокументу.ToString();
-						textBox_Коментар.Text = розхіднийКасовийОрдер_Objest.Коментар;
+                        numericControl_СумаДокументу.Value = розхіднийКасовийОрдер_Objest.СумаДокументу;
+                        numericControl_Курс.Value = розхіднийКасовийОрдер_Objest.Курс;
+                        textBox_Коментар.Text = розхіднийКасовийОрдер_Objest.Коментар;
 
 						ComboBoxNameValue<Перелічення.ГосподарськіОперації>.SelectItem(comboBox_ГосподарськаОперація, розхіднийКасовийОрдер_Objest.ГосподарськаОперація);
 					}
@@ -210,8 +204,9 @@ namespace StorageAndTrade
 				розхіднийКасовийОрдер_Objest.КасаОтримувач = (Довідники.Каси_Pointer)directoryControl_КасаОтримувач.DirectoryPointerItem;
 				розхіднийКасовийОрдер_Objest.БанківськийРахунок = (Довідники.БанківськіРахункиОрганізацій_Pointer)directoryControl_БанківськийРахунок.DirectoryPointerItem;
 				розхіднийКасовийОрдер_Objest.Договір = (Довідники.ДоговориКонтрагентів_Pointer)directoryControl_Договір.DirectoryPointerItem;
-				розхіднийКасовийОрдер_Objest.СумаДокументу = decimal.Parse(textBox_СумаДокументу.Text);
-				розхіднийКасовийОрдер_Objest.Назва = $"Розхідний касовий ордер №{розхіднийКасовийОрдер_Objest.НомерДок} від {розхіднийКасовийОрдер_Objest.ДатаДок.ToShortDateString()}";
+				розхіднийКасовийОрдер_Objest.СумаДокументу = numericControl_СумаДокументу.Value;
+                розхіднийКасовийОрдер_Objest.Курс = numericControl_Курс.Value;
+                розхіднийКасовийОрдер_Objest.Назва = $"Розхідний касовий ордер №{розхіднийКасовийОрдер_Objest.НомерДок} від {розхіднийКасовийОрдер_Objest.ДатаДок.ToShortDateString()}";
 				розхіднийКасовийОрдер_Objest.Коментар = textBox_Коментар.Text;
 				розхіднийКасовийОрдер_Objest.ГосподарськаОперація = ((NameValue<Перелічення.ГосподарськіОперації>)comboBox_ГосподарськаОперація.SelectedItem).Value;
 

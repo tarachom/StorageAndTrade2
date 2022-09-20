@@ -66,7 +66,7 @@ namespace StorageAndTrade
             this.Controls.Add(this.textBoxNumeric);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NumericControl";
-            this.Size = new System.Drawing.Size(239, 30);
+            this.Size = new System.Drawing.Size(239, 23);
             this.Load += new System.EventHandler(this.NumericControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
