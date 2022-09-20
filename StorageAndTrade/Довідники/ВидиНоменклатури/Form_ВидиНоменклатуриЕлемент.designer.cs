@@ -75,7 +75,7 @@ namespace StorageAndTrade
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 17);
+            this.label2.Location = new System.Drawing.Point(77, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
@@ -85,7 +85,7 @@ namespace StorageAndTrade
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 85);
+            this.label4.Location = new System.Drawing.Point(19, 83);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 15);
@@ -104,7 +104,7 @@ namespace StorageAndTrade
             this.directoryControl_ОдиницяВиміру.Name = "directoryControl_ОдиницяВиміру";
             this.directoryControl_ОдиницяВиміру.QueryFind = null;
             this.directoryControl_ОдиницяВиміру.SelectForm = null;
-            this.directoryControl_ОдиницяВиміру.Size = new System.Drawing.Size(380, 31);
+            this.directoryControl_ОдиницяВиміру.Size = new System.Drawing.Size(380, 27);
             this.directoryControl_ОдиницяВиміру.TabIndex = 29;
             // 
             // comboBox_ТипНоменклатури
@@ -138,7 +138,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(633, 17);
+            this.label1.Location = new System.Drawing.Point(638, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 15);

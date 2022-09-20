@@ -124,10 +124,10 @@ namespace StorageAndTrade
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dataGridViewRecords);
-            this.panel2.Location = new System.Drawing.Point(0, 82);
+            this.panel2.Location = new System.Drawing.Point(0, 76);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(786, 388);
+            this.panel2.Size = new System.Drawing.Size(786, 394);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewRecords
@@ -143,7 +143,7 @@ namespace StorageAndTrade
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(786, 388);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(786, 394);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
@@ -157,7 +157,7 @@ namespace StorageAndTrade
             this.panel3.Location = new System.Drawing.Point(0, 40);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 37);
+            this.panel3.Size = new System.Drawing.Size(780, 36);
             this.panel3.TabIndex = 48;
             // 
             // directoryControl_Номенклатура
@@ -172,13 +172,13 @@ namespace StorageAndTrade
             this.directoryControl_Номенклатура.Name = "directoryControl_Номенклатура";
             this.directoryControl_Номенклатура.QueryFind = null;
             this.directoryControl_Номенклатура.SelectForm = null;
-            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(438, 31);
+            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(438, 27);
             this.directoryControl_Номенклатура.TabIndex = 45;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 10);
+            this.label5.Location = new System.Drawing.Point(7, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);

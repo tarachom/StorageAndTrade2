@@ -188,7 +188,7 @@ namespace StorageAndTrade
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(540, 46);
+            this.label10.Location = new System.Drawing.Point(540, 47);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 15);
@@ -208,7 +208,7 @@ namespace StorageAndTrade
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 117);
+            this.label6.Location = new System.Drawing.Point(40, 115);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
@@ -227,13 +227,13 @@ namespace StorageAndTrade
             this.directoryControl_Склад.Name = "directoryControl_Склад";
             this.directoryControl_Склад.QueryFind = null;
             this.directoryControl_Склад.SelectForm = null;
-            this.directoryControl_Склад.Size = new System.Drawing.Size(439, 31);
+            this.directoryControl_Склад.Size = new System.Drawing.Size(439, 27);
             this.directoryControl_Склад.TabIndex = 49;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 84);
+            this.label4.Location = new System.Drawing.Point(32, 82);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
@@ -252,13 +252,13 @@ namespace StorageAndTrade
             this.directoryControl_Валюта.Name = "directoryControl_Валюта";
             this.directoryControl_Валюта.QueryFind = null;
             this.directoryControl_Валюта.SelectForm = null;
-            this.directoryControl_Валюта.Size = new System.Drawing.Size(439, 31);
+            this.directoryControl_Валюта.Size = new System.Drawing.Size(439, 27);
             this.directoryControl_Валюта.TabIndex = 47;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 51);
+            this.label3.Location = new System.Drawing.Point(9, 49);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 15);
@@ -277,13 +277,13 @@ namespace StorageAndTrade
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
             this.directoryControl_Організація.SelectForm = null;
-            this.directoryControl_Організація.Size = new System.Drawing.Size(439, 31);
+            this.directoryControl_Організація.Size = new System.Drawing.Size(439, 27);
             this.directoryControl_Організація.TabIndex = 45;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 18);
+            this.label12.Location = new System.Drawing.Point(15, 17);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 15);
@@ -302,7 +302,7 @@ namespace StorageAndTrade
             this.directoryControl_Підрозділ.Name = "directoryControl_Підрозділ";
             this.directoryControl_Підрозділ.QueryFind = null;
             this.directoryControl_Підрозділ.SelectForm = null;
-            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(465, 31);
+            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(465, 27);
             this.directoryControl_Підрозділ.TabIndex = 61;
             // 
             // panel2

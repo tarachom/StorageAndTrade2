@@ -83,7 +83,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 51);
+            this.label1.Location = new System.Drawing.Point(14, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 15);
@@ -102,7 +102,7 @@ namespace StorageAndTrade
             this.directoryControl_Керівник.Name = "directoryControl_Керівник";
             this.directoryControl_Керівник.QueryFind = null;
             this.directoryControl_Керівник.SelectForm = null;
-            this.directoryControl_Керівник.Size = new System.Drawing.Size(555, 31);
+            this.directoryControl_Керівник.Size = new System.Drawing.Size(555, 27);
             this.directoryControl_Керівник.TabIndex = 35;
             // 
             // textBox_Код

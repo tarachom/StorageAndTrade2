@@ -209,7 +209,7 @@ namespace StorageAndTrade
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(536, 83);
+            this.label11.Location = new System.Drawing.Point(536, 81);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 15);
@@ -238,13 +238,13 @@ namespace StorageAndTrade
             this.directoryControl_СкладОтримувач.Name = "directoryControl_СкладОтримувач";
             this.directoryControl_СкладОтримувач.QueryFind = null;
             this.directoryControl_СкладОтримувач.SelectForm = null;
-            this.directoryControl_СкладОтримувач.Size = new System.Drawing.Size(439, 31);
+            this.directoryControl_СкладОтримувач.Size = new System.Drawing.Size(439, 27);
             this.directoryControl_СкладОтримувач.TabIndex = 59;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 82);
+            this.label6.Location = new System.Drawing.Point(40, 81);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
@@ -263,13 +263,13 @@ namespace StorageAndTrade
             this.directoryControl_СкладВідправник.Name = "directoryControl_СкладВідправник";
             this.directoryControl_СкладВідправник.QueryFind = null;
             this.directoryControl_СкладВідправник.SelectForm = null;
-            this.directoryControl_СкладВідправник.Size = new System.Drawing.Size(439, 31);
+            this.directoryControl_СкладВідправник.Size = new System.Drawing.Size(439, 27);
             this.directoryControl_СкладВідправник.TabIndex = 49;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 50);
+            this.label3.Location = new System.Drawing.Point(9, 48);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 15);
@@ -288,13 +288,13 @@ namespace StorageAndTrade
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
             this.directoryControl_Організація.SelectForm = null;
-            this.directoryControl_Організація.Size = new System.Drawing.Size(438, 31);
+            this.directoryControl_Організація.Size = new System.Drawing.Size(438, 27);
             this.directoryControl_Організація.TabIndex = 45;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 23);
+            this.label12.Location = new System.Drawing.Point(16, 22);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 15);
@@ -313,7 +313,7 @@ namespace StorageAndTrade
             this.directoryControl_Підрозділ.Name = "directoryControl_Підрозділ";
             this.directoryControl_Підрозділ.QueryFind = null;
             this.directoryControl_Підрозділ.SelectForm = null;
-            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(465, 31);
+            this.directoryControl_Підрозділ.Size = new System.Drawing.Size(465, 27);
             this.directoryControl_Підрозділ.TabIndex = 61;
             // 
             // panel2
@@ -370,7 +370,7 @@ namespace StorageAndTrade
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1060, 341);
+            this.tabPage2.Size = new System.Drawing.Size(1060, 350);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Додаток";
             this.tabPage2.UseVisualStyleBackColor = true;

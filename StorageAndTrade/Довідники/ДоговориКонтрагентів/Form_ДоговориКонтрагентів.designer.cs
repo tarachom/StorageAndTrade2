@@ -138,10 +138,10 @@ namespace StorageAndTrade
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.Controls.Add(this.dataGridViewRecords);
-            this.panel4.Location = new System.Drawing.Point(4, 45);
+            this.panel4.Location = new System.Drawing.Point(4, 39);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(782, 389);
+            this.panel4.Size = new System.Drawing.Size(782, 395);
             this.panel4.TabIndex = 47;
             // 
             // dataGridViewRecords
@@ -157,7 +157,7 @@ namespace StorageAndTrade
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(782, 389);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(782, 395);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
@@ -171,7 +171,7 @@ namespace StorageAndTrade
             this.panel3.Location = new System.Drawing.Point(4, 3);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(782, 37);
+            this.panel3.Size = new System.Drawing.Size(782, 36);
             this.panel3.TabIndex = 47;
             // 
             // directoryControl_Контрагент
@@ -186,13 +186,13 @@ namespace StorageAndTrade
             this.directoryControl_Контрагент.Name = "directoryControl_Контрагент";
             this.directoryControl_Контрагент.QueryFind = null;
             this.directoryControl_Контрагент.SelectForm = null;
-            this.directoryControl_Контрагент.Size = new System.Drawing.Size(438, 31);
+            this.directoryControl_Контрагент.Size = new System.Drawing.Size(438, 27);
             this.directoryControl_Контрагент.TabIndex = 45;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 12);
+            this.label5.Location = new System.Drawing.Point(7, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 15);

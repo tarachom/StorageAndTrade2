@@ -103,7 +103,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 301);
+            this.label1.Location = new System.Drawing.Point(58, 299);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
@@ -113,7 +113,7 @@ namespace StorageAndTrade
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 138);
+            this.label3.Location = new System.Drawing.Point(12, 137);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 15);
@@ -123,7 +123,7 @@ namespace StorageAndTrade
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 266);
+            this.label4.Location = new System.Drawing.Point(23, 264);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 15);
@@ -162,7 +162,7 @@ namespace StorageAndTrade
             this.directoryControl_ОдиницяВиміру.Name = "directoryControl_ОдиницяВиміру";
             this.directoryControl_ОдиницяВиміру.QueryFind = null;
             this.directoryControl_ОдиницяВиміру.SelectForm = null;
-            this.directoryControl_ОдиницяВиміру.Size = new System.Drawing.Size(301, 31);
+            this.directoryControl_ОдиницяВиміру.Size = new System.Drawing.Size(301, 27);
             this.directoryControl_ОдиницяВиміру.TabIndex = 27;
             // 
             // directoryControl_ВидНоменклатури
@@ -177,7 +177,7 @@ namespace StorageAndTrade
             this.directoryControl_ВидНоменклатури.Name = "directoryControl_ВидНоменклатури";
             this.directoryControl_ВидНоменклатури.QueryFind = null;
             this.directoryControl_ВидНоменклатури.SelectForm = null;
-            this.directoryControl_ВидНоменклатури.Size = new System.Drawing.Size(468, 31);
+            this.directoryControl_ВидНоменклатури.Size = new System.Drawing.Size(468, 27);
             this.directoryControl_ВидНоменклатури.TabIndex = 25;
             // 
             // directoryControl_Виробник
@@ -192,7 +192,7 @@ namespace StorageAndTrade
             this.directoryControl_Виробник.Name = "directoryControl_Виробник";
             this.directoryControl_Виробник.QueryFind = null;
             this.directoryControl_Виробник.SelectForm = null;
-            this.directoryControl_Виробник.Size = new System.Drawing.Size(301, 31);
+            this.directoryControl_Виробник.Size = new System.Drawing.Size(301, 27);
             this.directoryControl_Виробник.TabIndex = 23;
             // 
             // textBox_Артикул
@@ -253,7 +253,7 @@ namespace StorageAndTrade
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(81, 105);
+            this.label9.Location = new System.Drawing.Point(81, 103);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 15);
@@ -272,7 +272,7 @@ namespace StorageAndTrade
             this.directoryControl_НоменклатураПапка.Name = "directoryControl_НоменклатураПапка";
             this.directoryControl_НоменклатураПапка.QueryFind = null;
             this.directoryControl_НоменклатураПапка.SelectForm = null;
-            this.directoryControl_НоменклатураПапка.Size = new System.Drawing.Size(468, 31);
+            this.directoryControl_НоменклатураПапка.Size = new System.Drawing.Size(468, 27);
             this.directoryControl_НоменклатураПапка.TabIndex = 53;
             // 
             // pictureBox_ОсновнаКартинка

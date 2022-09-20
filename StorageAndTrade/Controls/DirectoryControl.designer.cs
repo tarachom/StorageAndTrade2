@@ -36,25 +36,25 @@ namespace StorageAndTrade
             // 
             // textBoxControl
             // 
-            this.textBoxControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxControl.BackColor = System.Drawing.Color.White;
+            this.textBoxControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxControl.Location = new System.Drawing.Point(0, 2);
-            this.textBoxControl.Multiline = true;
+            this.textBoxControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxControl.Name = "textBoxControl";
             this.textBoxControl.ReadOnly = true;
-            this.textBoxControl.Size = new System.Drawing.Size(287, 22);
+            this.textBoxControl.Size = new System.Drawing.Size(334, 23);
             this.textBoxControl.TabIndex = 0;
             this.textBoxControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxControl_KeyDown);
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpen.Location = new System.Drawing.Point(290, 1);
+            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOpen.Location = new System.Drawing.Point(338, 2);
+            this.buttonOpen.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(24, 24);
+            this.buttonOpen.Size = new System.Drawing.Size(28, 23);
             this.buttonOpen.TabIndex = 1;
             this.buttonOpen.Text = "..";
             this.buttonOpen.UseVisualStyleBackColor = true;
@@ -62,12 +62,12 @@ namespace StorageAndTrade
             // 
             // buttonFind
             // 
-            this.buttonFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFind.Enabled = false;
-            this.buttonFind.Location = new System.Drawing.Point(316, 1);
+            this.buttonFind.Location = new System.Drawing.Point(369, 2);
+            this.buttonFind.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonFind.Name = "buttonFind";
-            this.buttonFind.Size = new System.Drawing.Size(24, 24);
+            this.buttonFind.Size = new System.Drawing.Size(28, 23);
             this.buttonFind.TabIndex = 3;
             this.buttonFind.Text = "f";
             this.buttonFind.UseVisualStyleBackColor = true;
@@ -75,13 +75,14 @@ namespace StorageAndTrade
             // 
             // DirectoryControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonFind);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.textBoxControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DirectoryControl";
-            this.Size = new System.Drawing.Size(341, 27);
+            this.Size = new System.Drawing.Size(398, 27);
             this.ResumeLayout(false);
             this.PerformLayout();
 

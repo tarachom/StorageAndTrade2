@@ -97,12 +97,12 @@ namespace StorageAndTrade
             this.directoryControl_СкладиПапка.BeforeFindFunc = null;
             this.directoryControl_СкладиПапка.Bind = null;
             this.directoryControl_СкладиПапка.DirectoryPointerItem = null;
-            this.directoryControl_СкладиПапка.Location = new System.Drawing.Point(103, 44);
+            this.directoryControl_СкладиПапка.Location = new System.Drawing.Point(103, 46);
             this.directoryControl_СкладиПапка.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_СкладиПапка.Name = "directoryControl_СкладиПапка";
             this.directoryControl_СкладиПапка.QueryFind = null;
             this.directoryControl_СкладиПапка.SelectForm = null;
-            this.directoryControl_СкладиПапка.Size = new System.Drawing.Size(538, 31);
+            this.directoryControl_СкладиПапка.Size = new System.Drawing.Size(538, 27);
             this.directoryControl_СкладиПапка.TabIndex = 51;
             // 
             // textBox_Код

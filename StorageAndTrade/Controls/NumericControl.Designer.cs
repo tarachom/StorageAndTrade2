@@ -35,12 +35,13 @@ namespace StorageAndTrade
             // 
             // textBoxNumeric
             // 
-            this.textBoxNumeric.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxNumeric.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNumeric.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxNumeric.Location = new System.Drawing.Point(0, 0);
+            this.textBoxNumeric.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNumeric.Name = "textBoxNumeric";
-            this.textBoxNumeric.Size = new System.Drawing.Size(181, 20);
+            this.textBoxNumeric.Size = new System.Drawing.Size(210, 23);
             this.textBoxNumeric.TabIndex = 0;
             this.textBoxNumeric.TextChanged += new System.EventHandler(this.textBoxNumeric_TextChanged);
             // 
@@ -48,9 +49,10 @@ namespace StorageAndTrade
             // 
             this.labelError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelError.AutoSize = true;
-            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(187, 3);
+            this.labelError.Location = new System.Drawing.Point(218, 3);
+            this.labelError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(11, 13);
             this.labelError.TabIndex = 1;
@@ -58,12 +60,13 @@ namespace StorageAndTrade
             // 
             // NumericControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.textBoxNumeric);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NumericControl";
-            this.Size = new System.Drawing.Size(205, 20);
+            this.Size = new System.Drawing.Size(239, 30);
             this.Load += new System.EventHandler(this.NumericControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

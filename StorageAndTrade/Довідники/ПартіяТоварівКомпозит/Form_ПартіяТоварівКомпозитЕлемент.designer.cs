@@ -91,7 +91,7 @@ namespace StorageAndTrade
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 85);
+            this.label6.Location = new System.Drawing.Point(14, 84);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(181, 15);
@@ -115,7 +115,7 @@ namespace StorageAndTrade
             this.documentControl_ВведенняЗалишків.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.documentControl_ВведенняЗалишків.Name = "documentControl_ВведенняЗалишків";
             this.documentControl_ВведенняЗалишків.SelectForm = null;
-            this.documentControl_ВведенняЗалишків.Size = new System.Drawing.Size(434, 31);
+            this.documentControl_ВведенняЗалишків.Size = new System.Drawing.Size(434, 27);
             this.documentControl_ВведенняЗалишків.TabIndex = 69;
             // 
             // documentControl_ПоступленняТоварів
@@ -125,7 +125,7 @@ namespace StorageAndTrade
             this.documentControl_ПоступленняТоварів.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.documentControl_ПоступленняТоварів.Name = "documentControl_ПоступленняТоварів";
             this.documentControl_ПоступленняТоварів.SelectForm = null;
-            this.documentControl_ПоступленняТоварів.Size = new System.Drawing.Size(434, 31);
+            this.documentControl_ПоступленняТоварів.Size = new System.Drawing.Size(434, 27);
             this.documentControl_ПоступленняТоварів.TabIndex = 67;
             // 
             // Form_ПартіяТоварівКомпозитЕлемент

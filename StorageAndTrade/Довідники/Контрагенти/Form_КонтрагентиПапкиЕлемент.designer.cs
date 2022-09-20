@@ -83,7 +83,7 @@ namespace StorageAndTrade
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 51);
+            this.label9.Location = new System.Drawing.Point(14, 50);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 15);
@@ -102,7 +102,7 @@ namespace StorageAndTrade
             this.directoryControl_КонтрагентиПапка.Name = "directoryControl_КонтрагентиПапка";
             this.directoryControl_КонтрагентиПапка.QueryFind = null;
             this.directoryControl_КонтрагентиПапка.SelectForm = null;
-            this.directoryControl_КонтрагентиПапка.Size = new System.Drawing.Size(570, 31);
+            this.directoryControl_КонтрагентиПапка.Size = new System.Drawing.Size(570, 27);
             this.directoryControl_КонтрагентиПапка.TabIndex = 51;
             // 
             // textBox_Код
@@ -116,7 +116,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(648, 17);
+            this.label1.Location = new System.Drawing.Point(648, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 15);

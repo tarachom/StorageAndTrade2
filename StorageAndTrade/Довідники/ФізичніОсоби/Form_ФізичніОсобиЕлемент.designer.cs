@@ -87,7 +87,7 @@ namespace StorageAndTrade
             this.comboBox_Стать.Location = new System.Drawing.Point(70, 44);
             this.comboBox_Стать.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox_Стать.Name = "comboBox_Стать";
-            this.comboBox_Стать.Size = new System.Drawing.Size(210, 23);
+            this.comboBox_Стать.Size = new System.Drawing.Size(265, 23);
             this.comboBox_Стать.TabIndex = 34;
             // 
             // label5

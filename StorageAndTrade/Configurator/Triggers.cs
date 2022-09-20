@@ -95,7 +95,28 @@ WHERE
 		}
 	}
 
-	class Номенклатура_Папки_Triggers
+    class Номенклатура_Triggers
+    {
+        public static void BeforeRecording(Номенклатура_Objest ДовідникОбєкт)
+        {
+
+        }
+        public static void AfterRecording(Номенклатура_Objest ДовідникОбєкт)
+        {
+
+        }
+
+        public static void BeforeDelete(Номенклатура_Objest ДовідникОбєкт)
+        {
+            //
+            //Очистка штрих-кодів
+            //
+
+            
+        }
+    }
+
+    class Номенклатура_Папки_Triggers
 	{
 		public static void BeforeRecording(Номенклатура_Папки_Objest ДовідникОбєкт)
 		{
