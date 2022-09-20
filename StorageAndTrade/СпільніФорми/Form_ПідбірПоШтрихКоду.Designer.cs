@@ -1,4 +1,4 @@
-﻿namespace StorageAndTrade.СпільніФорми
+﻿namespace StorageAndTrade
 {
     partial class Form_ПідбірПоШтрихКоду
     {

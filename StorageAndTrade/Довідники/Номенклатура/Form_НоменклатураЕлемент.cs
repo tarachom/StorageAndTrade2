@@ -19,20 +19,13 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
 using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
 using System.IO;
 
@@ -80,8 +73,9 @@ namespace StorageAndTrade
 			directoryControl_Виробник.Init(new Form_Виробники(), new Довідники.Виробники_Pointer(), ПошуковіЗапити.Виробники);
 			directoryControl_ВидНоменклатури.Init(new Form_ВидиНоменклатури(), new Довідники.ВидиНоменклатури_Pointer(), ПошуковіЗапити.ВидиНоменклатури);
 			directoryControl_ОдиницяВиміру.Init(new Form_ПакуванняОдиниціВиміру(), new Довідники.ПакуванняОдиниціВиміру_Pointer(), ПошуковіЗапити.ПакуванняОдиниціВиміру);
+            directoryControl_Картинка.Init(new Form_Файли(), new Довідники.Файли_Pointer(), ПошуковіЗапити.Файли);
 
-			if (IsNew.HasValue)
+            if (IsNew.HasValue)
 			{
 				номенклатура_Objest = new Довідники.Номенклатура_Objest();
 
@@ -107,8 +101,9 @@ namespace StorageAndTrade
 						directoryControl_ОдиницяВиміру.DirectoryPointerItem = new Довідники.ПакуванняОдиниціВиміру_Pointer(номенклатура_Objest.ОдиницяВиміру.UnigueID);
 						comboBox_ТипНоменклатури.SelectedItem = номенклатура_Objest.ТипНоменклатури;
 						textBox_Опис.Text = номенклатура_Objest.Опис;
+                        directoryControl_Картинка.DirectoryPointerItem = new Довідники.Файли_Pointer(номенклатура_Objest.ОсновнаКартинкаФайл.UnigueID);
 
-						ВідобразитиОсновнуКартинку();
+                        ВідобразитиОсновнуКартинку();
                     }
 					else
 						MessageBox.Show("Error read");
@@ -133,8 +128,9 @@ namespace StorageAndTrade
 				номенклатура_Objest.ОдиницяВиміру = (Довідники.ПакуванняОдиниціВиміру_Pointer)directoryControl_ОдиницяВиміру.DirectoryPointerItem;
 				номенклатура_Objest.ТипНоменклатури = comboBox_ТипНоменклатури.SelectedItem != null ? (Перелічення.ТипиНоменклатури)comboBox_ТипНоменклатури.SelectedItem : 0;
 				номенклатура_Objest.Опис = textBox_Опис.Text;
+                номенклатура_Objest.ОсновнаКартинкаФайл = (Довідники.Файли_Pointer)directoryControl_Картинка.DirectoryPointerItem;
 
-				try
+                try
 				{
 					номенклатура_Objest.Save();
 				}

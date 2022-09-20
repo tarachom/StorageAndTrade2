@@ -35,7 +35,7 @@ using Довідники = StorageAndTrade_1_0.Довідники;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
 
-namespace StorageAndTrade.СпільніФорми
+namespace StorageAndTrade
 {
     public partial class Form_ПідбірПоШтрихКоду : Form
     {

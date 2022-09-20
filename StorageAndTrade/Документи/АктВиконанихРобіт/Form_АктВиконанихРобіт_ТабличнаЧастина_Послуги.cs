@@ -21,20 +21,12 @@ limitations under the License.
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
-using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
-using StorageAndTrade.СпільніФорми;
 
 namespace StorageAndTrade
 {
@@ -71,11 +63,6 @@ namespace StorageAndTrade
 		/// Власне документ якому належить таблична частина
 		/// </summary>
 		public Документи.АктВиконанихРобіт_Objest ДокументОбєкт { get; set; }
-
-        private void Form_АктВиконанихРобіт_ТабличнаЧастина_Послуги_Load(object sender, EventArgs e)
-        {
-			
-		}
 
 		private BindingList<Записи> RecordsBindingList { get; set; }
 

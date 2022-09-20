@@ -19,13 +19,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -34,6 +27,7 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using StorageAndTrade_1_0.Документи;
 
 
 namespace StorageAndTrade
@@ -183,8 +177,9 @@ namespace StorageAndTrade
 						directoryControl_КасаВідправник.DirectoryPointerItem = new Довідники.Каси_Pointer(прихіднийКасовийОрдер_Objest.КасаВідправник.UnigueID);
 						directoryControl_БанківськийРахунок.DirectoryPointerItem = new Довідники.БанківськіРахункиОрганізацій_Pointer(прихіднийКасовийОрдер_Objest.БанківськийРахунок.UnigueID);
 						directoryControl_Договір.DirectoryPointerItem = new Довідники.ДоговориКонтрагентів_Pointer(прихіднийКасовийОрдер_Objest.Договір.UnigueID);
-						textBox_СумаДокументу.Text = прихіднийКасовийОрдер_Objest.СумаДокументу.ToString();
-						textBox_Коментар.Text = прихіднийКасовийОрдер_Objest.Коментар;
+                        numericControl_СумаДокументу.Value = прихіднийКасовийОрдер_Objest.СумаДокументу;
+                        numericControl_Курс.Value = прихіднийКасовийОрдер_Objest.Курс;
+                        textBox_Коментар.Text = прихіднийКасовийОрдер_Objest.Коментар;
 
 						ComboBoxNameValue<Перелічення.ГосподарськіОперації>.SelectItem(comboBox_ГосподарськаОперація, прихіднийКасовийОрдер_Objest.ГосподарськаОперація);
 					}
@@ -210,8 +205,9 @@ namespace StorageAndTrade
 				прихіднийКасовийОрдер_Objest.КасаВідправник = (Довідники.Каси_Pointer)directoryControl_КасаВідправник.DirectoryPointerItem;
 				прихіднийКасовийОрдер_Objest.БанківськийРахунок = (Довідники.БанківськіРахункиОрганізацій_Pointer)directoryControl_БанківськийРахунок.DirectoryPointerItem;
 				прихіднийКасовийОрдер_Objest.Договір = (Довідники.ДоговориКонтрагентів_Pointer)directoryControl_Договір.DirectoryPointerItem;
-				прихіднийКасовийОрдер_Objest.СумаДокументу = decimal.Parse(textBox_СумаДокументу.Text);
-				прихіднийКасовийОрдер_Objest.Назва = $"Прихідний касовий ордер №{прихіднийКасовийОрдер_Objest.НомерДок} від {прихіднийКасовийОрдер_Objest.ДатаДок.ToShortDateString()}";
+                прихіднийКасовийОрдер_Objest.СумаДокументу = numericControl_СумаДокументу.Value;
+                прихіднийКасовийОрдер_Objest.Курс = numericControl_Курс.Value;
+                прихіднийКасовийОрдер_Objest.Назва = $"Прихідний касовий ордер №{прихіднийКасовийОрдер_Objest.НомерДок} від {прихіднийКасовийОрдер_Objest.ДатаДок.ToShortDateString()}";
 				прихіднийКасовийОрдер_Objest.Коментар = textBox_Коментар.Text;
 				прихіднийКасовийОрдер_Objest.ГосподарськаОперація = ((NameValue<Перелічення.ГосподарськіОперації>)comboBox_ГосподарськаОперація.SelectedItem).Value;
 

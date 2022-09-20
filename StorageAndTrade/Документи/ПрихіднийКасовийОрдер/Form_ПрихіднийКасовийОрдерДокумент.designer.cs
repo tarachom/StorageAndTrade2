@@ -49,7 +49,6 @@ namespace StorageAndTrade
             this.label11 = new System.Windows.Forms.Label();
             this.directoryControl_Договір = new StorageAndTrade.DirectoryControl();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox_СумаДокументу = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.directoryControl_Каса = new StorageAndTrade.DirectoryControl();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,6 +68,9 @@ namespace StorageAndTrade
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_FindToJournal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonДрукПроводок = new System.Windows.Forms.ToolStripButton();
+            this.numericControl_СумаДокументу = new StorageAndTrade.NumericControl();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericControl_Курс = new StorageAndTrade.NumericControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -129,6 +131,9 @@ namespace StorageAndTrade
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.numericControl_Курс);
+            this.panel1.Controls.Add(this.numericControl_СумаДокументу);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.dateTimePicker_ЧасДок);
             this.panel1.Controls.Add(this.label8);
@@ -142,7 +147,6 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.directoryControl_Договір);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.textBox_СумаДокументу);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.directoryControl_Каса);
             this.panel1.Controls.Add(this.label4);
@@ -185,7 +189,7 @@ namespace StorageAndTrade
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(563, 150);
+            this.label8.Location = new System.Drawing.Point(563, 182);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 15);
@@ -199,7 +203,7 @@ namespace StorageAndTrade
             this.directoryControl_БанківськийРахунок.BeforeFindFunc = null;
             this.directoryControl_БанківськийРахунок.Bind = null;
             this.directoryControl_БанківськийРахунок.DirectoryPointerItem = null;
-            this.directoryControl_БанківськийРахунок.Location = new System.Drawing.Point(696, 144);
+            this.directoryControl_БанківськийРахунок.Location = new System.Drawing.Point(696, 176);
             this.directoryControl_БанківськийРахунок.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_БанківськийРахунок.Name = "directoryControl_БанківськийРахунок";
             this.directoryControl_БанківськийРахунок.QueryFind = null;
@@ -304,14 +308,6 @@ namespace StorageAndTrade
             this.label13.Size = new System.Drawing.Size(39, 15);
             this.label13.TabIndex = 61;
             this.label13.Text = "Сума:";
-            // 
-            // textBox_СумаДокументу
-            // 
-            this.textBox_СумаДокументу.Location = new System.Drawing.Point(88, 178);
-            this.textBox_СумаДокументу.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox_СумаДокументу.Name = "textBox_СумаДокументу";
-            this.textBox_СумаДокументу.Size = new System.Drawing.Size(230, 23);
-            this.textBox_СумаДокументу.TabIndex = 1;
             // 
             // label9
             // 
@@ -535,6 +531,42 @@ namespace StorageAndTrade
             this.toolStripButtonДрукПроводок.Text = "Проводки";
             this.toolStripButtonДрукПроводок.Click += new System.EventHandler(this.toolStripButtonДрукПроводок_Click);
             // 
+            // numericControl_СумаДокументу
+            // 
+            this.numericControl_СумаДокументу.Location = new System.Drawing.Point(88, 178);
+            this.numericControl_СумаДокументу.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numericControl_СумаДокументу.Name = "numericControl_СумаДокументу";
+            this.numericControl_СумаДокументу.Size = new System.Drawing.Size(286, 23);
+            this.numericControl_СумаДокументу.TabIndex = 79;
+            this.numericControl_СумаДокументу.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(653, 150);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 15);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "Курс:";
+            // 
+            // numericControl_Курс
+            // 
+            this.numericControl_Курс.Location = new System.Drawing.Point(696, 146);
+            this.numericControl_Курс.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numericControl_Курс.Name = "numericControl_Курс";
+            this.numericControl_Курс.Size = new System.Drawing.Size(286, 23);
+            this.numericControl_Курс.TabIndex = 81;
+            this.numericControl_Курс.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
             // Form_ПрихіднийКасовийОрдерДокумент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -586,7 +618,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox_СумаДокументу;
         private System.Windows.Forms.Label label11;
         private DirectoryControl directoryControl_Договір;
         private System.Windows.Forms.Button buttonSaveAndSpend;
@@ -603,5 +634,8 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_FindToJournal;
         private System.Windows.Forms.ToolStripButton toolStripButtonДрукПроводок;
+        private NumericControl numericControl_СумаДокументу;
+        private System.Windows.Forms.Label label15;
+        private NumericControl numericControl_Курс;
     }
 }

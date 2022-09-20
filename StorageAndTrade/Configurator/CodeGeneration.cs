@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 20.09.2022 15:07:39
+ * Дата конфігурації: 20.09.2022 16:52:48
  *
  */
 
@@ -3601,6 +3601,14 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Тип = "col_a9";
+        public const string Телефон = "col_a4";
+        public const string ЕлектроннаПошта = "col_a5";
+        public const string Країна = "col_a1";
+        public const string Область = "col_a6";
+        public const string Район = "col_a2";
+        public const string Місто = "col_a3";
+
         public Організації_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -3900,6 +3908,9 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Файл = "col_a1";
+        public const string Основний = "col_a3";
+
         public Номенклатура_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -4762,6 +4773,14 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Тип = "col_d2";
+        public const string Телефон = "col_d8";
+        public const string ЕлектроннаПошта = "col_d7";
+        public const string Країна = "col_d3";
+        public const string Область = "col_d5";
+        public const string Район = "col_d4";
+        public const string Місто = "col_d6";
+
         public Контрагенти_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -4858,6 +4877,8 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Файл = "col_a1";
+
         public Контрагенти_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -5108,6 +5129,14 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Тип = "col_e2";
+        public const string Телефон = "col_e8";
+        public const string ЕлектроннаПошта = "col_e7";
+        public const string Країна = "col_e3";
+        public const string Область = "col_e5";
+        public const string Район = "col_e4";
+        public const string Місто = "col_e6";
+
         public Склади_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -5660,6 +5689,14 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Тип = "col_f8";
+        public const string Телефон = "col_g5";
+        public const string ЕлектроннаПошта = "col_g4";
+        public const string Країна = "col_f9";
+        public const string Область = "col_g1";
+        public const string Район = "col_g2";
+        public const string Місто = "col_g3";
+
         public Користувачі_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -5922,6 +5959,14 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string Тип = "col_h1";
+        public const string Телефон = "col_h7";
+        public const string ЕлектроннаПошта = "col_h6";
+        public const string Країна = "col_h2";
+        public const string Область = "col_h3";
+        public const string Район = "col_h4";
+        public const string Місто = "col_h5";
+
         public ФізичніОсоби_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }
@@ -8077,6 +8122,8 @@ namespace StorageAndTrade_1_0.Довідники
             Records = new List<Record>();
         }
         
+        public const string ГосподарськаОперація = "col_j3";
+
         public СтаттяРухуКоштів_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; }

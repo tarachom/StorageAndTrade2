@@ -37,9 +37,9 @@ namespace StorageAndTrade
             this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton_ШтрихКоди = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).BeginInit();
             this.panel1.SuspendLayout();
@@ -50,9 +50,10 @@ namespace StorageAndTrade
             // 
             this.panel2.Controls.Add(this.dataGridViewRecords);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 29);
+            this.panel2.Location = new System.Drawing.Point(0, 33);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(733, 219);
+            this.panel2.Size = new System.Drawing.Size(855, 253);
             this.panel2.TabIndex = 4;
             // 
             // dataGridViewRecords
@@ -64,9 +65,10 @@ namespace StorageAndTrade
             this.dataGridViewRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRecords.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRecords.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(733, 219);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(855, 253);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellEndEdit);
@@ -77,8 +79,9 @@ namespace StorageAndTrade
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 29);
+            this.panel1.Size = new System.Drawing.Size(855, 33);
             this.panel1.TabIndex = 3;
             // 
             // toolStrip1
@@ -91,7 +94,7 @@ namespace StorageAndTrade
             this.toolStripButton_ШтрихКоди});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(733, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(855, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -122,11 +125,6 @@ namespace StorageAndTrade
             this.toolStripButtonDelete.Text = "Видалити";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -141,15 +139,20 @@ namespace StorageAndTrade
             this.toolStripButton_ШтрихКоди.Text = "Штрих-коди";
             this.toolStripButton_ШтрихКоди.Click += new System.EventHandler(this.toolStripButton_ШтрихКоди_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form_АктВиконанихРобіт_ТабличнаЧастина_Послуги
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_АктВиконанихРобіт_ТабличнаЧастина_Послуги";
-            this.Size = new System.Drawing.Size(733, 248);
-            this.Load += new System.EventHandler(this.Form_АктВиконанихРобіт_ТабличнаЧастина_Послуги_Load);
+            this.Size = new System.Drawing.Size(855, 286);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -56,6 +56,8 @@ namespace StorageAndTrade
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileInput = new System.Windows.Forms.ToolStripButton();
             this.buttonOnlySave = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.directoryControl_Картинка = new StorageAndTrade.DirectoryControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ОсновнаКартинка)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -233,17 +235,17 @@ namespace StorageAndTrade
             // 
             // textBox_Опис
             // 
-            this.textBox_Опис.Location = new System.Drawing.Point(23, 355);
+            this.textBox_Опис.Location = new System.Drawing.Point(23, 383);
             this.textBox_Опис.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox_Опис.Multiline = true;
             this.textBox_Опис.Name = "textBox_Опис";
-            this.textBox_Опис.Size = new System.Drawing.Size(629, 206);
+            this.textBox_Опис.Size = new System.Drawing.Size(629, 178);
             this.textBox_Опис.TabIndex = 36;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 337);
+            this.label8.Location = new System.Drawing.Point(23, 365);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
@@ -337,11 +339,38 @@ namespace StorageAndTrade
             this.buttonOnlySave.UseVisualStyleBackColor = true;
             this.buttonOnlySave.Click += new System.EventHandler(this.buttonOnlySave_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(58, 332);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 15);
+            this.label10.TabIndex = 62;
+            this.label10.Text = "Картинка:";
+            // 
+            // directoryControl_Картинка
+            // 
+            this.directoryControl_Картинка.AfterSelectFunc = null;
+            this.directoryControl_Картинка.BeforeClickOpenFunc = null;
+            this.directoryControl_Картинка.BeforeFindFunc = null;
+            this.directoryControl_Картинка.Bind = null;
+            this.directoryControl_Картинка.DirectoryPointerItem = null;
+            this.directoryControl_Картинка.Location = new System.Drawing.Point(132, 326);
+            this.directoryControl_Картинка.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.directoryControl_Картинка.Name = "directoryControl_Картинка";
+            this.directoryControl_Картинка.QueryFind = null;
+            this.directoryControl_Картинка.SelectForm = null;
+            this.directoryControl_Картинка.Size = new System.Drawing.Size(301, 27);
+            this.directoryControl_Картинка.TabIndex = 61;
+            // 
             // Form_НоменклатураЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 617);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.directoryControl_Картинка);
             this.Controls.Add(this.buttonOnlySave);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox_Код);
@@ -409,5 +438,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileInput;
         private System.Windows.Forms.Button buttonOnlySave;
+        private System.Windows.Forms.Label label10;
+        private DirectoryControl directoryControl_Картинка;
     }
 }

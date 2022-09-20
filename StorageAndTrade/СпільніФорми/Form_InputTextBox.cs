@@ -24,7 +24,7 @@ limitations under the License.
 using System;
 using System.Windows.Forms;
 
-namespace StorageAndTrade.СпільніФорми
+namespace StorageAndTrade
 {
     public partial class Form_InputTextBox : Form
     {
