@@ -29,13 +29,23 @@ namespace StorageAndTrade
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(933, 468);
+            this.panel1.TabIndex = 0;
             // 
             // Form_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 468);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_Report";
             this.Text = "Звіт";
@@ -46,5 +56,6 @@ namespace StorageAndTrade
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
     }
 }

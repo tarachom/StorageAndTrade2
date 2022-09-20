@@ -43,7 +43,7 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 240));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(splitContainer.Panel2, new Point(2, 240));
 
             directoryControl_Номенклатура.Init(new Form_Номенклатура(), new Номенклатура_Pointer(), ПошуковіЗапити.Номенклатура);
             directoryControl_ХарактеристикаНоменклатури.Init(new Form_ХарактеристикиНоменклатури(), new ХарактеристикиНоменклатури_Pointer(), ПошуковіЗапити.ХарактеристикаНоменклатуриЗВідбором());

@@ -46,7 +46,7 @@ namespace StorageAndTrade
         {
             InitializeComponent();
 
-            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(this, new Point(2, 250));
+            WindowsWebBrowser = WebBrowserReport.AddWebBrowserControl(splitContainer.Panel2, new Point(2, 250));
         }
 
         WebBrowser WindowsWebBrowser { get; set; }

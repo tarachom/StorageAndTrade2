@@ -45,11 +45,15 @@ namespace StorageAndTrade
             this.directoryControl_Валюти = new StorageAndTrade.DirectoryControl();
             this.button_Documents = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimeStart
             // 
-            this.dateTimeStart.Location = new System.Drawing.Point(205, 12);
+            this.dateTimeStart.Location = new System.Drawing.Point(204, 13);
             this.dateTimeStart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimeStart.Name = "dateTimeStart";
             this.dateTimeStart.Size = new System.Drawing.Size(215, 23);
@@ -58,7 +62,7 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(139, 19);
+            this.label1.Location = new System.Drawing.Point(138, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 15);
@@ -68,7 +72,7 @@ namespace StorageAndTrade
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(427, 19);
+            this.label2.Location = new System.Drawing.Point(426, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 15);
@@ -77,7 +81,7 @@ namespace StorageAndTrade
             // 
             // dateTimeStop
             // 
-            this.dateTimeStop.Location = new System.Drawing.Point(457, 12);
+            this.dateTimeStop.Location = new System.Drawing.Point(456, 13);
             this.dateTimeStop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimeStop.Name = "dateTimeStop";
             this.dateTimeStop.Size = new System.Drawing.Size(216, 23);
@@ -85,7 +89,7 @@ namespace StorageAndTrade
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(14, 170);
+            this.buttonCreate.Location = new System.Drawing.Point(21, 159);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(120, 31);
@@ -97,7 +101,7 @@ namespace StorageAndTrade
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 135);
+            this.label5.Location = new System.Drawing.Point(44, 122);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 15);
@@ -106,7 +110,7 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(586, 170);
+            this.buttonClose.Location = new System.Drawing.Point(593, 159);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(105, 31);
@@ -118,7 +122,7 @@ namespace StorageAndTrade
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 59);
+            this.label4.Location = new System.Drawing.Point(21, 58);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 15);
@@ -128,7 +132,7 @@ namespace StorageAndTrade
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(58, 97);
+            this.label6.Location = new System.Drawing.Point(60, 90);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 15);
@@ -137,7 +141,7 @@ namespace StorageAndTrade
             // 
             // button_Report
             // 
-            this.button_Report.Location = new System.Drawing.Point(141, 170);
+            this.button_Report.Location = new System.Drawing.Point(148, 159);
             this.button_Report.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_Report.Name = "button_Report";
             this.button_Report.Size = new System.Drawing.Size(142, 31);
@@ -153,12 +157,12 @@ namespace StorageAndTrade
             this.directoryControl_Каса.BeforeFindFunc = null;
             this.directoryControl_Каса.Bind = null;
             this.directoryControl_Каса.DirectoryPointerItem = null;
-            this.directoryControl_Каса.Location = new System.Drawing.Point(107, 89);
+            this.directoryControl_Каса.Location = new System.Drawing.Point(104, 84);
             this.directoryControl_Каса.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Каса.Name = "directoryControl_Каса";
             this.directoryControl_Каса.QueryFind = null;
             this.directoryControl_Каса.SelectForm = null;
-            this.directoryControl_Каса.Size = new System.Drawing.Size(469, 31);
+            this.directoryControl_Каса.Size = new System.Drawing.Size(469, 27);
             this.directoryControl_Каса.TabIndex = 74;
             // 
             // directoryControl_Організація
@@ -168,12 +172,12 @@ namespace StorageAndTrade
             this.directoryControl_Організація.BeforeFindFunc = null;
             this.directoryControl_Організація.Bind = null;
             this.directoryControl_Організація.DirectoryPointerItem = null;
-            this.directoryControl_Організація.Location = new System.Drawing.Point(107, 51);
+            this.directoryControl_Організація.Location = new System.Drawing.Point(104, 52);
             this.directoryControl_Організація.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
             this.directoryControl_Організація.SelectForm = null;
-            this.directoryControl_Організація.Size = new System.Drawing.Size(469, 31);
+            this.directoryControl_Організація.Size = new System.Drawing.Size(469, 27);
             this.directoryControl_Організація.TabIndex = 72;
             // 
             // directoryControl_Валюти
@@ -183,17 +187,17 @@ namespace StorageAndTrade
             this.directoryControl_Валюти.BeforeFindFunc = null;
             this.directoryControl_Валюти.Bind = null;
             this.directoryControl_Валюти.DirectoryPointerItem = null;
-            this.directoryControl_Валюти.Location = new System.Drawing.Point(107, 127);
+            this.directoryControl_Валюти.Location = new System.Drawing.Point(104, 116);
             this.directoryControl_Валюти.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Валюти.Name = "directoryControl_Валюти";
             this.directoryControl_Валюти.QueryFind = null;
             this.directoryControl_Валюти.SelectForm = null;
-            this.directoryControl_Валюти.Size = new System.Drawing.Size(469, 31);
+            this.directoryControl_Валюти.Size = new System.Drawing.Size(469, 27);
             this.directoryControl_Валюти.TabIndex = 61;
             // 
             // button_Documents
             // 
-            this.button_Documents.Location = new System.Drawing.Point(290, 170);
+            this.button_Documents.Location = new System.Drawing.Point(297, 159);
             this.button_Documents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_Documents.Name = "button_Documents";
             this.button_Documents.Size = new System.Drawing.Size(112, 31);
@@ -206,40 +210,59 @@ namespace StorageAndTrade
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(14, 10);
+            this.label8.Location = new System.Drawing.Point(13, 11);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(120, 25);
             this.label8.TabIndex = 86;
             this.label8.Text = "Рух коштів";
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
+            this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.AutoScroll = true;
+            this.splitContainer.Panel1.Controls.Add(this.label8);
+            this.splitContainer.Panel1.Controls.Add(this.dateTimeStart);
+            this.splitContainer.Panel1.Controls.Add(this.button_Documents);
+            this.splitContainer.Panel1.Controls.Add(this.label1);
+            this.splitContainer.Panel1.Controls.Add(this.button_Report);
+            this.splitContainer.Panel1.Controls.Add(this.label2);
+            this.splitContainer.Panel1.Controls.Add(this.label6);
+            this.splitContainer.Panel1.Controls.Add(this.dateTimeStop);
+            this.splitContainer.Panel1.Controls.Add(this.directoryControl_Каса);
+            this.splitContainer.Panel1.Controls.Add(this.buttonCreate);
+            this.splitContainer.Panel1.Controls.Add(this.label4);
+            this.splitContainer.Panel1.Controls.Add(this.directoryControl_Валюти);
+            this.splitContainer.Panel1.Controls.Add(this.directoryControl_Організація);
+            this.splitContainer.Panel1.Controls.Add(this.label5);
+            this.splitContainer.Panel1.Controls.Add(this.buttonClose);
+            this.splitContainer.Size = new System.Drawing.Size(1003, 571);
+            this.splitContainer.SplitterDistance = 204;
+            this.splitContainer.TabIndex = 87;
+            // 
             // Form_РухКоштів_Звіт
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 496);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.button_Documents);
-            this.Controls.Add(this.button_Report);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.directoryControl_Каса);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.directoryControl_Організація);
-            this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.directoryControl_Валюти);
-            this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.dateTimeStop);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimeStart);
+            this.ClientSize = new System.Drawing.Size(1003, 571);
+            this.Controls.Add(this.splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_РухКоштів_Звіт";
             this.Text = "Звіт \"Рух коштів\"";
             this.Load += new System.EventHandler(this.Form_РухКоштів_Звіт_Load);
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -260,5 +283,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.Button button_Report;
         private System.Windows.Forms.Button button_Documents;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.SplitContainer splitContainer;
     }
 }

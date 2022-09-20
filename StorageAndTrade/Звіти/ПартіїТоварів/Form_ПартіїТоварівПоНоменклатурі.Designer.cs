@@ -45,14 +45,18 @@ namespace StorageAndTrade
             this.directoryControl_Організація = new StorageAndTrade.DirectoryControl();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 68);
+            this.label6.Location = new System.Drawing.Point(17, 59);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 15);
@@ -61,7 +65,7 @@ namespace StorageAndTrade
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(950, 196);
+            this.buttonClose.Location = new System.Drawing.Point(951, 178);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(105, 31);
@@ -72,7 +76,7 @@ namespace StorageAndTrade
             // 
             // buttonOstatok
             // 
-            this.buttonOstatok.Location = new System.Drawing.Point(13, 196);
+            this.buttonOstatok.Location = new System.Drawing.Point(13, 178);
             this.buttonOstatok.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOstatok.Name = "buttonOstatok";
             this.buttonOstatok.Size = new System.Drawing.Size(105, 31);
@@ -89,11 +93,11 @@ namespace StorageAndTrade
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.directoryControl_ХарактеристикаНоменклатури);
-            this.groupBox1.Location = new System.Drawing.Point(13, 48);
+            this.groupBox1.Location = new System.Drawing.Point(14, 49);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(551, 141);
+            this.groupBox1.Size = new System.Drawing.Size(551, 123);
             this.groupBox1.TabIndex = 75;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Номенклатура";
@@ -110,13 +114,13 @@ namespace StorageAndTrade
             this.directoryControl_Номенклатура.Name = "directoryControl_Номенклатура";
             this.directoryControl_Номенклатура.QueryFind = null;
             this.directoryControl_Номенклатура.SelectForm = null;
-            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(416, 31);
+            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(416, 27);
             this.directoryControl_Номенклатура.TabIndex = 76;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 30);
+            this.label3.Location = new System.Drawing.Point(23, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 15);
@@ -130,18 +134,18 @@ namespace StorageAndTrade
             this.directoryControl_Серія.BeforeFindFunc = null;
             this.directoryControl_Серія.Bind = null;
             this.directoryControl_Серія.DirectoryPointerItem = null;
-            this.directoryControl_Серія.Location = new System.Drawing.Point(121, 98);
+            this.directoryControl_Серія.Location = new System.Drawing.Point(121, 85);
             this.directoryControl_Серія.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Серія.Name = "directoryControl_Серія";
             this.directoryControl_Серія.QueryFind = null;
             this.directoryControl_Серія.SelectForm = null;
-            this.directoryControl_Серія.Size = new System.Drawing.Size(416, 31);
+            this.directoryControl_Серія.Size = new System.Drawing.Size(416, 27);
             this.directoryControl_Серія.TabIndex = 63;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(74, 106);
+            this.label7.Location = new System.Drawing.Point(74, 91);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 15);
@@ -155,12 +159,12 @@ namespace StorageAndTrade
             this.directoryControl_ХарактеристикаНоменклатури.BeforeFindFunc = null;
             this.directoryControl_ХарактеристикаНоменклатури.Bind = null;
             this.directoryControl_ХарактеристикаНоменклатури.DirectoryPointerItem = null;
-            this.directoryControl_ХарактеристикаНоменклатури.Location = new System.Drawing.Point(121, 60);
+            this.directoryControl_ХарактеристикаНоменклатури.Location = new System.Drawing.Point(121, 53);
             this.directoryControl_ХарактеристикаНоменклатури.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_ХарактеристикаНоменклатури.Name = "directoryControl_ХарактеристикаНоменклатури";
             this.directoryControl_ХарактеристикаНоменклатури.QueryFind = null;
             this.directoryControl_ХарактеристикаНоменклатури.SelectForm = null;
-            this.directoryControl_ХарактеристикаНоменклатури.Size = new System.Drawing.Size(416, 31);
+            this.directoryControl_ХарактеристикаНоменклатури.Size = new System.Drawing.Size(416, 27);
             this.directoryControl_ХарактеристикаНоменклатури.TabIndex = 63;
             // 
             // groupBox2
@@ -169,11 +173,11 @@ namespace StorageAndTrade
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.directoryControl_Організація);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(579, 48);
+            this.groupBox2.Location = new System.Drawing.Point(580, 49);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(476, 108);
+            this.groupBox2.Size = new System.Drawing.Size(476, 92);
             this.groupBox2.TabIndex = 65;
             this.groupBox2.TabStop = false;
             // 
@@ -184,18 +188,18 @@ namespace StorageAndTrade
             this.directoryControl_Склад.BeforeFindFunc = null;
             this.directoryControl_Склад.Bind = null;
             this.directoryControl_Склад.DirectoryPointerItem = null;
-            this.directoryControl_Склад.Location = new System.Drawing.Point(96, 60);
+            this.directoryControl_Склад.Location = new System.Drawing.Point(96, 53);
             this.directoryControl_Склад.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Склад.Name = "directoryControl_Склад";
             this.directoryControl_Склад.QueryFind = null;
             this.directoryControl_Склад.SelectForm = null;
-            this.directoryControl_Склад.Size = new System.Drawing.Size(366, 31);
+            this.directoryControl_Склад.Size = new System.Drawing.Size(366, 27);
             this.directoryControl_Склад.TabIndex = 69;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 68);
+            this.label1.Location = new System.Drawing.Point(46, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 15);
@@ -214,13 +218,13 @@ namespace StorageAndTrade
             this.directoryControl_Організація.Name = "directoryControl_Організація";
             this.directoryControl_Організація.QueryFind = null;
             this.directoryControl_Організація.SelectForm = null;
-            this.directoryControl_Організація.Size = new System.Drawing.Size(366, 31);
+            this.directoryControl_Організація.Size = new System.Drawing.Size(366, 27);
             this.directoryControl_Організація.TabIndex = 67;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 30);
+            this.label4.Location = new System.Drawing.Point(15, 28);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 15);
@@ -231,34 +235,52 @@ namespace StorageAndTrade
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(13, 9);
+            this.label8.Location = new System.Drawing.Point(16, 11);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(150, 25);
             this.label8.TabIndex = 89;
             this.label8.Text = "Партії товарів";
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
+            this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.AutoScroll = true;
+            this.splitContainer.Panel1.Controls.Add(this.label8);
+            this.splitContainer.Panel1.Controls.Add(this.buttonClose);
+            this.splitContainer.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer.Panel1.Controls.Add(this.buttonOstatok);
+            this.splitContainer.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer.Size = new System.Drawing.Size(1069, 543);
+            this.splitContainer.SplitterDistance = 221;
+            this.splitContainer.TabIndex = 90;
+            // 
             // Form_ПартіїТоварівПоНоменклатурі
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 484);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonOstatok);
-            this.Controls.Add(this.buttonClose);
+            this.ClientSize = new System.Drawing.Size(1069, 543);
+            this.Controls.Add(this.splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ПартіїТоварівПоНоменклатурі";
             this.Text = "Партії товарів";
-            this.Load += new System.EventHandler(this.Form_ПартіїТоварівПоНоменклатурі_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,5 +300,6 @@ namespace StorageAndTrade
         private DirectoryControl directoryControl_Склад;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.SplitContainer splitContainer;
     }
 }

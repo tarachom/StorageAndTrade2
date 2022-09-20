@@ -50,6 +50,18 @@ namespace StorageAndTrade
             return webBrowser;
         }
 
+        public static WebBrowser AddWebBrowserControl(Panel panelContainer, Point webBrowserPoint)
+        {
+            WebBrowser webBrowser = new WebBrowser();
+            panelContainer.Controls.Add(webBrowser);
+
+            webBrowser.Dock = DockStyle.Fill;
+            webBrowser.Location = webBrowserPoint;
+            webBrowser.Name = "WindowsWebBrowser";
+
+            return webBrowser;
+        }
+
         public static void WindowsWebBrowser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             NameValueCollection UriParam = HttpUtility.ParseQueryString(e.Url.Query);
