@@ -233,7 +233,7 @@ namespace StorageAndTrade
                     }
                 }
 
-                LoadRecords();
+                LoadRecords(true);
             }
         }
 

@@ -35,12 +35,10 @@ namespace StorageAndTrade
 		{
 			InitializeComponent();
 
-			dataGridViewRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewRecords.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 			RecordsBindingList = new BindingList<Записи>();
 			dataGridViewRecords.DataSource = RecordsBindingList;
-
-            IsLoadRecords = false;
 
             dataGridViewRecords.Columns["Image"].Width = 30;
 			dataGridViewRecords.Columns["Image"].HeaderText = "";
@@ -50,7 +48,12 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["Код"].Width = 50;
 		}
 
-		private bool IsLoadRecords{ get; set; }
+		#region Поля
+
+		/// <summary>
+		/// Чи вже завантажений список
+		/// </summary>
+		private bool IsLoadRecords { get; set; } = false;
 
         /// <summary>
         /// Вказівник для вибору
@@ -62,15 +65,17 @@ namespace StorageAndTrade
 		/// </summary>
 		public DirectoryPointer SelectPointerItem { get; set; }
 
-		private void Form_Каси_Load(object sender, EventArgs e)
+        #endregion
+
+        private void Form_Каси_Load(object sender, EventArgs e)
 		{
 			if (!IsLoadRecords)
-				LoadRecords();
+				LoadRecords(false);
         }
 
         private void Form_Каси_Shown(object sender, EventArgs e)
         {
-            SelectRecord();
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
         }
 
         private BindingList<Записи> RecordsBindingList { get; set; }
@@ -108,20 +113,9 @@ namespace StorageAndTrade
 			}
 
 			if (isSelectRecord)
-				SelectRecord();
+				ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
 
             IsLoadRecords = true;
-        }
-
-		private void SelectRecord()
-		{
-            if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-            {
-                string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
-
-                if (UidSelect != Guid.Empty.ToString())
-                    ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-            }
         }
 
         private class Записи

@@ -261,14 +261,9 @@ WHERE
 ORDER BY КурсиВалют.period DESC
 LIMIT 1
 ";
-            Debug.WriteLine(query);
-
             Dictionary<string, object> paramQuery = new Dictionary<string, object>();
             paramQuery.Add("valuta", Валюта.UnigueID.UGuid);
             paramQuery.Add("date_curs", new DateTime(ДатаКурсу.Year, ДатаКурсу.Month, ДатаКурсу.Day, 23, 59, 59));
-
-            Debug.WriteLine(Валюта.UnigueID.UGuid);
-            Debug.WriteLine(new DateTime(ДатаКурсу.Year, ДатаКурсу.Month, ДатаКурсу.Day, 23, 59, 59));
 
             string[] columnsName;
             List<Dictionary<string, object>> listRow;

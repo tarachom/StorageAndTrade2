@@ -62,11 +62,36 @@ namespace StorageAndTrade
 
         #region DataGridView
 
+        public static void ВиділитиЕлементСпискуПоІД(DataGridView gridView, DirectoryPointer DirectoryPointerItem, DirectoryPointer SelectPointerItem)
+        {
+            if ((DirectoryPointerItem != null || SelectPointerItem != null) && gridView.Rows.Count > 0)
+            {
+                string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+
+                if (UidSelect == Guid.Empty.ToString())
+                    return;
+
+                foreach (DataGridViewRow rowSel in gridView.SelectedRows)
+                    rowSel.Selected = false;
+
+                foreach (DataGridViewRow row in gridView.Rows)
+                {
+                    if (row.Cells["ID"].Value.ToString() == UidSelect)
+                    {
+                        row.Selected = true;
+                        gridView.FirstDisplayedScrollingRowIndex = row.Index;
+                        break;
+                    }
+                }
+            }
+        }
+
         public static void ВиділитиЕлементСписку(DataGridView gridView, string columnName, string rowValue)
         {
             if (gridView.Rows.Count > 0)
             {
-                gridView.Rows[0].Selected = false;
+                foreach (DataGridViewRow rowSel in gridView.SelectedRows)
+                    rowSel.Selected = false;
 
                 foreach (DataGridViewRow row in gridView.Rows)
                 {
@@ -84,7 +109,8 @@ namespace StorageAndTrade
         {
             if (gridView.Rows.Count > 0)
             {
-                gridView.Rows[0].Selected = false;
+                foreach (DataGridViewRow rowSel in gridView.SelectedRows)
+                    rowSel.Selected = false;
 
                 DataGridViewRow row = gridView.Rows[gridView.Rows.Count - 1];
 
