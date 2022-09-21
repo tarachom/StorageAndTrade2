@@ -50,24 +50,42 @@ namespace StorageAndTrade
             dataGridViewRecords.Columns["Код"].Width = 80;
         }
 
-		/// <summary>
-		/// Вказівник для вибору
-		/// </summary>
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+        #region Поля
 
-		/// <summary>
-		/// Вказівник для виділення в списку
-		/// </summary>
-		public DirectoryPointer SelectPointerItem { get; set; }
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
 
-		private void Form_Валюти_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
+
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DirectoryPointer SelectPointerItem { get; set; }
+
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        #endregion
+
+        private void Form_Валюти_Load(object sender, EventArgs e)
         {
-			LoadRecords();
-		}
+            if (!IsLoadRecords)
+                LoadRecords(false);
+        }
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_Валюти_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+        public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
@@ -95,14 +113,11 @@ namespace StorageAndTrade
                 });
 			}
 
-			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+            if (isSelectRecord)
+                ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
-		}
+            IsLoadRecords = true;
+        }
 
 		private class Записи
 		{
@@ -166,7 +181,7 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
 
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
@@ -196,7 +211,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -222,7 +237,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 

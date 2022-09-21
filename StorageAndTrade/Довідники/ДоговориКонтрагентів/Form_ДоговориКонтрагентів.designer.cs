@@ -212,6 +212,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Договори контрагентів";
             this.Load += new System.EventHandler(this.Form_ДоговориКонтрагентів_Load);
+            this.Shown += new System.EventHandler(this.Form_ДоговориКонтрагентів_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

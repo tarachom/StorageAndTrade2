@@ -155,6 +155,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пакування Одиниці Виміру";
             this.Load += new System.EventHandler(this.Form_ПакуванняОдиниціВиміру_Load);
+            this.Shown += new System.EventHandler(this.Form_ПакуванняОдиниціВиміру_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

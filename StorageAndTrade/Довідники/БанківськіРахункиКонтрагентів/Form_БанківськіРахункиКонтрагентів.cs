@@ -55,30 +55,49 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["Код"].Width = 50;
 		}
 
-		/// <summary>
-		/// Вказівник для вибору
-		/// </summary>
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+        #region Поля
 
-		/// <summary>
-		/// Вказівник для виділення в списку
-		/// </summary>
-		public DirectoryPointer SelectPointerItem { get; set; }
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
 
-		private void Form_БанківськіРахункиКонтрагентів_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
+
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DirectoryPointer SelectPointerItem { get; set; }
+
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        #endregion
+
+        private void Form_БанківськіРахункиКонтрагентів_Load(object sender, EventArgs e)
         {
-			LoadRecords();
-		}
+            if (!IsLoadRecords)
+                LoadRecords(false);
+        }
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_БанківськіРахункиКонтрагентів_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+		public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
 			Довідники.БанківськіРахункиКонтрагентів_Select банківськіРахункиКонтрагентів_Select = new Довідники.БанківськіРахункиКонтрагентів_Select();
-			банківськіРахункиКонтрагентів_Select.QuerySelect.Field.Add(Довідники.БанківськіРахункиКонтрагентів_Const.Назва);
-			банківськіРахункиКонтрагентів_Select.QuerySelect.Field.Add(Довідники.БанківськіРахункиКонтрагентів_Const.Код);
+			банківськіРахункиКонтрагентів_Select.QuerySelect.Field.AddRange(new string[] {
+				Довідники.БанківськіРахункиКонтрагентів_Const.Назва,
+				Довідники.БанківськіРахункиКонтрагентів_Const.Код });
 
 			//ORDER
 			банківськіРахункиКонтрагентів_Select.QuerySelect.Order.Add(Довідники.БанківськіРахункиКонтрагентів_Const.Назва, SelectOrder.ASC);
@@ -96,13 +115,10 @@ namespace StorageAndTrade
 				});
 			}
 
-			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+			if (isSelectRecord)
+				ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
+			IsLoadRecords = true;
 		}
 
 		private class Записи
@@ -165,7 +181,7 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
 
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
@@ -195,7 +211,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -221,7 +237,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -234,5 +250,5 @@ namespace StorageAndTrade
 				SelectPointerItem = new Довідники.БанківськіРахункиКонтрагентів_Pointer(new UnigueID(dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString()));
 			}
 		}
-    }
+	}
 }

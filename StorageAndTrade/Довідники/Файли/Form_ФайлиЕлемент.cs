@@ -20,15 +20,11 @@ limitations under the License.
 
 using System;
 using System.Windows.Forms;
+using System.IO;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
-using System.IO;
-using StorageAndTrade_1_0.Довідники;
-using System.Threading;
 
 namespace StorageAndTrade
 {
@@ -130,7 +126,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = файли_Objest.GetDirectoryPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				this.Close();

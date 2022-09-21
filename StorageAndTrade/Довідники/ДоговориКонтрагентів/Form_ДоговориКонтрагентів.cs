@@ -19,13 +19,8 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -59,22 +54,36 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["ТипДоговору"].HeaderText = "Тип договору";
 		}
 
-		/// <summary>
-		/// Вказівник для вибору
-		/// </summary>
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+        #region Поля
 
-		/// <summary>
-		/// Вказівник для виділення в списку
-		/// </summary>
-		public DirectoryPointer SelectPointerItem { get; set; }
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
 
-		/// <summary>
-		/// Контрагент власник договорів
-		/// </summary>
-		public Довідники.Контрагенти_Pointer КонтрагентВласник { get; set; }
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
 
-		private void Form_ДоговориКонтрагентів_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DirectoryPointer SelectPointerItem { get; set; }
+
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        /// <summary>
+        /// Контрагент власник договорів
+        /// </summary>
+        public Довідники.Контрагенти_Pointer КонтрагентВласник { get; set; }
+
+        #endregion
+
+        private void Form_ДоговориКонтрагентів_Load(object sender, EventArgs e)
 		{
 			directoryControl_Контрагент.Init(new Form_Контрагенти(), new Довідники.Контрагенти_Pointer(), ПошуковіЗапити.Контрагенти);
 			
@@ -84,17 +93,21 @@ namespace StorageAndTrade
 			directoryControl_Контрагент.AfterSelectFunc = () =>
 			{
 				КонтрагентВласник = (Довідники.Контрагенти_Pointer)directoryControl_Контрагент.DirectoryPointerItem;
-				LoadRecords();
+				LoadRecords(true);
 
 				return true;
 			};
 
-			LoadRecords();
-		}
+            if (!IsLoadRecords)
+                LoadRecords(false);
+        }
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_ДоговориКонтрагентів_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+        public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
@@ -146,14 +159,11 @@ namespace StorageAndTrade
 				});
 			}
 
-			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+            if (isSelectRecord)
+                ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
-		}
+            IsLoadRecords = true;
+        }
 
 		private class Записи
 		{
@@ -218,7 +228,7 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
 
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
@@ -248,7 +258,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -274,7 +284,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -287,5 +297,5 @@ namespace StorageAndTrade
 				SelectPointerItem = new Довідники.ДоговориКонтрагентів_Pointer(new UnigueID(dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString()));
 			}
 		}
-    }
+	}
 }

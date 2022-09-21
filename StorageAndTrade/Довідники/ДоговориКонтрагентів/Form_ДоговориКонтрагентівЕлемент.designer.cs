@@ -107,7 +107,6 @@ namespace StorageAndTrade
             this.label1.Size = new System.Drawing.Size(55, 15);
             this.label1.TabIndex = 36;
             this.label1.Text = "Рахунок:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -118,7 +117,6 @@ namespace StorageAndTrade
             this.label3.Size = new System.Drawing.Size(125, 15);
             this.label3.TabIndex = 38;
             this.label3.Text = "Рахунок контрагента:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -224,7 +222,6 @@ namespace StorageAndTrade
             this.directoryControl_БанківськийРахунокКонтрагента.SelectForm = null;
             this.directoryControl_БанківськийРахунокКонтрагента.Size = new System.Drawing.Size(343, 27);
             this.directoryControl_БанківськийРахунокКонтрагента.TabIndex = 37;
-            this.directoryControl_БанківськийРахунокКонтрагента.Load += new System.EventHandler(this.directoryControl_БанківськийРахунокКонтрагента_Load);
             // 
             // directoryControl_БанківськийРахунок
             // 

@@ -186,15 +186,15 @@ FROM
             }
 
             //Відбір по документу ЗамовленняКлієнта
-            if (!documentControl_ЗамовленняКлієнта.DocumentPointerItem.IsEmpty())
-            {
-                query += isExistParent ? "AND" : "WHERE";
-                isExistParent = true;
+//            if (!documentControl_ЗамовленняКлієнта.DocumentPointerItem.IsEmpty())
+//            {
+//                query += isExistParent ? "AND" : "WHERE";
+//                isExistParent = true;
 
-                query += $@"
-Рег_ЗамовленняКлієнтів.{ЗамовленняКлієнтів_Const.ЗамовленняКлієнта} = '{documentControl_ЗамовленняКлієнта.DocumentPointerItem.UnigueID}'
-";
-            }
+//                query += $@"
+//Рег_ЗамовленняКлієнтів.{ВіртуальніТаблиціРегістрів.ЗамовленняКлієнтів_Місяць_TablePart.} = '{documentControl_ЗамовленняКлієнта.DocumentPointerItem.UnigueID}'
+//";
+//            }
 
             #endregion
 

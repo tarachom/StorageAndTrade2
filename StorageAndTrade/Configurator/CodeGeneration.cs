@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 20.09.2022 16:52:48
+ * Дата конфігурації: 21.09.2022 14:57:11
  *
  */
 
@@ -51,6 +51,7 @@ namespace StorageAndTrade_1_0
             Константи.НумераціяДовідників.ReadAll();
             Константи.ЖурналиДокументів.ReadAll();
             Константи.ПартіїТоварів.ReadAll();
+            Константи.ЗавантаженняДанихІзСайтів.ReadAll();
             
         }
     }
@@ -3398,6 +3399,42 @@ namespace StorageAndTrade_1_0.Константи
             {
                 m_МетодСписанняПартій_Const = value;
                 Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h4", (int)m_МетодСписанняПартій_Const);
+            }
+        }
+             
+    }
+    #endregion
+    
+	#region CONSTANTS BLOCK "ЗавантаженняДанихІзСайтів"
+    public static class ЗавантаженняДанихІзСайтів
+    {
+        public static void ReadAll()
+        {
+            
+            Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+            bool IsSelect = Config.Kernel.DataBase.SelectAllConstants("tab_constants",
+                 new string[] { "col_h5" }, fieldValue);
+            
+            if (IsSelect)
+            {
+                m_ЗавантаженняКурсівВалют_Const = fieldValue["col_h5"].ToString();
+                
+            }
+			
+        }
+        
+        
+        static string m_ЗавантаженняКурсівВалют_Const = "";
+        public static string ЗавантаженняКурсівВалют_Const
+        {
+            get 
+            {
+                return m_ЗавантаженняКурсівВалют_Const;
+            }
+            set
+            {
+                m_ЗавантаженняКурсівВалют_Const = value;
+                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h5", m_ЗавантаженняКурсівВалют_Const);
             }
         }
              

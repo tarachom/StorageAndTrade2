@@ -19,20 +19,13 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
-using Перелічення = StorageAndTrade_1_0.Перелічення;
 
 namespace StorageAndTrade
 {
@@ -55,17 +48,31 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["Код"].Width = 50;
 		}
 
-		/// <summary>
-		/// Вказівник для вибору
-		/// </summary>
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+        #region Поля
 
-		/// <summary>
-		/// Вказівник для виділення в списку
-		/// </summary>
-		public DirectoryPointer SelectPointerItem { get; set; }
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
 
-		private void Form_Контрагенти_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
+
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DirectoryPointer SelectPointerItem { get; set; }
+
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        #endregion
+
+        private void Form_Контрагенти_Load(object sender, EventArgs e)
 		{
 			if (DirectoryPointerItem != null && !DirectoryPointerItem.IsEmpty())
 			{
@@ -78,9 +85,12 @@ namespace StorageAndTrade
 			Контрагенти_Папки_Дерево.LoadTree();
 		}
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_Контрагенти_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+        public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
@@ -108,14 +118,11 @@ namespace StorageAndTrade
 				});
 			}
 
-			if ((DirectoryPointerItem != null || SelectPointerItem != null) && dataGridViewRecords.Rows.Count > 0)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DirectoryPointerItem.UnigueID.ToString();
+            if (isSelectRecord)
+                ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
-		}
+            IsLoadRecords = true;
+        }
 
 		private class Записи
 		{
@@ -128,7 +135,7 @@ namespace StorageAndTrade
 
 		public void TreeFolderAfterSelect()
 		{
-			LoadRecords();
+			LoadRecords(true);
 		}
 
 		private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -214,7 +221,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -240,7 +247,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -271,6 +278,7 @@ namespace StorageAndTrade
             }
         }
 
-        #endregion
-    }
+		#endregion
+
+	}
 }

@@ -204,6 +204,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Встановлення цін номенклатури - Журнал";
             this.Load += new System.EventHandler(this.Form_ВстановленняЦінНоменклатуриЖурнал_Load);
+            this.Shown += new System.EventHandler(this.Form_ВстановленняЦінНоменклатуриЖурнал_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

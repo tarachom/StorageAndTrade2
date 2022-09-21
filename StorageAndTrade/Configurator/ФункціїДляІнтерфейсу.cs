@@ -86,6 +86,43 @@ namespace StorageAndTrade
             }
         }
 
+        public static void ВиділитиЕлементСпискуПоІД(DataGridView gridView, DocumentPointer DocumentPointerItem, DocumentPointer SelectPointerItem)
+        {
+            if (gridView.Rows.Count > 0)
+            {
+                if (DocumentPointerItem != null || SelectPointerItem != null)
+                {
+                    string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DocumentPointerItem.UnigueID.ToString();
+
+                    if (UidSelect == Guid.Empty.ToString())
+                        return;
+
+                    foreach (DataGridViewRow rowSel in gridView.SelectedRows)
+                        rowSel.Selected = false;
+
+                    foreach (DataGridViewRow row in gridView.Rows)
+                    {
+                        if (row.Cells["ID"].Value.ToString() == UidSelect)
+                        {
+                            row.Selected = true;
+                            gridView.FirstDisplayedScrollingRowIndex = row.Index;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DataGridViewRow rowSel in gridView.SelectedRows)
+                        rowSel.Selected = false;
+
+                    DataGridViewRow row = gridView.Rows[gridView.Rows.Count - 1];
+
+                    row.Selected = true;
+                    gridView.FirstDisplayedScrollingRowIndex = row.Index;
+                }
+            }
+        }
+
         public static void ВиділитиЕлементСписку(DataGridView gridView, string columnName, string rowValue)
         {
             if (gridView.Rows.Count > 0)

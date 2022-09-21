@@ -19,13 +19,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -165,7 +158,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = договориКонтрагентів_Objest.GetDirectoryPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				this.Close();
@@ -176,20 +169,5 @@ namespace StorageAndTrade
 		{
 			this.Close();
 		}
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void directoryControl_БанківськийРахунокКонтрагента_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

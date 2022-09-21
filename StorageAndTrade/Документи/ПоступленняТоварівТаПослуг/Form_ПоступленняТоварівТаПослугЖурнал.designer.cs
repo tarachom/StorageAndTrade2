@@ -225,6 +225,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поступлення товарів та послуг - Журнал";
             this.Load += new System.EventHandler(this.Form_ПоступленняТоварівТаПослугЖурнал_Load);
+            this.Shown += new System.EventHandler(this.Form_ПоступленняТоварівТаПослугЖурнал_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

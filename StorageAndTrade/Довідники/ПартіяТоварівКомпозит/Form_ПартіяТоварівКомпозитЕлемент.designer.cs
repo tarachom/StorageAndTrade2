@@ -146,7 +146,7 @@ namespace StorageAndTrade
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_ПартіяТоварівКомпозитЕлемент";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Партія товарів композит";
+            this.Text = "Партія товарів";
             this.Load += new System.EventHandler(this.Form_ПартіяТоварівКомпозит_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -235,6 +235,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Рахунок фактура - Журнал";
             this.Load += new System.EventHandler(this.Form_РахунокФактураЖурнал_Load);
+            this.Shown += new System.EventHandler(this.Form_РахунокФактураЖурнал_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

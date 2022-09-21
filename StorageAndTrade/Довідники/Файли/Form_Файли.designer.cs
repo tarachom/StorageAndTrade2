@@ -33,13 +33,13 @@ namespace StorageAndTrade
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAddMultiple = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewRecords = new System.Windows.Forms.DataGridView();
-            this.toolStripButtonAddMultiple = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,6 +79,15 @@ namespace StorageAndTrade
             this.toolStripButtonAdd.Size = new System.Drawing.Size(66, 22);
             this.toolStripButtonAdd.Text = "Додати";
             this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
+            // 
+            // toolStripButtonAddMultiple
+            // 
+            this.toolStripButtonAddMultiple.Image = global::StorageAndTrade.Properties.Resources.page;
+            this.toolStripButtonAddMultiple.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddMultiple.Name = "toolStripButtonAddMultiple";
+            this.toolStripButtonAddMultiple.Size = new System.Drawing.Size(115, 22);
+            this.toolStripButtonAddMultiple.Text = "Додати декілька";
+            this.toolStripButtonAddMultiple.Click += new System.EventHandler(this.toolStripButtonAddMultiple_Click);
             // 
             // toolStripButtonEdit
             // 
@@ -145,15 +154,6 @@ namespace StorageAndTrade
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             // 
-            // toolStripButtonAddMultiple
-            // 
-            this.toolStripButtonAddMultiple.Image = global::StorageAndTrade.Properties.Resources.page;
-            this.toolStripButtonAddMultiple.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddMultiple.Name = "toolStripButtonAddMultiple";
-            this.toolStripButtonAddMultiple.Size = new System.Drawing.Size(115, 22);
-            this.toolStripButtonAddMultiple.Text = "Додати декілька";
-            this.toolStripButtonAddMultiple.Click += new System.EventHandler(this.toolStripButtonAddMultiple_Click);
-            // 
             // Form_Файли
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -168,6 +168,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файли";
             this.Load += new System.EventHandler(this.Form_Файли_Load);
+            this.Shown += new System.EventHandler(this.Form_Файли_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

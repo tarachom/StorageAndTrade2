@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>20.09.2022 16:52:48</DateTimeSave>
+  <DateTimeSave>21.09.2022 14:57:11</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -1959,6 +1959,21 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           </Desc>
           <Type>enum</Type>
           <Pointer>Перелічення.МетодиСписанняПартій</Pointer>
+          <TabularParts />
+        </Constant>
+      </Constants>
+    </ConstantsBlock>
+    <ConstantsBlock>
+      <Name>ЗавантаженняДанихІзСайтів</Name>
+      <Desc>
+      </Desc>
+      <Constants>
+        <Constant>
+          <Name>ЗавантаженняКурсівВалют</Name>
+          <NameInTable>col_h5</NameInTable>
+          <Desc>Сайт НБУ наприклад
+https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange</Desc>
+          <Type>string</Type>
           <TabularParts />
         </Constant>
       </Constants>

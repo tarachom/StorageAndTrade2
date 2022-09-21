@@ -19,13 +19,8 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -34,7 +29,6 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
-
 
 namespace StorageAndTrade
 {
@@ -71,36 +65,56 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["Проведений"].Width = 80;
 		}
 
-		/// <summary>
+        #region Поля
+
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
+
+        /// <summary>
 		/// Вказівник для вибору
 		/// </summary>
 		public DocumentPointer DocumentPointerItem { get; set; }
 
-		/// <summary>
-		/// Вказівник для виділення в списку
-		/// </summary>
-		public DocumentPointer SelectPointerItem { get; set; }
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DocumentPointer SelectPointerItem { get; set; }
 
-		private void Form_ВведенняЗалишківЖурнал_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        #endregion
+
+        private void Form_ВведенняЗалишківЖурнал_Load(object sender, EventArgs e)
         {
-			ConfigurationEnums ТипПеріодуДляЖурналівДокументів = Конфа.Config.Kernel.Conf.Enums["ТипПеріодуДляЖурналівДокументів"];
-
-			foreach (ConfigurationEnumField field in ТипПеріодуДляЖурналівДокументів.Fields.Values)
+			if (!IsLoadRecords)
 			{
-				int index = сomboBox_ТипПеріоду.Items.Add(
-					new NameValue<Перелічення.ТипПеріодуДляЖурналівДокументів>(field.Desc, (Перелічення.ТипПеріодуДляЖурналівДокументів)field.Value));
+				ConfigurationEnums ТипПеріодуДляЖурналівДокументів = Конфа.Config.Kernel.Conf.Enums["ТипПеріодуДляЖурналівДокументів"];
 
-				if ((Перелічення.ТипПеріодуДляЖурналівДокументів)field.Value == Константи.ЖурналиДокументів.ОсновнийТипПеріоду_Const)
-					сomboBox_ТипПеріоду.SelectedIndex = index;
+				foreach (ConfigurationEnumField field in ТипПеріодуДляЖурналівДокументів.Fields.Values)
+				{
+					int index = сomboBox_ТипПеріоду.Items.Add(
+						new NameValue<Перелічення.ТипПеріодуДляЖурналівДокументів>(field.Desc, (Перелічення.ТипПеріодуДляЖурналівДокументів)field.Value));
+
+					if ((Перелічення.ТипПеріодуДляЖурналівДокументів)field.Value == Константи.ЖурналиДокументів.ОсновнийТипПеріоду_Const)
+						сomboBox_ТипПеріоду.SelectedIndex = index;
+				}
+
+				if (сomboBox_ТипПеріоду.SelectedIndex == -1)
+					сomboBox_ТипПеріоду.SelectedIndex = 0;
 			}
-
-			if (сomboBox_ТипПеріоду.SelectedIndex == -1)
-				сomboBox_ТипПеріоду.SelectedIndex = 0;
 		}
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_ВведенняЗалишківЖурнал_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DocumentPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+        public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
@@ -181,16 +195,11 @@ namespace StorageAndTrade
 				});
 			}
 
-			if (DocumentPointerItem != null || SelectPointerItem != null)
-			{
-				string UidSelect = SelectPointerItem != null ? SelectPointerItem.UnigueID.ToString() : DocumentPointerItem.UnigueID.ToString();
+            if (isSelectRecord)
+                ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DocumentPointerItem, SelectPointerItem);
 
-				if (UidSelect != Guid.Empty.ToString())
-					ФункціїДляІнтерфейсу.ВиділитиЕлементСписку(dataGridViewRecords, "ID", UidSelect);
-			}
-			else
-				ФункціїДляІнтерфейсу.ВиділитиОстаннійЕлементСписку(dataGridViewRecords);
-		}
+            IsLoadRecords = true;
+        }
 
 		private class Записи
 		{
@@ -249,7 +258,7 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
 
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
@@ -303,7 +312,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -329,7 +338,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -373,7 +382,7 @@ namespace StorageAndTrade
 						введенняЗалишків_Objest.ClearSpendTheDocument();
 				}
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -401,7 +410,7 @@ namespace StorageAndTrade
         {
 			dataGridViewRecords.Focus();
 
-			LoadRecords();
+			LoadRecords(true);
 		}
-    }
+	}
 }

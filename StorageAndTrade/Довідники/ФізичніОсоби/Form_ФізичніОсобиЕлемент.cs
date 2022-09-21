@@ -19,13 +19,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -118,7 +111,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = фізичніОсоби_Objest.GetDirectoryPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				this.Close();

@@ -65,6 +65,11 @@ namespace StorageAndTrade
 		/// </summary>
 		public DirectoryPointer SelectPointerItem { get; set; }
 
+		/// <summary>
+		/// Колекція записів
+		/// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
         #endregion
 
         private void Form_Каси_Load(object sender, EventArgs e)
@@ -78,9 +83,7 @@ namespace StorageAndTrade
             ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
         }
 
-        private BindingList<Записи> RecordsBindingList { get; set; }
-
-		public void LoadRecords(bool isSelectRecord = false)
+		public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 
@@ -209,7 +212,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 
@@ -235,7 +238,7 @@ namespace StorageAndTrade
                     }
                 }
 
-				LoadRecords();
+				LoadRecords(true);
 			}
 		}
 

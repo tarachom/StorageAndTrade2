@@ -61,7 +61,7 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1138, 33);
+            this.panel1.Size = new System.Drawing.Size(1062, 33);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
@@ -80,7 +80,7 @@ namespace StorageAndTrade
             this.сomboBox_ТипПеріоду});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1138, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1062, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -211,7 +211,7 @@ namespace StorageAndTrade
             this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1138, 491);
+            this.panel2.Size = new System.Drawing.Size(1062, 491);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewRecords
@@ -227,7 +227,7 @@ namespace StorageAndTrade
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(1138, 491);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(1062, 491);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellClick);
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
@@ -236,7 +236,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 524);
+            this.ClientSize = new System.Drawing.Size(1062, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -245,6 +245,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Замовлення клієнтів - Журнал";
             this.Load += new System.EventHandler(this.Form_ЗамовленняКлієнтаЖурнал_Load);
+            this.Shown += new System.EventHandler(this.Form_ЗамовленняКлієнтаЖурнал_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

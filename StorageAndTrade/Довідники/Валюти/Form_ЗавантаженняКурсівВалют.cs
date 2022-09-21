@@ -22,9 +22,9 @@ limitations under the License.
 */
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
-using System.IO;
 using System.Xml.XPath;
 
 using AccountingSoftware;
@@ -32,8 +32,6 @@ using Конфа = StorageAndTrade_1_0;
 using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
-using System.Collections.Generic;
-using System.Security.Policy;
 
 namespace StorageAndTrade
 {

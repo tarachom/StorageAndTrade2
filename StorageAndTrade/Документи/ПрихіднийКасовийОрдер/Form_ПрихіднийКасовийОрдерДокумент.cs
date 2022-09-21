@@ -27,8 +27,6 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
-using StorageAndTrade_1_0.Документи;
-
 
 namespace StorageAndTrade
 {
@@ -241,7 +239,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = прихіднийКасовийОрдер_Objest.GetDocumentPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				if (closeForm)
@@ -278,7 +276,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = прихіднийКасовийОрдер_Objest.GetDocumentPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 
 					OwnerForm.Focus();
 				}

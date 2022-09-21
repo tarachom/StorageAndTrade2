@@ -204,6 +204,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Переміщення товарів - Журнал";
             this.Load += new System.EventHandler(this.Form_ПереміщенняТоварівЖурнал_Load);
+            this.Shown += new System.EventHandler(this.Form_ПереміщенняТоварівЖурнал_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

@@ -210,7 +210,6 @@ namespace StorageAndTrade
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
             this.dataGridViewRecords.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dataGridViewRecords.Size = new System.Drawing.Size(622, 593);
             this.dataGridViewRecords.TabIndex = 0;
@@ -242,6 +241,7 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Номенклатура";
             this.Load += new System.EventHandler(this.Form_Номенклатура_Load);
+            this.Shown += new System.EventHandler(this.Form_Номенклатура_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

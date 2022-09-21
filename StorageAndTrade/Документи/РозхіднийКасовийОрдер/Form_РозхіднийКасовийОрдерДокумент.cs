@@ -255,7 +255,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = розхіднийКасовийОрдер_Objest.GetDocumentPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 				}
 
 				if (closeForm)
@@ -331,7 +331,7 @@ namespace StorageAndTrade
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
 				{
 					OwnerForm.SelectPointerItem = розхіднийКасовийОрдер_Objest.GetDocumentPointer();
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 
 					OwnerForm.Focus();
 				}

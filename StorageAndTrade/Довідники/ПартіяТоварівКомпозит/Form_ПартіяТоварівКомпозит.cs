@@ -19,18 +19,11 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using Конфа = StorageAndTrade_1_0;
-using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
 
@@ -54,16 +47,42 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["Тип"].Width = 200;
 		}
 
-		public DirectoryPointer DirectoryPointerItem { get; set; }
+        #region Поля
+
+        /// <summary>
+        /// Чи вже завантажений список
+        /// </summary>
+        private bool IsLoadRecords { get; set; } = false;
+
+        /// <summary>
+        /// Вказівник для вибору
+        /// </summary>
+        public DirectoryPointer DirectoryPointerItem { get; set; }
+
+        /// <summary>
+        /// Вказівник для виділення в списку
+        /// </summary>
+        public DirectoryPointer SelectPointerItem { get; set; }
+
+        /// <summary>
+        /// Колекція записів
+        /// </summary>
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        #endregion
 
         private void Form_ПартіяТоварівКомпозит_Load(object sender, EventArgs e)
         {
-			LoadRecords();
-		}
+            if (!IsLoadRecords)
+                LoadRecords(false);
+        }
 
-		private BindingList<Записи> RecordsBindingList { get; set; }
+        private void Form_ПартіяТоварівКомпозит_Shown(object sender, EventArgs e)
+        {
+            ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+        }
 
-		public void LoadRecords()
+        public void LoadRecords(bool isSelectRecord)
 		{
 			RecordsBindingList.Clear();
 			dataGridViewRecords.Rows.Clear();
@@ -89,7 +108,12 @@ namespace StorageAndTrade
 					Тип = ((Перелічення.ТипДокументуПартіяТоварівКомпозит)cur.Fields[Довідники.ПартіяТоварівКомпозит_Const.ТипДокументу]).ToString()
 				});
 			}
-		}
+
+            if (isSelectRecord)
+                ФункціїДляІнтерфейсу.ВиділитиЕлементСпискуПоІД(dataGridViewRecords, DirectoryPointerItem, SelectPointerItem);
+
+            IsLoadRecords = true;
+        }
 
 		private class Записи
 		{
@@ -140,33 +164,12 @@ namespace StorageAndTrade
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
-			LoadRecords();
+			LoadRecords(true);
 		}
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
         {
-			//if (dataGridViewRecords.SelectedRows.Count != 0 &&
-			//	MessageBox.Show("Видалити записи?", "Повідомлення", MessageBoxButtons.YesNo) == DialogResult.Yes)
-			//{
-			//	for (int i = 0; i < dataGridViewRecords.SelectedRows.Count; i++)
-			//	{
-			//		DataGridViewRow row = dataGridViewRecords.SelectedRows[i];
-			//		string uid = row.Cells["ID"].Value.ToString();
-
-			//		Довідники.ПартіяТоварівКомпозит_Objest ПартіяТоварівКомпозит_Objest = new Довідники.ПартіяТоварівКомпозит_Objest();
-			//		if (ПартіяТоварівКомпозит_Objest.Read(new UnigueID(uid)))
-			//		{
-			//			ПартіяТоварівКомпозит_Objest.Delete();
-			//		}
-			//		else
-			//		{
-			//			MessageBox.Show("Error read");
-			//			break;
-			//		}
-			//	}
-
-			//	LoadRecords();
-			//}
+			
 		}
-    }
+	}
 }

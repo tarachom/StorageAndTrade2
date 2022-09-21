@@ -118,7 +118,7 @@ namespace StorageAndTrade
 				}
 
 				if (OwnerForm != null && !OwnerForm.IsDisposed)
-					OwnerForm.LoadRecords();
+					OwnerForm.LoadRecords(true);
 
 				this.DialogResult = DialogResult.OK;
 				this.Close();
