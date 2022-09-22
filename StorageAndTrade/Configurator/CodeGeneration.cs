@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 21.09.2022 14:57:11
+ * Дата конфігурації: 22.09.2022 15:01:31
  *
  */
 
@@ -52,6 +52,7 @@ namespace StorageAndTrade_1_0
             Константи.ЖурналиДокументів.ReadAll();
             Константи.ПартіїТоварів.ReadAll();
             Константи.ЗавантаженняДанихІзСайтів.ReadAll();
+            Константи.ПриЗапускуПрограми.ReadAll();
             
         }
     }
@@ -239,7 +240,7 @@ namespace StorageAndTrade_1_0.Константи
             
             Dictionary<string, object> fieldValue = new Dictionary<string, object>();
             bool IsSelect = Config.Kernel.DataBase.SelectAllConstants("tab_constants",
-                 new string[] { "col_a8", "col_a9", "col_g6", "col_g7" }, fieldValue);
+                 new string[] { "col_a8", "col_a9", "col_g6", "col_g7", "col_h8" }, fieldValue);
             
             if (IsSelect)
             {
@@ -247,6 +248,7 @@ namespace StorageAndTrade_1_0.Константи
                 m_ФоновіЗадачі_Const = fieldValue["col_a9"].ToString();
                 m_ВвімкнутиФоновіЗадачі_Const = (fieldValue["col_g6"] != DBNull.Value) ? bool.Parse(fieldValue["col_g6"].ToString()) : false;
                 m_ЗаблокованіОбєкти_Const = fieldValue["col_g7"].ToString();
+                m_ПовідомленняТаПомилки_Const = fieldValue["col_h8"].ToString();
                 
             }
 			
@@ -306,6 +308,20 @@ namespace StorageAndTrade_1_0.Константи
             {
                 m_ЗаблокованіОбєкти_Const = value;
                 Config.Kernel.DataBase.SaveConstants("tab_constants", "col_g7", m_ЗаблокованіОбєкти_Const);
+            }
+        }
+        
+        static string m_ПовідомленняТаПомилки_Const = "";
+        public static string ПовідомленняТаПомилки_Const
+        {
+            get 
+            {
+                return m_ПовідомленняТаПомилки_Const;
+            }
+            set
+            {
+                m_ПовідомленняТаПомилки_Const = value;
+                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h8", m_ПовідомленняТаПомилки_Const);
             }
         }
         
@@ -745,6 +761,83 @@ namespace StorageAndTrade_1_0.Константи
                 public string Користувач { get; set; }
                 public DateTime ДатаБлокування { get; set; }
                 public DateTime ДатаПідтвердженняБлокування { get; set; }
+                
+            }            
+        }
+          
+        public class ПовідомленняТаПомилки_Помилки_TablePart : ConstantsTablePart
+        {
+            public ПовідомленняТаПомилки_Помилки_TablePart() : base(Config.Kernel, "tab_b21",
+                 new string[] { "col_a2", "col_a1", "col_a3" }) 
+            {
+                Records = new List<Record>();
+            }
+            
+            public const string TABLE = "tab_b21";
+            
+            public const string Дата = "col_a2";
+            public const string Обєкт = "col_a1";
+            public const string Повідомлення = "col_a3";
+            public List<Record> Records { get; set; }
+        
+            public void Read()
+            {
+                Records.Clear();
+                base.BaseRead();
+
+                foreach (Dictionary<string, object> fieldValue in base.FieldValueList) 
+                {
+                    Record record = new Record();
+                    record.UID = (Guid)fieldValue["uid"];
+                    
+                    record.Дата = (fieldValue["col_a2"] != DBNull.Value) ? DateTime.Parse(fieldValue["col_a2"].ToString()) : DateTime.MinValue;
+                    record.Обєкт = (fieldValue["col_a1"] != DBNull.Value) ? Guid.Parse(fieldValue["col_a1"].ToString()) : Guid.Empty;
+                    record.Повідомлення = fieldValue["col_a3"].ToString();
+                    
+                    Records.Add(record);
+                }
+            
+                base.BaseClear();
+            }
+        
+            public void Save(bool clear_all_before_save /*= true*/) 
+            {
+                base.BaseBeginTransaction();
+                
+                if (clear_all_before_save)
+                    base.BaseDelete();
+
+                foreach (Record record in Records)
+                {
+                    Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+
+                    fieldValue.Add("col_a2", record.Дата);
+                    fieldValue.Add("col_a1", record.Обєкт);
+                    fieldValue.Add("col_a3", record.Повідомлення);
+                    
+                    base.BaseSave(record.UID, fieldValue);
+                }
+                
+                base.BaseCommitTransaction();
+            }
+        
+            public void Delete()
+            {
+                base.BaseDelete();
+            }
+            
+            public class Record : ConstantsTablePartRecord
+            {
+                public Record()
+                {
+                    Дата = DateTime.MinValue;
+                    Обєкт = new Guid();
+                    Повідомлення = "";
+                    
+                }
+                public DateTime Дата { get; set; }
+                public Guid Обєкт { get; set; }
+                public string Повідомлення { get; set; }
                 
             }            
         }
@@ -3435,6 +3528,42 @@ namespace StorageAndTrade_1_0.Константи
             {
                 m_ЗавантаженняКурсівВалют_Const = value;
                 Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h5", m_ЗавантаженняКурсівВалют_Const);
+            }
+        }
+             
+    }
+    #endregion
+    
+	#region CONSTANTS BLOCK "ПриЗапускуПрограми"
+    public static class ПриЗапускуПрограми
+    {
+        public static void ReadAll()
+        {
+            
+            Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+            bool IsSelect = Config.Kernel.DataBase.SelectAllConstants("tab_constants",
+                 new string[] { "col_h7" }, fieldValue);
+            
+            if (IsSelect)
+            {
+                m_ПрограмаЗаповненаПочатковимиДаними_Const = (fieldValue["col_h7"] != DBNull.Value) ? bool.Parse(fieldValue["col_h7"].ToString()) : false;
+                
+            }
+			
+        }
+        
+        
+        static bool m_ПрограмаЗаповненаПочатковимиДаними_Const = false;
+        public static bool ПрограмаЗаповненаПочатковимиДаними_Const
+        {
+            get 
+            {
+                return m_ПрограмаЗаповненаПочатковимиДаними_Const;
+            }
+            set
+            {
+                m_ПрограмаЗаповненаПочатковимиДаними_Const = value;
+                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h7", m_ПрограмаЗаповненаПочатковимиДаними_Const);
             }
         }
              
@@ -9700,9 +9829,11 @@ namespace StorageAndTrade_1_0.Документи
 			ЗамовленняПостачальнику_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ЗамовленняПостачальнику_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ЗамовленняПостачальнику_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -10158,9 +10289,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПоступленняТоварівТаПослуг_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПоступленняТоварівТаПослуг_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПоступленняТоварівТаПослуг_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -10617,9 +10750,11 @@ namespace StorageAndTrade_1_0.Документи
 			ЗамовленняКлієнта_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ЗамовленняКлієнта_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ЗамовленняКлієнта_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -11066,9 +11201,11 @@ namespace StorageAndTrade_1_0.Документи
 			РеалізаціяТоварівТаПослуг_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(РеалізаціяТоварівТаПослуг_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = РеалізаціяТоварівТаПослуг_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -11442,9 +11579,11 @@ namespace StorageAndTrade_1_0.Документи
 			ВстановленняЦінНоменклатури_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ВстановленняЦінНоменклатури_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ВстановленняЦінНоменклатури_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -11768,9 +11907,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПрихіднийКасовийОрдер_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПрихіднийКасовийОрдер_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПрихіднийКасовийОрдер_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -12116,9 +12257,11 @@ namespace StorageAndTrade_1_0.Документи
 			РозхіднийКасовийОрдер_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(РозхіднийКасовийОрдер_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = РозхіднийКасовийОрдер_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -12475,9 +12618,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПереміщенняТоварів_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПереміщенняТоварів_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПереміщенняТоварів_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -12844,9 +12989,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПоверненняТоварівПостачальнику_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПоверненняТоварівПостачальнику_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПоверненняТоварівПостачальнику_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -13220,9 +13367,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПоверненняТоварівВідКлієнта_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПоверненняТоварівВідКлієнта_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПоверненняТоварівВідКлієнта_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -13583,9 +13732,11 @@ namespace StorageAndTrade_1_0.Документи
 			АктВиконанихРобіт_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(АктВиконанихРобіт_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = АктВиконанихРобіт_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -13910,9 +14061,11 @@ namespace StorageAndTrade_1_0.Документи
 			ВведенняЗалишків_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ВведенняЗалишків_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ВведенняЗалишків_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -14518,9 +14671,10 @@ namespace StorageAndTrade_1_0.Документи
 			
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
             BaseSpend(false, DateTime.MinValue);
+		    return false;
 		}
 
 		public void ClearSpendTheDocument()
@@ -14807,9 +14961,10 @@ namespace StorageAndTrade_1_0.Документи
 			
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
             BaseSpend(false, DateTime.MinValue);
+		    return false;
 		}
 
 		public void ClearSpendTheDocument()
@@ -15088,9 +15243,10 @@ namespace StorageAndTrade_1_0.Документи
 			
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
             BaseSpend(false, DateTime.MinValue);
+		    return false;
 		}
 
 		public void ClearSpendTheDocument()
@@ -15392,9 +15548,11 @@ namespace StorageAndTrade_1_0.Документи
 			ПсуванняТоварів_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ПсуванняТоварів_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ПсуванняТоварів_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -15723,9 +15881,11 @@ namespace StorageAndTrade_1_0.Документи
 			ВнутрішнєСпоживанняТоварів_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(ВнутрішнєСпоживанняТоварів_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = ВнутрішнєСпоживанняТоварів_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()
@@ -16082,9 +16242,11 @@ namespace StorageAndTrade_1_0.Документи
 			РахунокФактура_Triggers.AfterRecording(this);
 		}
 
-		public void SpendTheDocument(DateTime spendDate)
+		public bool SpendTheDocument(DateTime spendDate)
 		{
-            BaseSpend(РахунокФактура_SpendTheDocument.Spend(this), spendDate);
+            bool rezult = РахунокФактура_SpendTheDocument.Spend(this);
+		    BaseSpend(rezult, spendDate);
+		    return rezult;
 		}
 
 		public void ClearSpendTheDocument()

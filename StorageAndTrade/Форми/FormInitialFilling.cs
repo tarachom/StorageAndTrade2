@@ -83,13 +83,15 @@ namespace StorageAndTrade
                 XPathDocument xPathDoc = new XPathDocument(InitialFillingXmlFile);
                 XPathNavigator xPathDocNavigator = xPathDoc.CreateNavigator();
 
+                XPathNavigator rootNode = xPathDocNavigator.SelectSingleNode("/root/Довідники");
+
                 //
                 // Валюти
                 //
 
                 Валюти_Select валюти_Select = new Валюти_Select();
 
-                XPathNodeIterator ДовідникВалютиЗаписи = xPathDocNavigator.Select("/root/Довідники/Валюти/Запис");
+                XPathNodeIterator ДовідникВалютиЗаписи = rootNode.Select("Валюти/Запис");
                 while (ДовідникВалютиЗаписи.MoveNext())
 				{
                     XPathNavigator currentNode = ДовідникВалютиЗаписи.Current;
@@ -121,7 +123,7 @@ namespace StorageAndTrade
 
                 Контрагенти_Select контрагенти_Select = new Контрагенти_Select();
 
-                XPathNodeIterator ДовідникКонтрагентиЗаписи = xPathDocNavigator.Select("/root/Довідники/Контрагенти/Запис");
+                XPathNodeIterator ДовідникКонтрагентиЗаписи = rootNode.Select("Контрагенти/Запис");
                 while (ДовідникКонтрагентиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникКонтрагентиЗаписи.Current;
@@ -149,7 +151,7 @@ namespace StorageAndTrade
 
                 Контрагенти_Папки_Select контрагенти_Папки_Select = new Контрагенти_Папки_Select();
 
-                XPathNodeIterator ДовідникКонтрагенти_ПапкиЗаписи = xPathDocNavigator.Select("/root/Довідники/Контрагенти_Папки/Запис");
+                XPathNodeIterator ДовідникКонтрагенти_ПапкиЗаписи = rootNode.Select("Контрагенти_Папки/Запис");
                 while (ДовідникКонтрагенти_ПапкиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникКонтрагенти_ПапкиЗаписи.Current;
@@ -177,7 +179,7 @@ namespace StorageAndTrade
 
                 Номенклатура_Папки_Select номенклатура_Папки_Select = new Номенклатура_Папки_Select();
 
-                XPathNodeIterator ДовідникНоменклатура_ПапкиЗаписи = xPathDocNavigator.Select("/root/Довідники/Номенклатура_Папки/Запис");
+                XPathNodeIterator ДовідникНоменклатура_ПапкиЗаписи = rootNode.Select("Номенклатура_Папки/Запис");
                 while (ДовідникНоменклатура_ПапкиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникНоменклатура_ПапкиЗаписи.Current;
@@ -202,6 +204,8 @@ namespace StorageAndTrade
 
             }
 
+            Константи.ПриЗапускуПрограми.ПрограмаЗаповненаПочатковимиДаними_Const = true;
+
             if (!this.Disposing)
 			{
 				buttonSpendAll.Invoke(new Action(() => buttonSpendAll.Enabled = true));
@@ -221,6 +225,13 @@ namespace StorageAndTrade
                 if (!this.Disposing && this.IsHandleCreated)
                     richTextBoxInfo.AppendText("\n" + head);
             }
+        }
+
+        private void buttonDisableThisForm_Click(object sender, EventArgs e)
+        {
+            Константи.ПриЗапускуПрограми.ПрограмаЗаповненаПочатковимиДаними_Const = true;
+
+            ApendLine("Встановлено - 'Не відкривати при запуску програми'");
         }
     }
 }

@@ -42,7 +42,6 @@ using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
-using System.Diagnostics;
 
 namespace StorageAndTrade
 {
@@ -245,6 +244,12 @@ namespace StorageAndTrade
                 return null;
         }
 
+        /// <summary>
+        /// Функція повертає курс валюти на дату
+        /// </summary>
+        /// <param name="Валюта">Валюта</param>
+        /// <param name="ДатаКурсу">Курс</param>
+        /// <returns>Курс на дату (дата + час 23 59 59) або 0</returns>
         public static decimal ПоточнийКурсВалюти(Довідники.Валюти_Pointer Валюта, DateTime ДатаКурсу)
         {
             if (Валюта.IsEmpty())

@@ -32,6 +32,7 @@ namespace StorageAndTrade
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInitialFilling));
             this.buttonSpendAll = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonDisableThisForm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
@@ -54,6 +55,7 @@ namespace StorageAndTrade
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.buttonDisableThisForm);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonSpendAll);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -62,10 +64,21 @@ namespace StorageAndTrade
             this.panel1.Size = new System.Drawing.Size(867, 38);
             this.panel1.TabIndex = 1;
             // 
+            // buttonDisableThisForm
+            // 
+            this.buttonDisableThisForm.Location = new System.Drawing.Point(508, 3);
+            this.buttonDisableThisForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonDisableThisForm.Name = "buttonDisableThisForm";
+            this.buttonDisableThisForm.Size = new System.Drawing.Size(239, 31);
+            this.buttonDisableThisForm.TabIndex = 2;
+            this.buttonDisableThisForm.Text = "Не показувати при відкритті програми";
+            this.buttonDisableThisForm.UseVisualStyleBackColor = true;
+            this.buttonDisableThisForm.Click += new System.EventHandler(this.buttonDisableThisForm_Click);
+            // 
             // buttonCancel
             // 
             this.buttonCancel.Enabled = false;
-            this.buttonCancel.Location = new System.Drawing.Point(281, 3);
+            this.buttonCancel.Location = new System.Drawing.Point(176, 3);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(113, 31);
@@ -124,5 +137,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox richTextBoxInfo;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonDisableThisForm;
     }
 }

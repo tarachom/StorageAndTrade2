@@ -214,7 +214,10 @@ namespace StorageAndTrade
 					try
 					{
 						//Проведення
-						актВиконанихРобіт_Objest.SpendTheDocument(актВиконанихРобіт_Objest.ДатаДок);
+						if (!актВиконанихРобіт_Objest.SpendTheDocument(актВиконанихРобіт_Objest.ДатаДок))
+						{
+
+						}
 					}
 					catch (Exception exp)
 					{

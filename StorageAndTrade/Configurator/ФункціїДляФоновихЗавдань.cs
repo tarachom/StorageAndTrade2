@@ -23,7 +23,6 @@ limitations under the License.
 
 /*
  
-Функції для інтерфейсу
 
 */
 
@@ -41,4 +40,3 @@ namespace StorageAndTrade
 
     }
 }
-

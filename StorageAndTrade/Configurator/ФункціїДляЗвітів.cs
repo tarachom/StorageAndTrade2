@@ -27,11 +27,11 @@ limitations under the License.
 
 */
 
-using System;
 using System.Collections.Generic;
 using AccountingSoftware;
 
 using System.Windows.Forms;
+
 using System.IO;
 using System.Xml;
 using System.Xml.Xsl;
@@ -93,6 +93,12 @@ namespace StorageAndTrade_1_0
             }
         }
 
+        /// <summary>
+        /// Записує блок даних в ХМЛ документ
+        /// </summary>
+        /// <param name="xmlDoc">Хмл документ</param>
+        /// <param name="blockName">Назва блоку даних</param>
+        /// <param name="listRow">Список назва - значення</param>
         public static void DataHeadToXML(XmlDocument xmlDoc, string blockName, List<NameValue<string>> listRow)
         {
             XmlNode root = xmlDoc.SelectSingleNode("/root");
@@ -137,6 +143,11 @@ namespace StorageAndTrade_1_0
                 OpenFormReport(formReportName, pathToHtmlFile);
         }
 
+        /// <summary>
+        /// Відкриває орему форму і виводить звіт
+        /// </summary>
+        /// <param name="name">Назва форми</param>
+        /// <param name="pathToHtmlFile">Шлях до Html File</param>
         public static void OpenFormReport(string name, string pathToHtmlFile)
         {
             Form MdiParent = Application.OpenForms["FormStorageAndTrade"];

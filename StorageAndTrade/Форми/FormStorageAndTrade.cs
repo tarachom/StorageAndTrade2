@@ -64,6 +64,12 @@ namespace StorageAndTrade
             this.MdiChildActivate += FormStorageAndTrade_MdiChildActivate;
 
             StartBackgroundTask();
+
+            if (!Константи.ПриЗапускуПрограми.ПрограмаЗаповненаПочатковимиДаними_Const)
+            {
+                FormInitialFilling formInitialFilling = new FormInitialFilling();
+                formInitialFilling.ShowDialog();
+            }
         }
 
         private void FormStorageAndTrade_FormClosing(object sender, FormClosingEventArgs e)

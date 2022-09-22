@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>21.09.2022 14:57:11</DateTimeSave>
+  <DateTimeSave>22.09.2022 15:01:31</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -366,6 +366,47 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
                   <Name>ДатаПідтвердженняБлокування</Name>
                   <NameInTable>col_a4</NameInTable>
                   <Type>datetime</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+              </Fields>
+            </TablePart>
+          </TabularParts>
+        </Constant>
+        <Constant>
+          <Name>ПовідомленняТаПомилки</Name>
+          <NameInTable>col_h8</NameInTable>
+          <Desc>
+          </Desc>
+          <Type>string</Type>
+          <TabularParts>
+            <TablePart>
+              <Name>Помилки</Name>
+              <Table>tab_b21</Table>
+              <Desc>
+              </Desc>
+              <Fields>
+                <Field>
+                  <Name>Дата</Name>
+                  <NameInTable>col_a2</NameInTable>
+                  <Type>datetime</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+                <Field>
+                  <Name>Обєкт</Name>
+                  <NameInTable>col_a1</NameInTable>
+                  <Type>any_pointer</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>1</IsIndex>
+                </Field>
+                <Field>
+                  <Name>Повідомлення</Name>
+                  <NameInTable>col_a3</NameInTable>
+                  <Type>string</Type>
                   <Desc>
                   </Desc>
                   <IsIndex>0</IsIndex>
@@ -1974,6 +2015,20 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           <Desc>Сайт НБУ наприклад
 https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange</Desc>
           <Type>string</Type>
+          <TabularParts />
+        </Constant>
+      </Constants>
+    </ConstantsBlock>
+    <ConstantsBlock>
+      <Name>ПриЗапускуПрограми</Name>
+      <Desc>
+      </Desc>
+      <Constants>
+        <Constant>
+          <Name>ПрограмаЗаповненаПочатковимиДаними</Name>
+          <NameInTable>col_h7</NameInTable>
+          <Desc>Відкрити форму початкового заповнення довідників</Desc>
+          <Type>boolean</Type>
           <TabularParts />
         </Constant>
       </Constants>

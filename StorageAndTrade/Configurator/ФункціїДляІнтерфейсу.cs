@@ -28,11 +28,9 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using StorageAndTrade_1_0;
 
 namespace StorageAndTrade
 {
@@ -59,7 +57,6 @@ namespace StorageAndTrade
 
     class ФункціїДляІнтерфейсу
     {
-
         #region DataGridView
 
         public static void ВиділитиЕлементСпискуПоІД(DataGridView gridView, DirectoryPointer DirectoryPointerItem, DirectoryPointer SelectPointerItem)
