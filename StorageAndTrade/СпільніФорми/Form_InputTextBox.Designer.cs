@@ -44,7 +44,7 @@
             this.textBoxInputText.Location = new System.Drawing.Point(0, 0);
             this.textBoxInputText.Multiline = true;
             this.textBoxInputText.Name = "textBoxInputText";
-            this.textBoxInputText.Size = new System.Drawing.Size(351, 483);
+            this.textBoxInputText.Size = new System.Drawing.Size(479, 483);
             this.textBoxInputText.TabIndex = 0;
             this.textBoxInputText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxInputText_KeyDown);
             // 
@@ -56,7 +56,7 @@
             this.panel1.Controls.Add(this.textBoxInputText);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 483);
+            this.panel1.Size = new System.Drawing.Size(479, 483);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -67,7 +67,7 @@
             this.panel2.Controls.Add(this.buttonClose);
             this.panel2.Location = new System.Drawing.Point(0, 488);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(353, 37);
+            this.panel2.Size = new System.Drawing.Size(481, 37);
             this.panel2.TabIndex = 2;
             // 
             // buttonOK
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 527);
+            this.ClientSize = new System.Drawing.Size(483, 527);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;

@@ -24,11 +24,12 @@ limitations under the License.
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using System.Reflection;
 
 using AccountingSoftware;
 using Константи = StorageAndTrade_1_0.Константи;
 using Journal = StorageAndTrade_1_0.Журнали;
-using System.Reflection;
+
 using StorageAndTrade.Service;
 
 namespace StorageAndTrade

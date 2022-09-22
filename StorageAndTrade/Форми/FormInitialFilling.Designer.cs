@@ -59,7 +59,7 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(904, 38);
+            this.panel1.Size = new System.Drawing.Size(867, 38);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -83,7 +83,7 @@ namespace StorageAndTrade
             this.panel2.Location = new System.Drawing.Point(4, 42);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 458);
+            this.panel2.Size = new System.Drawing.Size(864, 458);
             this.panel2.TabIndex = 1;
             // 
             // richTextBoxInfo
@@ -95,7 +95,7 @@ namespace StorageAndTrade
             this.richTextBoxInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.richTextBoxInfo.Name = "richTextBoxInfo";
             this.richTextBoxInfo.ReadOnly = true;
-            this.richTextBoxInfo.Size = new System.Drawing.Size(901, 458);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(864, 458);
             this.richTextBoxInfo.TabIndex = 1;
             this.richTextBoxInfo.Text = "";
             // 
@@ -103,7 +103,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 505);
+            this.ClientSize = new System.Drawing.Size(871, 505);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

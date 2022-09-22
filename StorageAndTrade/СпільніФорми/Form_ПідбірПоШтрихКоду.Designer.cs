@@ -128,7 +128,7 @@
             this.buttonSave.Location = new System.Drawing.Point(4, 3);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(244, 31);
+            this.buttonSave.Size = new System.Drawing.Size(220, 31);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Зберегти і перенести в документ";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             this.buttonClose.Location = new System.Drawing.Point(426, 3);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(191, 31);
+            this.buttonClose.Size = new System.Drawing.Size(100, 31);
             this.buttonClose.TabIndex = 20;
             this.buttonClose.Text = "Закрити";
             this.buttonClose.UseVisualStyleBackColor = true;
