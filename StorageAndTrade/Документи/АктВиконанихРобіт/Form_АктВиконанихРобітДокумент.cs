@@ -216,8 +216,9 @@ namespace StorageAndTrade
 						//Проведення
 						if (!актВиконанихРобіт_Objest.SpendTheDocument(актВиконанихРобіт_Objest.ДатаДок))
 						{
-
-						}
+							ФункціїДляПовідомлень.ВідкритиТермінал();
+							closeForm = false;
+                        }
 					}
 					catch (Exception exp)
 					{

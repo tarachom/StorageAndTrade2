@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 22.09.2022 15:01:31
+ * Дата конфігурації: 22.09.2022 15:48:51
  *
  */
 
@@ -768,7 +768,7 @@ namespace StorageAndTrade_1_0.Константи
         public class ПовідомленняТаПомилки_Помилки_TablePart : ConstantsTablePart
         {
             public ПовідомленняТаПомилки_Помилки_TablePart() : base(Config.Kernel, "tab_b21",
-                 new string[] { "col_a2", "col_a1", "col_a3" }) 
+                 new string[] { "col_a2", "col_a5", "col_a1", "col_a4", "col_a3" }) 
             {
                 Records = new List<Record>();
             }
@@ -776,7 +776,9 @@ namespace StorageAndTrade_1_0.Константи
             public const string TABLE = "tab_b21";
             
             public const string Дата = "col_a2";
+            public const string Процес = "col_a5";
             public const string Обєкт = "col_a1";
+            public const string НазваОбєкту = "col_a4";
             public const string Повідомлення = "col_a3";
             public List<Record> Records { get; set; }
         
@@ -791,7 +793,9 @@ namespace StorageAndTrade_1_0.Константи
                     record.UID = (Guid)fieldValue["uid"];
                     
                     record.Дата = (fieldValue["col_a2"] != DBNull.Value) ? DateTime.Parse(fieldValue["col_a2"].ToString()) : DateTime.MinValue;
+                    record.Процес = fieldValue["col_a5"].ToString();
                     record.Обєкт = (fieldValue["col_a1"] != DBNull.Value) ? Guid.Parse(fieldValue["col_a1"].ToString()) : Guid.Empty;
+                    record.НазваОбєкту = fieldValue["col_a4"].ToString();
                     record.Повідомлення = fieldValue["col_a3"].ToString();
                     
                     Records.Add(record);
@@ -812,7 +816,9 @@ namespace StorageAndTrade_1_0.Константи
                     Dictionary<string, object> fieldValue = new Dictionary<string, object>();
 
                     fieldValue.Add("col_a2", record.Дата);
+                    fieldValue.Add("col_a5", record.Процес);
                     fieldValue.Add("col_a1", record.Обєкт);
+                    fieldValue.Add("col_a4", record.НазваОбєкту);
                     fieldValue.Add("col_a3", record.Повідомлення);
                     
                     base.BaseSave(record.UID, fieldValue);
@@ -831,12 +837,16 @@ namespace StorageAndTrade_1_0.Константи
                 public Record()
                 {
                     Дата = DateTime.MinValue;
+                    Процес = "";
                     Обєкт = new Guid();
+                    НазваОбєкту = "";
                     Повідомлення = "";
                     
                 }
                 public DateTime Дата { get; set; }
+                public string Процес { get; set; }
                 public Guid Обєкт { get; set; }
+                public string НазваОбєкту { get; set; }
                 public string Повідомлення { get; set; }
                 
             }            

@@ -53,9 +53,24 @@ namespace StorageAndTrade
             повідомленняТаПомилки_Помилки_TablePart.Save(false);
         }
 
-        public static string ОтриматиПовідомлення(Guid Обєкт) 
+        public static void ВідкритиТермінал()
         {
-        
+            FormTerminal formTerminal = (FormTerminal)Application.OpenForms["FormTerminal"];
+            if (formTerminal != null)
+                formTerminal.LoadRecords();
+            else
+            {
+                Form MdiParent = Application.OpenForms["FormStorageAndTrade"];
+
+                formTerminal = new FormTerminal();
+
+                if (MdiParent != null)
+                    formTerminal.MdiParent = MdiParent;
+
+                formTerminal.Show();
+            }
+
+            formTerminal.Focus();
         }
     }
 }

@@ -477,6 +477,11 @@ namespace StorageAndTrade
             formInitialFilling.ShowDialog();
         }
 
+        private void терміналToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ФункціїДляПовідомлень.ВідкритиТермінал();
+        }
+
         #endregion
 
         #region Журнали
@@ -682,6 +687,7 @@ namespace StorageAndTrade
 
 
         #endregion
+
         
     }
 }
