@@ -27,6 +27,7 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using StorageAndTrade_1_0.Документи;
 
 namespace StorageAndTrade
 {
@@ -224,8 +225,12 @@ namespace StorageAndTrade
 					try
 					{
 						//Проведення
-						замовленняПостачальнику_Objest.SpendTheDocument(замовленняПостачальнику_Objest.ДатаДок);
-					}
+						if (!замовленняПостачальнику_Objest.SpendTheDocument(замовленняПостачальнику_Objest.ДатаДок))
+						{
+                            ФункціїДляПовідомлень.ВідкритиТермінал();
+                            closeForm = false;
+                        }
+                    }
 					catch (Exception exp)
 					{
 						замовленняПостачальнику_Objest.ClearSpendTheDocument();

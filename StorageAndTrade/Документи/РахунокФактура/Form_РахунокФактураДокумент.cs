@@ -228,8 +228,12 @@ namespace StorageAndTrade
 					try
 					{
 						//Проведення
-						рахунокФактура_Objest.SpendTheDocument(рахунокФактура_Objest.ДатаДок);
-					}
+						if (!рахунокФактура_Objest.SpendTheDocument(рахунокФактура_Objest.ДатаДок))
+						{
+							ФункціїДляПовідомлень.ВідкритиТермінал();
+							closeForm = false;
+						}
+                    }
 					catch (Exception exp)
 					{
 						рахунокФактура_Objest.ClearSpendTheDocument();

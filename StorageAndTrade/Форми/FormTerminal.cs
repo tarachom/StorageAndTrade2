@@ -43,42 +43,32 @@ namespace StorageAndTrade
             LoadRecords();
         }
 
+        private void FormTerminal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ФункціїДляПовідомлень.ОчиститиПовідомлення();
+        }
+
         public void LoadRecords()
         {
             richTextBoxInfo.Clear();
 
-            string query = $@"
-SELECT
-    Помилки.{Константи.Системні.ПовідомленняТаПомилки_Помилки_TablePart.Дата} AS Дата,
-    Помилки.{Константи.Системні.ПовідомленняТаПомилки_Помилки_TablePart.Обєкт} AS Обєкт,
-    Помилки.{Константи.Системні.ПовідомленняТаПомилки_Помилки_TablePart.Повідомлення} AS Повідомлення
-FROM
-    {Константи.Системні.ПовідомленняТаПомилки_Помилки_TablePart.TABLE} AS Помилки
-
-ORDER BY Дата DESC
-";
-
-            Dictionary<string, object> paramQuery = new Dictionary<string, object>();
-
-            string[] columnsName;
-            List<Dictionary<string, object>> listRow;
-
-            Конфа.Config.Kernel.DataBase.SelectRequest(query, paramQuery, out columnsName, out listRow);
-
-            foreach (Dictionary<string, object> row in listRow)
-            {
-                ApendLine(row["Дата"] + " - " + row["Повідомлення"]);
-            }
+            ApendLine(ФункціїДляПовідомлень.ПрочитатиПовідомленняПроПомилку());
         }
 
         private void ApendLine(string text)
         {
-            richTextBoxInfo.AppendText("\n" + text);
+            richTextBoxInfo.AppendText(text);
         }
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
             LoadRecords();
+        }
+
+        private void toolStripButtonClear_Click(object sender, EventArgs e)
+        {
+            ФункціїДляПовідомлень.ОчиститиПовідомлення();
+            richTextBoxInfo.Clear();
         }
     }
 }

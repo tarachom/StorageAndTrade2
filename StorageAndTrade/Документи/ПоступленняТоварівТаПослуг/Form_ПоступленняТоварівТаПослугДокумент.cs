@@ -215,8 +215,12 @@ namespace StorageAndTrade
 					try
 					{
 						//Проведення
-						поступленняТоварівТаПослуг_Objest.SpendTheDocument(поступленняТоварівТаПослуг_Objest.ДатаДок);
-					}
+						if (!поступленняТоварівТаПослуг_Objest.SpendTheDocument(поступленняТоварівТаПослуг_Objest.ДатаДок))
+						{
+							ФункціїДляПовідомлень.ВідкритиТермінал();
+							closeForm = false;
+						}
+                    }
 					catch (Exception exp)
 					{
 						поступленняТоварівТаПослуг_Objest.ClearSpendTheDocument();

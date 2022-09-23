@@ -339,7 +339,10 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
                                     try
                                     {
 										//Проведення
-										переміщенняТоварів_Objest.SpendTheDocument(переміщенняТоварів_Objest.ДатаДок);
+										if (!переміщенняТоварів_Objest.SpendTheDocument(переміщенняТоварів_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
                                     }
                                     catch (Exception exp)
                                     {

@@ -368,9 +368,12 @@ namespace StorageAndTrade
 					if (spend)
 						try
 						{
-							//Проведення
-							розхіднийКасовийОрдер_Objest.SpendTheDocument(розхіднийКасовийОрдер_Objest.ДатаДок);
-						}
+                            //Проведення
+                            if (!розхіднийКасовийОрдер_Objest.SpendTheDocument(розхіднийКасовийОрдер_Objest.ДатаДок))
+                            {
+                                ФункціїДляПовідомлень.ВідкритиТермінал();
+                            }
+                        }
 						catch (Exception exp)
 						{
 							розхіднийКасовийОрдер_Objest.ClearSpendTheDocument();

@@ -395,16 +395,19 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								ПрихіднийКасовийОрдер_Pointer прихіднийКасовийОрдер_Pointer = new ПрихіднийКасовийОрдер_Pointer(new UnigueID(uid));
 								ПрихіднийКасовийОрдер_Objest прихіднийКасовийОрдер_Objest = прихіднийКасовийОрдер_Pointer.GetDocumentObject(true);
 
-                                if (spend)
-                                    try
-                                    {
-										прихіднийКасовийОрдер_Objest.SpendTheDocument(прихіднийКасовийОрдер_Objest.ДатаДок);
-                                    }
-                                    catch (Exception exp)
-                                    {
+								if (spend)
+									try
+									{
+										if (!прихіднийКасовийОрдер_Objest.SpendTheDocument(прихіднийКасовийОрдер_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+									}
+									catch (Exception exp)
+									{
 										прихіднийКасовийОрдер_Objest.ClearSpendTheDocument();
-                                        MessageBox.Show(exp.Message);
-                                    }
+										MessageBox.Show(exp.Message);
+									}
 								else
 									прихіднийКасовийОрдер_Objest.ClearSpendTheDocument();
 
@@ -418,7 +421,10 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										розхіднийКасовийОрдер_Objest.SpendTheDocument(розхіднийКасовийОрдер_Objest.ДатаДок);
+										if (!розхіднийКасовийОрдер_Objest.SpendTheDocument(розхіднийКасовийОрдер_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
 									}
 									catch (Exception exp)
 									{

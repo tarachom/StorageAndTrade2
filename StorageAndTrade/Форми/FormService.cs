@@ -78,7 +78,9 @@ namespace StorageAndTrade
 			buttonCancel.Enabled = true;
 			button_CalculationBalancesAll.Enabled = false;
 
-			CancellationTokenThread = new CancellationTokenSource();
+            ФункціїДляПовідомлень.ОчиститиПовідомлення();
+
+            CancellationTokenThread = new CancellationTokenSource();
             thread = new Thread(new ThreadStart(SpendAllDocument));
 			thread.Start();
 		}
@@ -171,21 +173,35 @@ namespace StorageAndTrade
 
 					DocumentObject doc = journalSelect.GetDocumentObject(true);
 
-                    // !!!
-                    // треба додати перехват помилки
-                    //
-
                     if (doc.GetType().GetMember("SpendTheDocument").Length == 1)
 					{
 						try
 						{
-							doc.GetType().InvokeMember("SpendTheDocument", BindingFlags.InvokeMethod, null , doc,
+							object rezult = doc.GetType().InvokeMember("SpendTheDocument", BindingFlags.InvokeMethod, null , doc,
 								new object[] { journalSelect.Current.SpendDate });
+
+                            if (rezult!= null && rezult.GetType().Name == "Boolean")
+							{
+								bool boolRezult = (bool)rezult;
+								if (!boolRezult)
+								{
+									ApendLine(ФункціїДляПовідомлень.ПрочитатиПовідомленняПроПомилку());
+                                    
+                                    //Очистка проводок документу
+                                    doc.GetType().InvokeMember("ClearSpendTheDocument", BindingFlags.InvokeMethod, null, doc, new object[] { });
+
+                                    break;
+                                }
+                            }
 						}
-                        catch 
+                        catch (Exception ex)
                         {
-                            ApendLine("Помилка: ");
+                            ApendLine("Помилка: " + ex.Message);
+
+                            //Очистка проводок документу
+                            doc.GetType().InvokeMember("ClearSpendTheDocument", BindingFlags.InvokeMethod, null, doc, new object[] { });
                         }
+						
                     }
 				}
 			}

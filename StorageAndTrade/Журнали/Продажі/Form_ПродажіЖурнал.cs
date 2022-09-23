@@ -565,8 +565,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										замовленняКлієнта_Objest.SpendTheDocument(замовленняКлієнта_Objest.ДатаДок);
-									}
+										if (!замовленняКлієнта_Objest.SpendTheDocument(замовленняКлієнта_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										замовленняКлієнта_Objest.ClearSpendTheDocument();
@@ -585,8 +588,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										рахунокФактура_Objest.SpendTheDocument(рахунокФактура_Objest.ДатаДок);
-									}
+										if (!рахунокФактура_Objest.SpendTheDocument(рахунокФактура_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										рахунокФактура_Objest.ClearSpendTheDocument();
@@ -605,8 +611,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										реалізаціяТоварівТаПослуг_Objest.SpendTheDocument(реалізаціяТоварівТаПослуг_Objest.ДатаДок);
-									}
+										if (!реалізаціяТоварівТаПослуг_Objest.SpendTheDocument(реалізаціяТоварівТаПослуг_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										реалізаціяТоварівТаПослуг_Objest.ClearSpendTheDocument();
@@ -625,8 +634,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										актВиконанихРобіт_Objest.SpendTheDocument(актВиконанихРобіт_Objest.ДатаДок);
-									}
+										if (!актВиконанихРобіт_Objest.SpendTheDocument(актВиконанихРобіт_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										актВиконанихРобіт_Objest.ClearSpendTheDocument();
@@ -645,8 +657,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										поверненняТоварівВідКлієнта_Objest.SpendTheDocument(поверненняТоварівВідКлієнта_Objest.ДатаДок);
-									}
+										if (!поверненняТоварівВідКлієнта_Objest.SpendTheDocument(поверненняТоварівВідКлієнта_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										поверненняТоварівВідКлієнта_Objest.ClearSpendTheDocument();

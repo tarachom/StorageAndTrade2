@@ -225,8 +225,12 @@ namespace StorageAndTrade
 					try
 					{
 						//Проведення
-						прихіднийКасовийОрдер_Objest.SpendTheDocument(прихіднийКасовийОрдер_Objest.ДатаДок);
-					}
+						if (!прихіднийКасовийОрдер_Objest.SpendTheDocument(прихіднийКасовийОрдер_Objest.ДатаДок))
+						{
+							ФункціїДляПовідомлень.ВідкритиТермінал();
+							closeForm = false;
+						}
+                    }
 					catch (Exception exp)
 					{
 						прихіднийКасовийОрдер_Objest.ClearSpendTheDocument();

@@ -340,9 +340,12 @@ namespace StorageAndTrade
 					if (spend)
 						try
 						{
-							//Проведення
-							встановленняЦінНоменклатури_Objest.SpendTheDocument(встановленняЦінНоменклатури_Objest.ДатаДок);
-						}
+                            //Проведення
+                            if (!встановленняЦінНоменклатури_Objest.SpendTheDocument(встановленняЦінНоменклатури_Objest.ДатаДок))
+                            {
+                                ФункціїДляПовідомлень.ВідкритиТермінал();
+                            }
+                        }
 						catch (Exception exp)
 						{
 							встановленняЦінНоменклатури_Objest.ClearSpendTheDocument();

@@ -34,6 +34,7 @@ namespace StorageAndTrade
             this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,8 @@ namespace StorageAndTrade
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonRefresh});
+            this.toolStripButtonRefresh,
+            this.toolStripButtonClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(957, 25);
@@ -82,6 +84,15 @@ namespace StorageAndTrade
             this.toolStripButtonRefresh.Text = "Обновити";
             this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
             // 
+            // toolStripButtonClear
+            // 
+            this.toolStripButtonClear.Image = global::StorageAndTrade.Properties.Resources.page_white_delete;
+            this.toolStripButtonClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClear.Name = "toolStripButtonClear";
+            this.toolStripButtonClear.Size = new System.Drawing.Size(80, 22);
+            this.toolStripButtonClear.Text = "Очистити";
+            this.toolStripButtonClear.Click += new System.EventHandler(this.toolStripButtonClear_Click);
+            // 
             // FormTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -93,6 +104,7 @@ namespace StorageAndTrade
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormTerminal";
             this.Text = "Термінал";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTerminal_FormClosing);
             this.Load += new System.EventHandler(this.FormTerminal_Load);
             this.panel2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
@@ -107,5 +119,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.RichTextBox richTextBoxInfo;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
+        private System.Windows.Forms.ToolStripButton toolStripButtonClear;
     }
 }

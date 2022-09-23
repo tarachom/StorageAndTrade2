@@ -348,9 +348,12 @@ namespace StorageAndTrade
 					if (spend)
 						try
 						{
-							//Проведення
-							внутрішнєСпоживанняТоварів_Objest.SpendTheDocument(внутрішнєСпоживанняТоварів_Objest.ДатаДок);
-						}
+                            //Проведення
+                            if (!внутрішнєСпоживанняТоварів_Objest.SpendTheDocument(внутрішнєСпоживанняТоварів_Objest.ДатаДок))
+                            {
+                                ФункціїДляПовідомлень.ВідкритиТермінал();
+                            }
+                        }
 						catch (Exception exp)
 						{
 							внутрішнєСпоживанняТоварів_Objest.ClearSpendTheDocument();

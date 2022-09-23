@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>22.09.2022 15:48:51</DateTimeSave>
+  <DateTimeSave>23.09.2022 10:45:47</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -396,7 +396,7 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
                   <IsIndex>0</IsIndex>
                 </Field>
                 <Field>
-                  <Name>Процес</Name>
+                  <Name>НазваПроцесу</Name>
                   <NameInTable>col_a5</NameInTable>
                   <Type>string</Type>
                   <Desc>Проведення, запис, видалення і т.д</Desc>
@@ -409,6 +409,13 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
                   <Desc>
                   </Desc>
                   <IsIndex>1</IsIndex>
+                </Field>
+                <Field>
+                  <Name>ТипОбєкту</Name>
+                  <NameInTable>col_a6</NameInTable>
+                  <Type>string</Type>
+                  <Desc>Так як задано в конфігураторі</Desc>
+                  <IsIndex>0</IsIndex>
                 </Field>
                 <Field>
                   <Name>НазваОбєкту</Name>

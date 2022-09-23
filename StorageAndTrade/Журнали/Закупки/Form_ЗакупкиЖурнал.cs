@@ -450,7 +450,10 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
                                 if (spend)
                                     try
                                     {
-										замовленняПостачальнику_Objest.SpendTheDocument(замовленняПостачальнику_Objest.ДатаДок);
+										if (!замовленняПостачальнику_Objest.SpendTheDocument(замовленняПостачальнику_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
                                     }
                                     catch (Exception exp)
                                     {
@@ -470,8 +473,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										поступленняТоварівТаПослуг_Objest.SpendTheDocument(поступленняТоварівТаПослуг_Objest.ДатаДок);
-									}
+										if (!поступленняТоварівТаПослуг_Objest.SpendTheDocument(поступленняТоварівТаПослуг_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										поступленняТоварівТаПослуг_Objest.ClearSpendTheDocument();
@@ -490,8 +496,11 @@ OFFSET {loadRecordsLimit.Limit * loadRecordsLimit.PageIndex}
 								if (spend)
 									try
 									{
-										поверненняТоварівПостачальнику_Objest.SpendTheDocument(поверненняТоварівПостачальнику_Objest.ДатаДок);
-									}
+										if (!поверненняТоварівПостачальнику_Objest.SpendTheDocument(поверненняТоварівПостачальнику_Objest.ДатаДок))
+										{
+											ФункціїДляПовідомлень.ВідкритиТермінал();
+										}
+                                    }
 									catch (Exception exp)
 									{
 										поверненняТоварівПостачальнику_Objest.ClearSpendTheDocument();
