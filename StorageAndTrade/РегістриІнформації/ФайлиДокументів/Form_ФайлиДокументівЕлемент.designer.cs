@@ -36,11 +36,14 @@ namespace StorageAndTrade
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker_Дата = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonAddImage = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(398, 94);
+            this.buttonClose.Location = new System.Drawing.Point(398, 126);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(120, 31);
@@ -51,7 +54,7 @@ namespace StorageAndTrade
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(61, 94);
+            this.buttonSave.Location = new System.Drawing.Point(61, 126);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(191, 31);
@@ -67,7 +70,7 @@ namespace StorageAndTrade
             this.directoryControl_Файл.BeforeFindFunc = null;
             this.directoryControl_Файл.Bind = null;
             this.directoryControl_Файл.DirectoryPointerItem = null;
-            this.directoryControl_Файл.Location = new System.Drawing.Point(61, 46);
+            this.directoryControl_Файл.Location = new System.Drawing.Point(61, 78);
             this.directoryControl_Файл.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Файл.Name = "directoryControl_Файл";
             this.directoryControl_Файл.QueryFind = null;
@@ -78,7 +81,7 @@ namespace StorageAndTrade
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 52);
+            this.label3.Location = new System.Drawing.Point(17, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 15);
@@ -87,7 +90,7 @@ namespace StorageAndTrade
             // 
             // dateTimePicker_Дата
             // 
-            this.dateTimePicker_Дата.Location = new System.Drawing.Point(61, 15);
+            this.dateTimePicker_Дата.Location = new System.Drawing.Point(61, 47);
             this.dateTimePicker_Дата.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker_Дата.Name = "dateTimePicker_Дата";
             this.dateTimePicker_Дата.Size = new System.Drawing.Size(228, 23);
@@ -96,18 +99,38 @@ namespace StorageAndTrade
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 19);
+            this.label1.Location = new System.Drawing.Point(21, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 15);
             this.label1.TabIndex = 73;
             this.label1.Text = "Дата:";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonAddImage});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(558, 25);
+            this.toolStrip1.TabIndex = 75;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonAddImage
+            // 
+            this.toolStripButtonAddImage.Image = global::StorageAndTrade.Properties.Resources.down;
+            this.toolStripButtonAddImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddImage.Name = "toolStripButtonAddImage";
+            this.toolStripButtonAddImage.Size = new System.Drawing.Size(114, 22);
+            this.toolStripButtonAddImage.Text = "Загрузити файл";
+            this.toolStripButtonAddImage.Click += new System.EventHandler(this.toolStripButtonAddImage_Click);
+            // 
             // Form_ФайлиДокументівЕлемент
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 151);
+            this.ClientSize = new System.Drawing.Size(558, 180);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dateTimePicker_Дата);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.directoryControl_Файл);
@@ -120,6 +143,8 @@ namespace StorageAndTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Файл документу";
             this.Load += new System.EventHandler(this.Form_ФайлиДокументівЕлемент_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +158,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Дата;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddImage;
     }
 }
