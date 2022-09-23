@@ -38,6 +38,7 @@ namespace StorageAndTrade
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripButtonAddImage = new System.Windows.Forms.ToolStripButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecords)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -78,7 +79,8 @@ namespace StorageAndTrade
             this.toolStripButtonAdd,
             this.toolStripButtonEdit,
             this.toolStripButtonRefresh,
-            this.toolStripButtonDelete});
+            this.toolStripButtonDelete,
+            this.toolStripButtonAddImage});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(926, 25);
@@ -131,6 +133,15 @@ namespace StorageAndTrade
             this.panel1.Size = new System.Drawing.Size(926, 28);
             this.panel1.TabIndex = 1;
             // 
+            // toolStripButtonAddImage
+            // 
+            this.toolStripButtonAddImage.Image = global::StorageAndTrade.Properties.Resources.down;
+            this.toolStripButtonAddImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddImage.Name = "toolStripButtonAddImage";
+            this.toolStripButtonAddImage.Size = new System.Drawing.Size(114, 22);
+            this.toolStripButtonAddImage.Text = "Загрузити файл";
+            this.toolStripButtonAddImage.Click += new System.EventHandler(this.toolStripButtonAddImage_Click);
+            // 
             // Form_ФайлиДокументів
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -163,5 +174,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddImage;
     }
 }

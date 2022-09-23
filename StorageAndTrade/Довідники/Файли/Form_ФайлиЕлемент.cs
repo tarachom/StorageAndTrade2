@@ -174,7 +174,7 @@ namespace StorageAndTrade
                 textBox_НазваФайлу.Text = Path.GetFileName(PathToFileInput);
 
                 if (String.IsNullOrEmpty(textBoxName.Text))
-                    textBoxName.Text = textBox_НазваФайлу.Text;
+                    textBoxName.Text = Path.GetFileNameWithoutExtension(PathToFileInput);
             }
         }
 	}

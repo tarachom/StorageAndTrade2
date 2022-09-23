@@ -22,9 +22,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 using AccountingSoftware;
+using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
 
@@ -47,8 +49,13 @@ namespace StorageAndTrade
 			dataGridViewRecords.Columns["ID"].Visible = false;
             dataGridViewRecords.Columns["Файл"].Visible = false;
 
-			dataGridViewRecords.Columns["ФайлНазва"].HeaderText = "Файл";
-            dataGridViewRecords.Columns["ФайлНазва"].Width = 250;
+			dataGridViewRecords.Columns["ФайлНазва"].HeaderText = "Назва";
+            dataGridViewRecords.Columns["ФайлНазва"].Width = 500;
+
+            dataGridViewRecords.Columns["НазваФайлу"].HeaderText = "Файл";
+            dataGridViewRecords.Columns["НазваФайлу"].Width = 400;
+
+            dataGridViewRecords.Columns["Створений"].Width = 150;
         }
 
 		/// <summary>
@@ -129,9 +136,9 @@ namespace StorageAndTrade
 			public string ID { get; set; }
             public Довідники.Файли_Pointer Файл { get; set; }
             public string ФайлНазва { get; set; }
+            public string НазваФайлу { get; set; }
             public string Розмір { get; set; }
             public string Створений { get; set; }
-            public string НазваФайлу { get; set; }
         }
 
 		private void dataGridViewRecords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -209,5 +216,31 @@ namespace StorageAndTrade
 				SelectPointerItem = dataGridViewRecords.Rows[RowIndex].Cells["ID"].Value.ToString();
 			}
 		}
+
+		private void toolStripButtonAddImage_Click(object sender, EventArgs e)
+		{
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "*.*|*.*";
+            openFileDialog.Title = "Файл";
+            openFileDialog.InitialDirectory = Environment.SpecialFolder.Desktop.ToString();
+
+            if (!(openFileDialog.ShowDialog() == DialogResult.OK))
+                return;
+            else
+            {
+                string FileInput = openFileDialog.FileName;
+
+                Довідники.Файли_Pointer файл = ФункціїДляДовідників.ЗавантажитиФайл(FileInput);
+
+                РегістриВідомостей.ФайлиДокументів_Objest файлиДокументів_Objest = new РегістриВідомостей.ФайлиДокументів_Objest();
+                файлиДокументів_Objest.New();
+                файлиДокументів_Objest.Period = DateTime.Now;
+                файлиДокументів_Objest.Owner = ДокументВласник.UnigueID.UGuid;
+                файлиДокументів_Objest.Файл = файл;
+                файлиДокументів_Objest.Save();
+
+                LoadRecords();
+            }
+        }
 	}
 }

@@ -209,7 +209,6 @@ namespace StorageAndTrade
 					{
 						pictureBox_ОсновнаКартинка.Image = Image.FromStream(memoryStream);
 						pictureBox_ОсновнаКартинка.SizeMode = PictureBoxSizeMode.Zoom;
-
 					}
 					catch
 					{
