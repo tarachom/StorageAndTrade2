@@ -314,8 +314,19 @@ namespace StorageAndTrade
 
 		}
 
-		#endregion
+        private void toolStripButtonФайли_Click(object sender, EventArgs e)
+        {
+            if (реалізаціяТоварівТаПослуг_Objest.IsSave)
+            {
+                Form_ФайлиДокументів form_ФайлиДокументів = new Form_ФайлиДокументів();
+                form_ФайлиДокументів.ДокументВласник = реалізаціяТоварівТаПослуг_Objest.GetDocumentPointer();
+                form_ФайлиДокументів.MdiParent = this.MdiParent;
+                form_ФайлиДокументів.Show();
+            }
+        }
+
+        #endregion
 
 
-	}
+    }
 }

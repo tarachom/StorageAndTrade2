@@ -27,6 +27,7 @@ using Константи = StorageAndTrade_1_0.Константи;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using Документи = StorageAndTrade_1_0.Документи;
 using Перелічення = StorageAndTrade_1_0.Перелічення;
+using StorageAndTrade_1_0.Документи;
 
 namespace StorageAndTrade
 {
@@ -300,6 +301,19 @@ namespace StorageAndTrade
 				РухДокументівПоРегістрах.PrintRecords(прихіднийКасовийОрдер_Objest.GetDocumentPointer());
 		}
 
-		#endregion
-	}
+        private void toolStripButtonФайли_Click(object sender, EventArgs e)
+        {
+            if (прихіднийКасовийОрдер_Objest.IsSave)
+            {
+                Form_ФайлиДокументів form_ФайлиДокументів = new Form_ФайлиДокументів();
+                form_ФайлиДокументів.ДокументВласник = прихіднийКасовийОрдер_Objest.GetDocumentPointer();
+                form_ФайлиДокументів.MdiParent = this.MdiParent;
+                form_ФайлиДокументів.Show();
+            }
+        }
+
+        #endregion
+
+
+    }
 }

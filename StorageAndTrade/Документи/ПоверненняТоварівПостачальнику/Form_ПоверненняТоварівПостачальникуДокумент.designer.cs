@@ -68,6 +68,7 @@ namespace StorageAndTrade
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_FindToJournal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonДрукПроводок = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonФайли = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -502,7 +503,8 @@ namespace StorageAndTrade
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_FindToJournal,
-            this.toolStripButtonДрукПроводок});
+            this.toolStripButtonДрукПроводок,
+            this.toolStripButtonФайли});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1055, 25);
@@ -526,6 +528,15 @@ namespace StorageAndTrade
             this.toolStripButtonДрукПроводок.Size = new System.Drawing.Size(82, 22);
             this.toolStripButtonДрукПроводок.Text = "Проводки";
             this.toolStripButtonДрукПроводок.Click += new System.EventHandler(this.toolStripButtonДрукПроводок_Click);
+            // 
+            // toolStripButtonФайли
+            // 
+            this.toolStripButtonФайли.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonФайли.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonФайли.Name = "toolStripButtonФайли";
+            this.toolStripButtonФайли.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButtonФайли.Text = "Файли";
+            this.toolStripButtonФайли.Click += new System.EventHandler(this.toolStripButtonФайли_Click);
             // 
             // Form_ПоверненняТоварівПостачальникуДокумент
             // 
@@ -597,5 +608,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_FindToJournal;
         private System.Windows.Forms.ToolStripButton toolStripButtonДрукПроводок;
+        private System.Windows.Forms.ToolStripButton toolStripButtonФайли;
     }
 }

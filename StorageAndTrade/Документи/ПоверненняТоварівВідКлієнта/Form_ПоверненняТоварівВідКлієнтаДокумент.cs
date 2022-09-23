@@ -286,6 +286,19 @@ namespace StorageAndTrade
 				РухДокументівПоРегістрах.PrintRecords(поверненняТоварівВідКлієнта_Objest.GetDocumentPointer());
 		}
 
-		#endregion
-	}
+        private void toolStripButtonФайли_Click(object sender, EventArgs e)
+        {
+            if (поверненняТоварівВідКлієнта_Objest.IsSave)
+            {
+                Form_ФайлиДокументів form_ФайлиДокументів = new Form_ФайлиДокументів();
+                form_ФайлиДокументів.ДокументВласник = поверненняТоварівВідКлієнта_Objest.GetDocumentPointer();
+                form_ФайлиДокументів.MdiParent = this.MdiParent;
+                form_ФайлиДокументів.Show();
+            }
+        }
+
+        #endregion
+
+
+    }
 }

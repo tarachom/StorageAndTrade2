@@ -36,6 +36,9 @@ namespace StorageAndTrade
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_ДатаДок = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.numericControl_Курс = new StorageAndTrade.NumericControl();
+            this.numericControl_СумаДокументу = new StorageAndTrade.NumericControl();
             this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker_ЧасДок = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,9 +71,7 @@ namespace StorageAndTrade
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_FindToJournal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonДрукПроводок = new System.Windows.Forms.ToolStripButton();
-            this.numericControl_СумаДокументу = new StorageAndTrade.NumericControl();
-            this.label15 = new System.Windows.Forms.Label();
-            this.numericControl_Курс = new StorageAndTrade.NumericControl();
+            this.toolStripButtonФайли = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -164,6 +165,42 @@ namespace StorageAndTrade
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1071, 247);
             this.panel1.TabIndex = 23;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(653, 150);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 15);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "Курс:";
+            // 
+            // numericControl_Курс
+            // 
+            this.numericControl_Курс.Location = new System.Drawing.Point(696, 146);
+            this.numericControl_Курс.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numericControl_Курс.Name = "numericControl_Курс";
+            this.numericControl_Курс.Size = new System.Drawing.Size(286, 23);
+            this.numericControl_Курс.TabIndex = 81;
+            this.numericControl_Курс.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
+            // numericControl_СумаДокументу
+            // 
+            this.numericControl_СумаДокументу.Location = new System.Drawing.Point(88, 178);
+            this.numericControl_СумаДокументу.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numericControl_СумаДокументу.Name = "numericControl_СумаДокументу";
+            this.numericControl_СумаДокументу.Size = new System.Drawing.Size(286, 23);
+            this.numericControl_СумаДокументу.TabIndex = 79;
+            this.numericControl_СумаДокументу.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             // 
             // label12
             // 
@@ -506,7 +543,8 @@ namespace StorageAndTrade
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_FindToJournal,
-            this.toolStripButtonДрукПроводок});
+            this.toolStripButtonДрукПроводок,
+            this.toolStripButtonФайли});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1084, 25);
@@ -531,41 +569,14 @@ namespace StorageAndTrade
             this.toolStripButtonДрукПроводок.Text = "Проводки";
             this.toolStripButtonДрукПроводок.Click += new System.EventHandler(this.toolStripButtonДрукПроводок_Click);
             // 
-            // numericControl_СумаДокументу
+            // toolStripButtonФайли
             // 
-            this.numericControl_СумаДокументу.Location = new System.Drawing.Point(88, 178);
-            this.numericControl_СумаДокументу.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericControl_СумаДокументу.Name = "numericControl_СумаДокументу";
-            this.numericControl_СумаДокументу.Size = new System.Drawing.Size(286, 23);
-            this.numericControl_СумаДокументу.TabIndex = 79;
-            this.numericControl_СумаДокументу.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(653, 150);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 15);
-            this.label15.TabIndex = 82;
-            this.label15.Text = "Курс:";
-            // 
-            // numericControl_Курс
-            // 
-            this.numericControl_Курс.Location = new System.Drawing.Point(696, 146);
-            this.numericControl_Курс.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericControl_Курс.Name = "numericControl_Курс";
-            this.numericControl_Курс.Size = new System.Drawing.Size(286, 23);
-            this.numericControl_Курс.TabIndex = 81;
-            this.numericControl_Курс.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
+            this.toolStripButtonФайли.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonФайли.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonФайли.Name = "toolStripButtonФайли";
+            this.toolStripButtonФайли.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButtonФайли.Text = "Файли";
+            this.toolStripButtonФайли.Click += new System.EventHandler(this.toolStripButtonФайли_Click);
             // 
             // Form_ПрихіднийКасовийОрдерДокумент
             // 
@@ -637,5 +648,6 @@ namespace StorageAndTrade
         private NumericControl numericControl_СумаДокументу;
         private System.Windows.Forms.Label label15;
         private NumericControl numericControl_Курс;
+        private System.Windows.Forms.ToolStripButton toolStripButtonФайли;
     }
 }

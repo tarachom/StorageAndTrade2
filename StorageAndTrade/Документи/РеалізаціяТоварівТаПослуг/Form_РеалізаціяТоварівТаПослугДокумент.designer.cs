@@ -75,6 +75,7 @@ namespace StorageAndTrade
             this.toolStripButton_FindToJournal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonДрукПроводок = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Друк = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonФайли = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -578,6 +579,7 @@ namespace StorageAndTrade
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_FindToJournal,
             this.toolStripButtonДрукПроводок,
+            this.toolStripButtonФайли,
             this.toolStripButton_Друк});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -611,6 +613,15 @@ namespace StorageAndTrade
             this.toolStripButton_Друк.Size = new System.Drawing.Size(54, 22);
             this.toolStripButton_Друк.Text = "Друк";
             this.toolStripButton_Друк.Click += new System.EventHandler(this.toolStripButton_Друк_Click);
+            // 
+            // toolStripButtonФайли
+            // 
+            this.toolStripButtonФайли.Image = global::StorageAndTrade.Properties.Resources.layers;
+            this.toolStripButtonФайли.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonФайли.Name = "toolStripButtonФайли";
+            this.toolStripButtonФайли.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButtonФайли.Text = "Файли";
+            this.toolStripButtonФайли.Click += new System.EventHandler(this.toolStripButtonФайли_Click);
             // 
             // Form_РеалізаціяТоварівТаПослугДокумент
             // 
@@ -690,5 +701,6 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripButton toolStripButtonДрукПроводок;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ToolStripButton toolStripButton_Друк;
+        private System.Windows.Forms.ToolStripButton toolStripButtonФайли;
     }
 }
