@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 23.09.2022 10:45:47
+ * Дата конфігурації: 23.09.2022 13:13:33
  *
  */
 
@@ -17047,6 +17047,131 @@ namespace StorageAndTrade_1_0.РегістриВідомостей
         public Довідники.Номенклатура_Pointer Номенклатура { get; set; }
         public Довідники.ХарактеристикиНоменклатури_Pointer ХарактеристикаНоменклатури { get; set; }
         public Довідники.ПакуванняОдиниціВиміру_Pointer Пакування { get; set; }
+        
+    }
+	
+    #endregion
+  
+    #region REGISTER "ФайлиДокументів"
+    
+    public static class ФайлиДокументів_Const
+    {
+        public const string TABLE = "tab_b23";
+        
+        public const string Файл = "col_a1";
+    }
+	
+    
+    public class ФайлиДокументів_RecordsSet : RegisterInformationRecordsSet
+    {
+        public ФайлиДокументів_RecordsSet() : base(Config.Kernel, "tab_b23",
+             new string[] { "col_a1" }) 
+        {
+            Records = new List<Record>();
+        }
+		
+        public List<Record> Records { get; set; }
+        
+        public void Read()
+        {
+            Records.Clear();
+            base.BaseRead();
+            foreach (Dictionary<string, object> fieldValue in base.FieldValueList) 
+            {
+                Record record = new Record();
+                
+                record.UID = (Guid)fieldValue["uid"];
+				record.Period = DateTime.Parse(fieldValue["period"].ToString());
+                record.Owner = (Guid)fieldValue["owner"];
+                record.Файл = new Довідники.Файли_Pointer(fieldValue["col_a1"]);
+                
+                Records.Add(record);
+            }
+            base.BaseClear();
+        }
+        
+        public void Save(DateTime period, Guid owner)
+        {
+            base.BaseBeginTransaction();
+            base.BaseDelete(owner);
+            foreach (Record record in Records)
+            {
+                record.Period = period;
+                record.Owner = owner;
+                Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+                fieldValue.Add("col_a1", record.Файл.UnigueID.UGuid);
+                
+                base.BaseSave(record.UID, period, owner, fieldValue);
+            }
+            base.BaseCommitTransaction();
+        }
+        
+        public void Delete(Guid owner)
+        {
+            base.BaseBeginTransaction();
+            base.BaseDelete(owner);
+            base.BaseCommitTransaction();
+        }
+
+        
+        public class Record : RegisterInformationRecord
+        {
+            public Record()
+            {
+                Файл = new Довідники.Файли_Pointer();
+                
+            }
+        
+            public Довідники.Файли_Pointer Файл { get; set; }
+            
+        }
+    }
+	
+    
+    public class ФайлиДокументів_Objest : RegisterInformationObject
+    {
+		public ФайлиДокументів_Objest() : base(Config.Kernel, "tab_b23",
+             new string[] { "col_a1" }) 
+        {
+            Файл = new Довідники.Файли_Pointer();
+            
+        }
+        
+        public bool Read(UnigueID uid)
+        {
+            if (BaseRead(uid))
+            {
+                Файл = new Довідники.Файли_Pointer(base.FieldValue["col_a1"]);
+                
+                BaseClear();
+                return true;
+            }
+            else
+                return false;
+        }
+        
+        public void Save()
+        {
+            base.FieldValue["col_a1"] = Файл.UnigueID.UGuid;
+            
+            BaseSave();
+        }
+
+        public ФайлиДокументів_Objest Copy()
+        {
+            ФайлиДокументів_Objest copy = new ФайлиДокументів_Objest();
+			copy.New();
+            copy.Файл = Файл;
+			
+			return copy;
+        }
+
+        public void Delete()
+        {
+			base.BaseDelete();
+        }
+                
+        public Довідники.Файли_Pointer Файл { get; set; }
         
     }
 	

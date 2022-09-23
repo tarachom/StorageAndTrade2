@@ -51,11 +51,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Trash\**" />
-    <Compile Remove="РегістриІнформації\NewFolder\**" />
     <EmbeddedResource Remove="Trash\**" />
-    <EmbeddedResource Remove="РегістриІнформації\NewFolder\**" />
     <None Remove="Trash\**" />
-    <None Remove="РегістриІнформації\NewFolder\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Configurator\Confa.xml" />
@@ -64,6 +61,12 @@
   <ItemGroup>
     <Compile Update="Controls\DirectoryAnyControl.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="РегістриІнформації\ФайлиДокументів\Form_ФайлиДокументівЕлемент.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="РегістриІнформації\ФайлиДокументів\Form_ФайлиДокументів.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Форми\FormTerminal.cs">
       <SubType>Form</SubType>

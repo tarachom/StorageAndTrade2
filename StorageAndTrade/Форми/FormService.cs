@@ -177,22 +177,18 @@ namespace StorageAndTrade
 					{
 						try
 						{
-							object rezult = doc.GetType().InvokeMember("SpendTheDocument", BindingFlags.InvokeMethod, null , doc,
+							bool rezult = (bool)doc.GetType().InvokeMember("SpendTheDocument", BindingFlags.InvokeMethod, null , doc,
 								new object[] { journalSelect.Current.SpendDate });
 
-                            if (rezult!= null && rezult.GetType().Name == "Boolean")
+							if (!rezult)
 							{
-								bool boolRezult = (bool)rezult;
-								if (!boolRezult)
-								{
-									ApendLine(ФункціїДляПовідомлень.ПрочитатиПовідомленняПроПомилку());
-                                    
-                                    //Очистка проводок документу
-                                    doc.GetType().InvokeMember("ClearSpendTheDocument", BindingFlags.InvokeMethod, null, doc, new object[] { });
+								ApendLine(ФункціїДляПовідомлень.ПрочитатиПовідомленняПроПомилку());
 
-                                    break;
-                                }
-                            }
+								//Очистка проводок документу
+								doc.GetType().InvokeMember("ClearSpendTheDocument", BindingFlags.InvokeMethod, null, doc, new object[] { });
+
+								break;
+							}
 						}
                         catch (Exception ex)
                         {
