@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 23.09.2022 13:13:33
+ * Дата конфігурації: 23.09.2022 16:20:02
  *
  */
 
@@ -12176,6 +12176,7 @@ namespace StorageAndTrade_1_0.Документи
         public const string Організація = "col_k2";
         public const string Каса = "col_k3";
         public const string СумаДокументу = "col_a3";
+        public const string СумаДокументуПоКурсу = "col_a5";
         public const string ГосподарськаОперація = "col_k5";
         public const string ОрганізаціяОтримувач = "col_k4";
         public const string Контрагент = "col_k7";
@@ -12193,7 +12194,7 @@ namespace StorageAndTrade_1_0.Документи
     public class РозхіднийКасовийОрдер_Objest : DocumentObject
     {
         public РозхіднийКасовийОрдер_Objest() : base(Config.Kernel, "tab_a48", "РозхіднийКасовийОрдер",
-             new string[] { "docname", "docnomer", "docdate", "col_k2", "col_k3", "col_a3", "col_k5", "col_k4", "col_k7", "col_a4", "col_k8", "col_k9", "col_l2", "col_k6", "col_a2", "col_a1", "col_l1" }) 
+             new string[] { "docname", "docnomer", "docdate", "col_k2", "col_k3", "col_a3", "col_a5", "col_k5", "col_k4", "col_k7", "col_a4", "col_k8", "col_k9", "col_l2", "col_k6", "col_a2", "col_a1", "col_l1" }) 
         {
             Назва = "";
             НомерДок = "";
@@ -12201,6 +12202,7 @@ namespace StorageAndTrade_1_0.Документи
             Організація = new Довідники.Організації_Pointer();
             Каса = new Довідники.Каси_Pointer();
             СумаДокументу = 0;
+            СумаДокументуПоКурсу = 0;
             ГосподарськаОперація = 0;
             ОрганізаціяОтримувач = new Довідники.Організації_Pointer();
             Контрагент = new Довідники.Контрагенти_Pointer();
@@ -12228,6 +12230,7 @@ namespace StorageAndTrade_1_0.Документи
                 Організація = new Довідники.Організації_Pointer(base.FieldValue["col_k2"]);
                 Каса = new Довідники.Каси_Pointer(base.FieldValue["col_k3"]);
                 СумаДокументу = (base.FieldValue["col_a3"] != DBNull.Value) ? (decimal)base.FieldValue["col_a3"] : 0;
+                СумаДокументуПоКурсу = (base.FieldValue["col_a5"] != DBNull.Value) ? (decimal)base.FieldValue["col_a5"] : 0;
                 ГосподарськаОперація = (base.FieldValue["col_k5"] != DBNull.Value) ? (Перелічення.ГосподарськіОперації)base.FieldValue["col_k5"] : 0;
                 ОрганізаціяОтримувач = new Довідники.Організації_Pointer(base.FieldValue["col_k4"]);
                 Контрагент = new Довідники.Контрагенти_Pointer(base.FieldValue["col_k7"]);
@@ -12256,6 +12259,7 @@ namespace StorageAndTrade_1_0.Документи
             base.FieldValue["col_k2"] = Організація.UnigueID.UGuid;
             base.FieldValue["col_k3"] = Каса.UnigueID.UGuid;
             base.FieldValue["col_a3"] = СумаДокументу;
+            base.FieldValue["col_a5"] = СумаДокументуПоКурсу;
             base.FieldValue["col_k5"] = (int)ГосподарськаОперація;
             base.FieldValue["col_k4"] = ОрганізаціяОтримувач.UnigueID.UGuid;
             base.FieldValue["col_k7"] = Контрагент.UnigueID.UGuid;
@@ -12295,6 +12299,7 @@ namespace StorageAndTrade_1_0.Документи
 			copy.Організація = Організація;
 			copy.Каса = Каса;
 			copy.СумаДокументу = СумаДокументу;
+			copy.СумаДокументуПоКурсу = СумаДокументуПоКурсу;
 			copy.ГосподарськаОперація = ГосподарськаОперація;
 			copy.ОрганізаціяОтримувач = ОрганізаціяОтримувач;
 			copy.Контрагент = Контрагент;
@@ -12328,6 +12333,7 @@ namespace StorageAndTrade_1_0.Документи
         public Довідники.Організації_Pointer Організація { get; set; }
         public Довідники.Каси_Pointer Каса { get; set; }
         public decimal СумаДокументу { get; set; }
+        public decimal СумаДокументуПоКурсу { get; set; }
         public Перелічення.ГосподарськіОперації ГосподарськаОперація { get; set; }
         public Довідники.Організації_Pointer ОрганізаціяОтримувач { get; set; }
         public Довідники.Контрагенти_Pointer Контрагент { get; set; }
