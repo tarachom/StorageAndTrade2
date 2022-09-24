@@ -19,13 +19,6 @@ limitations under the License.
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AccountingSoftware;
@@ -99,6 +92,9 @@ namespace StorageAndTrade
 
             //Фонові задачі
             EnableBackgroundTask.Checked = Константи.Системні.ВвімкнутиФоновіЗадачі_Const;
+
+            //Лінки на сайти завантаження даних
+            textBox_НБУКурсиВалют.Text = Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const;
         }
 
         void Save()
@@ -120,7 +116,11 @@ namespace StorageAndTrade
             if (comboBox_МетодиСписанняПартій.SelectedIndex >= 0)
                 Константи.ПартіїТоварів.МетодСписанняПартій_Const = ((NameValue<Перелічення.МетодиСписанняПартій>)comboBox_МетодиСписанняПартій.SelectedItem).Value;
 
+            //Фонові задачі
             Константи.Системні.ВвімкнутиФоновіЗадачі_Const = EnableBackgroundTask.Checked;
+
+            //Лінки на сайти завантаження даних
+            Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const = textBox_НБУКурсиВалют.Text;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -137,6 +137,11 @@ namespace StorageAndTrade
         {
             Save();
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText("https://bank.gov.ua/ua/open-data/api-dev");
         }
     }
 }

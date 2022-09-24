@@ -64,6 +64,8 @@ namespace StorageAndTrade
             buttonDownloadExCurr.Enabled = false;
             buttonCancel.Enabled = true;
 
+            richTextBoxInfo.Clear();
+
             CancellationTokenThread = new CancellationTokenSource();
             thread = new Thread(new ThreadStart(DownloadExCurr));
             thread.Start();
@@ -73,16 +75,23 @@ namespace StorageAndTrade
         {
             bool isOK = false;
 
+            string link = Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const;
+
+            if (checkBox_НаВказануДату.Checked)
+            {
+                DateTime ДатаКурсу = dateTimePicker1_ДатаКурсу.Value;
+                link += "?date=" + ДатаКурсу.Year.ToString() + ДатаКурсу.Month.ToString("D2") + ДатаКурсу.Day.ToString("D2"); 
+            }
+
             ApendLine("Завантаження ХМЛ файлу з курсами валют з офційного сайту: bank.gov.ua");
-            ApendLine(" --> https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+            ApendLine(" --> " + link);
 
             XPathDocument xPathDoc;
             XPathNavigator xPathDocNavigator = null;
 
             try
             {
-
-                xPathDoc = new XPathDocument("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+                xPathDoc = new XPathDocument(link);
                 xPathDocNavigator = xPathDoc.CreateNavigator();
 
                 isOK = true;
@@ -98,6 +107,8 @@ namespace StorageAndTrade
             {
                 Довідники.Валюти_Select валюти_Select = new Довідники.Валюти_Select();
 
+                DateTime ПоточнаДатаКурсу = DateTime.MinValue;
+
                 XPathNodeIterator КурсВалюти = xPathDocNavigator.Select("/exchange/currency");
                 while (КурсВалюти.MoveNext())
                 {
@@ -109,6 +120,12 @@ namespace StorageAndTrade
                     string Коротко = КурсВалюти.Current.SelectSingleNode("cc").Value;
                     decimal Курс = decimal.Parse(КурсВалюти.Current.SelectSingleNode("rate").Value.Replace(".", ","));
                     DateTime ДатаКурсу = DateTime.Parse(КурсВалюти.Current.SelectSingleNode("exchangedate").Value);
+
+                    if (ДатаКурсу != ПоточнаДатаКурсу)
+                    {
+                        ApendLine($"Курс на дату: {ДатаКурсу}");
+                        ПоточнаДатаКурсу = ДатаКурсу;
+                    }
 
                     Довідники.Валюти_Pointer валюти_Pointer = валюти_Select.FindByField(Довідники.Валюти_Const.Код_R030, Код_R030);
                     if (валюти_Pointer.IsEmpty())
@@ -192,6 +209,11 @@ LIMIT 1
                 if (!this.Disposing && this.IsHandleCreated)
                     richTextBoxInfo.AppendText("\n" + head);
             }
+        }
+
+        private void checkBox_НаВказануДату_CheckedChanged(object sender, EventArgs e)
+        {
+            label1.Enabled = dateTimePicker1_ДатаКурсу.Enabled = checkBox_НаВказануДату.Checked;
         }
     }
 }

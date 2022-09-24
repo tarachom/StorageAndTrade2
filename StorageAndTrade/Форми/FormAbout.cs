@@ -37,11 +37,6 @@ namespace StorageAndTrade
             this.Close();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://accounting.org.ua/storage_and_trade.html");
-        }
-
         private void FormAbout_Load(object sender, EventArgs e)
         {
             if (OpenConfigurationParam != null)
@@ -49,6 +44,11 @@ namespace StorageAndTrade
                     "Конфігурація: " + OpenConfigurationParam.ConfigurationName + "\r\n" +
                     "Сервер: " + OpenConfigurationParam.DataBaseServer + "\r\n" +
                     "База: " + OpenConfigurationParam.DataBaseBaseName + "\r\n";
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText("https://accounting.org.ua/storage_and_trade.html");
         }
     }
 }

@@ -53,6 +53,13 @@ namespace StorageAndTrade
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox_ТипПеріодуДляЖурналівДокументів = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label_LinkNBU = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.textBox_НБУКурсиВалют = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.EnableBackgroundTask = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,13 +69,13 @@ namespace StorageAndTrade
             this.buttonSaveAndClose = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -377,6 +384,8 @@ namespace StorageAndTrade
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
@@ -384,8 +393,82 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 446);
+            this.panel1.Size = new System.Drawing.Size(1029, 607);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label_LinkNBU);
+            this.groupBox5.Controls.Add(this.linkLabel1);
+            this.groupBox5.Controls.Add(this.textBox_НБУКурсиВалют);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Location = new System.Drawing.Point(516, 352);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox5.Size = new System.Drawing.Size(495, 112);
+            this.groupBox5.TabIndex = 98;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Завантаження даних із сайтів";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 15);
+            this.label14.TabIndex = 98;
+            this.label14.Text = "API для розробників:";
+            // 
+            // label_LinkNBU
+            // 
+            this.label_LinkNBU.AutoSize = true;
+            this.label_LinkNBU.Location = new System.Drawing.Point(13, 79);
+            this.label_LinkNBU.Name = "label_LinkNBU";
+            this.label_LinkNBU.Size = new System.Drawing.Size(235, 15);
+            this.label_LinkNBU.TabIndex = 97;
+            this.label_LinkNBU.Text = "https://bank.gov.ua/ua/open-data/api-dev";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(369, 79);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(119, 15);
+            this.linkLabel1.TabIndex = 96;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Скопіювати в буфер";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // textBox_НБУКурсиВалют
+            // 
+            this.textBox_НБУКурсиВалют.Location = new System.Drawing.Point(126, 26);
+            this.textBox_НБУКурсиВалют.Name = "textBox_НБУКурсиВалют";
+            this.textBox_НБУКурсиВалют.Size = new System.Drawing.Size(357, 23);
+            this.textBox_НБУКурсиВалют.TabIndex = 95;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 29);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 15);
+            this.label13.TabIndex = 94;
+            this.label13.Text = "Курси валют НБУ:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.EnableBackgroundTask);
+            this.groupBox4.Location = new System.Drawing.Point(516, 236);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox4.Size = new System.Drawing.Size(408, 110);
+            this.groupBox4.TabIndex = 97;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Фонові задачі";
             // 
             // EnableBackgroundTask
             // 
@@ -450,10 +533,10 @@ namespace StorageAndTrade
             this.panel2.Controls.Add(this.buttonSaveAndClose);
             this.panel2.Controls.Add(this.buttonClose);
             this.panel2.Controls.Add(this.buttonSave);
-            this.panel2.Location = new System.Drawing.Point(0, 450);
+            this.panel2.Location = new System.Drawing.Point(0, 611);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 39);
+            this.panel2.Size = new System.Drawing.Size(1029, 39);
             this.panel2.TabIndex = 2;
             // 
             // buttonSaveAndClose
@@ -489,27 +572,15 @@ namespace StorageAndTrade
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.EnableBackgroundTask);
-            this.groupBox4.Location = new System.Drawing.Point(516, 236);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox4.Size = new System.Drawing.Size(408, 110);
-            this.groupBox4.TabIndex = 97;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Фонові задачі";
-            // 
             // FormConstants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(944, 492);
+            this.ClientSize = new System.Drawing.Size(1032, 653);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormConstants";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -518,13 +589,15 @@ namespace StorageAndTrade
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -565,5 +638,11 @@ namespace StorageAndTrade
         private System.Windows.Forms.ComboBox comboBox_МетодиСписанняПартій;
         private System.Windows.Forms.CheckBox EnableBackgroundTask;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox_НБУКурсиВалют;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label_LinkNBU;
     }
 }

@@ -85,6 +85,8 @@ namespace StorageAndTrade
 
                 XPathNavigator rootNode = xPathDocNavigator.SelectSingleNode("/root/Довідники");
 
+
+
                 //
                 // Валюти
                 //
