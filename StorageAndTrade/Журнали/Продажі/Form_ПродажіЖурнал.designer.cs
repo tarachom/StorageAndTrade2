@@ -62,7 +62,7 @@ namespace StorageAndTrade
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 33);
+            this.panel1.Size = new System.Drawing.Size(925, 33);
             this.panel1.TabIndex = 1;
             // 
             // toolStrip1
@@ -80,7 +80,7 @@ namespace StorageAndTrade
             this.сomboBox_ТипПеріоду});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(877, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(925, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -215,7 +215,7 @@ namespace StorageAndTrade
             this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(877, 426);
+            this.panel2.Size = new System.Drawing.Size(925, 544);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewRecords
@@ -231,7 +231,7 @@ namespace StorageAndTrade
             this.dataGridViewRecords.Name = "dataGridViewRecords";
             this.dataGridViewRecords.ReadOnly = true;
             this.dataGridViewRecords.RowHeadersVisible = false;
-            this.dataGridViewRecords.Size = new System.Drawing.Size(877, 426);
+            this.dataGridViewRecords.Size = new System.Drawing.Size(925, 544);
             this.dataGridViewRecords.TabIndex = 0;
             this.dataGridViewRecords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecords_CellDoubleClick);
             this.dataGridViewRecords.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dataGridViewRecords_Scroll);
@@ -240,7 +240,7 @@ namespace StorageAndTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 459);
+            this.ClientSize = new System.Drawing.Size(925, 577);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

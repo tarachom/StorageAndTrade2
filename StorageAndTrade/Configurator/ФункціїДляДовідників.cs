@@ -116,6 +116,11 @@ namespace StorageAndTrade
             }
         }
 
+        /// <summary>
+        /// Створення нового запису довідника Файли
+        /// </summary>
+        /// <param name="PathToFile">Шлях до файлу</param>
+        /// <returns></returns>
         public static Довідники.Файли_Pointer ЗавантажитиФайл(string PathToFile)
         {
             FileInfo fileInfo = new FileInfo(PathToFile);

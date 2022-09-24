@@ -28,7 +28,6 @@ limitations under the License.
 
 using System;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.Drawing;
 using System.Web;
 using System.Windows.Forms;
@@ -37,6 +36,7 @@ namespace StorageAndTrade
 {
     class WebBrowserReport
     {
+        //old
         public static WebBrowser AddWebBrowserControl(Form form, Point webBrowserPoint)
         {
             WebBrowser webBrowser = new WebBrowser();

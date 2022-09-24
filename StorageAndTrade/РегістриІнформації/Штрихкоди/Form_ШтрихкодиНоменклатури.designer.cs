@@ -168,18 +168,18 @@ namespace StorageAndTrade
             this.directoryControl_Номенклатура.BeforeFindFunc = null;
             this.directoryControl_Номенклатура.Bind = null;
             this.directoryControl_Номенклатура.DirectoryPointerItem = null;
-            this.directoryControl_Номенклатура.Location = new System.Drawing.Point(113, 3);
+            this.directoryControl_Номенклатура.Location = new System.Drawing.Point(107, 4);
             this.directoryControl_Номенклатура.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Номенклатура.Name = "directoryControl_Номенклатура";
             this.directoryControl_Номенклатура.QueryFind = null;
             this.directoryControl_Номенклатура.SelectForm = null;
-            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(436, 27);
+            this.directoryControl_Номенклатура.Size = new System.Drawing.Size(442, 27);
             this.directoryControl_Номенклатура.TabIndex = 45;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 9);
+            this.label5.Location = new System.Drawing.Point(7, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);

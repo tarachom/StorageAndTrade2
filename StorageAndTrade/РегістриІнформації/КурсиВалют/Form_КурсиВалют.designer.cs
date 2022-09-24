@@ -157,7 +157,7 @@ namespace StorageAndTrade
             this.directoryControl_Валюта.BeforeFindFunc = null;
             this.directoryControl_Валюта.Bind = null;
             this.directoryControl_Валюта.DirectoryPointerItem = null;
-            this.directoryControl_Валюта.Location = new System.Drawing.Point(64, 3);
+            this.directoryControl_Валюта.Location = new System.Drawing.Point(64, 5);
             this.directoryControl_Валюта.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.directoryControl_Валюта.Name = "directoryControl_Валюта";
             this.directoryControl_Валюта.QueryFind = null;
@@ -168,7 +168,7 @@ namespace StorageAndTrade
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 9);
+            this.label5.Location = new System.Drawing.Point(7, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 15);

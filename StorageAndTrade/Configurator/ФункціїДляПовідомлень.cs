@@ -23,6 +23,7 @@ limitations under the License.
 
 /*
  
+Повідомлення про помилки
 
 */
 
