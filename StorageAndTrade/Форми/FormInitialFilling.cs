@@ -83,9 +83,9 @@ namespace StorageAndTrade
                 XPathDocument xPathDoc = new XPathDocument(InitialFillingXmlFile);
                 XPathNavigator xPathDocNavigator = xPathDoc.CreateNavigator();
 
-                XPathNavigator rootNode = xPathDocNavigator.SelectSingleNode("/root/Довідники");
+                XPathNavigator rootNode = xPathDocNavigator.SelectSingleNode("/root");
 
-
+                XPathNavigator rootДовідники = rootNode.SelectSingleNode("Довідники");
 
                 //
                 // Валюти
@@ -93,7 +93,7 @@ namespace StorageAndTrade
 
                 Валюти_Select валюти_Select = new Валюти_Select();
 
-                XPathNodeIterator ДовідникВалютиЗаписи = rootNode.Select("Валюти/Запис");
+                XPathNodeIterator ДовідникВалютиЗаписи = rootДовідники.Select("Валюти/Запис");
                 while (ДовідникВалютиЗаписи.MoveNext())
 				{
                     XPathNavigator currentNode = ДовідникВалютиЗаписи.Current;
@@ -125,7 +125,7 @@ namespace StorageAndTrade
 
                 Контрагенти_Select контрагенти_Select = new Контрагенти_Select();
 
-                XPathNodeIterator ДовідникКонтрагентиЗаписи = rootNode.Select("Контрагенти/Запис");
+                XPathNodeIterator ДовідникКонтрагентиЗаписи = rootДовідники.Select("Контрагенти/Запис");
                 while (ДовідникКонтрагентиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникКонтрагентиЗаписи.Current;
@@ -153,7 +153,7 @@ namespace StorageAndTrade
 
                 Контрагенти_Папки_Select контрагенти_Папки_Select = new Контрагенти_Папки_Select();
 
-                XPathNodeIterator ДовідникКонтрагенти_ПапкиЗаписи = rootNode.Select("Контрагенти_Папки/Запис");
+                XPathNodeIterator ДовідникКонтрагенти_ПапкиЗаписи = rootДовідники.Select("Контрагенти_Папки/Запис");
                 while (ДовідникКонтрагенти_ПапкиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникКонтрагенти_ПапкиЗаписи.Current;
@@ -181,7 +181,7 @@ namespace StorageAndTrade
 
                 Номенклатура_Папки_Select номенклатура_Папки_Select = new Номенклатура_Папки_Select();
 
-                XPathNodeIterator ДовідникНоменклатура_ПапкиЗаписи = rootNode.Select("Номенклатура_Папки/Запис");
+                XPathNodeIterator ДовідникНоменклатура_ПапкиЗаписи = rootДовідники.Select("Номенклатура_Папки/Запис");
                 while (ДовідникНоменклатура_ПапкиЗаписи.MoveNext())
                 {
                     XPathNavigator currentNode = ДовідникНоменклатура_ПапкиЗаписи.Current;
