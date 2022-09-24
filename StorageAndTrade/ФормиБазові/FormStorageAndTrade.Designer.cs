@@ -98,6 +98,7 @@ namespace StorageAndTrade
             this.сервіснаОбробкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.початковеЗаповненняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.терміналToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.робочийСтілToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_ВідкритіФорми = new System.Windows.Forms.ToolStrip();
             this.toolStrip_Довідники = new System.Windows.Forms.ToolStrip();
@@ -139,7 +140,7 @@ namespace StorageAndTrade
             this.menuStrip_ГоловнеМеню.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_ГоловнеМеню.Name = "menuStrip_ГоловнеМеню";
             this.menuStrip_ГоловнеМеню.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip_ГоловнеМеню.Size = new System.Drawing.Size(1123, 24);
+            this.menuStrip_ГоловнеМеню.Size = new System.Drawing.Size(1057, 24);
             this.menuStrip_ГоловнеМеню.TabIndex = 0;
             this.menuStrip_ГоловнеМеню.Text = "menuStrip1";
             // 
@@ -655,7 +656,8 @@ namespace StorageAndTrade
             this.константиToolStripMenuItem,
             this.сервіснаОбробкаToolStripMenuItem,
             this.початковеЗаповненняToolStripMenuItem,
-            this.терміналToolStripMenuItem});
+            this.терміналToolStripMenuItem,
+            this.робочийСтілToolStripMenuItem});
             this.сервісToolStripMenuItem.Name = "сервісToolStripMenuItem";
             this.сервісToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.сервісToolStripMenuItem.Text = "Сервіс";
@@ -689,6 +691,13 @@ namespace StorageAndTrade
             this.терміналToolStripMenuItem.Text = "Термінал";
             this.терміналToolStripMenuItem.Click += new System.EventHandler(this.терміналToolStripMenuItem_Click);
             // 
+            // робочийСтілToolStripMenuItem
+            // 
+            this.робочийСтілToolStripMenuItem.Name = "робочийСтілToolStripMenuItem";
+            this.робочийСтілToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.робочийСтілToolStripMenuItem.Text = "Робочий стіл";
+            this.робочийСтілToolStripMenuItem.Click += new System.EventHandler(this.робочийСтілToolStripMenuItem_Click);
+            // 
             // проПрограмуToolStripMenuItem
             // 
             this.проПрограмуToolStripMenuItem.Name = "проПрограмуToolStripMenuItem";
@@ -699,9 +708,9 @@ namespace StorageAndTrade
             // toolStrip_ВідкритіФорми
             // 
             this.toolStrip_ВідкритіФорми.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip_ВідкритіФорми.Location = new System.Drawing.Point(0, 626);
+            this.toolStrip_ВідкритіФорми.Location = new System.Drawing.Point(0, 646);
             this.toolStrip_ВідкритіФорми.Name = "toolStrip_ВідкритіФорми";
-            this.toolStrip_ВідкритіФорми.Size = new System.Drawing.Size(1123, 25);
+            this.toolStrip_ВідкритіФорми.Size = new System.Drawing.Size(1057, 25);
             this.toolStrip_ВідкритіФорми.TabIndex = 6;
             this.toolStrip_ВідкритіФорми.Text = "toolStrip1";
             // 
@@ -717,7 +726,7 @@ namespace StorageAndTrade
             this.toolStripButton_ПакуванняОдиниціВиміру});
             this.toolStrip_Довідники.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_Довідники.Name = "toolStrip_Довідники";
-            this.toolStrip_Довідники.Size = new System.Drawing.Size(1123, 25);
+            this.toolStrip_Довідники.Size = new System.Drawing.Size(1057, 25);
             this.toolStrip_Довідники.TabIndex = 8;
             this.toolStrip_Довідники.Text = "toolStrip2";
             // 
@@ -804,7 +813,7 @@ namespace StorageAndTrade
             this.toolStripButton_ВстановленняЦінНоменклатури});
             this.toolStrip_Документи.Location = new System.Drawing.Point(0, 49);
             this.toolStrip_Документи.Name = "toolStrip_Документи";
-            this.toolStrip_Документи.Size = new System.Drawing.Size(1123, 25);
+            this.toolStrip_Документи.Size = new System.Drawing.Size(1057, 25);
             this.toolStrip_Документи.TabIndex = 9;
             this.toolStrip_Документи.Text = "toolStrip1";
             // 
@@ -929,7 +938,7 @@ namespace StorageAndTrade
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1123, 651);
+            this.ClientSize = new System.Drawing.Size(1057, 671);
             this.Controls.Add(this.toolStrip_Документи);
             this.Controls.Add(this.toolStrip_Довідники);
             this.Controls.Add(this.toolStrip_ВідкритіФорми);
@@ -1049,6 +1058,7 @@ namespace StorageAndTrade
         private System.Windows.Forms.ToolStripMenuItem файлиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem початковеЗаповненняToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem терміналToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem робочийСтілToolStripMenuItem;
     }
 }
 

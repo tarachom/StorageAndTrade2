@@ -70,6 +70,13 @@ namespace StorageAndTrade
                 FormInitialFilling formInitialFilling = new FormInitialFilling();
                 formInitialFilling.ShowDialog();
             }
+
+            //if (Константи.ПриЗапускуПрограми.ВідкриватиРобочийСтіл_Const)
+            //{
+                FormDesktop formDesktop = new FormDesktop();
+                formDesktop.MdiParent = this;
+                formDesktop.Show();
+            //}
         }
 
         private void FormStorageAndTrade_FormClosing(object sender, FormClosingEventArgs e)
@@ -482,6 +489,25 @@ namespace StorageAndTrade
             ФункціїДляПовідомлень.ВідкритиТермінал();
         }
 
+        private void робочийСтілToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDesktop formDesktop = (FormDesktop)Application.OpenForms["FormDesktop"];
+
+            if (formDesktop == null)
+            {
+                Form MdiParent = Application.OpenForms["FormStorageAndTrade"];
+
+                formDesktop = new FormDesktop();
+
+                if (MdiParent != null)
+                    formDesktop.MdiParent = MdiParent;
+
+                formDesktop.Show();
+            }
+
+            formDesktop.Focus();
+        }
+
         #endregion
 
         #region Журнали
@@ -686,8 +712,8 @@ namespace StorageAndTrade
 
 
 
-        #endregion
 
-        
+        #endregion
+ 
     }
 }

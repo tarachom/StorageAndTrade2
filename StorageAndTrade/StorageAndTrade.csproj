@@ -68,10 +68,10 @@
     <Compile Update="РегістриІнформації\ФайлиДокументів\Form_ФайлиДокументів.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Форми\FormTerminal.cs">
+    <Compile Update="ФормиБазові\FormTerminal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Форми\FormInitialFilling.cs">
+    <Compile Update="ФормиБазові\FormInitialFilling.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\NumericControl.cs">

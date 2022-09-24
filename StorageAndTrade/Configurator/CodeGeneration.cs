@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 23.09.2022 16:20:02
+ * Дата конфігурації: 24.09.2022 14:20:52
  *
  */
 
@@ -3557,11 +3557,12 @@ namespace StorageAndTrade_1_0.Константи
             
             Dictionary<string, object> fieldValue = new Dictionary<string, object>();
             bool IsSelect = Config.Kernel.DataBase.SelectAllConstants("tab_constants",
-                 new string[] { "col_h7" }, fieldValue);
+                 new string[] { "col_h7", "col_h6" }, fieldValue);
             
             if (IsSelect)
             {
                 m_ПрограмаЗаповненаПочатковимиДаними_Const = (fieldValue["col_h7"] != DBNull.Value) ? bool.Parse(fieldValue["col_h7"].ToString()) : false;
+                m_ВідкриватиРобочийСтіл_Const = (fieldValue["col_h6"] != DBNull.Value) ? bool.Parse(fieldValue["col_h6"].ToString()) : false;
                 
             }
 			
@@ -3579,6 +3580,20 @@ namespace StorageAndTrade_1_0.Константи
             {
                 m_ПрограмаЗаповненаПочатковимиДаними_Const = value;
                 Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h7", m_ПрограмаЗаповненаПочатковимиДаними_Const);
+            }
+        }
+        
+        static bool m_ВідкриватиРобочийСтіл_Const = false;
+        public static bool ВідкриватиРобочийСтіл_Const
+        {
+            get 
+            {
+                return m_ВідкриватиРобочийСтіл_Const;
+            }
+            set
+            {
+                m_ВідкриватиРобочийСтіл_Const = value;
+                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h6", m_ВідкриватиРобочийСтіл_Const);
             }
         }
              

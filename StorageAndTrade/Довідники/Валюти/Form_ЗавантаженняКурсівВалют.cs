@@ -77,6 +77,12 @@ namespace StorageAndTrade
 
             string link = Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const;
 
+            if (String.IsNullOrEmpty(link))
+            {
+                //За замовчуванням
+                link = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange";
+            }
+
             if (checkBox_НаВказануДату.Checked)
             {
                 DateTime ДатаКурсу = dateTimePicker1_ДатаКурсу.Value;
