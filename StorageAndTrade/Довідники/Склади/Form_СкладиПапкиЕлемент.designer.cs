@@ -140,7 +140,7 @@ namespace StorageAndTrade
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form_СкладиПапкиЕлемент";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Номенклатура Папка";
+            this.Text = "Склад папка";
             this.Load += new System.EventHandler(this.Form_СкладиПапкиЕлемент_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
