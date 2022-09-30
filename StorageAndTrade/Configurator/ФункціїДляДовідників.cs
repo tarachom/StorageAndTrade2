@@ -137,5 +137,7 @@ namespace StorageAndTrade
 
             return файли_Objest.GetDirectoryPointer();
         }
+
+
     }
 }

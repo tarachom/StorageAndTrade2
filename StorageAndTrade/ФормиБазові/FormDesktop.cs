@@ -21,15 +21,15 @@ limitations under the License.
 Сайт:     accounting.org.ua
 */
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using AccountingSoftware;
+using Константи = StorageAndTrade_1_0.Константи;
+using Довідники = StorageAndTrade_1_0.Довідники;
+using System;
 
 namespace StorageAndTrade
 {
@@ -38,6 +38,65 @@ namespace StorageAndTrade
         public FormDesktop()
         {
             InitializeComponent();
+
+            RecordsBindingList = new BindingList<Записи>();
+            dataGridViewRecords.DataSource = RecordsBindingList;
+
+            dataGridViewRecords.Columns["Image"].Width = 30;
+            dataGridViewRecords.Columns["Image"].HeaderText = "";
+
+            dataGridViewRecords.Columns["Дата"].Width = 120;
+            dataGridViewRecords.Columns["Стан"].Width = 100;
+        }
+
+        private BindingList<Записи> RecordsBindingList { get; set; }
+
+        private void FormDesktop_Load(object sender, System.EventArgs e)
+        {
+            LoadRecords();
+            LoadEndDownload();
+        }
+
+        public void LoadRecords()
+        {
+            RecordsBindingList.Clear();
+
+            List<Dictionary<string, object>> ListRow = ФункціїДляФоновихЗавдань.ОтриматиЗаписиЗІсторіїЗавантаженняКурсуВалют();
+
+            foreach (Dictionary<string, object> Row in ListRow)
+            {
+                RecordsBindingList.Add(new Записи
+                {
+                    Дата = Row["Дата"].ToString(),
+                    Стан = Row["Стан"].ToString()
+                });
+            }
+        }
+
+        public void LoadEndDownload()
+        {
+            DateTime? ДатуОстанньогоЗавантаження = ФункціїДляФоновихЗавдань.ОтриматиДатуОстанньогоЗавантаженняКурсуВалют();
+
+            if (ДатуОстанньогоЗавантаження != null)
+                labelEndDownload.Text = ДатуОстанньогоЗавантаження.ToString();
+        }
+
+        private class Записи
+        {
+            public Записи() { Image = Properties.Resources.doc_text_image; }
+            public Bitmap Image { get; set; }
+            public string Дата { get; set; }
+            public string Стан { get; set; }
+        }
+
+        private void DownLoadXml_Click(object sender, EventArgs e)
+        {
+            Form_ЗавантаженняКурсівВалют form_ЗавантаженняКурсівВалют = new Form_ЗавантаженняКурсівВалют();
+            //form_ЗавантаженняКурсівВалют.MdiParent = this.MdiParent;
+            form_ЗавантаженняКурсівВалют.ShowDialog();
+
+            LoadRecords();
+            LoadEndDownload();
         }
     }
 }

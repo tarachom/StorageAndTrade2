@@ -22,7 +22,6 @@ using System;
 using System.Windows.Forms;
 
 using AccountingSoftware;
-using StorageAndTrade_1_0.РегістриВідомостей;
 using Довідники = StorageAndTrade_1_0.Довідники;
 using РегістриВідомостей = StorageAndTrade_1_0.РегістриВідомостей;
 

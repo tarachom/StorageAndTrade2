@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>30.09.2022 07:21:11</DateTimeSave>
+  <DateTimeSave>30.09.2022 08:05:23</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -2037,7 +2037,47 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           <Desc>Сайт НБУ наприклад
 https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange</Desc>
           <Type>string</Type>
-          <TabularParts />
+          <TabularParts>
+            <TablePart>
+              <Name>Історія</Name>
+              <Table>tab_b22</Table>
+              <Desc>Історія завантаження курсів валют</Desc>
+              <Fields>
+                <Field>
+                  <Name>Дата</Name>
+                  <NameInTable>col_a1</NameInTable>
+                  <Type>datetime</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+                <Field>
+                  <Name>Стан</Name>
+                  <NameInTable>col_a2</NameInTable>
+                  <Type>string</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+                <Field>
+                  <Name>Посилання</Name>
+                  <NameInTable>col_a3</NameInTable>
+                  <Type>string</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+                <Field>
+                  <Name>Повідомлення</Name>
+                  <NameInTable>col_a4</NameInTable>
+                  <Type>string</Type>
+                  <Desc>
+                  </Desc>
+                  <IsIndex>0</IsIndex>
+                </Field>
+              </Fields>
+            </TablePart>
+          </TabularParts>
         </Constant>
       </Constants>
     </ConstantsBlock>

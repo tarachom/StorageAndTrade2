@@ -102,10 +102,12 @@ namespace StorageAndTrade
 
                 isOK = true;
                 ApendLine("OK\n");
+                ФункціїДляФоновихЗавдань.ДодатиЗаписВІсторіюЗавантаженняКурсуВалют("OK", link);
             }
             catch (Exception ex)
             {
                 ApendLine("Помилка завантаження або аналізу ХМЛ файлу: " + ex.Message);
+                ФункціїДляФоновихЗавдань.ДодатиЗаписВІсторіюЗавантаженняКурсуВалют("Помилка", link, ex.Message);
                 Thread.Sleep(5000);
             }
 

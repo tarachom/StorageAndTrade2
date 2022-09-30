@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 30.09.2022 07:21:11
+ * Дата конфігурації: 30.09.2022 08:05:23
  *
  */
 
@@ -3545,7 +3545,89 @@ namespace StorageAndTrade_1_0.Константи
                 Config.Kernel.DataBase.SaveConstants("tab_constants", "col_h5", m_ЗавантаженняКурсівВалют_Const);
             }
         }
-             
+        
+        public class ЗавантаженняКурсівВалют_Історія_TablePart : ConstantsTablePart
+        {
+            public ЗавантаженняКурсівВалют_Історія_TablePart() : base(Config.Kernel, "tab_b22",
+                 new string[] { "col_a1", "col_a2", "col_a3", "col_a4" }) 
+            {
+                Records = new List<Record>();
+            }
+            
+            public const string TABLE = "tab_b22";
+            
+            public const string Дата = "col_a1";
+            public const string Стан = "col_a2";
+            public const string Посилання = "col_a3";
+            public const string Повідомлення = "col_a4";
+            public List<Record> Records { get; set; }
+        
+            public void Read()
+            {
+                Records.Clear();
+                base.BaseRead();
+
+                foreach (Dictionary<string, object> fieldValue in base.FieldValueList) 
+                {
+                    Record record = new Record();
+                    record.UID = (Guid)fieldValue["uid"];
+                    
+                    record.Дата = (fieldValue["col_a1"] != DBNull.Value) ? DateTime.Parse(fieldValue["col_a1"].ToString()) : DateTime.MinValue;
+                    record.Стан = fieldValue["col_a2"].ToString();
+                    record.Посилання = fieldValue["col_a3"].ToString();
+                    record.Повідомлення = fieldValue["col_a4"].ToString();
+                    
+                    Records.Add(record);
+                }
+            
+                base.BaseClear();
+            }
+        
+            public void Save(bool clear_all_before_save /*= true*/) 
+            {
+                base.BaseBeginTransaction();
+                
+                if (clear_all_before_save)
+                    base.BaseDelete();
+
+                foreach (Record record in Records)
+                {
+                    Dictionary<string, object> fieldValue = new Dictionary<string, object>();
+
+                    fieldValue.Add("col_a1", record.Дата);
+                    fieldValue.Add("col_a2", record.Стан);
+                    fieldValue.Add("col_a3", record.Посилання);
+                    fieldValue.Add("col_a4", record.Повідомлення);
+                    
+                    base.BaseSave(record.UID, fieldValue);
+                }
+                
+                base.BaseCommitTransaction();
+            }
+        
+            public void Delete()
+            {
+                base.BaseDelete();
+            }
+            
+            public class Record : ConstantsTablePartRecord
+            {
+                public Record()
+                {
+                    Дата = DateTime.MinValue;
+                    Стан = "";
+                    Посилання = "";
+                    Повідомлення = "";
+                    
+                }
+                public DateTime Дата { get; set; }
+                public string Стан { get; set; }
+                public string Посилання { get; set; }
+                public string Повідомлення { get; set; }
+                
+            }            
+        }
+               
     }
     #endregion
     
