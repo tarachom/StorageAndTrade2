@@ -26,7 +26,7 @@ limitations under the License.
  *
  * Конфігурації "Зберігання та Торгівля"
  * Автор Тарахомин Юрій Іванович, accounting.org.ua
- * Дата конфігурації: 24.09.2022 14:20:52
+ * Дата конфігурації: 30.09.2022 07:21:11
  *
  */
 
@@ -246,7 +246,7 @@ namespace StorageAndTrade_1_0.Константи
             {
                 m_ЖурналРеєстрації_Const = fieldValue["col_a8"].ToString();
                 m_ФоновіЗадачі_Const = fieldValue["col_a9"].ToString();
-                m_ВвімкнутиФоновіЗадачі_Const = (fieldValue["col_g6"] != DBNull.Value) ? bool.Parse(fieldValue["col_g6"].ToString()) : false;
+                m_ЗупинитиФоновіЗадачі_Const = (fieldValue["col_g6"] != DBNull.Value) ? bool.Parse(fieldValue["col_g6"].ToString()) : false;
                 m_ЗаблокованіОбєкти_Const = fieldValue["col_g7"].ToString();
                 m_ПовідомленняТаПомилки_Const = fieldValue["col_h8"].ToString();
                 
@@ -283,17 +283,17 @@ namespace StorageAndTrade_1_0.Константи
             }
         }
         
-        static bool m_ВвімкнутиФоновіЗадачі_Const = false;
-        public static bool ВвімкнутиФоновіЗадачі_Const
+        static bool m_ЗупинитиФоновіЗадачі_Const = false;
+        public static bool ЗупинитиФоновіЗадачі_Const
         {
             get 
             {
-                return m_ВвімкнутиФоновіЗадачі_Const;
+                return m_ЗупинитиФоновіЗадачі_Const;
             }
             set
             {
-                m_ВвімкнутиФоновіЗадачі_Const = value;
-                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_g6", m_ВвімкнутиФоновіЗадачі_Const);
+                m_ЗупинитиФоновіЗадачі_Const = value;
+                Config.Kernel.DataBase.SaveConstants("tab_constants", "col_g6", m_ЗупинитиФоновіЗадачі_Const);
             }
         }
         

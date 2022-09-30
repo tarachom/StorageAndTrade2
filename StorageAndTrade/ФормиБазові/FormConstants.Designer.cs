@@ -475,9 +475,9 @@ namespace StorageAndTrade
             this.EnableBackgroundTask.AutoSize = true;
             this.EnableBackgroundTask.Location = new System.Drawing.Point(10, 28);
             this.EnableBackgroundTask.Name = "EnableBackgroundTask";
-            this.EnableBackgroundTask.Size = new System.Drawing.Size(283, 19);
+            this.EnableBackgroundTask.Size = new System.Drawing.Size(272, 19);
             this.EnableBackgroundTask.TabIndex = 3;
-            this.EnableBackgroundTask.Text = "Виконувати обчислення віртуальних залишків";
+            this.EnableBackgroundTask.Text = "Зупинити обчислення віртуальних залишків";
             this.EnableBackgroundTask.UseVisualStyleBackColor = true;
             // 
             // groupBox3

@@ -28,7 +28,6 @@ using System.Threading;
 
 using Константи = StorageAndTrade_1_0.Константи;
 using StorageAndTrade.Service;
-using System.Diagnostics;
 
 namespace StorageAndTrade
 {
@@ -120,7 +119,7 @@ namespace StorageAndTrade
             {
                 if (counter > 5)
                 {
-                    if (Константи.Системні.ВвімкнутиФоновіЗадачі_Const == true)
+                    if (!Константи.Системні.ЗупинитиФоновіЗадачі_Const)
                     {
                         CalculationBalances.ОбчисленняВіртуальнихЗалишківПоДнях();
                         CalculationBalances.ОбчисленняВіртуальнихЗалишківПоМісяцях();

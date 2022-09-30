@@ -50,7 +50,7 @@ namespace StorageAndTrade.Service
         /// <param name="userName">Користувач</param>
         public static void AddTask(string documentUid, string documentType, string typeMovement, DateTime periodCalculation, string userName)
         {
-            if (Системні.ВвімкнутиФоновіЗадачі_Const == false)
+            if (Системні.ЗупинитиФоновіЗадачі_Const)
                 return;
 
             Системні.ФоновіЗадачі_ОбчисленняВіртуальнихЗалишків_TablePart обчисленняВіртуальнихЗалишків_TablePart =

@@ -91,7 +91,7 @@ namespace StorageAndTrade
             ComboBoxNameValue<Перелічення.МетодиСписанняПартій>.SelectItem(comboBox_МетодиСписанняПартій, Константи.ПартіїТоварів.МетодСписанняПартій_Const);
 
             //Фонові задачі
-            EnableBackgroundTask.Checked = Константи.Системні.ВвімкнутиФоновіЗадачі_Const;
+            EnableBackgroundTask.Checked = Константи.Системні.ЗупинитиФоновіЗадачі_Const;
 
             //Лінки на сайти завантаження даних
             textBox_НБУКурсиВалют.Text = Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const;
@@ -117,7 +117,7 @@ namespace StorageAndTrade
                 Константи.ПартіїТоварів.МетодСписанняПартій_Const = ((NameValue<Перелічення.МетодиСписанняПартій>)comboBox_МетодиСписанняПартій.SelectedItem).Value;
 
             //Фонові задачі
-            Константи.Системні.ВвімкнутиФоновіЗадачі_Const = EnableBackgroundTask.Checked;
+            Константи.Системні.ЗупинитиФоновіЗадачі_Const = EnableBackgroundTask.Checked;
 
             //Лінки на сайти завантаження даних
             Константи.ЗавантаженняДанихІзСайтів.ЗавантаженняКурсівВалют_Const = textBox_НБУКурсиВалют.Text;

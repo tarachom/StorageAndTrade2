@@ -5,7 +5,7 @@
   <Author>Тарахомин Юрій Іванович, accounting.org.ua</Author>
   <Desc>Конфігурація "Зберігання та Торгівля"
 https://accounting.org.ua/storage_and_trade.html</Desc>
-  <DateTimeSave>24.09.2022 14:20:52</DateTimeSave>
+  <DateTimeSave>30.09.2022 07:21:11</DateTimeSave>
   <ConstantsBlocks>
     <ConstantsBlock>
       <Name>ЗначенняЗаЗамовчуванням</Name>
@@ -319,9 +319,9 @@ https://accounting.org.ua/storage_and_trade.html</Desc>
           </TabularParts>
         </Constant>
         <Constant>
-          <Name>ВвімкнутиФоновіЗадачі</Name>
+          <Name>ЗупинитиФоновіЗадачі</Name>
           <NameInTable>col_g6</NameInTable>
-          <Desc>Ввімкнути роботу фонових задач.
+          <Desc>Зупинити роботу фонових задач.
 Використовується для зупинки чи запуску фонових задач.</Desc>
           <Type>boolean</Type>
           <TabularParts />

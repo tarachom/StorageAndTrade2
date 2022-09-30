@@ -98,11 +98,11 @@ namespace StorageAndTrade
 
 		void CalculationBalancesAll()
 		{
-			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = false;
+			Константи.Системні.ЗупинитиФоновіЗадачі_Const = true;
 
 			CalculationBalancesAll_Func();
 
-			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
+			Константи.Системні.ЗупинитиФоновіЗадачі_Const = false;
 
 			if (!this.Disposing && this.IsHandleCreated)
 			{
@@ -157,7 +157,7 @@ namespace StorageAndTrade
 
 		void SpendAllDocument()
 		{
-			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = false;
+			Константи.Системні.ЗупинитиФоновіЗадачі_Const = true;
 
 			Journal.Journal_Select journalSelect = new Journal.Journal_Select();
 			journalSelect.Select(DateTime.Parse("01.01.2000 00:00:00"), DateTime.Now);
@@ -206,7 +206,7 @@ namespace StorageAndTrade
 
 			CalculationBalancesAll_Func();
 
-			Константи.Системні.ВвімкнутиФоновіЗадачі_Const = true;
+			Константи.Системні.ЗупинитиФоновіЗадачі_Const = false;
 
 			if (!this.Disposing)
 			{
