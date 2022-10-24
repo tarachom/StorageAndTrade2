@@ -1,9 +1,7 @@
 # Зберігання та Торгівля
 
- <img src="https://accounting.org.ua/images/storage_and_trade.ico" /> <b>Облік фінансів, складу та торгівлі.</b>
- 
- <b>.NET 6</b>
- 
+ <img src="https://accounting.org.ua/images/storage_and_trade.ico" /> <b>Облік фінансів, складу та торгівлі.</b> | .net 6, Windows
+  
   Скачати програму      https://accounting.org.ua/storage_and_trade.html <br/>
   
   Для роботи потрібна база даних PostgreSQL https://www.enterprisedb.com/downloads/postgres-postgresql-downloads <br/>
